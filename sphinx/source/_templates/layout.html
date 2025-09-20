@@ -1,0 +1,10 @@
+{% extends "!layout.html" %}
+
+{% block sidebartitle %}{{ super() }}
+<div style="text-align:center; margin-top:10px; font-size:14px;">
+    {% for lang_id, lang in languages.items() %}
+    <a href="{{ lang.url }}" style="color:#fff; text-decoration:none;">{{ lang.name }}</a>
+    {% if not loop.last %} | {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

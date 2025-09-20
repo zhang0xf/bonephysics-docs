@@ -1,0 +1,7 @@
+# python virtual environment
+.venv
+
+# Sphinx build output
+build/
+_sources/
+.doctrees
