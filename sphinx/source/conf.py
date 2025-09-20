@@ -21,7 +21,7 @@ extensions = [
 templates_path = ['_templates']
 exclude_patterns = []
 
-language = 'en'
+# language = 'en'
 locale_dirs = ['locale/']
 gettext_compact = False
 
