@@ -105,11 +105,10 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language�
    * 中文版：`http://127.0.0.1:8000/zh/`
 7. 确认无误后，使用[rsync](#rsync)命令同步到`docs`：
    ```shell
-   cd sphinx
    rsync -av --delete build/en/ ../docs/en/
    rsync -av --delete build/zh/ ../docs/zh/
    ```
-8. 推送的远端仓库
+8. 推送的远端仓库，`Github Pages`会自动`Depoly`
 ---
 
 ### rsync
