@@ -1,12 +1,27 @@
-<!DOCTYPE html>
-<html>
+<script>
+    var currentUrl = window.location.href;
+    var urlObject = new URL(currentUrl);
+    var pathname = urlObject.pathname;
 
-<head>
-    <meta http-equiv="refresh" content="0; url=en/index.html" />
-</head>
+    if (!pathname.endsWith('/')) {
+        pathname = pathname.substring(0, pathname.lastIndexOf('/') + 1);
+    }
 
-<body>
-    <p>Redirecting to <a href="en/index.html">English docs</a>...</p>
-</body>
+    if (!pathname.endsWith('/')) {
+        pathname += '/';
+    }
 
-</html>
+    // 检测用户语言
+    var userLang = navigator.language || navigator.userLanguage;
+    // console.log("Detected browser language:", userLang);
+    var targetLang = "en";
+
+    if (userLang && userLang.toLowerCase().startsWith("zh")) {
+        targetLang = "zh";
+    }
+
+    var newPath = pathname + targetLang + "/";
+    var newUrl = urlObject.origin + newPath;
+
+    window.location.href = newUrl;
+</script>

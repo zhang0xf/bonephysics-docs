@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bone Physics Docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-19 18:32+0800\n"
+"POT-Creation-Date: 2025-09-21 11:53+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh_CN\n"
-"Language-Team: zh_CN <LL@li.org>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -26,13 +26,13 @@ msgstr "目录"
 
 #: ../../source/index.rst:7
 msgid "Bone Physics Docs documentation"
-msgstr "测试测试测试"
+msgstr "Bone Physics 文档"
 
 #: ../../source/index.rst:9
 msgid "Welcome to the Bone Physics plugin documentation!"
-msgstr "欢迎使用"
+msgstr "欢迎使用 Bone Physics 文档"
 
 #: ../../source/index.rst:12
-msgid "Here is the table of contents:"
-msgstr "这里是目录——测试测试"
+msgid "Here is the table of contents :"
+msgstr "以下是目录表"
 

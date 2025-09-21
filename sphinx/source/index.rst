@@ -9,7 +9,7 @@ Bone Physics Docs documentation
 Welcome to the Bone Physics plugin documentation!
 
 Here is the table of contents :
-------------------------------
+-------------------------------
 
 .. toctree::
    :maxdepth: 2

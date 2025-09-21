@@ -33,7 +33,7 @@ html_theme = 'sphinx_rtd_theme'
 html_show_sourcelink = False
 html_context = {
     'languages': {
-        'en': {'url': '/en/index.html', 'name': 'English'},
-        'zh_CN': {'url': '/zh/index.html', 'name': '简体中文'},
+        'en': {'name': 'English'},
+        'zh': {'name': '简体中文'},
     }
 }

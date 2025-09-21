@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bone Physics Docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-19 18:32+0800\n"
+"POT-Creation-Date: 2025-09-21 11:53+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh_CN\n"
-"Language-Team: zh_CN <LL@li.org>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -22,15 +22,15 @@ msgstr ""
 
 #: ../../source/introduction.rst:2
 msgid "Introduction"
-msgstr "简介傻子啊"
+msgstr "简介"
 
 #: ../../source/introduction.rst:4
 msgid "Welcome to the introduction of the Bone Physics plugin documentation."
-msgstr ""
+msgstr "欢迎来到 Bone Physics 文档简介"
 
 #: ../../source/introduction.rst:6
 msgid ""
 "Here you can write an overview of the plugin's features, installation "
 "instructions, and usage tips."
-msgstr ""
+msgstr "在这里您可以写下插件功能的概述、安装说明和使用提示。"
 

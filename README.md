@@ -58,7 +58,7 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language�
   html_context = {
       'languages': {
         'en': {'url': '/en/index.html', 'name': 'English'},
-        'zh_CN': {'url': '/zh/index.html', 'name': '简体中文'},
+        'zh': {'url': '/zh/index.html', 'name': '简体中文'},
       }
   }
   ```
@@ -78,26 +78,26 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language�
 
 ### 多语言支持
 1. [更改配置文件](#更改配置文件)，添加多语言支持
-2. 生成翻译模版：`make gettext`
-3. 创建中文翻译文件：`sphinx-intl update -p build/gettext -l zh_CN`
-4. 编辑翻译文件（例如：`source/locale/zh_CN/LC_MESSAGES/index.po`）：
+2. 生成翻译模版：`make gettext`（只有当源文档新增了可翻译文本，才需要生成新的模板）
+3. 创建中文翻译文件：`sphinx-intl update -p build/gettext -l zh`
+4. 编辑翻译文件（例如：`source/locale/zh/LC_MESSAGES/index.po`）：
    ```
    msgid "Welcome to the Bone Physics plugin documentation!"
    msgstr "欢迎使用 Bone Physics 插件文档！"
    ```
-5. 自动构建并检查翻译：`sphinx-autobuild -b html -D language='zh_CN' source build/zh --port 8000`
+5. 自动构建并检查翻译：`sphinx-autobuild -b html -D language='zh' source build/zh --port 8000`
 ---
 
 ### 发布文档
 1. 在`sphinx`目录下操作：`cd sphinx`
 2. 清理`build`：`make clean`
 3. 构建英文版：`sphinx-build -b html -D language='en' source build/en`
-4. 构建中文版：`sphinx-build -b html -D language='zh_CN' source build/zh`
+4. 构建中文版：`sphinx-build -b html -D language='zh' source build/zh`
 5. 启动本地服务：`python3 -m http.server --directory build 8000`
 6. 访问文档并检查：
    * 英文版：`http://127.0.0.1:8000/en/`
    * 中文版：`http://127.0.0.1:8000/zh/`
-6. 确认无误后，使用[rsync](#rsync)命令同步到`docs`：
+7. 确认无误后，使用[rsync](#rsync)命令同步到`docs`：
    ```shell
    cd sphinx
    rsync -av --delete build/en/ ../docs/en/
