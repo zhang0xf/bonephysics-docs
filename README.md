@@ -57,9 +57,9 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language�
   ```python
   html_context = {
       'languages': {
-        'en': {'url': '/en/index.html', 'name': 'English'},
-        'zh': {'url': '/zh/index.html', 'name': '简体中文'},
-      }
+        'en': {'name': 'English'},
+        'zh': {'name': '简体中文'},
+    }
   }
   ```
 * 自定义`CSS`（将`Sidebar`中的所有语言切换链接渲染为白色）：
