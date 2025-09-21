@@ -29,6 +29,9 @@ gettext_compact = False
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_static_path = ['_static']
+html_css_files = [
+    'custom.css',
+]
 html_theme = 'sphinx_rtd_theme'
 html_show_sourcelink = False
 html_context = {

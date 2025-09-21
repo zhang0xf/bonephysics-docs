@@ -50,7 +50,7 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language�
 * 更改主题：`html_theme = 'sphinx_rtd_theme'`
 * 禁用`View Page Source`：`html_show_sourcelink = False`
 * [多语言支持](#多语言支持)：
-  * 默认语言：`language = 'en'`
+  * ~~默认语言：`language = 'en'`~~
   * “翻译文件”的相对路径：`locale_dirs = ['locale/']`
   * 保持`.po`文件按文档结构组织：`gettext_compact = False`
 * 多语言切换（注入模版变量，另见`_templates/layout.html`）：
@@ -61,6 +61,12 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language�
         'zh': {'url': '/zh/index.html', 'name': '简体中文'},
       }
   }
+  ```
+* 自定义`CSS`（将`Sidebar`中的所有语言切换链接渲染为白色）：
+  ```python
+  html_css_files = [
+      'custom.css',
+  ]
   ```
 ---
 
@@ -103,6 +109,7 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language�
    rsync -av --delete build/en/ ../docs/en/
    rsync -av --delete build/zh/ ../docs/zh/
    ```
+8. 推送的远端仓库
 ---
 
 ### rsync

@@ -1,0 +1,8 @@
+#lang-switcher a.switch-lang {
+    color: white;
+}
+
+#lang-switcher a.switch-lang:hover {
+    text-decoration: underline;
+    color: #f0f0f0;
+}
