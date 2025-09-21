@@ -83,6 +83,7 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language�
 ---
 
 ### 多语言支持
+必须在英文版文档完成之后，再来做多语种翻译（`.rst`文件可能在制作文档过程中被弃用并删除）
 1. [更改配置文件](#更改配置文件)，添加多语言支持
 2. 生成翻译模版：`make gettext`（只有当源文档新增了可翻译文本，才需要生成新的模板）
 3. 创建中文翻译文件：`sphinx-intl update -p build/gettext -l zh`
@@ -103,10 +104,11 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language�
 6. 访问文档并检查：
    * 英文版：`http://127.0.0.1:8000/en/`
    * 中文版：`http://127.0.0.1:8000/zh/`
-7. 确认无误后，使用[rsync](#rsync)命令同步到`docs`：
+7. 确认无误后，使用[rsync](#rsync)命令同步到`docs`（`.gitignore`会忽略不需要提交的文件，所以全量同步并无问题）：
    ```shell
    rsync -av --delete build/en/ ../docs/en/
    rsync -av --delete build/zh/ ../docs/zh/
+   rsync -av --delete images/ ../docs/images/
    ```
 8. 推送的远端仓库，`Github Pages`会自动`Depoly`
 ---

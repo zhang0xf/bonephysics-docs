@@ -1,0 +1,44 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, zhang0xf
+# This file is distributed under the same license as the Bone Physics Docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Bone Physics Docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-22 01:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../source/installation.rst:2
+msgid "Installation"
+msgstr "安装"
+
+#: ../../source/installation.rst:7
+msgid "Installing the extension"
+msgstr "安装插件"
+
+#: ../../source/installation.rst
+msgid "Do not unzip the downloaded files."
+msgstr "请勿解压下载的文件！"
+
+#: ../../source/installation.rst:11
+msgid "In Blender, click **Edit > Preferences...**"
+msgstr "在 Blender 中，点击 **编辑 > 首选项...**"
+
+#: ../../source/installation.rst:12
+msgid ""
+"Click the down arrow button at the top right corner > **Install from "
+"Disk...**"
+msgstr "点击右上角的下拉箭头按钮 > **从磁盘安装...**"
+

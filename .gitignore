@@ -4,4 +4,8 @@
 # Sphinx build output
 build/
 _sources/
+_images/
 .doctrees
+
+# imported images
+sphinx/images/

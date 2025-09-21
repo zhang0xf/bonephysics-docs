@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bone Physics Docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-21 11:53+0800\n"
+"POT-Creation-Date: 2025-09-22 01:08+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh\n"
@@ -20,19 +20,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: ../../source/index.rst:14
-msgid "Contents:"
-msgstr "目录"
-
 #: ../../source/index.rst:7
-msgid "Bone Physics Docs documentation"
-msgstr "Bone Physics 文档"
-
-#: ../../source/index.rst:9
-msgid "Welcome to the Bone Physics plugin documentation!"
+msgid "Welcome to the Bone Physics documentation!"
 msgstr "欢迎使用 Bone Physics 文档"
 
+#: ../../source/index.rst:9
+msgid ""
+"Bone Physics is a blender add-on focused on skeletal physics simulation "
+"for character animation. It is suitable for dynamic parts like hair, "
+"ribbons, tails, as well as soft-body parts"
+msgstr "Bone Physics 是一个 Blender 插件，专注于角色动画的骨骼物理模拟，适用于头发、飘带、尾巴等动态部位，以及软体部分。"
+
 #: ../../source/index.rst:12
-msgid "Here is the table of contents :"
-msgstr "以下是目录表"
+msgid ""
+"Check |youtube_link| or |bilibili_link| for video tutorials and complete "
+"workflow demonstrations."
+msgstr "请查看 |youtube_link| 或 |bilibili_link| 获取视频教程以及完整的工作流程演示。"
 
