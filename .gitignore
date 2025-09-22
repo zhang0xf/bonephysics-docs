@@ -4,9 +4,4 @@
 # Sphinx build output
 build/
 _sources/
-_images/
 .doctrees
-
-# Redundant images
-docs/en/images
-docs/zh/images

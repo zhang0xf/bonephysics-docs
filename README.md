@@ -83,13 +83,13 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language�
 ---
 
 ### 引用资源
-在`.rst`文件中引用图片：
+资源路径：`source/images`（`sphinx-build`会拷贝`source/images`到`build/en/_images`，导致整个仓库会包含`images/`多份拷贝，所以视频应该使用“外链”而非提交到远端）
+
+在`.rst`文件中引用图片（`Sphinx`会将`images/blender_install_addon.png`转换为相对路径`_images/blender_install_addon.png`，该资源路径在本地调试和`Github Pages`中都是正确的）：
 ```
 .. image:: images/blender_install_addon.png
 	:align: center
 ```
-* `Github Pages`的请求路径是：`docs/images/blender_install_addon.png`
-* 本地的请求路径是：`build/en/images/blender_install_addon.png`（调试时拷贝`docs/images/`到`build/en/images/`）
 ---
 
 ### 多语言支持
@@ -119,7 +119,7 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language�
    rsync -av --delete build/en/ ../docs/en/
    rsync -av --delete build/zh/ ../docs/zh/
    ```
-8. 推送的远端仓库，`Github Pages`会自动`Depoly`
+8. 推送到远端仓库（`Github Pages`会自动`Depoly`）
 ---
 
 ### rsync
@@ -129,4 +129,6 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language�
 * `--delete`：删除目标目录（`docs/en/`）中在源目录（`build/en/`）不存在的文件，以保持目标目录和源目录完全一致，防止`GitHub Pages`上遗留旧文件
 
 ### 开通`Github Pages`
+略
+
 ---

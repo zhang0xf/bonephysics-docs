@@ -15,3 +15,4 @@ Installing the extension
 	:align: center
 
 |
+
