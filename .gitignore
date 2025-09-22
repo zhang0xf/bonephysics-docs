@@ -1,4 +1,4 @@
-# python virtual environment
+# Python virtual environment
 .venv
 
 # Sphinx build output
@@ -7,5 +7,6 @@ _sources/
 _images/
 .doctrees
 
-# imported images
-sphinx/images/
+# Redundant images
+docs/en/images
+docs/zh/images

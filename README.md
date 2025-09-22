@@ -82,6 +82,16 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language�
 * `build/en`：输出目录（注意：`sphinx-autobuild`会在这个目录启动`HTTP`服务，浏览器访问时对应的根目录就是这里）
 ---
 
+### 引用资源
+在`.rst`文件中引用图片：
+```
+.. image:: images/blender_install_addon.png
+	:align: center
+```
+* `Github Pages`的请求路径是：`docs/images/blender_install_addon.png`
+* 本地的请求路径是：`build/en/images/blender_install_addon.png`（调试时拷贝`docs/images/`到`build/en/images/`）
+---
+
 ### 多语言支持
 必须在英文版文档完成之后，再来做多语种翻译（`.rst`文件可能在制作文档过程中被弃用并删除）
 1. [更改配置文件](#更改配置文件)，添加多语言支持
@@ -108,7 +118,6 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language�
    ```shell
    rsync -av --delete build/en/ ../docs/en/
    rsync -av --delete build/zh/ ../docs/zh/
-   rsync -av --delete images/ ../docs/images/
    ```
 8. 推送的远端仓库，`Github Pages`会自动`Depoly`
 ---
