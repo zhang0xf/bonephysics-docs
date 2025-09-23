@@ -23,7 +23,7 @@ For modern Blender extensions that don't show a **Uninstall** button:
 
 1. Open `Blender` and go to **Edit > Preferences > Add-ons**.
 2. Locate **Bone Physics** in the list and uncheck the box to disable it.
-3. manually delete the extension folder from your `Blender` extension directory:
+3. Manually delete the extension folder from your `Blender` extension directory:
 4. Restart `Blender`
 
 .. note::
@@ -36,5 +36,5 @@ For modern Blender extensions that don't show a **Uninstall** button:
    You should not rely entirely on these paths; check the `File` installation directory instead.
 
    .. image:: images/blender_remove_addon.png
-	    :align: center
+	   :align: center
   

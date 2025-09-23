@@ -23,4 +23,4 @@ Check |youtube_link| or |bilibili_link| for video tutorials and complete workflo
    :maxdepth: 2
 
    installation
-   
+   setup

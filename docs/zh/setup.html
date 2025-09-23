@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Model Setup &mdash; Bone Physics Docs 1.0.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=666d1bab" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f8b00fcb"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="安装" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Bone Physics Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<div id="lang-switcher" style="text-align:center; margin-top:10px; font-size:14px;"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var currentLang = "";
+        // var langs = ['en', 'zh'];
+        var langs = ['en',  'zh' ];
+
+    for (var i = 0; i < langs.length; i++) {
+        if (window.location.pathname.indexOf("/" + langs[i] + "/") !== -1) {
+            currentLang = langs[i];
+            break;
+        }
+    }
+
+    var container = document.getElementById("lang-switcher");
+    if (container) {
+        // 渲染语言切换链接
+        var links = [];
+        
+        links.push('<a href="javascript:void(0)" class="switch-lang" data-lang="en">English</a>');
+        
+        links.push('<a href="javascript:void(0)" class="switch-lang" data-lang="zh">简体中文</a>');
+        
+        container.innerHTML = links.join(" | ");
+    }
+
+    // 绑定点击事件：切换语言
+    document.querySelectorAll(".switch-lang").forEach(function (link) {
+        link.addEventListener("click", function () {
+            var targetLang = this.getAttribute("data-lang");
+            if (!currentLang) {
+                alert("Cannot detect current language");
+                return;
+            }
+            var newPath = window.location.pathname.replace(
+                new RegExp("/" + currentLang + "/"),
+                "/" + targetLang + "/"
+            );
+            window.location.pathname = newPath;
+        });
+    });
+    });
+</script>
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">安装</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Model Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#check-model">Check Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#root-operations">Root Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-root">Create Root</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#select-root">Select Root</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#clear-model">Clear Model</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Bone Physics Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Model Setup</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="model-setup">
+<h1>Model Setup<a class="headerlink" href="#model-setup" title="Link to this heading"></a></h1>
+<section id="check-model">
+<h2>Check Model<a class="headerlink" href="#check-model" title="Link to this heading"></a></h2>
+<p>Before you begin, make sure you have a properly prepared armature model.
+Double-check that the weights (vertex groups) are assigned correctly, especially for the bones that will participate in the physics simulation.
+Incorrect or overlapping weights are one of the most common causes of unexpected simulation issues.</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<div class="line-block">
+<div class="line">While the following setup steps are not strictly required, starting with these standards will help you avoid many common problems later:</div>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Place the model at the world origin (0, 0, 0).</dt><dd><p>This makes it easier to align with other assets and ensures consistency when exporting.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Face the -Y axis.</dt><dd><p>In Blender, by convention characters usually face the negative Y direction.
+This aligns better with many add-ons, rigging tools, and export pipelines (e.g. for game engines).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Apply all transforms (Ctrl + A &gt; Apply All Transforms).</dt><dd><p>Make sure location, rotation, and scale are all applied before rigging or running simulations.
+Non-applied transforms can cause inconsistent bone behavior, incorrect physics, or scaling issues when importing into other software.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<img alt="_images/blender_check_model.gif" class="align-center" src="_images/blender_check_model.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="root-operations">
+<h2>Root Operations<a class="headerlink" href="#root-operations" title="Link to this heading"></a></h2>
+<p>The purpose of <strong>Root Operations</strong> is to configure an <strong>Empty</strong> object as the <cite>Root Empty</cite> for the current armature model.
+Through this root object, all auxiliary elements used in physics simulation — such as rigid bodies, joints, or temporary helper objects — can be organized under a single parent.</p>
+<p>This approach makes it much easier to manage multi-character scenes in a clean and structured way. For example:</p>
+<ul class="simple">
+<li><p><cite>Linking</cite> and <cite>Library Overrides</cite> become straightforward, since you only need to link a single collection.</p></li>
+<li><p>You can also attach custom-purpose objects to the root, such as special effect emitters, camera focus targets, or gameplay markers — a workflow that is very common in game development.</p></li>
+</ul>
+<p>Although this add-on <strong>requires</strong> that every armature model must be placed under a <cite>Root Empty</cite>, we believe this is a reasonable and practical design choice.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>If you cannot accept this design, you will not be able to continue using the add-on.</p>
+</div>
+<p>There are two possible scenarios:</p>
+<ul class="simple">
+<li><p>Your armature does <strong>not yet have an empty parent</strong> → use <a class="reference internal" href="#create-root"><span class="std std-ref">Create Root</span></a> to generate one.</p></li>
+<li><p>Your armature <strong>already has a direct empty parent</strong> → use <a class="reference internal" href="#select-root"><span class="std std-ref">Select Root</span></a> to assign it as the root.</p></li>
+</ul>
+<section id="create-root">
+<span id="id1"></span><h3>Create Root<a class="headerlink" href="#create-root" title="Link to this heading"></a></h3>
+<p>This operation creates a new <strong>Empty</strong> object as the parent of the selected armature model, serving as its root.</p>
+<img alt="_images/addon_create_root.gif" class="align-center" src="_images/addon_create_root.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><p>You can set the Empty's <strong>name</strong>, <strong>display type</strong>, and <strong>scale</strong>.</p></li>
+<li><p>The root will be created at the <strong>armature model's current location</strong> and will automatically become its parent.
+(Therefore, we recommend placing the armature at the <strong>world origin</strong>)</p></li>
+<li><p>Once the root is created, the armature's <strong>transform</strong> (Location, Rotation, Scale) will be <strong>locked</strong>.</p></li>
+<li><p>Finally, the armature will be set to <strong>Show in Front</strong> , which helps keep it visible over other objects.</p></li>
+</ul>
+</section>
+<section id="select-root">
+<span id="id2"></span><h3>Select Root<a class="headerlink" href="#select-root" title="Link to this heading"></a></h3>
+<p>This operation allows you to select an existing <strong>direct parent</strong> of the selected armature as its root.</p>
+<img alt="_images/addon_select_root.gif" class="align-center" src="_images/addon_select_root.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><p>Currently, only <strong>direct parents that are Empty objects</strong> are supported.</p></li>
+<li><p>Although the Empty does <strong>not have to coincide with the armature's origin</strong>, it is recommended to align them for cleaner transformations.</p></li>
+<li><p>Once the root is selected, the armature's <strong>transform</strong> (Location, Rotation, Scale) will be <strong>locked</strong>.</p></li>
+<li><p>Finally, the armature will be set to <strong>Show in Front</strong>, which helps keep it visible over other objects.</p></li>
+</ul>
+</section>
+</section>
+<section id="clear-model">
+<h2>Clear Model<a class="headerlink" href="#clear-model" title="Link to this heading"></a></h2>
+<p>This operation removes all <strong>rigid bodies</strong> and <strong>constraints</strong> under the <cite>rigidbodies</cite>, <cite>joints</cite>, and <cite>temporary</cite> groups.
+It will also <strong>unlock the armature's transform</strong> (Location, Rotation, Scale).
+After performing a <em>Clear</em> operation, you may also choose to delete the <cite>Root Empty</cite> object if it is no longer needed.</p>
+<div class="admonition caution">
+<p class="admonition-title">小心</p>
+<div class="line-block">
+<div class="line">Clearing everything will remove all physics-related data. Once deleted, the model can no longer participate in physics simulation unless the setup is rebuilt.</div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="installation.html" class="btn btn-neutral float-left" title="安装" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, zhang0xf。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
