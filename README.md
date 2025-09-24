@@ -48,6 +48,13 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language�
 配置文件路径：`sphinx/source/conf.py`<br>
 * 添加扩展（生成`.nojekyll`文件）：`extensions = ["sphinx.ext.githubpages",]`
 * 更改主题：`html_theme = 'sphinx_rtd_theme'`
+* 更改`sphinx_rtd_theme`主题的左侧导航显示：
+  ```python
+  html_theme_options = {
+      "navigation_depth": 4, # 展开深度
+      "collapse_navigation": False, # 左侧导航不折叠兄弟目录
+  }
+  ```
 * 禁用`View Page Source`：`html_show_sourcelink = False`
 * [多语言支持](#多语言支持)：
   * ~~默认语言：`language = 'en'`~~
@@ -75,7 +82,7 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language�
 
 每次检测到源文件变动，会调用`sphinx-build`去增量构建，适用于日常开发（频繁修改、热重载）
 
-命令：`sphinx-autobuild -b html -D language='en' source build/en --port 8000`
+自动构建命令：`sphinx-autobuild -b html -D language='en' source build/en --port 8000`
 * `-b html`：`--builder`的缩写，指定`Sphinx`使用的输出格式是`html`，即生成`HTML`静态网页
 * `-D language='en'`：`--define`的缩写，用于覆盖`conf.py`中的配置项
 * `source`：源文件目录

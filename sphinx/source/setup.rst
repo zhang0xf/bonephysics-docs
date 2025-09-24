@@ -73,7 +73,7 @@ This operation allows you to select an existing **direct parent** of the selecte
 
 .. image:: images/addon_select_root.gif
 	:align: center
-    
+
 |
 
 * Currently, only **direct parents that are Empty objects** are supported. 

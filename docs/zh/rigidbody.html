@@ -1,0 +1,469 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rigid Body &mdash; Bone Physics Docs 1.0.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=666d1bab" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f8b00fcb"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="Model Setup" href="setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Bone Physics Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<div id="lang-switcher" style="text-align:center; margin-top:10px; font-size:14px;"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var currentLang = "";
+        // var langs = ['en', 'zh'];
+        var langs = ['en',  'zh' ];
+
+    for (var i = 0; i < langs.length; i++) {
+        if (window.location.pathname.indexOf("/" + langs[i] + "/") !== -1) {
+            currentLang = langs[i];
+            break;
+        }
+    }
+
+    var container = document.getElementById("lang-switcher");
+    if (container) {
+        // 渲染语言切换链接
+        var links = [];
+        
+        links.push('<a href="javascript:void(0)" class="switch-lang" data-lang="en">English</a>');
+        
+        links.push('<a href="javascript:void(0)" class="switch-lang" data-lang="zh">简体中文</a>');
+        
+        container.innerHTML = links.join(" | ");
+    }
+
+    // 绑定点击事件：切换语言
+    document.querySelectorAll(".switch-lang").forEach(function (link) {
+        link.addEventListener("click", function () {
+            var targetLang = this.getAttribute("data-lang");
+            if (!currentLang) {
+                alert("Cannot detect current language");
+                return;
+            }
+            var newPath = window.location.pathname.replace(
+                new RegExp("/" + currentLang + "/"),
+                "/" + targetLang + "/"
+            );
+            window.location.pathname = newPath;
+        });
+    });
+    });
+</script>
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">安装</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installing-the-extension">安装插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#remove-the-extension">Remove the extension</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Model Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#check-model">Check Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#root-operations">Root Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#create-root">Create Root</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#select-root">Select Root</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#clear-model">Clear Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Rigid Body</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mass">Mass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#friction">Friction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bounce">Bounce</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linear-damping">Linear Damping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#angular-damping">Angular Damping</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#add-rigid-body">Add Rigid Body</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quick-add">Quick Add</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save-presets">Save Presets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rigid-body-properties">Rigid Body Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rigid-body-properties-panel">Rigid Body Properties Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rigid-body-list">Rigid Body List</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reordering-list-items">Reordering List Items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-icon-indicators">Error Icon Indicators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#missing-physics">Missing Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#missing-bone">Missing Bone</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#select-rigid-bodies">Select Rigid Bodies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#remove-rigid-body">Remove Rigid Body</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Bone Physics Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Rigid Body</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rigid-body">
+<h1>Rigid Body<a class="headerlink" href="#rigid-body" title="Link to this heading"></a></h1>
+<section id="parameters">
+<span id="id1"></span><h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<p>This add-on leverages Blender's built-in Rigid Body system for physics simulation,
+so all parameters function exactly as they do in Blender's native Rigid Body settings.</p>
+<p>If you are already familiar with these parameters, you may skip this section.</p>
+<p>Otherwise, the following chapters provide a practical overview of the key parameters along with real-world usage tips.</p>
+<section id="mass">
+<span id="id2"></span><h3>Mass<a class="headerlink" href="#mass" title="Link to this heading"></a></h3>
+<p>The <strong>Mass</strong> parameter defines the inertia of an object, i.e. its resistance to acceleration.</p>
+<ul class="simple">
+<li><p><strong>Acceleration response</strong>: With the same applied force, heavier objects accelerate more slowly.</p></li>
+<li><p><strong>Collision behavior</strong>: A high-mass object will push lighter ones aside while being barely affected itself (momentum conservation).</p></li>
+<li><p><strong>Gravity</strong>: Mass does not change the free-fall speed (gravity is constant), but it does affect impact forces.</p></li>
+<li><p><strong>Rotational inertia</strong>: Heavier objects are also harder to rotate due to larger inertia tensors.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>The default value of <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is neutral — you can treat it as a baseline and adjust other objects relative to it.</p>
+</div>
+</section>
+<section id="friction">
+<span id="id3"></span><h3>Friction<a class="headerlink" href="#friction" title="Link to this heading"></a></h3>
+<p><strong>Friction</strong> controls how much resistance occurs when a Rigid Body slides across another surface.</p>
+<ul class="simple">
+<li><p>Higher values means more resistance, objects slow down faster.</p></li>
+<li><p>Lower values means smoother surfaces, objects slide more easily.</p></li>
+</ul>
+<p>Blender uses its built-in Bullet physics engine to simulate Rigid Body dynamics.
+The engine computes the combined friction between two objects using Bullet's default formula:</p>
+<div class="math notranslate nohighlight">
+\[friction_{total} = \sqrt{friction_A \times friction_B}\]</div>
+<p>In practice, this means that if either object has a very low friction value, the resulting combined friction will also be low.
+Both objects must have sufficiently high friction values for the interaction to provide strong resistance.</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code>: ice-like surface, endless sliding.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.2</span></code>: slippery floor, slow stop.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.5</span></code>: typical wood or desktop friction.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.8</span></code>: rubber-like, objects stop almost immediately.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;1.0</span></code>: extreme values, objects barely move without a strong push.</p></li>
+</ul>
+</div>
+</section>
+<section id="bounce">
+<span id="id4"></span><h3>Bounce<a class="headerlink" href="#bounce" title="Link to this heading"></a></h3>
+<p>The <strong>Bounce</strong> parameter defines how much energy is preserved in a collision, also known as the <em>Coefficient of Restitution (e)</em>.
+It only affects motion along the collision's normal direction, not along the surface.</p>
+<div class="math notranslate nohighlight">
+\[e = \frac{v_{after}}{v_{before}}\]</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code>: perfectly inelastic — the object sticks to the surface (like clay).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code>: perfectly elastic — the object bounces back with the same speed (idealized).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span> <span class="pre">~</span> <span class="pre">1.0</span></code>: partially elastic, some energy is lost.</p></li>
+</ul>
+</div>
+</section>
+<section id="linear-damping">
+<span id="id5"></span><h3>Linear Damping<a class="headerlink" href="#linear-damping" title="Link to this heading"></a></h3>
+<p><strong>Linear Damping</strong> simulates drag forces (like air resistance) that slow down an object's motion when no external force is applied.
+It gradually reduces the object's linear velocity.</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code>: no damping — the object slides forever, like on ice.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.04</span></code> (default): slight drag, objects slowly come to rest.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.3</span></code>: noticeable drag, objects stop within a few seconds.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code>: immediate stop, objects lose velocity almost instantly.</p></li>
+</ul>
+</div>
+</section>
+<section id="angular-damping">
+<span id="id6"></span><h3>Angular Damping<a class="headerlink" href="#angular-damping" title="Link to this heading"></a></h3>
+<p><strong>Angular Damping</strong> controls how quickly an object's rotation slows down.
+It works the same way as <a class="reference internal" href="#linear-damping"><span class="std std-ref">Linear Damping</span></a>, but affects angular velocity instead of linear velocity.</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code>: top-like spinning, never slows down.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.1</span></code> (default): slight rotational drag, spin fades over time.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.3</span></code>: strong drag, object stops rotating in a few seconds.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code>: rotation stops almost immediately.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="add-rigid-body">
+<h2>Add Rigid Body<a class="headerlink" href="#add-rigid-body" title="Link to this heading"></a></h2>
+<section id="quick-add">
+<h3>Quick Add<a class="headerlink" href="#quick-add" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Select the <strong>Armature</strong> and switch to <em>Pose Mode</em>.</p></li>
+<li><p>Choose the bone(s) that should receive a Rigid Body.</p></li>
+<li><p>Click the <strong>➕ button</strong></p></li>
+<li><p>Configure the properties and press <strong>OK</strong> to finish.</p></li>
+</ol>
+<img alt="_images/addon_add_rigid_body.gif" class="align-center" src="_images/addon_add_rigid_body.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<ul class="simple">
+<li><p>When no bone is selected in <em>Pose Mode</em>, the add-on creates an auxiliary Rigid Body for the model.</p></li>
+<li><p>You can adjust the <a class="reference internal" href="#rigid-body-properties"><span class="std std-ref">Rigid Body Properties</span></a> at any time in the <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">Rigid Body Properties Panel</span></a>.</p></li>
+<li><p>For Rigify armatures, it is recommended to add Rigid Bodies to the <strong>DEF bones</strong>.
+With other rigs or custom armatures, ensure that the bones involved in the physics simulation have corresponding control bones,
+allowing them to override the physics simulation and prevent mesh penetration.</p></li>
+</ul>
+</div>
+</section>
+<section id="save-presets">
+<h3>Save Presets<a class="headerlink" href="#save-presets" title="Link to this heading"></a></h3>
+<p>You can save presets for reuse. This workflow is very useful in practice, as it can save a significant amount of time!</p>
+<img alt="_images/addon_save_preset.gif" class="align-center" src="_images/addon_save_preset.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="rigid-body-properties">
+<span id="id7"></span><h2>Rigid Body Properties<a class="headerlink" href="#rigid-body-properties" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>name</strong>: English name of the Rigid Body.</p></li>
+<li><p><strong>collision_group_number</strong>: Collision group assigned to this object.</p></li>
+<li><p><strong>collision_group_mask</strong>: Groups that this object should <em>not</em> collide with.</p></li>
+<li><p><strong>rigid_type</strong>:</p>
+<ul>
+<li><p><em>Bone</em>: The Rigid Body follows the orientation of the attached bone.</p></li>
+<li><p><em>Physics</em>: The bone's transform is fully driven by the Rigid Body.</p></li>
+<li><p><em>Physics + Bone</em>: The bone's position follows its parent, but its rotation is copied from the Rigid Body.</p></li>
+</ul>
+</li>
+<li><p><strong>rigid_shape</strong>: Collision shape type.</p></li>
+<li><p><strong>axis_outward</strong>: Local bone axis that points outward.</p></li>
+<li><p><strong>size</strong>: Dimensions of the collision shape, scaled relative to the target bone length.</p></li>
+<li><p><strong>mass</strong>: See <a class="reference internal" href="#mass"><span class="std std-ref">Mass</span></a>.</p></li>
+<li><p><strong>friction</strong>: See <a class="reference internal" href="#friction"><span class="std std-ref">Friction</span></a>.</p></li>
+<li><p><strong>bounce</strong>: See <a class="reference internal" href="#bounce"><span class="std std-ref">Bounce</span></a>.</p></li>
+<li><p><strong>linear damping</strong>: See <a class="reference internal" href="#linear-damping"><span class="std std-ref">Linear Damping</span></a>.</p></li>
+<li><p><strong>angular damping</strong>: See <a class="reference internal" href="#angular-damping"><span class="std std-ref">Angular Damping</span></a>.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>When modifying Rigid Body properties, always use the add-on's <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">Rigid Body Properties Panel</span></a>.
+Do not edit them through Blender's built-in interface.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<ul>
+<li><dl class="simple">
+<dt><strong>Name</strong></dt><dd><p><code class="docutils literal notranslate"><span class="pre">$name</span></code> is a placeholder that will use the English name of the target bone as the Rigid Body's name.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Physics vs Physics + Bone</strong></dt><dd><p><em>Physics</em>: The bone's location and rotation are completely determined by the Rigid Body.
+The Rigid Body may move the bone away from the Armature.</p>
+<p><em>Physics + Bone</em>: The bone's position is still driven by its parent, but its rotation is copied from the Rigid Body.
+This prevents the bone from detaching while still inheriting the physical simulation results.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>axis_outward</strong></dt><dd><p>This property is optional and mainly serves as an optimization.
+It is especially important for <strong>Box-Shaped Rigid Bodies</strong>, such as those used for simulating skirts.</p>
+<p>While the simulation can still run without setting it, ignoring this property may lead to unexpected behavior.</p>
+<p>Setting it correctly ensures the Rigid Body have the proper initial orientation (commonly Y-axis pointing outward).
+This orientation also affects the initial rotation of joints when adding constraints between Rigid Body pairs.</p>
+<p>With correct initial orientation, the skirt Rigid Body and Constraints form a consistent set, producing predictable and smooth simulation results.</p>
+<p>See <a class="reference internal" href="#angular-damping"><span class="std std-ref">TODO</span></a></p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>size</strong></dt><dd><p>In the preset panel, all shapes have three components (<code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z</span></code>).
+However, the number of components required varies by shape:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Sphere: only radius (use the <code class="docutils literal notranslate"><span class="pre">x</span></code> component).</p></li>
+<li><p>Box: width, height, depth (use <code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z</span></code>).</p></li>
+<li><p>Capsule: radius (hemisphere) and height (use <code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y</span></code>).</p></li>
+</ul>
+</div></blockquote>
+<p>It is recommended to keep the default values in the preset panel and
+make any necessary fine-tuning in the <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">Rigid Body Properties Panel</span></a> for more precise control.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</section>
+<section id="rigid-body-properties-panel">
+<span id="id8"></span><h2>Rigid Body Properties Panel<a class="headerlink" href="#rigid-body-properties-panel" title="Link to this heading"></a></h2>
+<p>The <strong>Rigid Body Properties Panel</strong> is where you can view and edit rigid body attributes.
+It can be found under the <strong>Physics</strong> tab in Blender.</p>
+<img alt="_images/addon_rigid_body_properties_panel.gif" class="align-center" src="_images/addon_rigid_body_properties_panel.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>For consistency and to avoid unintended errors,
+all rigid body attributes <strong>must</strong> be modified via the add-on's Rigid Body Properties Panel.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Some properties can still be edited through Blender's default UI, and these actions cannot be blocked.
+For example:</p>
+<ul class="simple">
+<li><p>Physical parameters such as <a class="reference internal" href="#mass"><span class="std std-ref">Mass</span></a> and <a class="reference internal" href="#friction"><span class="std std-ref">Friction</span></a> in the <em>Physics</em> tab.</p></li>
+<li><p>Scaling a rigid body in the 3D Viewport with the <strong>S</strong> key.</p></li>
+</ul>
+<p>However, editing through Blender's defaults will bypass the add-on's callbacks.
+These callbacks may perform important tasks such as updating data, reassigning materials, or adjusting constraints.</p>
+<p><strong>Example - Scaling in the 3D Viewport:</strong></p>
+<p>Using <strong>S</strong> only changes the visible mesh; the internal size data remains unchanged.
+This can cause the <em>visual mesh</em> and the <em>collision shape</em> to diverge, leading to clipping or misalignment.
+Since the Bullet engine requires ideal mathematical shapes (sphere, box, capsule, etc.), manual scaling can easily produce invalid results.</p>
+</div>
+</section>
+<section id="rigid-body-list">
+<h2>Rigid Body List<a class="headerlink" href="#rigid-body-list" title="Link to this heading"></a></h2>
+<p>The <strong>Rigid Body List</strong> shows all rigid bodies in the current scene.
+By default, it filters by <strong>Active Model</strong>, displaying only the rigid bodies of the currently selected model.
+To view rigid bodies from <strong>all models</strong>, change the filter to <strong>All Models</strong>.</p>
+<img alt="_images/addon_rigid_body_list.gif" class="align-center" src="_images/addon_rigid_body_list.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<section id="reordering-list-items">
+<h3>Reordering List Items<a class="headerlink" href="#reordering-list-items" title="Link to this heading"></a></h3>
+<p>You can reorder list items using the ⬆ and ⬇ buttons, or through the right-side dropdown menu options: <strong>Move To Top</strong> and <strong>Move To Bottom</strong>.</p>
+<img alt="_images/addon_rigid_body_move.gif" class="align-center" src="_images/addon_rigid_body_move.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="error-icon-indicators">
+<h3>Error Icon Indicators<a class="headerlink" href="#error-icon-indicators" title="Link to this heading"></a></h3>
+<section id="missing-physics">
+<h4>Missing Physics<a class="headerlink" href="#missing-physics" title="Link to this heading"></a></h4>
+<p>A list item will show a <strong>&quot;Missing Physics&quot;</strong> warning when its rigid body has no <strong>Rigid Body Settings</strong> component.
+To fix this, use the <strong>Add Rigid Body</strong> button in the <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">Rigid Body Properties Panel</span></a> to restore the settings.</p>
+<img alt="_images/addon_rigid_body_missing_physics.gif" class="align-center" src="_images/addon_rigid_body_missing_physics.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="missing-bone">
+<h4>Missing Bone<a class="headerlink" href="#missing-bone" title="Link to this heading"></a></h4>
+<p>A list item will show a <strong>&quot;Missing Bone&quot;</strong> warning when its rigid body has no assigned bone.
+The missing bone can be reassigned in the <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">Rigid Body Properties Panel</span></a>.</p>
+<img alt="_images/addon_rigid_body_missing_bone.gif" class="align-center" src="_images/addon_rigid_body_missing_bone.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+</section>
+<section id="select-rigid-bodies">
+<h2>Select Rigid Bodies<a class="headerlink" href="#select-rigid-bodies" title="Link to this heading"></a></h2>
+<p>TODO:</p>
+</section>
+<section id="remove-rigid-body">
+<h2>Remove Rigid Body<a class="headerlink" href="#remove-rigid-body" title="Link to this heading"></a></h2>
+<p>Select a rigid body in the 3D View, the Rigid Body List, or the Outliner, then click the ➖ button to remove it.</p>
+<img alt="_images/addon_rigid_body_remove.gif" class="align-center" src="_images/addon_rigid_body_remove.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="setup.html" class="btn btn-neutral float-left" title="Model Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, zhang0xf。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
