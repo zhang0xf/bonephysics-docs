@@ -117,8 +117,9 @@ Quick Add
 .. note::
     * When no bone is selected in *Pose Mode*, the add-on creates an auxiliary Rigid Body for the model. 
     * You can adjust the :ref:`Rigid Body Properties <rigid_body_properties>` at any time in the :ref:`Rigid Body Properties Panel <rigid_body_properties_panel>`.
-    * For Rigify armatures, it is recommended to add Rigid Bodies to the **DEF bones**.  
-      With other rigs or custom armatures, ensure that the bones involved in the physics simulation have corresponding control bones,   
+    * For **Rigify** armatures, it is recommended to add **Rigid Bodies** of type `Bone` to the ``DEF-`` bones, 
+      and add **Rigid Bodies** of type `Physics` or `Physics + Bone` to the ``ORG-`` bones.
+    * With other rigs or custom armatures, ensure that the bones involved in the physics simulation have corresponding control bones,   
       allowing them to override the physics simulation and prevent mesh penetration.
 
 Save Presets
@@ -268,6 +269,8 @@ The missing bone can be reassigned in the :ref:`Rigid Body Properties Panel <rig
    :align: center
 
 |
+
+.. _select_rigid_bodies:
 
 Select Rigid Bodies
 --------------------
