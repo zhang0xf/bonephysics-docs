@@ -122,6 +122,8 @@ Quick Add
     * With other rigs or custom armatures, ensure that the bones involved in the physics simulation have corresponding control bones,   
       allowing them to override the physics simulation and prevent mesh penetration.
 
+.. _save_presets:
+
 Save Presets
 ^^^^^^^^^^^^^^
 You can save presets for reuse. This workflow is very useful in practice, as it can save a significant amount of time!
@@ -226,6 +228,8 @@ It can be found under the **Physics** tab in Blender.
    This can cause the *visual mesh* and the *collision shape* to diverge, leading to clipping or misalignment.  
    Since the Bullet engine requires ideal mathematical shapes (sphere, box, capsule, etc.), manual scaling can easily produce invalid results.
 
+.. _rigid_body_list:
+
 Rigid Body List
 ----------------
 
@@ -276,6 +280,8 @@ Select Rigid Bodies
 --------------------
 
 TODO:
+
+.. _remove_rigid_body:
 
 Remove Rigid Body
 -------------------

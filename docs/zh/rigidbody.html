@@ -21,6 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Joint" href="joint.html" />
     <link rel="prev" title="Model Setup" href="setup.html" /> 
 </head>
 
@@ -131,6 +132,28 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#select-rigid-bodies">Select Rigid Bodies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#remove-rigid-body">Remove Rigid Body</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="joint.html">Joint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="joint.html#add-joint">Add Joint</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#add-a-joint-between-two-rigid-bodies">Add a Joint Between Two Rigid Bodies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#add-joints-along-a-bone-chain">Add Joints Along a Bone Chain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#save-presets">Save Presets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties">Joint Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties-panel">Joint Properties Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-list">Joint List</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#reordering-list-items">Reordering List Items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#error-icon-indicators">Error Icon Indicators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="joint.html#missing-joint">Missing Joint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="joint.html#missing-linked-objects">Missing Linked Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="joint.html#invalid-joint-pair">Invalid Joint Pair</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="joint.html#remove-joint">Remove Joint</a></li>
 </ul>
 </li>
 </ul>
@@ -267,14 +290,15 @@ It works the same way as <a class="reference internal" href="#linear-damping"><s
 <ul class="simple">
 <li><p>When no bone is selected in <em>Pose Mode</em>, the add-on creates an auxiliary Rigid Body for the model.</p></li>
 <li><p>You can adjust the <a class="reference internal" href="#rigid-body-properties"><span class="std std-ref">Rigid Body Properties</span></a> at any time in the <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">Rigid Body Properties Panel</span></a>.</p></li>
-<li><p>For Rigify armatures, it is recommended to add Rigid Bodies to the <strong>DEF bones</strong>.
-With other rigs or custom armatures, ensure that the bones involved in the physics simulation have corresponding control bones,
+<li><p>For <strong>Rigify</strong> armatures, it is recommended to add <strong>Rigid Bodies</strong> of type <cite>Bone</cite> to the <code class="docutils literal notranslate"><span class="pre">DEF-</span></code> bones,
+and add <strong>Rigid Bodies</strong> of type <cite>Physics</cite> or <cite>Physics + Bone</cite> to the <code class="docutils literal notranslate"><span class="pre">ORG-</span></code> bones.</p></li>
+<li><p>With other rigs or custom armatures, ensure that the bones involved in the physics simulation have corresponding control bones,
 allowing them to override the physics simulation and prevent mesh penetration.</p></li>
 </ul>
 </div>
 </section>
 <section id="save-presets">
-<h3>Save Presets<a class="headerlink" href="#save-presets" title="Link to this heading"></a></h3>
+<span id="id7"></span><h3>Save Presets<a class="headerlink" href="#save-presets" title="Link to this heading"></a></h3>
 <p>You can save presets for reuse. This workflow is very useful in practice, as it can save a significant amount of time!</p>
 <img alt="_images/addon_save_preset.gif" class="align-center" src="_images/addon_save_preset.gif" />
 <div class="line-block">
@@ -283,7 +307,7 @@ allowing them to override the physics simulation and prevent mesh penetration.</
 </section>
 </section>
 <section id="rigid-body-properties">
-<span id="id7"></span><h2>Rigid Body Properties<a class="headerlink" href="#rigid-body-properties" title="Link to this heading"></a></h2>
+<span id="id8"></span><h2>Rigid Body Properties<a class="headerlink" href="#rigid-body-properties" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><strong>name</strong>: English name of the Rigid Body.</p></li>
 <li><p><strong>collision_group_number</strong>: Collision group assigned to this object.</p></li>
@@ -355,7 +379,7 @@ make any necessary fine-tuning in the <a class="reference internal" href="#rigid
 </div>
 </section>
 <section id="rigid-body-properties-panel">
-<span id="id8"></span><h2>Rigid Body Properties Panel<a class="headerlink" href="#rigid-body-properties-panel" title="Link to this heading"></a></h2>
+<span id="id9"></span><h2>Rigid Body Properties Panel<a class="headerlink" href="#rigid-body-properties-panel" title="Link to this heading"></a></h2>
 <p>The <strong>Rigid Body Properties Panel</strong> is where you can view and edit rigid body attributes.
 It can be found under the <strong>Physics</strong> tab in Blender.</p>
 <img alt="_images/addon_rigid_body_properties_panel.gif" class="align-center" src="_images/addon_rigid_body_properties_panel.gif" />
@@ -384,7 +408,7 @@ Since the Bullet engine requires ideal mathematical shapes (sphere, box, capsule
 </div>
 </section>
 <section id="rigid-body-list">
-<h2>Rigid Body List<a class="headerlink" href="#rigid-body-list" title="Link to this heading"></a></h2>
+<span id="id10"></span><h2>Rigid Body List<a class="headerlink" href="#rigid-body-list" title="Link to this heading"></a></h2>
 <p>The <strong>Rigid Body List</strong> shows all rigid bodies in the current scene.
 By default, it filters by <strong>Active Model</strong>, displaying only the rigid bodies of the currently selected model.
 To view rigid bodies from <strong>all models</strong>, change the filter to <strong>All Models</strong>.</p>
@@ -423,11 +447,11 @@ The missing bone can be reassigned in the <a class="reference internal" href="#r
 </section>
 </section>
 <section id="select-rigid-bodies">
-<h2>Select Rigid Bodies<a class="headerlink" href="#select-rigid-bodies" title="Link to this heading"></a></h2>
+<span id="id11"></span><h2>Select Rigid Bodies<a class="headerlink" href="#select-rigid-bodies" title="Link to this heading"></a></h2>
 <p>TODO:</p>
 </section>
 <section id="remove-rigid-body">
-<h2>Remove Rigid Body<a class="headerlink" href="#remove-rigid-body" title="Link to this heading"></a></h2>
+<span id="id12"></span><h2>Remove Rigid Body<a class="headerlink" href="#remove-rigid-body" title="Link to this heading"></a></h2>
 <p>Select a rigid body in the 3D View, the Rigid Body List, or the Outliner, then click the ➖ button to remove it.</p>
 <img alt="_images/addon_rigid_body_remove.gif" class="align-center" src="_images/addon_rigid_body_remove.gif" />
 <div class="line-block">
@@ -441,6 +465,7 @@ The missing bone can be reassigned in the <a class="reference internal" href="#r
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
         <a href="setup.html" class="btn btn-neutral float-left" title="Model Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="joint.html" class="btn btn-neutral float-right" title="Joint" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

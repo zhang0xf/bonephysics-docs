@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joint &mdash; Bone Physics Docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=666d1bab" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Rigid Body" href="rigidbody.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Bone Physics Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<div id="lang-switcher" style="text-align:center; margin-top:10px; font-size:14px;"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var currentLang = "";
+        // var langs = ['en', 'zh'];
+        var langs = ['en',  'zh' ];
+
+    for (var i = 0; i < langs.length; i++) {
+        if (window.location.pathname.indexOf("/" + langs[i] + "/") !== -1) {
+            currentLang = langs[i];
+            break;
+        }
+    }
+
+    var container = document.getElementById("lang-switcher");
+    if (container) {
+        // 渲染语言切换链接
+        var links = [];
+        
+        links.push('<a href="javascript:void(0)" class="switch-lang" data-lang="en">English</a>');
+        
+        links.push('<a href="javascript:void(0)" class="switch-lang" data-lang="zh">简体中文</a>');
+        
+        container.innerHTML = links.join(" | ");
+    }
+
+    // 绑定点击事件：切换语言
+    document.querySelectorAll(".switch-lang").forEach(function (link) {
+        link.addEventListener("click", function () {
+            var targetLang = this.getAttribute("data-lang");
+            if (!currentLang) {
+                alert("Cannot detect current language");
+                return;
+            }
+            var newPath = window.location.pathname.replace(
+                new RegExp("/" + currentLang + "/"),
+                "/" + targetLang + "/"
+            );
+            window.location.pathname = newPath;
+        });
+    });
+    });
+</script>
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installing-the-extension">Installing the extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#remove-the-extension">Remove the extension</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Model Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#check-model">Check Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#root-operations">Root Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#create-root">Create Root</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#select-root">Select Root</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#clear-model">Clear Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rigidbody.html">Rigid Body</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#parameters">Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#mass">Mass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#friction">Friction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#bounce">Bounce</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#linear-damping">Linear Damping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#angular-damping">Angular Damping</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#add-rigid-body">Add Rigid Body</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#quick-add">Quick Add</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#save-presets">Save Presets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-properties">Rigid Body Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-properties-panel">Rigid Body Properties Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-list">Rigid Body List</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#reordering-list-items">Reordering List Items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#error-icon-indicators">Error Icon Indicators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-physics">Missing Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-bone">Missing Bone</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#select-rigid-bodies">Select Rigid Bodies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#remove-rigid-body">Remove Rigid Body</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Joint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#add-joint">Add Joint</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add-a-joint-between-two-rigid-bodies">Add a Joint Between Two Rigid Bodies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-joints-along-a-bone-chain">Add Joints Along a Bone Chain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save-presets">Save Presets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#joint-properties">Joint Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#joint-properties-panel">Joint Properties Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#joint-list">Joint List</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reordering-list-items">Reordering List Items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-icon-indicators">Error Icon Indicators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#missing-joint">Missing Joint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#missing-linked-objects">Missing Linked Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#invalid-joint-pair">Invalid Joint Pair</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#remove-joint">Remove Joint</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Bone Physics Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Joint</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="joint">
+<h1>Joint<a class="headerlink" href="#joint" title="Link to this heading"></a></h1>
+<section id="add-joint">
+<h2>Add Joint<a class="headerlink" href="#add-joint" title="Link to this heading"></a></h2>
+<section id="add-a-joint-between-two-rigid-bodies">
+<h3>Add a Joint Between Two Rigid Bodies<a class="headerlink" href="#add-a-joint-between-two-rigid-bodies" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Switch to <em>Object Mode</em> and select the two rigid bodies to which you want to add a constraint.</p></li>
+<li><p>Click the <strong>➕ button</strong>.</p></li>
+<li><p>Configure the joint properties, then press <strong>OK</strong> to finish.</p></li>
+</ol>
+<img alt="_images/addon_add_joint.gif" class="align-center" src="_images/addon_add_joint.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="add-joints-along-a-bone-chain">
+<h3>Add Joints Along a Bone Chain<a class="headerlink" href="#add-joints-along-a-bone-chain" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Switch to <em>Object Mode</em> and select all the rigid bodies along the bone chain that require constraints.
+(You can select multiple rigid bodies at once. See also <a class="reference internal" href="rigidbody.html#select-rigid-bodies"><span class="std std-ref">Select Rigid Bodies</span></a>.)</p></li>
+<li><p>Click the <strong>➕ button</strong>.</p></li>
+<li><p>Configure the joint properties, then press <strong>OK</strong> to finish.</p></li>
+</ol>
+<img alt="_images/addon_add_joints.gif" class="align-center" src="_images/addon_add_joints.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When both bone-chain rigid bodies (e.g. A, B, C) and non-chain rigid bodies (e.g. D, E) are selected,
+the add-on will only create joints between the bone-chain rigid bodies (A, B, C).
+The others (D, E) will be ignored.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li><p>Adjacent rigid bodies from <strong>different bone chains</strong> can only be connected <strong>one pair at a time</strong> —
+batch operations are not supported in this case.
+For example, when adding joints between rigid bodies belonging to different skirt bone chains,
+you must add them individually.
+This limitation exists because each model has unique structures and assumptions;
+we prioritize flexibility and compatibility over full automation.
+Although this may appear repetitive, in practice, using <strong>presets</strong> can still make the workflow quite efficient.
+(See also: <em>Adding Joints for Skirt Rigid Bodies</em>.)</p></li>
+<li><p>While it is technically possible to create <strong>multiple joints between the same pair of rigid bodies</strong>,
+do so with caution.
+If you accidentally create duplicates when only one joint is needed,
+the simulation results may differ from your expectations.
+You can verify duplicates in the <a class="reference internal" href="#joint-list"><span class="std std-ref">Joint List</span></a> and <cite>Outliner</cite></p>
+<img alt="_images/addon_redundant_joints.png" class="align-center" src="_images/addon_redundant_joints.png" />
+</li>
+</ul>
+</div>
+</section>
+<section id="save-presets">
+<h3>Save Presets<a class="headerlink" href="#save-presets" title="Link to this heading"></a></h3>
+<p>See also: <a class="reference internal" href="rigidbody.html#save-presets"><span class="std std-ref">Rigid Body Save Presets</span></a></p>
+</section>
+</section>
+<section id="joint-properties">
+<span id="id1"></span><h2>Joint Properties<a class="headerlink" href="#joint-properties" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>name</strong>: The name of the joint.</p></li>
+<li><p><strong>limit_lin_x_upper</strong>: Upper limit of linear motion along the <strong>X</strong> axis.</p></li>
+<li><p><strong>limit_lin_y_upper</strong>: Upper limit of linear motion along the <strong>Y</strong> axis.</p></li>
+<li><p><strong>limit_lin_z_upper</strong>: Upper limit of linear motion along the <strong>Z</strong> axis.</p></li>
+<li><p><strong>limit_lin_x_lower</strong>: Lower limit of linear motion along the <strong>X</strong> axis.</p></li>
+<li><p><strong>limit_lin_y_lower</strong>: Lower limit of linear motion along the <strong>Y</strong> axis.</p></li>
+<li><p><strong>limit_lin_z_lower</strong>: Lower limit of linear motion along the <strong>Z</strong> axis.</p></li>
+<li><p><strong>limit_ang_x_upper</strong>: Upper angular limit around the <strong>X</strong> axis (in degrees).</p></li>
+<li><p><strong>limit_ang_y_upper</strong>: Upper angular limit around the <strong>Y</strong> axis (in degrees).</p></li>
+<li><p><strong>limit_ang_z_upper</strong>: Upper angular limit around the <strong>Z</strong> axis (in degrees).</p></li>
+<li><p><strong>limit_ang_x_lower</strong>: Lower angular limit around the <strong>X</strong> axis (in degrees).</p></li>
+<li><p><strong>limit_ang_y_lower</strong>: Lower angular limit around the <strong>Y</strong> axis (in degrees).</p></li>
+<li><p><strong>limit_ang_z_lower</strong>: Lower angular limit around the <strong>Z</strong> axis (in degrees).</p></li>
+<li><p><strong>spring_linear</strong>: The spring stiffness that controls linear motion.
+Higher values produce stronger resistance when the joint is displaced.</p></li>
+<li><p><strong>spring_angular</strong>: The spring stiffness that controls angular (rotational) motion.
+Higher values produce stronger torque resistance when the joint is rotated.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The parameters above correspond to Blender’s built-in <em>Rigid Body Constraint</em> properties.</p>
+</div>
+</section>
+<section id="joint-properties-panel">
+<span id="id2"></span><h2>Joint Properties Panel<a class="headerlink" href="#joint-properties-panel" title="Link to this heading"></a></h2>
+<p>The <strong>Joint Properties Panel</strong> is where you can view and edit all joint-related attributes.
+It can be found under the <strong>Physics</strong> tab in Blender.</p>
+<img alt="_images/addon_joint_properties_panel.gif" class="align-center" src="_images/addon_joint_properties_panel.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="joint-list">
+<span id="id3"></span><h2>Joint List<a class="headerlink" href="#joint-list" title="Link to this heading"></a></h2>
+<p>The <strong>Joint List</strong> displays all joints (rigid body constraints) in the current scene.
+By default, it filters by <strong>Active Model</strong>, showing only the joints associated with the currently selected model.
+To view joints from <strong>all models</strong>, change the filter to <strong>All Models</strong>.</p>
+<img alt="_images/addon_joint_list.gif" class="align-center" src="_images/addon_joint_list.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<section id="reordering-list-items">
+<h3>Reordering List Items<a class="headerlink" href="#reordering-list-items" title="Link to this heading"></a></h3>
+<p>You can reorder list items using the ⬆ and ⬇ buttons, or through the right-side dropdown menu options:
+<strong>Move To Top</strong> and <strong>Move To Bottom</strong>.</p>
+<img alt="_images/addon_joint_move.gif" class="align-center" src="_images/addon_joint_move.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="error-icon-indicators">
+<h3>Error Icon Indicators<a class="headerlink" href="#error-icon-indicators" title="Link to this heading"></a></h3>
+<section id="missing-joint">
+<h4>Missing Joint<a class="headerlink" href="#missing-joint" title="Link to this heading"></a></h4>
+<p>A <strong>“Missing Joint”</strong> error icon appears when the list entry has no valid <strong>Rigid Body Constraint</strong> data.
+This usually occurs when the joint was deleted from Blender’s constraint system but still exists in the add-on’s list.
+To fix this, recreate the joint using the <strong>Add Rigid Body Constraint</strong> button in the <a class="reference internal" href="#joint-properties-panel"><span class="std std-ref">Joint Properties Panel</span></a>.</p>
+<img alt="_images/addon_joint_missing_joint.gif" class="align-center" src="_images/addon_joint_missing_joint.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="missing-linked-objects">
+<h4>Missing Linked Objects<a class="headerlink" href="#missing-linked-objects" title="Link to this heading"></a></h4>
+<p>A <strong>“Missing Linked Objects”</strong> warning icon appears when one or both of the rigid bodies linked by the joint are missing.
+For example, if <cite>Object1</cite> or <cite>Object2</cite> is not assigned, the joint cannot function properly.
+You can reassign the missing objects in the <a class="reference internal" href="#joint-properties-panel"><span class="std std-ref">Joint Properties Panel</span></a>.</p>
+<img alt="_images/addon_joint_missing_object.gif" class="align-center" src="_images/addon_joint_missing_object.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is generally recommended to assign the <strong>static</strong> or <strong>bone-driven</strong> rigid body as <code class="docutils literal notranslate"><span class="pre">Object1</span></code>,
+and the <strong>simulated</strong> rigid body as <code class="docutils literal notranslate"><span class="pre">Object2</span></code>.
+This setup ensures a more stable and predictable constraint behavior,
+as Blender internally treats <code class="docutils literal notranslate"><span class="pre">Object1</span></code> as the reference frame for the joint’s position and rotation limits.</p>
+</div>
+</section>
+<section id="invalid-joint-pair">
+<h4>Invalid Joint Pair<a class="headerlink" href="#invalid-joint-pair" title="Link to this heading"></a></h4>
+<p>An <strong>“Invalid Joint Pair”</strong> icon appears when both linked objects (<cite>Object1</cite> and <cite>Object2</cite>) refer to the <strong>same rigid body</strong>.
+This setup is invalid because a joint requires two distinct rigid bodies.
+Recreate the joint with two different rigid bodies to resolve this issue.</p>
+<img alt="_images/addon_joint_invalid_pair.gif" class="align-center" src="_images/addon_joint_invalid_pair.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+</section>
+<section id="remove-joint">
+<h2>Remove Joint<a class="headerlink" href="#remove-joint" title="Link to this heading"></a></h2>
+<p>Select a joint in the <strong>3D View</strong>, the <strong>Joint List</strong>, or the <strong>Outliner</strong>,
+then click the <strong>➖ button</strong> to remove it.</p>
+<p>See also: <a class="reference internal" href="rigidbody.html#remove-rigid-body"><span class="std std-ref">Remove Rigid Body</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rigidbody.html" class="btn btn-neutral float-left" title="Rigid Body" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, zhang0xf.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
