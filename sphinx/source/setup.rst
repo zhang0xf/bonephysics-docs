@@ -90,3 +90,10 @@ After performing a *Clear* operation, you may also choose to delete the `Root Em
 
 .. caution:: 
     | Clearing everything will remove all physics-related data. Once deleted, the model can no longer participate in physics simulation unless the setup is rebuilt.
+
+Visibility
+-------------
+
+
+Build Rig
+-------------

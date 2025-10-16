@@ -115,12 +115,38 @@ Quick Add
 |
 
 .. note::
-    * When no bone is selected in *Pose Mode*, the add-on creates an auxiliary Rigid Body for the model. 
-    * You can adjust the :ref:`Rigid Body Properties <rigid_body_properties>` at any time in the :ref:`Rigid Body Properties Panel <rigid_body_properties_panel>`.
-    * For **Rigify** armatures, it is recommended to add **Rigid Bodies** of type `Bone` to the ``DEF-`` bones, 
-      and add **Rigid Bodies** of type `Physics` or `Physics + Bone` to the ``ORG-`` bones.
-    * With other rigs or custom armatures, ensure that the bones involved in the physics simulation have corresponding control bones,   
-      allowing them to override the physics simulation and prevent mesh penetration.
+    * When no bone is selected in *Pose Mode*, the add-on creates an **auxiliary Rigid Body** for the model.  
+    * You can adjust the :ref:`Rigid Body Properties <rigid_body_properties>` at any time in the :ref:`Rigid Body Properties Panel <rigid_body_properties_panel>`.  
+
+    * For **Rigify** armatures, it is recommended to:  
+      
+      * Bind Rigid Bodies of type ``Bone`` (i.e., fully bone-driven rigid bodies) to the ``DEF-`` bones.
+        You can move and rotate the rigid bodies freely, and scale them (through the :ref:`Rigid Body Properties Panel <rigid_body_properties_panel>`),  
+        to fit the model's mesh contour as closely as possible and achieve more accurate physical simulation.  
+        A single bone can drive multiple rigid body objects of this type, all of which follow the same bone transform.
+
+        .. image:: images/addon_add_bone_rigid.png
+            :align: center
+
+      * Bind Rigid Bodies of type ``Physics`` or ``Physics + Bone`` (i.e., physics-driven rigid bodies) to the ``CTRL-`` control bones.  
+        To allow manual correction of physics results, two **Bone Collections** are required:  
+        one named ``xxx_Physics`` that stores the bones directly controlled by the physics system,  
+        and another that mirrors their rotation via *Copy Rotation* and uses *Mix Before Original* to support manual adjustments.  
+        The second collection enables animators to fix minor penetrations or unwanted motion after the simulation is baked,  
+        while still retaining the physics-driven motion in the ``xxx_Physics`` collection.  
+
+        This modular structure helps isolate and debug issues efficiently.  
+        For details on creating such bone collections and adding custom ones to a Rigify rig,  
+        see the tutorial here: *YouTube link*.  
+
+        For ``Physics`` or ``Physics + Bone`` type rigid bodies,  
+        a single bone can also be bound to multiple rigid bodies.  
+        During simulation, the bone will be driven by the rigid body with the greatest mass,  
+        while the others act as auxiliary bodies.
+
+    * With other rigs or custom armatures, make sure that all bones participating in the physics simulation  
+      have corresponding **control bones**, allowing you to override the simulation when necessary  
+      and prevent mesh intersections or penetrations.
 
 .. _save_presets:
 
@@ -138,14 +164,14 @@ You can save presets for reuse. This workflow is very useful in practice, as it 
 Rigid Body Properties
 ----------------------
 
-- **name**: English name of the Rigid Body.  
+- **name**: The name of the Rigid Body.  
 - **collision_group_number**: Collision group assigned to this object.  
 - **collision_group_mask**: Groups that this object should *not* collide with.  
 - **rigid_type**:
 
-  * *Bone*: The Rigid Body follows the orientation of the attached bone.  
-  * *Physics*: The bone's transform is fully driven by the Rigid Body.  
-  * *Physics + Bone*: The bone's position follows its parent, but its rotation is copied from the Rigid Body.  
+  * ``Bone``: The Rigid Body follows the orientation of the attached bone.  
+  * ``Physics``: The bone's transform is fully driven by the Rigid Body.  
+  * ``Physics + Bone``: The bone's position follows its parent, but its rotation is copied from the Rigid Body.  
 
 - **rigid_shape**: Collision shape type.  
 - **axis_outward**: Local bone axis that points outward.  
@@ -162,26 +188,57 @@ Rigid Body Properties
 
 .. note::
     * **Name**
-        ``$name`` is a placeholder that will use the English name of the target bone as the Rigid Body's name.
+        ``$name`` is a placeholder that will use the name of the target bone as the Rigid Body's name.
     * **Physics vs Physics + Bone**
-        *Physics*: The bone's location and rotation are completely determined by the Rigid Body.
+        ``Physic``: The bone's location and rotation are completely determined by the Rigid Body.
         The Rigid Body may move the bone away from the Armature.  
         
-        *Physics + Bone*: The bone's position is still driven by its parent, but its rotation is copied from the Rigid Body.
+        ``Physics + Bone``: The bone's position is still driven by its parent, but its rotation is copied from the Rigid Body.
         This prevents the bone from detaching while still inheriting the physical simulation results.
-    * **axis_outward**  
-        This property is optional and mainly serves as an optimization.  
-        It is especially important for **Box-Shaped Rigid Bodies**, such as those used for simulating skirts.  
 
-        While the simulation can still run without setting it, ignoring this property may lead to unexpected behavior.
+   * **axis_outward**  
+      When using **box-shaped rigid bodies** (**sphere** or **capsule** shapes can ignore) to simulate skirt physics, 
+      make sure that the target bones already have the correct local orientation —  
+      either **Z Outward** or **X Outward**.  
+      Then, when adding the rigid body, simply set ``Outward Axis`` to ``Z`` or ``X`` accordingly. 
+      
+      This ensures that the newly added rigid body inherits the correct initial rotation:  
+      
+      - the **Z-axis** aligns with the bone direction,  
+      - the **Y-axis** points outward along the skirt's normal,  
+      - the **X-axis** runs tangentially along the skirt surface.  
 
-        Setting it correctly ensures the Rigid Body have the proper initial orientation (commonly Y-axis pointing outward).
-        This orientation also affects the initial rotation of joints when adding constraints between Rigid Body pairs.  
-        
-        With correct initial orientation, the skirt Rigid Body and Constraints form a consistent set, producing predictable and smooth simulation results.
+      |
 
-        See :ref:`TODO <angular-damping>`
+      .. rubric:: Importance of Correct Bone Orientation
 
+      The following comparison illustrates the impact of bone orientation and ``Outward Axis`` settings:  
+
+      .. figure:: images/addon_rigid_body_axis_correct.png
+         :alt: Correct bone orientation with matching Outward Axis
+         :align: center
+         :width: 80%
+
+         **Correct Setup** — The bone's local axes are oriented consistently,  
+         and the ``Outward Axis`` in the rigid body matches the bone's outward direction.  
+         The rigid body aligns perfectly with the mesh, ensuring stable joint orientation and smooth motion.
+
+      |
+
+      .. figure:: images/addon_rigid_body_axis_incorrect.png
+         :alt: Incorrect bone orientation or mismatched Outward Axis
+         :align: center
+         :width: 80%
+
+         **Incorrect Setup** — The bone's local axes are rotated arbitrarily,  
+         or the ``Outward Axis`` is misassigned.  
+         The rigid body appears twisted or offset, and the resulting joints may flip or behave unpredictably during simulation.
+
+      |
+
+      Proper axis alignment guarantees that any subsequent **joints** added between rigid bodies  
+      will also inherit a consistent orientation, resulting in a **stable, coherent, and visually natural** simulation system.
+      
     * **size**  
         In the preset panel, all shapes have three components (``x, y, z``). 
         However, the number of components required varies by shape: 
@@ -225,8 +282,9 @@ It can be found under the **Physics** tab in Blender.
    **Example - Scaling in the 3D Viewport:**  
 
    Using **S** only changes the visible mesh; the internal size data remains unchanged.  
-   This can cause the *visual mesh* and the *collision shape* to diverge, leading to clipping or misalignment.  
-   Since the Bullet engine requires ideal mathematical shapes (sphere, box, capsule, etc.), manual scaling can easily produce invalid results.
+   This can cause the *visual mesh* and the *collision shape* to diverge, leading to clipping or misalignment. 
+   Another reason manual scaling should be avoided is that the Bullet physics engine requires ideal mathematical shapes (sphere, box, capsule, etc.),  
+   and manual scaling can easily produce invalid or unstable simulation results. 
 
 .. _rigid_body_list:
 

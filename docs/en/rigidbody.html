@@ -103,6 +103,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#clear-model">Clear Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#visibility">Visibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig">Build Rig</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Rigid Body</a><ul>
@@ -287,13 +289,36 @@ It works the same way as <a class="reference internal" href="#linear-damping"><s
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<ul class="simple">
-<li><p>When no bone is selected in <em>Pose Mode</em>, the add-on creates an auxiliary Rigid Body for the model.</p></li>
+<ul>
+<li><p>When no bone is selected in <em>Pose Mode</em>, the add-on creates an <strong>auxiliary Rigid Body</strong> for the model.</p></li>
 <li><p>You can adjust the <a class="reference internal" href="#rigid-body-properties"><span class="std std-ref">Rigid Body Properties</span></a> at any time in the <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">Rigid Body Properties Panel</span></a>.</p></li>
-<li><p>For <strong>Rigify</strong> armatures, it is recommended to add <strong>Rigid Bodies</strong> of type <cite>Bone</cite> to the <code class="docutils literal notranslate"><span class="pre">DEF-</span></code> bones,
-and add <strong>Rigid Bodies</strong> of type <cite>Physics</cite> or <cite>Physics + Bone</cite> to the <code class="docutils literal notranslate"><span class="pre">ORG-</span></code> bones.</p></li>
-<li><p>With other rigs or custom armatures, ensure that the bones involved in the physics simulation have corresponding control bones,
-allowing them to override the physics simulation and prevent mesh penetration.</p></li>
+<li><p>For <strong>Rigify</strong> armatures, it is recommended to:</p>
+<ul>
+<li><p>Bind Rigid Bodies of type <code class="docutils literal notranslate"><span class="pre">Bone</span></code> (i.e., fully bone-driven rigid bodies) to the <code class="docutils literal notranslate"><span class="pre">DEF-</span></code> bones.
+You can move and rotate the rigid bodies freely, and scale them (through the <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">Rigid Body Properties Panel</span></a>),
+to fit the model’s mesh contour as closely as possible and achieve more accurate physical simulation.
+A single bone can drive multiple rigid body objects of this type, all of which follow the same bone transform.</p>
+<img alt="_images/addon_add_bone_rigid.png" class="align-center" src="_images/addon_add_bone_rigid.png" />
+</li>
+<li><p>Bind Rigid Bodies of type <code class="docutils literal notranslate"><span class="pre">Physics</span></code> or <code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code> (i.e., physics-driven rigid bodies) to the <code class="docutils literal notranslate"><span class="pre">CTRL-</span></code> control bones.
+To allow manual correction of physics results, two <strong>Bone Collections</strong> are required:
+one named <code class="docutils literal notranslate"><span class="pre">xxx_Physics</span></code> that stores the bones directly controlled by the physics system,
+and another that mirrors their rotation via <em>Copy Rotation</em> and uses <em>Mix Before Original</em> to support manual adjustments.
+The second collection enables animators to fix minor penetrations or unwanted motion after the simulation is baked,
+while still retaining the physics-driven motion in the <code class="docutils literal notranslate"><span class="pre">xxx_Physics</span></code> collection.</p>
+<p>This modular structure helps isolate and debug issues efficiently.
+For details on creating such bone collections and adding custom ones to a Rigify rig,
+see the tutorial here: <em>YouTube link</em>.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">Physics</span></code> or <code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code> type rigid bodies,
+a single bone can also be bound to multiple rigid bodies.
+During simulation, the bone will be driven by the rigid body with the greatest mass,
+while the others act as auxiliary bodies.</p>
+</li>
+</ul>
+</li>
+<li><p>With other rigs or custom armatures, make sure that all bones participating in the physics simulation
+have corresponding <strong>control bones</strong>, allowing you to override the simulation when necessary
+and prevent mesh intersections or penetrations.</p></li>
 </ul>
 </div>
 </section>
@@ -309,14 +334,14 @@ allowing them to override the physics simulation and prevent mesh penetration.</
 <section id="rigid-body-properties">
 <span id="id8"></span><h2>Rigid Body Properties<a class="headerlink" href="#rigid-body-properties" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p><strong>name</strong>: English name of the Rigid Body.</p></li>
+<li><p><strong>name</strong>: The name of the Rigid Body.</p></li>
 <li><p><strong>collision_group_number</strong>: Collision group assigned to this object.</p></li>
 <li><p><strong>collision_group_mask</strong>: Groups that this object should <em>not</em> collide with.</p></li>
 <li><p><strong>rigid_type</strong>:</p>
 <ul>
-<li><p><em>Bone</em>: The Rigid Body follows the orientation of the attached bone.</p></li>
-<li><p><em>Physics</em>: The bone’s transform is fully driven by the Rigid Body.</p></li>
-<li><p><em>Physics + Bone</em>: The bone’s position follows its parent, but its rotation is copied from the Rigid Body.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bone</span></code>: The Rigid Body follows the orientation of the attached bone.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Physics</span></code>: The bone’s transform is fully driven by the Rigid Body.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code>: The bone’s position follows its parent, but its rotation is copied from the Rigid Body.</p></li>
 </ul>
 </li>
 <li><p><strong>rigid_shape</strong>: Collision shape type.</p></li>
@@ -335,31 +360,72 @@ Do not edit them through Blender’s built-in interface.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<ul>
+<blockquote>
+<div><ul>
 <li><dl class="simple">
-<dt><strong>Name</strong></dt><dd><p><code class="docutils literal notranslate"><span class="pre">$name</span></code> is a placeholder that will use the English name of the target bone as the Rigid Body’s name.</p>
+<dt><strong>Name</strong></dt><dd><p><code class="docutils literal notranslate"><span class="pre">$name</span></code> is a placeholder that will use the name of the target bone as the Rigid Body’s name.</p>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt><strong>Physics vs Physics + Bone</strong></dt><dd><p><em>Physics</em>: The bone’s location and rotation are completely determined by the Rigid Body.
+<dt><strong>Physics vs Physics + Bone</strong></dt><dd><p><code class="docutils literal notranslate"><span class="pre">Physic</span></code>: The bone’s location and rotation are completely determined by the Rigid Body.
 The Rigid Body may move the bone away from the Armature.</p>
-<p><em>Physics + Bone</em>: The bone’s position is still driven by its parent, but its rotation is copied from the Rigid Body.
+<p><code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code>: The bone’s position is still driven by its parent, but its rotation is copied from the Rigid Body.
 This prevents the bone from detaching while still inheriting the physical simulation results.</p>
 </dd>
 </dl>
 </li>
+</ul>
+</div></blockquote>
+<ul>
 <li><dl>
-<dt><strong>axis_outward</strong></dt><dd><p>This property is optional and mainly serves as an optimization.
-It is especially important for <strong>Box-Shaped Rigid Bodies</strong>, such as those used for simulating skirts.</p>
-<p>While the simulation can still run without setting it, ignoring this property may lead to unexpected behavior.</p>
-<p>Setting it correctly ensures the Rigid Body have the proper initial orientation (commonly Y-axis pointing outward).
-This orientation also affects the initial rotation of joints when adding constraints between Rigid Body pairs.</p>
-<p>With correct initial orientation, the skirt Rigid Body and Constraints form a consistent set, producing predictable and smooth simulation results.</p>
-<p>See <a class="reference internal" href="#angular-damping"><span class="std std-ref">TODO</span></a></p>
+<dt><strong>axis_outward</strong></dt><dd><p>When using <strong>box-shaped rigid bodies</strong> (<strong>sphere</strong> or <strong>capsule</strong> shapes can ignore) to simulate skirt physics,
+make sure that the target bones already have the correct local orientation —
+either <strong>Z Outward</strong> or <strong>X Outward</strong>.
+Then, when adding the rigid body, simply set <code class="docutils literal notranslate"><span class="pre">Outward</span> <span class="pre">Axis</span></code> to <code class="docutils literal notranslate"><span class="pre">Z</span></code> or <code class="docutils literal notranslate"><span class="pre">X</span></code> accordingly.</p>
+<p>This ensures that the newly added rigid body inherits the correct initial rotation:</p>
+<ul class="simple">
+<li><p>the <strong>Z-axis</strong> aligns with the bone direction,</p></li>
+<li><p>the <strong>Y-axis</strong> points outward along the skirt’s normal,</p></li>
+<li><p>the <strong>X-axis</strong> runs tangentially along the skirt surface.</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p class="rubric">Importance of Correct Bone Orientation</p>
+<p>The following comparison illustrates the impact of bone orientation and <code class="docutils literal notranslate"><span class="pre">Outward</span> <span class="pre">Axis</span></code> settings:</p>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="_images/addon_rigid_body_axis_correct.png"><img alt="Correct bone orientation with matching Outward Axis" src="_images/addon_rigid_body_axis_correct.png" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><strong>Correct Setup</strong> — The bone’s local axes are oriented consistently,
+and the <code class="docutils literal notranslate"><span class="pre">Outward</span> <span class="pre">Axis</span></code> in the rigid body matches the bone’s outward direction.
+The rigid body aligns perfectly with the mesh, ensuring stable joint orientation and smooth motion.</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="_images/addon_rigid_body_axis_incorrect.png"><img alt="Incorrect bone orientation or mismatched Outward Axis" src="_images/addon_rigid_body_axis_incorrect.png" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><strong>Incorrect Setup</strong> — The bone’s local axes are rotated arbitrarily,
+or the <code class="docutils literal notranslate"><span class="pre">Outward</span> <span class="pre">Axis</span></code> is misassigned.
+The rigid body appears twisted or offset, and the resulting joints may flip or behave unpredictably during simulation.</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Proper axis alignment guarantees that any subsequent <strong>joints</strong> added between rigid bodies
+will also inherit a consistent orientation, resulting in a <strong>stable, coherent, and visually natural</strong> simulation system.</p>
 </dd>
 </dl>
 </li>
+</ul>
+<blockquote>
+<div><ul>
 <li><dl>
 <dt><strong>size</strong></dt><dd><p>In the preset panel, all shapes have three components (<code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z</span></code>).
 However, the number of components required varies by shape:</p>
@@ -376,6 +442,7 @@ make any necessary fine-tuning in the <a class="reference internal" href="#rigid
 </dl>
 </li>
 </ul>
+</div></blockquote>
 </div>
 </section>
 <section id="rigid-body-properties-panel">
@@ -404,7 +471,8 @@ These callbacks may perform important tasks such as updating data, reassigning m
 <p><strong>Example - Scaling in the 3D Viewport:</strong></p>
 <p>Using <strong>S</strong> only changes the visible mesh; the internal size data remains unchanged.
 This can cause the <em>visual mesh</em> and the <em>collision shape</em> to diverge, leading to clipping or misalignment.
-Since the Bullet engine requires ideal mathematical shapes (sphere, box, capsule, etc.), manual scaling can easily produce invalid results.</p>
+Another reason manual scaling should be avoided is that the Bullet physics engine requires ideal mathematical shapes (sphere, box, capsule, etc.),
+and manual scaling can easily produce invalid or unstable simulation results.</p>
 </div>
 </section>
 <section id="rigid-body-list">
