@@ -1,3 +1,5 @@
+.. _joint:
+
 Joint
 ==============
 
@@ -14,6 +16,25 @@ Add a Joint Between Two Rigid Bodies
    :align: center
 
 |
+
+.. note::
+   When adding a joint, the add-on automatically places it at the midpoint between the two Rigid Bodies' locations.  
+   This is reasonable in most cases, but in certain situations you may need to manually adjust the joint's position.  
+   
+   For example, when adding a joint between the head Rigid Body and the “root” Rigid Body of a ponytail,  
+   the joint should be moved to the root of the ponytail instead of remaining at the default midpoint.  
+   This is because the ponytail's swinging motion should pivot around its root, not the midpoint between the two bodies.  
+
+   Similarly, when adding Rigid Bodies for a skirt,  
+   the joint connecting the skirt and the body's spine Rigid Body should be placed at the **head** of the first bone in the skirt's chain,  
+   rather than at the default midpoint.  
+
+   In some cases, you may also need to adjust the joint's rotation manually to achieve the most accurate simulation result.
+
+   .. image:: images/addon_move_joint.gif
+      :align: center
+
+   |
 
 Add Joints Along a Bone Chain
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -35,12 +56,13 @@ Add Joints Along a Bone Chain
 .. note::
    * Adjacent rigid bodies from **different bone chains** can only be connected **one pair at a time** —  
      batch operations are not supported in this case.  
+     
      For example, when adding joints between rigid bodies belonging to different skirt bone chains,  
      you must add them individually.  
+     
      This limitation exists because each model has unique structures and assumptions;  
      we prioritize flexibility and compatibility over full automation.  
      Although this may appear repetitive, in practice, using **presets** can still make the workflow quite efficient.  
-     (See also: *Adding Joints for Skirt Rigid Bodies*.)
 
    * While it is technically possible to create **multiple joints between the same pair of rigid bodies**,  
      do so with caution.  
@@ -84,7 +106,6 @@ Joint Properties
 
 .. note::
    The parameters above correspond to Blender's built-in *Rigid Body Constraint* properties.  
-
 
 .. _joint_properties_panel:
 

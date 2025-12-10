@@ -102,7 +102,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#clear-model">Clear Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#visibility">Visibility</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig">Build Rig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig-physics">Build Rig Physics</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rigidbody.html">Rigid Body</a><ul>
@@ -130,8 +130,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#select-rigid-bodies">Select Rigid Bodies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#select-rigid-bodies">Select Rigid Bodies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#properties-for-comparison">Properties for Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#hide-others">Hide Others</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#remove-rigid-body">Remove Rigid Body</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#example-auxiliary-rigid-bodies">Example: Auxiliary Rigid Bodies</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Joint</a><ul>
@@ -182,7 +187,7 @@
            <div itemprop="articleBody">
              
   <section id="joint">
-<h1>Joint<a class="headerlink" href="#joint" title="Link to this heading"></a></h1>
+<span id="id1"></span><h1>Joint<a class="headerlink" href="#joint" title="Link to this heading"></a></h1>
 <section id="add-joint">
 <h2>Add Joint<a class="headerlink" href="#add-joint" title="Link to this heading"></a></h2>
 <section id="add-a-joint-between-two-rigid-bodies">
@@ -195,6 +200,22 @@
 <img alt="_images/addon_add_joint.gif" class="align-center" src="_images/addon_add_joint.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>When adding a joint, the add-on automatically places it at the midpoint between the two Rigid Bodies' locations.
+This is reasonable in most cases, but in certain situations you may need to manually adjust the joint's position.</p>
+<p>For example, when adding a joint between the head Rigid Body and the “root” Rigid Body of a ponytail,
+the joint should be moved to the root of the ponytail instead of remaining at the default midpoint.
+This is because the ponytail's swinging motion should pivot around its root, not the midpoint between the two bodies.</p>
+<p>Similarly, when adding Rigid Bodies for a skirt,
+the joint connecting the skirt and the body's spine Rigid Body should be placed at the <strong>head</strong> of the first bone in the skirt's chain,
+rather than at the default midpoint.</p>
+<p>In some cases, you may also need to adjust the joint's rotation manually to achieve the most accurate simulation result.</p>
+<img alt="_images/addon_move_joint.gif" class="align-center" src="_images/addon_move_joint.gif" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </div>
 </section>
 <section id="add-joints-along-a-bone-chain">
@@ -219,13 +240,13 @@ The others (D, E) will be ignored.</p>
 <p class="admonition-title">备注</p>
 <ul>
 <li><p>Adjacent rigid bodies from <strong>different bone chains</strong> can only be connected <strong>one pair at a time</strong> —
-batch operations are not supported in this case.
-For example, when adding joints between rigid bodies belonging to different skirt bone chains,
-you must add them individually.
-This limitation exists because each model has unique structures and assumptions;
+batch operations are not supported in this case.</p>
+<p>For example, when adding joints between rigid bodies belonging to different skirt bone chains,
+you must add them individually.</p>
+<p>This limitation exists because each model has unique structures and assumptions;
 we prioritize flexibility and compatibility over full automation.
-Although this may appear repetitive, in practice, using <strong>presets</strong> can still make the workflow quite efficient.
-(See also: <em>Adding Joints for Skirt Rigid Bodies</em>.)</p></li>
+Although this may appear repetitive, in practice, using <strong>presets</strong> can still make the workflow quite efficient.</p>
+</li>
 <li><p>While it is technically possible to create <strong>multiple joints between the same pair of rigid bodies</strong>,
 do so with caution.
 If you accidentally create duplicates when only one joint is needed,
@@ -242,7 +263,7 @@ You can verify duplicates in the <a class="reference internal" href="#joint-list
 </section>
 </section>
 <section id="joint-properties">
-<span id="id1"></span><h2>Joint Properties<a class="headerlink" href="#joint-properties" title="Link to this heading"></a></h2>
+<span id="id2"></span><h2>Joint Properties<a class="headerlink" href="#joint-properties" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><strong>name</strong>: The name of the joint.</p></li>
 <li><p><strong>limit_lin_x_upper</strong>: Upper limit of linear motion along the <strong>X</strong> axis.</p></li>
@@ -268,7 +289,7 @@ Higher values produce stronger torque resistance when the joint is rotated.</p><
 </div>
 </section>
 <section id="joint-properties-panel">
-<span id="id2"></span><h2>Joint Properties Panel<a class="headerlink" href="#joint-properties-panel" title="Link to this heading"></a></h2>
+<span id="id3"></span><h2>Joint Properties Panel<a class="headerlink" href="#joint-properties-panel" title="Link to this heading"></a></h2>
 <p>The <strong>Joint Properties Panel</strong> is where you can view and edit all joint-related attributes.
 It can be found under the <strong>Physics</strong> tab in Blender.</p>
 <img alt="_images/addon_joint_properties_panel.gif" class="align-center" src="_images/addon_joint_properties_panel.gif" />
@@ -277,7 +298,7 @@ It can be found under the <strong>Physics</strong> tab in Blender.</p>
 </div>
 </section>
 <section id="joint-list">
-<span id="id3"></span><h2>Joint List<a class="headerlink" href="#joint-list" title="Link to this heading"></a></h2>
+<span id="id4"></span><h2>Joint List<a class="headerlink" href="#joint-list" title="Link to this heading"></a></h2>
 <p>The <strong>Joint List</strong> displays all joints (rigid body constraints) in the current scene.
 By default, it filters by <strong>Active Model</strong>, showing only the joints associated with the currently selected model.
 To view joints from <strong>all models</strong>, change the filter to <strong>All Models</strong>.</p>

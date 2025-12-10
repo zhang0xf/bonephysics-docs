@@ -94,6 +94,62 @@ After performing a *Clear* operation, you may also choose to delete the `Root Em
 Visibility
 -------------
 
+You can use the buttons under the **Visibility** section to show or hide related objects in the scene:
 
-Build Rig
--------------
+.. image:: images/addon_visibility.png
+    :alt: Visibility panel
+	:align: center
+    :width: 50%
+
+|
+
+* **Mesh** — Show or hide the model meshes.  
+* **Armature** — Show or hide the character's skeleton (armature).  
+* **Rigid Body** — Show or hide all Rigid Body objects used for simulation.  
+* **Rigid Body Name** — Toggle the display of Rigid Body names in the viewport,  
+  which helps in identifying and debugging complex setups.  
+* **Joint** — Show or hide the joints (Rigid Body Constraints) that connect Rigid Bodies.  
+* **Joint Name** — Display or hide the joint names in the viewport for easier inspection.  
+* **Temporary Objects** — Show or hide helper or temporary objects generated during setup.  
+* **Reset** — Restore all visibility options to their default state.
+
+Build Rig Physics
+--------------------
+
+After adding all :ref:`Rigid Bodies <rigid_body>` and :ref:`Joints <joint>`,  
+click the **Build Rig Physics** button to generate the physical simulation system.  
+
+During this process, the add-on will:
+
+1. Temporarily **mute parent constraints** and **IK constraints** to prevent conflicts with the physics solver.  
+2. Identify Rigid Bodies **without parent bones**, and establish *fake parent relationships* based on their connected joints.  
+3. Rebuild the Rigid Body hierarchy and update their transforms to align with the armature's current pose.  
+4. Automatically create **non-collision constraints (NCC)** between nearby Rigid Bodies that should not collide,  
+   improving stability and avoiding unwanted intersections.  
+5. For dynamic bones, attach hidden **Empty objects** as tracking targets (`bone_physics_rigid_track`)  
+   to allow bones to be driven by Rigid Bodies through `COPY_TRANSFORMS` or `COPY_ROTATION` constraints.  
+6. Restore and synchronize all constraint states once the system is fully initialized.  
+
+When the build is complete, the **Clean Rig Physics** button will appear —  
+clicking it will remove the constructed simulation system and restore the rig to its pre-build state.
+
+.. warning::
+    Always **save your project** before performing any physics build or cleanup operations.
+
+.. note::
+    If you are using a *single-file workflow*, pay close attention to the operation order.  
+    After `Build Rig Physics` is complete, you may preview the simulation by playing the timeline.  
+    When finished, follow this exact sequence before cleaning:
+
+    1. Pause the timeline playback.  
+    2. Press :kbd:`Shift` + :kbd:`←` to reset the timeline to the first frame.  
+    3. Click **Clean Rig Physics**.
+
+    Failing to reset the timeline before cleaning may cause **Blender to crash**.  
+    This happens because the physics system is still actively simulating while  
+    the rig hierarchy and constraints are being removed, leading to dependency conflicts.
+
+    In multi-file collaborative workflows, the *rig file* can remain in a built state  
+    once confirmed stable.  
+    Animators can safely disable physics temporarily by performing **Clean Rig Physics**  
+    before animation editing, and rebuild it again when needed.

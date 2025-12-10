@@ -102,7 +102,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#clear-model">Clear Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#visibility">Visibility</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig">Build Rig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig-physics">Build Rig Physics</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rigidbody.html">Rigid Body</a><ul>
@@ -130,8 +130,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#select-rigid-bodies">Select Rigid Bodies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#select-rigid-bodies">Select Rigid Bodies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#properties-for-comparison">Properties for Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#hide-others">Hide Others</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#remove-rigid-body">Remove Rigid Body</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#example-auxiliary-rigid-bodies">Example: Auxiliary Rigid Bodies</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="joint.html">Joint</a><ul>
@@ -183,8 +188,16 @@
              
   <section id="welcome-to-the-bone-physics-documentation">
 <h1>Welcome to the Bone Physics documentation!<a class="headerlink" href="#welcome-to-the-bone-physics-documentation" title="Link to this heading"></a></h1>
-<p>Bone Physics is a blender add-on focused on skeletal physics simulation for character animation.
-It is suitable for dynamic parts like hair, ribbons, tails, as well as soft-body parts</p>
+<p><strong>Bone Physics</strong> is a Blender add-on designed for skeletal-based physics simulation in character animation,
+especially for <strong>stylized or cartoon characters</strong>.
+It is suitable for dynamic elements such as hair, ribbons, tails, and soft-body parts.</p>
+<p>This add-on is developed on top of <a href="https://github.com/MMD-Blender/blender_mmd_tools" target="_blank">blender_mmd_tools</a>.
+Its purpose is to port the MMD-style physics system into Blender as a standalone module,
+while providing full compatibility with Blender’s built-in <strong>Rigify</strong> armature and other common rigging systems.</p>
+<p>The add-on is open-source on <a href="https://github.com/zhang0xf/bonephysics" target="_blank">github</a> and distributed under the GPL-3 license.
+You may choose to purchase it on <a href="https://superhivemarket.com" target="_blank">superhivemarket</a> to support its continued development.</p>
+<p>Since the add-on is based on <a href="https://github.com/MMD-Blender/blender_mmd_tools" target="_blank">blender_mmd_tools</a>,
+you can reference the physics setups found in many existing <strong>MMD model files</strong> to help configure your own models.</p>
 <p>Check <a href="https://www.youtube.com/c/ArtellBlender" target="_blank">youtube</a> or <a href="https://www.bilibili.com" target="_blank">bilibili</a> for video tutorials and complete workflow demonstrations.</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -198,7 +211,7 @@ It is suitable for dynamic parts like hair, ribbons, tails, as well as soft-body
 <li class="toctree-l2"><a class="reference internal" href="setup.html#root-operations">Root Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#clear-model">Clear Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#visibility">Visibility</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig">Build Rig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig-physics">Build Rig Physics</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rigidbody.html">Rigid Body</a><ul>
@@ -209,6 +222,7 @@ It is suitable for dynamic parts like hair, ribbons, tails, as well as soft-body
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-list">Rigid Body List</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#select-rigid-bodies">Select Rigid Bodies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#remove-rigid-body">Remove Rigid Body</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#example-auxiliary-rigid-bodies">Example: Auxiliary Rigid Bodies</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="joint.html">Joint</a><ul>

@@ -1,3 +1,5 @@
+.. _rigid_body:
+
 Rigid Body
 ==============
 
@@ -115,7 +117,7 @@ Quick Add
 |
 
 .. note::
-    * When no bone is selected in *Pose Mode*, the add-on creates an **auxiliary Rigid Body** for the model.  
+    * When no bone is selected in *Pose Mode*, the add-on creates an :ref:`Auxiliary Rigid Bodies <auxiliary_rigid_bodies>` for the model.  
     * You can adjust the :ref:`Rigid Body Properties <rigid_body_properties>` at any time in the :ref:`Rigid Body Properties Panel <rigid_body_properties_panel>`.  
 
     * For **Rigify** armatures, it is recommended to:  
@@ -137,7 +139,17 @@ Quick Add
 
         This modular structure helps isolate and debug issues efficiently.  
         For details on creating such bone collections and adding custom ones to a Rigify rig,  
-        see the tutorial here: *YouTube link*.  
+        
+        Check |youtube_link| or |bilibili_link| for the tutorial, or refer to the setup shown in the sample file.
+        (Note: You may focus only on the part of the video demonstrating how to add bone collections; the cloth simulation section can be ignored.)
+
+        .. |youtube_link| raw:: html
+         
+            <a href="https://www.youtube.com/watch?v=BKtVuqnCbK0" target="_blank">youtube</a>
+
+        .. |bilibili_link| raw:: html
+         
+            <a href="https://www.bilibili.com/video/BV16G4y1z7BD/?spm_id_from=333.1387.favlist.content.click&vd_source=b9589ad635db7dddd215259c55a8a09c" target="_blank">bilibili</a>
 
         For ``Physics`` or ``Physics + Bone`` type rigid bodies,  
         a single bone can also be bound to multiple rigid bodies.  
@@ -190,11 +202,14 @@ Rigid Body Properties
     * **Name**
         ``$name`` is a placeholder that will use the name of the target bone as the Rigid Body's name.
     * **Physics vs Physics + Bone**
-        ``Physic``: The bone's location and rotation are completely determined by the Rigid Body.
+        ``Physics``: The bone's location and rotation are completely determined by the Rigid Body.
         The Rigid Body may move the bone away from the Armature.  
         
         ``Physics + Bone``: The bone's position is still driven by its parent, but its rotation is copied from the Rigid Body.
         This prevents the bone from detaching while still inheriting the physical simulation results.
+
+        **Note**: although ``Physics + Bone`` appears more stable, artists often prefer the ``Physics`` mode because it allows natural stretch, drag, and follow-through.
+        These principles give elements like ponytails or long hair more believable secondary motion, while ``Physics + Bone`` tends to feel constrained and overly rigid.
 
    * **axis_outward**  
       When using **box-shaped rigid bodies** (**sphere** or **capsule** shapes can ignore) to simulate skirt physics, 
@@ -337,7 +352,40 @@ The missing bone can be reassigned in the :ref:`Rigid Body Properties Panel <rig
 Select Rigid Bodies
 --------------------
 
-TODO:
+You can quickly perform batch selection of rigid bodies through **Select Similar** in the right-side menu.
+This tool compares the properties of the active rigid body and selects all other rigid bodies that share the same values.
+
+Properties for Comparison
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When invoking **Select Similar**, a pop-up dialog will appear, allowing you to choose which properties should be matched:
+
+* Collision Group
+    Selects rigid bodies that share the same collision group number.
+* Collision Group Mask
+    Selects rigid bodies that have the same collision mask configuration.
+* Rigid Type
+    Matches the rigid body type (e.g., Bone, Physics, Physics + Bone).
+* Shape
+    Matches the collision shape.
+* Bone
+   Selects rigid bodies bound to the same target bone.       
+
+These properties can be selected individually or in any combination.
+
+.. image:: images/addon_rigid_body_select_similar.gif
+   :align: center
+
+|
+
+Hide Others
+^^^^^^^^^^^^^^
+
+The dialog also includes a **Hide Others** option:
+
+* When enabled, all rigid bodies that do not match the chosen properties will be hidden and deselected.
+
+* When disabled, unmatched objects remain visible but are simply not selected.
 
 .. _remove_rigid_body:
 
@@ -350,3 +398,61 @@ Select a rigid body in the 3D View, the Rigid Body List, or the Outliner, then c
    :align: center
 
 |
+
+.. _auxiliary_rigid_bodies:
+
+Example: Auxiliary Rigid Bodies
+-------------------------------
+
+When adding Rigid Bodies to a cartoon character's hair —  
+especially for curved bangs or side locks — simply assigning a single Rigid Body to each bone often leads to an undesired effect:  
+the hair strands will hang straight down under gravity during simulation.
+
+However, stylized (non-realistic) hair should retain its designed shape and elasticity even in an idle state.  
+To reproduce this elastic behavior and maintain a smooth, natural motion during simulation,  
+we introduce **auxiliary Rigid Bodies** that influence the target Rigid Bodies,  
+helping them maintain their intended modeled pose instead of collapsing under gravity.
+
+The auxiliary Rigid Body usually has the same mass as its target.  
+By adjusting the **angle** between them, or the **length** of the auxiliary Rigid Body,  
+you can control the amount of torque it applies to the target and achieve the desired balance in simulation.
+
+Below is a comparison between setups **with** and **without** auxiliary Rigid Bodies:
+
+.. rubric:: Comparison: With vs. Without Auxiliary Rigid Bodies
+
+.. figure:: images/addon_with_assist_rigid.gif
+   :alt: Correct setup with auxiliary Rigid Body
+   :align: center
+   :width: 80%
+
+   **With Auxiliary Rigid Body** —  
+   The target Rigid Body is supported by an angled auxiliary Rigid Body,  
+   maintaining the stylized curvature and preventing it from drooping under gravity.  
+   The simulation remains stable while preserving the intended shape.
+
+|
+
+.. figure:: images/addon_without_assist_rigid.gif
+   :alt: Setup without auxiliary Rigid Body
+   :align: center
+   :width: 80%
+
+   **Without Auxiliary Rigid Body** —  
+   The target Rigid Body is only constrained by gravity,  
+   causing the hair to fall straight down and lose its designed curvature.  
+   The motion appears overly loose and unfaithful to the original model.
+
+|
+
+.. figure:: images/addon_mmd_sample.gif
+   :alt: MMD model example using auxiliary Rigid Bodies
+   :align: center
+   :width: 80%
+
+   **MMD Model Example** —  
+   The “Nico” model uses multiple auxiliary Rigid Bodies on the hair.  
+   These keep the hair elastic and lifted even in the idle pose,  
+   resulting in smooth and natural motion during simulation.
+
+For more information on obtaining MMD models, refer to :ref:`TODO <mmd_model_reference>`.

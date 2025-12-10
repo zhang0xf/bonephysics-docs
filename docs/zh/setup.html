@@ -103,7 +103,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#clear-model">Clear Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#visibility">Visibility</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#build-rig">Build Rig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-rig-physics">Build Rig Physics</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rigidbody.html">Rigid Body</a><ul>
@@ -131,8 +131,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#select-rigid-bodies">Select Rigid Bodies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#select-rigid-bodies">Select Rigid Bodies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#properties-for-comparison">Properties for Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#hide-others">Hide Others</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#remove-rigid-body">Remove Rigid Body</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#example-auxiliary-rigid-bodies">Example: Auxiliary Rigid Bodies</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="joint.html">Joint</a><ul>
@@ -282,9 +287,63 @@ After performing a <em>Clear</em> operation, you may also choose to delete the <
 </section>
 <section id="visibility">
 <h2>Visibility<a class="headerlink" href="#visibility" title="Link to this heading"></a></h2>
+<p>You can use the buttons under the <strong>Visibility</strong> section to show or hide related objects in the scene:</p>
+<a class="reference internal image-reference" href="_images/addon_visibility.png"><img alt="Visibility panel :align: center" src="_images/addon_visibility.png" style="width: 50%;" />
+</a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><p><strong>Mesh</strong> — Show or hide the model meshes.</p></li>
+<li><p><strong>Armature</strong> — Show or hide the character's skeleton (armature).</p></li>
+<li><p><strong>Rigid Body</strong> — Show or hide all Rigid Body objects used for simulation.</p></li>
+<li><p><strong>Rigid Body Name</strong> — Toggle the display of Rigid Body names in the viewport,
+which helps in identifying and debugging complex setups.</p></li>
+<li><p><strong>Joint</strong> — Show or hide the joints (Rigid Body Constraints) that connect Rigid Bodies.</p></li>
+<li><p><strong>Joint Name</strong> — Display or hide the joint names in the viewport for easier inspection.</p></li>
+<li><p><strong>Temporary Objects</strong> — Show or hide helper or temporary objects generated during setup.</p></li>
+<li><p><strong>Reset</strong> — Restore all visibility options to their default state.</p></li>
+</ul>
 </section>
-<section id="build-rig">
-<h2>Build Rig<a class="headerlink" href="#build-rig" title="Link to this heading"></a></h2>
+<section id="build-rig-physics">
+<h2>Build Rig Physics<a class="headerlink" href="#build-rig-physics" title="Link to this heading"></a></h2>
+<p>After adding all <a class="reference internal" href="rigidbody.html#rigid-body"><span class="std std-ref">Rigid Bodies</span></a> and <a class="reference internal" href="joint.html#joint"><span class="std std-ref">Joints</span></a>,
+click the <strong>Build Rig Physics</strong> button to generate the physical simulation system.</p>
+<p>During this process, the add-on will:</p>
+<ol class="arabic simple">
+<li><p>Temporarily <strong>mute parent constraints</strong> and <strong>IK constraints</strong> to prevent conflicts with the physics solver.</p></li>
+<li><p>Identify Rigid Bodies <strong>without parent bones</strong>, and establish <em>fake parent relationships</em> based on their connected joints.</p></li>
+<li><p>Rebuild the Rigid Body hierarchy and update their transforms to align with the armature's current pose.</p></li>
+<li><p>Automatically create <strong>non-collision constraints (NCC)</strong> between nearby Rigid Bodies that should not collide,
+improving stability and avoiding unwanted intersections.</p></li>
+<li><p>For dynamic bones, attach hidden <strong>Empty objects</strong> as tracking targets (<cite>bone_physics_rigid_track</cite>)
+to allow bones to be driven by Rigid Bodies through <cite>COPY_TRANSFORMS</cite> or <cite>COPY_ROTATION</cite> constraints.</p></li>
+<li><p>Restore and synchronize all constraint states once the system is fully initialized.</p></li>
+</ol>
+<p>When the build is complete, the <strong>Clean Rig Physics</strong> button will appear —
+clicking it will remove the constructed simulation system and restore the rig to its pre-build state.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Always <strong>save your project</strong> before performing any physics build or cleanup operations.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you are using a <em>single-file workflow</em>, pay close attention to the operation order.
+After <cite>Build Rig Physics</cite> is complete, you may preview the simulation by playing the timeline.
+When finished, follow this exact sequence before cleaning:</p>
+<ol class="arabic simple">
+<li><p>Pause the timeline playback.</p></li>
+<li><p>Press <kbd class="kbd docutils literal notranslate">Shift</kbd> + <kbd class="kbd docutils literal notranslate">←</kbd> to reset the timeline to the first frame.</p></li>
+<li><p>Click <strong>Clean Rig Physics</strong>.</p></li>
+</ol>
+<p>Failing to reset the timeline before cleaning may cause <strong>Blender to crash</strong>.
+This happens because the physics system is still actively simulating while
+the rig hierarchy and constraints are being removed, leading to dependency conflicts.</p>
+<p>In multi-file collaborative workflows, the <em>rig file</em> can remain in a built state
+once confirmed stable.
+Animators can safely disable physics temporarily by performing <strong>Clean Rig Physics</strong>
+before animation editing, and rebuild it again when needed.</p>
+</div>
 </section>
 </section>
 
