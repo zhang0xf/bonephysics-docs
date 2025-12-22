@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to the Bone Physics documentation! &mdash; Bone Physics Docs 1.0.0 documentation</title>
+  <title>Q&amp;A &mdash; Bone Physics Docs 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
@@ -22,7 +22,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation" href="installation.html" /> 
+    <link rel="prev" title="Link &amp; Library Overrides" href="link.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -33,7 +33,7 @@
 
           
           
-          <a href="#" class="icon icon-home">
+          <a href="index.html" class="icon icon-home">
             Bone Physics Docs
           </a>
 <div role="search">
@@ -89,7 +89,7 @@
 </script>
 
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#installing-the-extension">Installing the extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#remove-the-extension">Remove the extension</a></li>
@@ -180,7 +180,7 @@
 <li class="toctree-l2"><a class="reference internal" href="link.html#overridable-properties">Overridable Properties</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="QA.html">Q&amp;A</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Q&amp;A</a></li>
 </ul>
 
         </div>
@@ -189,15 +189,15 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Bone Physics Docs</a>
+          <a href="index.html">Bone Physics Docs</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Welcome to the Bone Physics documentation!</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Q&amp;A</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -206,76 +206,75 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="welcome-to-the-bone-physics-documentation">
-<h1>Welcome to the Bone Physics documentation!<a class="headerlink" href="#welcome-to-the-bone-physics-documentation" title="Link to this heading"></a></h1>
-<p><strong>Bone Physics</strong> is a Blender add-on designed for skeletal-based physics simulation in character animation,
-especially for <strong>stylized or cartoon characters</strong>.
-It is suitable for dynamic elements such as hair, ribbons, tails, and soft-body parts.</p>
-<p>This add-on is developed on top of <a href="https://github.com/MMD-Blender/blender_mmd_tools" target="_blank">blender_mmd_tools</a>.
-Its purpose is to port the MMD-style physics system into Blender as a standalone module,
-while providing full compatibility with Blender’s built-in <strong>Rigify</strong> armature and other common rigging systems.</p>
-<p>The add-on is open-source on <a href="https://github.com/zhang0xf/bonephysics" target="_blank">github</a> and distributed under the GPL-3 license.
-You may choose to purchase it on <a href="https://superhivemarket.com" target="_blank">superhivemarket</a> to support its continued development.</p>
-<p>Since the add-on is based on <a href="https://github.com/MMD-Blender/blender_mmd_tools" target="_blank">blender_mmd_tools</a>,
-you can reference the physics setups found in many existing <strong>MMD model files</strong> to help configure your own models.</p>
-<p>Check <a href="https://www.youtube.com/c/ArtellBlender" target="_blank">youtube</a> or <a href="https://www.bilibili.com" target="_blank">bilibili</a> for video tutorials and complete workflow demonstrations.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#installing-the-extension">Installing the extension</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#remove-the-extension">Remove the extension</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="setup.html">Model Setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#check-model">Check Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#root-operations">Root Operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#clear-model">Clear Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#visibility">Visibility</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig-physics">Build Rig Physics</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="rigidbody.html">Rigid Body</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#parameters">Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#add-rigid-body">Add Rigid Body</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-properties">Rigid Body Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-properties-panel">Rigid Body Properties Panel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-list">Rigid Body List</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#select-rigid-bodies">Select Rigid Bodies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#remove-rigid-body">Remove Rigid Body</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#example-auxiliary-rigid-bodies">Example: Auxiliary Rigid Bodies</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="joint.html">Joint</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="joint.html#add-joint">Add Joint</a></li>
-<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties">Joint Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties-panel">Joint Properties Panel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-list">Joint List</a></li>
-<li class="toctree-l2"><a class="reference internal" href="joint.html#remove-joint">Remove Joint</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="scene.html">Scene Setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="scene.html#timeline">Timeline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scene.html#rigid-body-world">Rigid Body World</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scene.html#bake">Bake</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scene.html#workflow-notes">Workflow Notes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="link.html">Link &amp; Library Overrides</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="link.html#id1">Link</a></li>
-<li class="toctree-l2"><a class="reference internal" href="link.html#library-overrides">Library Overrides</a></li>
-<li class="toctree-l2"><a class="reference internal" href="link.html#overridable-properties">Overridable Properties</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="QA.html">Q&amp;A</a></li>
-</ul>
+  <section id="q-a">
+<span id="qa"></span><h1>Q&amp;A<a class="headerlink" href="#q-a" title="Link to this heading"></a></h1>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Q: How can I get the add-on?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">You can purchase the add-on from <a href="https://superhivemarket.com" target="_blank">superhivemarket</a>,
+or download the source code from the open-source repository
+and package it manually for installation.</p>
 </div>
-</section>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Q: Which versions of Blender are supported?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The minimum supported version is <strong>Blender 4.2 LTS</strong>.
+Support for <strong>Blender 4.5</strong> is not available at the moment.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Q: What license does the add-on use?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The add-on is released under the <strong>GPL-3.0</strong> license.
+You are free to use, modify, and redistribute the add-on, provided that you comply with the terms of the GPL-3.0 license.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Q: How can I get the sample files referenced in the documentation?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">After purchasing the add-on, you will receive the latest version of the add-on,
+offline documentation, and the sample files used in the tutorials and examples.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Q: Can the example files be used for commercial purposes?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The example files provided with the add-on are intended <strong>for reference and learning purposes</strong>.
+You may use them to study setups, test the add-on, or as a guide in your projects.</p>
+<p class="sd-card-text">However, <strong>directly redistributing or selling the example files as-is</strong> is not permitted.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" id="mmd-model-reference">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Q: How can I obtain MMD models for reference?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">You can visit the <a href="https://www.bilibili.com" target="_blank">bilibili</a> website and search for <strong>“绝区零UP主激励计划”</strong>
+(<em>Zenless Zone Zero Creator Incentive Program</em>).
+On the corresponding page, locate the <strong>“模型下载”</strong> (<em>Model Download</em>) section and click <strong>“下载模型”</strong>
+(<em>Download Model</em>) to obtain the latest MMD character models from the game <em>Zenless Zone Zero</em>.</p>
+<p class="sd-card-text">If you are looking for MMD models from earlier versions of <em>Zenless Zone Zero</em>,
+or from other games such as <em>Genshin Impact</em>, you will need to search for additional online resources.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Q: How to get the MMD add-on?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">You can download the MMD add-on from <a href="https://extensions.blender.org/add-ons/mmd-tools/" target="_blank">MMD Tools</a>.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Q: Where can I report bugs or request new features?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">You can report bugs or request new features via <a href="https://github.com/your-repo/issues" target="_blank">GitHub Issues</a>.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Q: How can I contribute to the project?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Contributions are welcome.
+If you are interested in contributing code, documentation, or bug fixes,
+please refer to the <strong>CONTRIBUTING.md</strong> file in the repository for detailed guidelines.</p>
+<p class="sd-card-text">Alternatively, you can open an issue on <a href="https://github.com/your-repo/issues" target="_blank">GitHub Issues</a> to discuss your ideas before submitting a pull request.</p>
+</div>
+</details></section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="link.html" class="btn btn-neutral float-left" title="Link &amp; Library Overrides" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

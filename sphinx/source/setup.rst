@@ -16,7 +16,7 @@ Incorrect or overlapping weights are one of the most common causes of unexpected
     * Face the -Y axis.
         In Blender, by convention characters usually face the negative Y direction. 
         This aligns better with many add-ons, rigging tools, and export pipelines (e.g. for game engines).
-    * Apply all transforms (Ctrl + A > Apply All Transforms).
+    * Apply all transforms (:menuselection:`Ctrl + A --> Apply All Transforms`).
         Make sure location, rotation, and scale are all applied before rigging or running simulations. 
         Non-applied transforms can cause inconsistent bone behavior, incorrect physics, or scaling issues when importing into other software.
 
@@ -24,6 +24,8 @@ Incorrect or overlapping weights are one of the most common causes of unexpected
 	:align: center
 
 |
+
+.. _root-operations:
 
 Root Operations
 -----------------

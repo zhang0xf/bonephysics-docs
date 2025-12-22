@@ -455,4 +455,4 @@ Below is a comparison between setups **with** and **without** auxiliary Rigid Bo
    These keep the hair elastic and lifted even in the idle pose,  
    resulting in smooth and natural motion during simulation.
 
-For more information on obtaining MMD models, refer to :ref:`TODO <mmd_model_reference>`.
+For more information on obtaining MMD models, refer to :ref:`How can I obtain MMD models for reference? <mmd_model_reference>`.

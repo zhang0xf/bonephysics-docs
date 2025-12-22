@@ -9,6 +9,7 @@
   <title>Model Setup &mdash; Bone Physics Docs 1.0.0 文档</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=666d1bab" />
 
   
@@ -17,6 +18,7 @@
       <script src="_static/documentation_options.js?v=f8b00fcb"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
@@ -162,6 +164,24 @@
 <li class="toctree-l2"><a class="reference internal" href="joint.html#remove-joint">Remove Joint</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="scene.html">Scene Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scene.html#timeline">Timeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scene.html#rigid-body-world">Rigid Body World</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scene.html#update-rigid-world">Update Rigid World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scene.html#simulation-quality-settings">Simulation Quality Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scene.html#bake">Bake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scene.html#workflow-notes">Workflow Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="link.html">Link &amp; Library Overrides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="link.html#id1">Link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="link.html#library-overrides">Library Overrides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="link.html#overridable-properties">Overridable Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="QA.html">Q&amp;A</a></li>
 </ul>
 
         </div>
@@ -212,7 +232,7 @@ This aligns better with many add-ons, rigging tools, and export pipelines (e.g. 
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Apply all transforms (Ctrl + A &gt; Apply All Transforms).</dt><dd><p>Make sure location, rotation, and scale are all applied before rigging or running simulations.
+<dt>Apply all transforms (<span class="menuselection">Ctrl + A ‣ Apply All Transforms</span>).</dt><dd><p>Make sure location, rotation, and scale are all applied before rigging or running simulations.
 Non-applied transforms can cause inconsistent bone behavior, incorrect physics, or scaling issues when importing into other software.</p>
 </dd>
 </dl>
@@ -225,7 +245,7 @@ Non-applied transforms can cause inconsistent bone behavior, incorrect physics, 
 </div>
 </section>
 <section id="root-operations">
-<h2>Root Operations<a class="headerlink" href="#root-operations" title="Link to this heading"></a></h2>
+<span id="id1"></span><h2>Root Operations<a class="headerlink" href="#root-operations" title="Link to this heading"></a></h2>
 <p>The purpose of <strong>Root Operations</strong> is to configure an <strong>Empty</strong> object as the <cite>Root Empty</cite> for the current armature model.
 Through this root object, all auxiliary elements used in physics simulation — such as rigid bodies, joints, or temporary helper objects — can be organized under a single parent.</p>
 <p>This approach makes it much easier to manage multi-character scenes in a clean and structured way. For example:</p>
@@ -244,7 +264,7 @@ Through this root object, all auxiliary elements used in physics simulation — 
 <li><p>Your armature <strong>already has a direct empty parent</strong> → use <a class="reference internal" href="#select-root"><span class="std std-ref">Select Root</span></a> to assign it as the root.</p></li>
 </ul>
 <section id="create-root">
-<span id="id1"></span><h3>Create Root<a class="headerlink" href="#create-root" title="Link to this heading"></a></h3>
+<span id="id2"></span><h3>Create Root<a class="headerlink" href="#create-root" title="Link to this heading"></a></h3>
 <p>This operation creates a new <strong>Empty</strong> object as the parent of the selected armature model, serving as its root.</p>
 <img alt="_images/addon_create_root.gif" class="align-center" src="_images/addon_create_root.gif" />
 <div class="line-block">
@@ -259,7 +279,7 @@ Through this root object, all auxiliary elements used in physics simulation — 
 </ul>
 </section>
 <section id="select-root">
-<span id="id2"></span><h3>Select Root<a class="headerlink" href="#select-root" title="Link to this heading"></a></h3>
+<span id="id3"></span><h3>Select Root<a class="headerlink" href="#select-root" title="Link to this heading"></a></h3>
 <p>This operation allows you to select an existing <strong>direct parent</strong> of the selected armature as its root.</p>
 <img alt="_images/addon_select_root.gif" class="align-center" src="_images/addon_select_root.gif" />
 <div class="line-block">
