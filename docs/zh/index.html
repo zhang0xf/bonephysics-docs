@@ -100,9 +100,9 @@
 <li class="toctree-l2"><a class="reference internal" href="setup.html#root-operations">Root Operations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="setup.html#create-root">Create Root</a></li>
 <li class="toctree-l3"><a class="reference internal" href="setup.html#select-root">Select Root</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#clear">Clear</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#clear-model">Clear Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#visibility">Visibility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig-physics">Build Rig Physics</a></li>
 </ul>
@@ -143,7 +143,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="joint.html">Joint</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="joint.html#add-joint">Add Joint</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#add-a-joint-between-two-rigid-bodies">Add a Joint Between Two Rigid Bodies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#add-joint-between-two-rigid-bodies">Add Joint Between Two Rigid Bodies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#add-joints-along-a-bone-chain">Add Joints Along a Bone Chain</a></li>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#save-presets">Save Presets</a></li>
 </ul>
@@ -174,7 +174,7 @@
 <li class="toctree-l2"><a class="reference internal" href="scene.html#workflow-notes">Workflow Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="link.html">Link &amp; Library Overrides</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="link.html">Linking &amp; Library Overrides</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="link.html#id1">Link</a></li>
 <li class="toctree-l2"><a class="reference internal" href="link.html#library-overrides">Library Overrides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="link.html#overridable-properties">Overridable Properties</a></li>
@@ -208,17 +208,16 @@
              
   <section id="welcome-to-the-bone-physics-documentation">
 <h1>欢迎使用 Bone Physics 文档<a class="headerlink" href="#welcome-to-the-bone-physics-documentation" title="Link to this heading"></a></h1>
-<p><strong>Bone Physics</strong> is a Blender add-on designed for skeletal-based physics simulation in character animation,
-especially for <strong>stylized or cartoon characters</strong>.
-It is suitable for dynamic elements such as hair, ribbons, tails, and soft-body parts.</p>
+<p><strong>Bone Physics</strong> is a Blender add-on designed for skeletal-based physics simulation in stylized character animation.
+It is particularly useful for dynamic elements such as hair, ribbons, tails, and other secondary motion parts.</p>
 <p>This add-on is developed on top of <a href="https://github.com/MMD-Blender/blender_mmd_tools" target="_blank">blender_mmd_tools</a>.
-Its purpose is to port the MMD-style physics system into Blender as a standalone module,
+Its purpose is to port the MMD physics system into Blender as a standalone module,
 while providing full compatibility with Blender's built-in <strong>Rigify</strong> armature and other common rigging systems.</p>
-<p>The add-on is open-source on <a href="https://github.com/zhang0xf/bonephysics" target="_blank">github</a> and distributed under the GPL-3 license.
-You may choose to purchase it on <a href="https://superhivemarket.com" target="_blank">superhivemarket</a> to support its continued development.</p>
-<p>Since the add-on is based on <a href="https://github.com/MMD-Blender/blender_mmd_tools" target="_blank">blender_mmd_tools</a>,
-you can reference the physics setups found in many existing <strong>MMD model files</strong> to help configure your own models.</p>
-<p>请查看 <a href="https://www.youtube.com/c/ArtellBlender" target="_blank">youtube</a> 或 <a href="https://www.bilibili.com" target="_blank">bilibili</a> 获取视频教程以及完整的工作流程演示。</p>
+<p>This add-on is open-source on <a href="https://github.com/zhang0xf/bonephysics" target="_blank">github</a> and distributed under the GPL-3.0 license.</p>
+<p>If you would like to support its development, you may also purchase it on <a href="https://superhivemarket.com" target="_blank">superhivemarket</a>, <a href="https://gumroad.com" target="_blank">gumroad</a>, and <a href="https://shop.bilibili.com" target="_blank">bilibili_shop</a>.</p>
+<p>Since the system is based on <a href="https://github.com/MMD-Blender/blender_mmd_tools" target="_blank">blender_mmd_tools</a>,
+you can reference the physics setups found in many existing <strong>MMD models</strong> when configuring your own characters.</p>
+<p>Video tutorials and complete workflow demonstrations are available on <a href="https://www.youtube.com" target="_blank">YouTube</a> and <a href="https://www.bilibili.com" target="_blank">Bilibili</a>.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">安装</a><ul>
@@ -229,7 +228,6 @@ you can reference the physics setups found in many existing <strong>MMD model fi
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Model Setup</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#check-model">Check Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#root-operations">Root Operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#clear-model">Clear Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#visibility">Visibility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig-physics">Build Rig Physics</a></li>
 </ul>
@@ -260,7 +258,7 @@ you can reference the physics setups found in many existing <strong>MMD model fi
 <li class="toctree-l2"><a class="reference internal" href="scene.html#workflow-notes">Workflow Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="link.html">Link &amp; Library Overrides</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="link.html">Linking &amp; Library Overrides</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="link.html#id1">Link</a></li>
 <li class="toctree-l2"><a class="reference internal" href="link.html#library-overrides">Library Overrides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="link.html#overridable-properties">Overridable Properties</a></li>

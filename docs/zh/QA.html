@@ -22,7 +22,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="prev" title="Link &amp; Library Overrides" href="link.html" /> 
+    <link rel="prev" title="Linking &amp; Library Overrides" href="link.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -100,9 +100,9 @@
 <li class="toctree-l2"><a class="reference internal" href="setup.html#root-operations">Root Operations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="setup.html#create-root">Create Root</a></li>
 <li class="toctree-l3"><a class="reference internal" href="setup.html#select-root">Select Root</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#clear">Clear</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#clear-model">Clear Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#visibility">Visibility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig-physics">Build Rig Physics</a></li>
 </ul>
@@ -143,7 +143,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="joint.html">Joint</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="joint.html#add-joint">Add Joint</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#add-a-joint-between-two-rigid-bodies">Add a Joint Between Two Rigid Bodies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#add-joint-between-two-rigid-bodies">Add Joint Between Two Rigid Bodies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#add-joints-along-a-bone-chain">Add Joints Along a Bone Chain</a></li>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#save-presets">Save Presets</a></li>
 </ul>
@@ -174,7 +174,7 @@
 <li class="toctree-l2"><a class="reference internal" href="scene.html#workflow-notes">Workflow Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="link.html">Link &amp; Library Overrides</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="link.html">Linking &amp; Library Overrides</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="link.html#id1">Link</a></li>
 <li class="toctree-l2"><a class="reference internal" href="link.html#library-overrides">Library Overrides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="link.html#overridable-properties">Overridable Properties</a></li>
@@ -211,15 +211,15 @@
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Q: How can I get the add-on?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">You can purchase the add-on from <a href="https://superhivemarket.com" target="_blank">superhivemarket</a>,
-or download the source code from the open-source repository
-and package it manually for installation.</p>
+<p class="sd-card-text">You can purchase it on <a href="https://superhivemarket.com" target="_blank">superhivemarket</a>, <a href="https://gumroad.com" target="_blank">gumroad</a>, and <a href="https://shop.bilibili.com" target="_blank">bilibili_shop</a>.</p>
+<p class="sd-card-text">You can also download the add-on <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file directly from the GitHub <em>Releases</em> page.</p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Q: Which versions of Blender are supported?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">The minimum supported version is <strong>Blender 4.2 LTS</strong>.
-Support for <strong>Blender 4.5</strong> is not available at the moment.</p>
+<p class="sd-card-text">The <strong>minimum supported version</strong> is <strong>Blender 4.2 LTS</strong>.</p>
+<p class="sd-card-text">The add-on is developed and tested primarily on Blender 4.2.
+Newer versions of Blender ( such as <strong>Blender 4.5</strong> ) may also work, but they have not been fully tested yet.</p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -230,43 +230,48 @@ You are free to use, modify, and redistribute the add-on, provided that you comp
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Q: How can I get the sample files referenced in the documentation?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">After purchasing the add-on, you will receive the latest version of the add-on,
-offline documentation, and the sample files used in the tutorials and examples.</p>
+<p class="sd-card-text">After purchasing the add-on, you will receive:</p>
+<ul class="simple">
+<li><p class="sd-card-text">The add-on package</p></li>
+<li><p class="sd-card-text">Offline documentation</p></li>
+<li><p class="sd-card-text">Sample files used in the tutorials and examples</p></li>
+</ul>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Q: Can the example files be used for commercial purposes?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">The example files provided with the add-on are intended <strong>for reference and learning purposes</strong>.
-You may use them to study setups, test the add-on, or as a guide in your projects.</p>
-<p class="sd-card-text">However, <strong>directly redistributing or selling the example files as-is</strong> is not permitted.</p>
+<p class="sd-card-text">The example files provided with the add-on are intended for reference and learning purposes.</p>
+<p class="sd-card-text">You may use them to study the setups, test the add-on,
+or use them as a guide in your own projects.</p>
+<p class="sd-card-text">However, directly redistributing or selling the example files
+as standalone assets is <strong>not permitted</strong>.</p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" id="mmd-model-reference">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Q: How can I obtain MMD models for reference?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">You can visit the <a href="https://www.bilibili.com" target="_blank">bilibili</a> website and search for <strong>“绝区零UP主激励计划”</strong>
-(<em>Zenless Zone Zero Creator Incentive Program</em>).
-On the corresponding page, locate the <strong>“模型下载”</strong> (<em>Model Download</em>) section and click <strong>“下载模型”</strong>
-(<em>Download Model</em>) to obtain the latest MMD character models from the game <em>Zenless Zone Zero</em>.</p>
-<p class="sd-card-text">If you are looking for MMD models from earlier versions of <em>Zenless Zone Zero</em>,
-or from other games such as <em>Genshin Impact</em>, you will need to search for additional online resources.</p>
+<p class="sd-card-text">Many MMD models can be found online.</p>
+<p class="sd-card-text">For example, You can visit the <a href="https://www.bilibili.com" target="_blank">Bilibili</a> website and search for <em>绝区零UP主激励计划</em>.
+On the corresponding page, locate the <em>模型下载</em> section
+and click <em>下载模型</em> to obtain the latest MMD character models from the game <em>Zenless Zone Zero</em>.</p>
+<p class="sd-card-text">If you are looking for models from other games such as <em>Genshin Impact</em>, you may need to search additional community websites and archives.</p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Q: How to get the MMD add-on?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">You can download the MMD add-on from <a href="https://extensions.blender.org/add-ons/mmd-tools/" target="_blank">MMD Tools</a>.</p>
+<p class="sd-card-text">The <strong>MMD Tools</strong> add-on can be downloaded from <a href="https://extensions.blender.org/add-ons/mmd-tools/" target="_blank">MMD Tools</a>.</p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Q: Where can I report bugs or request new features?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">You can report bugs or request new features via <a href="https://github.com/your-repo/issues" target="_blank">GitHub Issues</a>.</p>
+<p class="sd-card-text">Bugs and feature requests can be reported via <a href="https://github.com/your-repo/issues" target="_blank">GitHub Issues</a>.</p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Q: How can I contribute to the project?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Contributions are welcome.
-If you are interested in contributing code, documentation, or bug fixes,
-please refer to the <strong>CONTRIBUTING.md</strong> file in the repository for detailed guidelines.</p>
-<p class="sd-card-text">Alternatively, you can open an issue on <a href="https://github.com/your-repo/issues" target="_blank">GitHub Issues</a> to discuss your ideas before submitting a pull request.</p>
+<p class="sd-card-text">Contributions are welcome.</p>
+<p class="sd-card-text">If you are interested in contributing code, documentation, or bug fixes, please refer to the <strong>CONTRIBUTING.md</strong> file
+in the repository for detailed guidelines.</p>
+<p class="sd-card-text">You can also open an issue on <a href="https://github.com/your-repo/issues" target="_blank">GitHub Issues</a> to discuss your ideas before submitting a pull request.</p>
 </div>
 </details></section>
 
@@ -274,7 +279,7 @@ please refer to the <strong>CONTRIBUTING.md</strong> file in the repository for 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
-        <a href="link.html" class="btn btn-neutral float-left" title="Link &amp; Library Overrides" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="link.html" class="btn btn-neutral float-left" title="Linking &amp; Library Overrides" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
     </div>
 
   <hr/>

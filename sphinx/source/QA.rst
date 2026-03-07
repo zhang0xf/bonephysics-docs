@@ -5,18 +5,28 @@ Q&A
 
 .. dropdown:: Q: How can I get the add-on?
 
-   You can purchase the add-on from |blender_market|,
-   or download the source code from the open-source repository
-   and package it manually for installation.
+   You can purchase it on |superhivemarket|, |gumroad|, and |bilibili_shop|.
+   
+   You can also download the add-on ``.zip`` file directly from the GitHub *Releases* page.
 
-.. |blender_market| raw:: html
+.. |superhivemarket| raw:: html
          
    <a href="https://superhivemarket.com" target="_blank">superhivemarket</a>
 
+.. |gumroad| raw:: html
+
+   <a href="https://gumroad.com" target="_blank">gumroad</a>
+
+.. |bilibili_shop| raw:: html
+
+   <a href="https://shop.bilibili.com" target="_blank">bilibili_shop</a>
+
 .. dropdown:: Q: Which versions of Blender are supported?
 
-    The minimum supported version is **Blender 4.2 LTS**.  
-    Support for **Blender 4.5** is not available at the moment.
+   The **minimum supported version** is **Blender 4.2 LTS**.
+
+   The add-on is developed and tested primarily on Blender 4.2.
+   Newer versions of Blender ( such as **Blender 4.5** ) may also work, but they have not been fully tested yet.
 
 .. dropdown:: Q: What license does the add-on use?
 
@@ -25,43 +35,49 @@ Q&A
 
 .. dropdown:: Q: How can I get the sample files referenced in the documentation?
 
-   After purchasing the add-on, you will receive the latest version of the add-on,  
-   offline documentation, and the sample files used in the tutorials and examples.
+   After purchasing the add-on, you will receive:
+
+   * The add-on package
+   * Offline documentation
+   * Sample files used in the tutorials and examples
 
 .. dropdown:: Q: Can the example files be used for commercial purposes?
 
-   The example files provided with the add-on are intended **for reference and learning purposes**.  
-   You may use them to study setups, test the add-on, or as a guide in your projects.  
+   The example files provided with the add-on are intended for reference and learning purposes.
 
-   However, **directly redistributing or selling the example files as-is** is not permitted.  
+   You may use them to study the setups, test the add-on,
+   or use them as a guide in your own projects.
+
+   However, directly redistributing or selling the example files
+   as standalone assets is **not permitted**.
 
 .. _mmd_model_reference:
 
 .. dropdown:: Q: How can I obtain MMD models for reference?
+   
+   Many MMD models can be found online.
 
-   You can visit the |bilibili_link| website and search for **“绝区零UP主激励计划”**  
-   (*Zenless Zone Zero Creator Incentive Program*).  
-   On the corresponding page, locate the **“模型下载”** (*Model Download*) section and click **“下载模型”**  
-   (*Download Model*) to obtain the latest MMD character models from the game *Zenless Zone Zero*.
+   For example, You can visit the |bilibili_link| website and search for *绝区零UP主激励计划*.  
+   On the corresponding page, locate the *模型下载* section 
+   and click *下载模型* to obtain the latest MMD character models from the game *Zenless Zone Zero*.
 
-   If you are looking for MMD models from earlier versions of *Zenless Zone Zero*,  
-   or from other games such as *Genshin Impact*, you will need to search for additional online resources.
+   If you are looking for models from other games such as *Genshin Impact*, you may need to search additional community websites and archives.
 
 .. |bilibili_link| raw:: html
 
-   <a href="https://www.bilibili.com" target="_blank">bilibili</a>
+   <a href="https://www.bilibili.com" target="_blank">Bilibili</a>
 
 .. dropdown:: Q: How to get the MMD add-on?
 
-   You can download the MMD add-on from |MMD Tools|.  
+   The **MMD Tools** add-on can be downloaded from |MMD_Tools|.
 
-.. |MMD Tools| raw:: html
+.. |MMD_Tools| raw:: html
 
     <a href="https://extensions.blender.org/add-ons/mmd-tools/" target="_blank">MMD Tools</a>
 
 .. dropdown:: Q: Where can I report bugs or request new features?
 
-   You can report bugs or request new features via |github_issues|.
+   Bugs and feature requests can be reported via |github_issues|.
 
 .. |github_issues| raw:: html
          
@@ -69,8 +85,9 @@ Q&A
 
 .. dropdown:: Q: How can I contribute to the project?
 
-   Contributions are welcome.  
-   If you are interested in contributing code, documentation, or bug fixes,  
-   please refer to the **CONTRIBUTING.md** file in the repository for detailed guidelines.
+   Contributions are welcome.
 
-   Alternatively, you can open an issue on |github_issues| to discuss your ideas before submitting a pull request.
+   If you are interested in contributing code, documentation, or bug fixes, please refer to the **CONTRIBUTING.md** file
+   in the repository for detailed guidelines.
+
+   You can also open an issue on |github_issues| to discuss your ideas before submitting a pull request.

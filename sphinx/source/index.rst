@@ -6,29 +6,37 @@
 Welcome to the Bone Physics documentation!
 ===========================================
 
-**Bone Physics** is a Blender add-on designed for skeletal-based physics simulation in character animation,  
-especially for **stylized or cartoon characters**.  
-It is suitable for dynamic elements such as hair, ribbons, tails, and soft-body parts.
+**Bone Physics** is a Blender add-on designed for skeletal-based physics simulation in stylized character animation.
+It is particularly useful for dynamic elements such as hair, ribbons, tails, and other secondary motion parts.
 
-This add-on is developed on top of |blender_mmd_tools|.  
-Its purpose is to port the MMD-style physics system into Blender as a standalone module,  
+This add-on is developed on top of |blender_mmd_tools|.
+Its purpose is to port the MMD physics system into Blender as a standalone module,  
 while providing full compatibility with Blender's built-in **Rigify** armature and other common rigging systems.
 
-The add-on is open-source on |github| and distributed under the GPL-3 license.
-You may choose to purchase it on |blender_market| to support its continued development.
+This add-on is open-source on |github| and distributed under the GPL-3.0 license.
 
-Since the add-on is based on |blender_mmd_tools|,  
-you can reference the physics setups found in many existing **MMD model files** to help configure your own models.
+If you would like to support its development, you may also purchase it on |superhivemarket|, |gumroad|, and |bilibili_shop|.
 
-Check |youtube_link| or |bilibili_link| for video tutorials and complete workflow demonstrations.
+Since the system is based on |blender_mmd_tools|,  
+you can reference the physics setups found in many existing **MMD models** when configuring your own characters.
+
+Video tutorials and complete workflow demonstrations are available on |youtube_link| and |bilibili_link|.
 
 .. |github| raw:: html
          
    <a href="https://github.com/zhang0xf/bonephysics" target="_blank">github</a>
 
-.. |blender_market| raw:: html
+.. |superhivemarket| raw:: html
          
    <a href="https://superhivemarket.com" target="_blank">superhivemarket</a>
+
+.. |gumroad| raw:: html
+
+   <a href="https://gumroad.com" target="_blank">gumroad</a>
+
+.. |bilibili_shop| raw:: html
+
+   <a href="https://shop.bilibili.com" target="_blank">bilibili_shop</a>
 
 .. |blender_mmd_tools| raw:: html
          
@@ -36,11 +44,11 @@ Check |youtube_link| or |bilibili_link| for video tutorials and complete workflo
 
 .. |youtube_link| raw:: html
 
-   <a href="https://www.youtube.com/c/ArtellBlender" target="_blank">youtube</a>
+   <a href="https://www.youtube.com" target="_blank">YouTube</a>
 
 .. |bilibili_link| raw:: html
 
-   <a href="https://www.bilibili.com" target="_blank">bilibili</a>
+   <a href="https://www.bilibili.com" target="_blank">Bilibili</a>
 
 .. toctree::
    :maxdepth: 2

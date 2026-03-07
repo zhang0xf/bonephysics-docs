@@ -4,14 +4,16 @@ Model Setup
 Check Model
 ------------
 
-Before you begin, make sure you have a properly prepared armature model. 
-Double-check that the weights (vertex groups) are assigned correctly, especially for the bones that will participate in the physics simulation. 
+Before you begin, make sure the armature model is properly prepared.
+
+Make sure the vertex weights are assigned correctly, 
+especially for the bones that will participate in the physics simulation. 
 Incorrect or overlapping weights are one of the most common causes of unexpected simulation issues.
 
 .. important::
     | While the following setup steps are not strictly required, starting with these standards will help you avoid many common problems later:
     
-    * Place the model at the world origin (0, 0, 0).
+    * Place the model at the world origin ( 0, 0, 0 ).
         This makes it easier to align with other assets and ensures consistency when exporting.
     * Face the -Y axis.
         In Blender, by convention characters usually face the negative Y direction. 
@@ -30,41 +32,48 @@ Incorrect or overlapping weights are one of the most common causes of unexpected
 Root Operations
 -----------------
 
-The purpose of **Root Operations** is to configure an **Empty** object as the `Root Empty` for the current armature model.  
+.. image:: images/addon_root_operations.png
+    :alt: Visibility panel
+	:align: center
+    :width: 50%
+
+The purpose of **Root Operations** is to configure an Empty object as the `Root Empty` for the current armature model.  
 Through this root object, all auxiliary elements used in physics simulation — such as rigid bodies, joints, or temporary helper objects — can be organized under a single parent.  
 
-This approach makes it much easier to manage multi-character scenes in a clean and structured way. For example:  
+This approach makes it much easier to manage multi-character scenes in a clean and structured way. 
+For example:  
 
 * `Linking` and `Library Overrides` become straightforward, since you only need to link a single collection.  
 * You can also attach custom-purpose objects to the root, such as special effect emitters, camera focus targets, or gameplay markers — a workflow that is very common in game development.  
 
-Although this add-on **requires** that every armature model must be placed under a `Root Empty`, we believe this is a reasonable and practical design choice.  
+This add-on requires that every armature model be placed under a `Root Empty`.
 
 .. warning::  
-   If you cannot accept this design, you will not be able to continue using the add-on.
+   This requirement is fundamental to how the add-on organizes physics data.
+   If this workflow does not fit your project, the add-on may not be suitable for your pipeline.
 
 There are two possible scenarios:  
 
-* Your armature does **not yet have an empty parent** → use :ref:`create-root` to generate one.  
-* Your armature **already has a direct empty parent** → use :ref:`select-root` to assign it as the root.  
+* Your armature does not yet have an empty parent → use :ref:`create-root` to generate one.  
+* Your armature already has a direct empty parent → use :ref:`select-root` to assign it as the root.  
 
 .. _create-root:
 
 Create Root
 ~~~~~~~~~~~~
 
-This operation creates a new **Empty** object as the parent of the selected armature model, serving as its root.  
+This operation creates a new Empty object as the parent of the selected armature model, serving as its root.  
 
 .. image:: images/addon_create_root.gif
 	:align: center
 
 |
 
-* You can set the Empty's **name**, **display type**, and **scale**.
-* The root will be created at the **armature model's current location** and will automatically become its parent. 
-  (Therefore, we recommend placing the armature at the **world origin**) 
-* Once the root is created, the armature's **transform** (Location, Rotation, Scale) will be **locked**. 
-* Finally, the armature will be set to **Show in Front** , which helps keep it visible over other objects.
+* You can set the Empty's `name`, `display type`, and `scale`.
+* The root will be created at the **current location of the armature** and will automatically become its parent. 
+  (Therefore, we recommend placing the armature at the world origin) 
+* Once the root is created, the armature's **Transform** (`Location`, `Rotation`, `Scale`) will be locked. 
+* Finally, the armature will be set to **Show In Front** , which helps keep it visible over other objects.
 
 .. _select-root:
 
@@ -78,20 +87,20 @@ This operation allows you to select an existing **direct parent** of the selecte
 
 |
 
-* Currently, only **direct parents that are Empty objects** are supported. 
-* Although the Empty does **not have to coincide with the armature's origin**, it is recommended to align them for cleaner transformations.
-* Once the root is selected, the armature's **transform** (Location, Rotation, Scale) will be **locked**.
-* Finally, the armature will be set to **Show in Front**, which helps keep it visible over other objects.
+* Currently, only Empty objects that are direct parents are supported. 
+* Although the Empty does not have to coincide with the armature's origin, it is recommended to align them for cleaner transformations.
+* Once the root is selected, the armature's **Transform** (`Location`, `Rotation`, `Scale`) will be locked.
+* Finally, the armature will be set to **Show In Front**, which helps keep it visible over other objects.
 
-Clear Model
--------------
+Clear
+~~~~~~~
 
-This operation removes all **rigid bodies** and **constraints** under the `rigidbodies`, `joints`, and `temporary` groups.
-It will also **unlock the armature's transform** (Location, Rotation, Scale).
-After performing a *Clear* operation, you may also choose to delete the `Root Empty` object if it is no longer needed.
+This operation removes all rigid bodies and constraints under the `rigidbodies`, `joints`, and `temporary` groups.
+It will also unlock the armature's **Transform** (`Location`, `Rotation`, `Scale`).
+After performing a :menuselection:`Clear` operation, you may also choose to delete the `Root Empty` object if it is no longer needed.
 
 .. caution:: 
-    | Clearing everything will remove all physics-related data. Once deleted, the model can no longer participate in physics simulation unless the setup is rebuilt.
+    | Clearing everything will remove all physics-related data. Once deleted, the model will no longer participate in physics simulation unless the setup is rebuilt.
 
 Visibility
 -------------
@@ -103,36 +112,39 @@ You can use the buttons under the **Visibility** section to show or hide related
 	:align: center
     :width: 50%
 
-|
-
-* **Mesh** — Show or hide the model meshes.  
-* **Armature** — Show or hide the character's skeleton (armature).  
-* **Rigid Body** — Show or hide all Rigid Body objects used for simulation.  
-* **Rigid Body Name** — Toggle the display of Rigid Body names in the viewport,  
+* :menuselection:`Mesh` — Show or hide the model meshes.  
+* :menuselection:`Armature` — Show or hide the armature.  
+* :menuselection:`Rigid Body` — Show or hide all rigid body objects used for simulation.  
+* :menuselection:`Rigid Body Name` — Toggle the display of rigid body names in the viewport.
   which helps in identifying and debugging complex setups.  
-* **Joint** — Show or hide the joints (Rigid Body Constraints) that connect Rigid Bodies.  
-* **Joint Name** — Display or hide the joint names in the viewport for easier inspection.  
-* **Temporary Objects** — Show or hide helper or temporary objects generated during setup.  
-* **Reset** — Restore all visibility options to their default state.
+* :menuselection:`Joint` — Show or hide the joints (Rigid Body Constraints) that connect Rigid Bodies.  
+* :menuselection:`Joint Name` — Display or hide the joint names in the viewport for easier inspection.  
+* :menuselection:`Temporary Objects` — Show or hide helper or temporary objects generated during setup.  
+* :menuselection:`Reset` — Restore all visibility options to their default state.
 
 Build Rig Physics
 --------------------
 
 After adding all :ref:`Rigid Bodies <rigid_body>` and :ref:`Joints <joint>`,  
-click the **Build Rig Physics** button to generate the physical simulation system.  
+click the :menuselection:`Build Rig Physics` button to generate the physical simulation system.  
+
+.. image:: images/addon_build_rig_physics.png
+    :alt: Visibility panel
+	:align: center
+    :width: 50%
 
 During this process, the add-on will:
 
-1. Temporarily **mute parent constraints** and **IK constraints** to prevent conflicts with the physics solver.  
-2. Identify Rigid Bodies **without parent bones**, and establish *fake parent relationships* based on their connected joints.  
-3. Rebuild the Rigid Body hierarchy and update their transforms to align with the armature's current pose.  
-4. Automatically create **non-collision constraints (NCC)** between nearby Rigid Bodies that should not collide,  
+1. Temporarily mute **Parent constraints** and **IK constraints** to prevent conflicts with the physics solver.  
+2. Identify rigid bodies without parent bones, and establish *fake parent relationships* based on their connected joints.  
+3. Rebuild the rigid body hierarchy and update their transforms to align with the armature's current pose.  
+4. Automatically create non-collision constraints **(NCC)** between nearby rigid bodies that should not collide,  
    improving stability and avoiding unwanted intersections.  
-5. For dynamic bones, attach hidden **Empty objects** as tracking targets (`bone_physics_rigid_track`)  
-   to allow bones to be driven by Rigid Bodies through `COPY_TRANSFORMS` or `COPY_ROTATION` constraints.  
+5. For dynamic bones, attach hidden Empty objects as tracking targets (`bone_physics_rigid_track`)  
+   to allow bones to be driven by Rigid Bodies through ``COPY_TRANSFORMS`` or ``COPY_ROTATION`` constraints.  
 6. Restore and synchronize all constraint states once the system is fully initialized.  
 
-When the build is complete, the **Clean Rig Physics** button will appear —  
+When the build is complete, the :menuselection:`Clean Rig Physics` button will appear —  
 clicking it will remove the constructed simulation system and restore the rig to its pre-build state.
 
 .. warning::
@@ -140,18 +152,16 @@ clicking it will remove the constructed simulation system and restore the rig to
 
 .. note::
     If you are using a *single-file workflow*, pay close attention to the operation order.  
-    After `Build Rig Physics` is complete, you may preview the simulation by playing the timeline.  
+    After :menuselection:`Build Rig Physics` is complete, you may preview the simulation by playing the timeline.  
     When finished, follow this exact sequence before cleaning:
 
     1. Pause the timeline playback.  
     2. Press :kbd:`Shift` + :kbd:`←` to reset the timeline to the first frame.  
-    3. Click **Clean Rig Physics**.
+    3. Click :menuselection:`Clean Rig Physics`.
 
     Failing to reset the timeline before cleaning may cause **Blender to crash**.  
     This happens because the physics system is still actively simulating while  
     the rig hierarchy and constraints are being removed, leading to dependency conflicts.
 
-    In multi-file collaborative workflows, the *rig file* can remain in a built state  
-    once confirmed stable.  
-    Animators can safely disable physics temporarily by performing **Clean Rig Physics**  
+    In *multi-file collaborative workflows*, animators can safely disable physics temporarily by performing :menuselection:`Clean Rig Physics`  
     before animation editing, and rebuild it again when needed.

@@ -101,9 +101,9 @@
 <li class="toctree-l2"><a class="reference internal" href="setup.html#root-operations">Root Operations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="setup.html#create-root">Create Root</a></li>
 <li class="toctree-l3"><a class="reference internal" href="setup.html#select-root">Select Root</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#clear">Clear</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#clear-model">Clear Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#visibility">Visibility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig-physics">Build Rig Physics</a></li>
 </ul>
@@ -144,7 +144,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="joint.html">Joint</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="joint.html#add-joint">Add Joint</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#add-a-joint-between-two-rigid-bodies">Add a Joint Between Two Rigid Bodies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#add-joint-between-two-rigid-bodies">Add Joint Between Two Rigid Bodies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#add-joints-along-a-bone-chain">Add Joints Along a Bone Chain</a></li>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#save-presets">Save Presets</a></li>
 </ul>
@@ -175,7 +175,7 @@
 <li class="toctree-l2"><a class="reference internal" href="scene.html#workflow-notes">Workflow Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="link.html">Link &amp; Library Overrides</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="link.html">Linking &amp; Library Overrides</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="link.html#id1">Link</a></li>
 <li class="toctree-l2"><a class="reference internal" href="link.html#library-overrides">Library Overrides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="link.html#overridable-properties">Overridable Properties</a></li>
@@ -218,8 +218,8 @@
 </div>
 </div>
 <ol class="arabic simple">
-<li><p>In Blender, click <span class="menuselection">Edit ‣ Preferences...</span></p></li>
-<li><p>Click the down arrow button at the top right corner <span class="menuselection">‣ Install from Disk...</span></p></li>
+<li><p>In Blender, click <span class="menuselection">Edit ‣ Preferences ‣ Add-ons</span>.</p></li>
+<li><p>Click the down arrow in the top-right corner and choose <span class="menuselection">‣ Install from Disk...</span></p></li>
 </ol>
 <img alt="_images/blender_install_addon.png" class="align-center" src="_images/blender_install_addon.png" />
 <div class="line-block">
@@ -228,24 +228,25 @@
 </section>
 <section id="remove-the-extension">
 <h2>Remove the extension<a class="headerlink" href="#remove-the-extension" title="Link to this heading"></a></h2>
-<p>For modern Blender extensions that don't show a <strong>Uninstall</strong> button:</p>
+<p>If the add-on does not provide an <strong>Uninstall</strong> button:</p>
 <ol class="arabic simple">
 <li><p>Open <cite>Blender</cite> and go to <span class="menuselection">Edit ‣ Preferences ‣ Add-ons</span>.</p></li>
-<li><p>Locate <strong>Bone Physics</strong> in the list and uncheck the box to disable it.</p></li>
-<li><p>Manually delete the extension folder from your <cite>Blender</cite> extension directory:</p></li>
+<li><p>Locate <strong>Bone Physics</strong> in the list and uncheck it to disable the add-on.</p></li>
+<li><p>Manually delete the add-on folder from your <cite>Blender</cite> extension directory.</p></li>
 <li><p>Restart <cite>Blender</cite></p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <div class="line-block">
-<div class="line">The default extension directory is usually:</div>
+<div class="line">The default extension directory is usually located at:</div>
 </div>
 <ul class="simple">
 <li><p><cite>MacOS</cite>: <code class="docutils literal notranslate"><span class="pre">~/Library/Application</span> <span class="pre">Support/Blender/4.2/extensions/user_default/</span></code></p></li>
 <li><p><cite>Windows</cite>:</p></li>
 <li><p><cite>Linux</cite>:</p></li>
 </ul>
-<p>You should not rely entirely on these paths, check the <cite>File</cite> installation directory instead.</p>
+<p>The exact path may vary depending on your Blender configuration.
+You should not rely entirely on these paths, check the <cite>File</cite> path instead.</p>
 <img alt="_images/blender_remove_addon.png" class="align-center" src="_images/blender_remove_addon.png" />
 </div>
 </section>

@@ -101,9 +101,9 @@
 <li class="toctree-l2"><a class="reference internal" href="setup.html#root-operations">Root Operations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="setup.html#create-root">Create Root</a></li>
 <li class="toctree-l3"><a class="reference internal" href="setup.html#select-root">Select Root</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#clear">Clear</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#clear-model">Clear Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#visibility">Visibility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig-physics">Build Rig Physics</a></li>
 </ul>
@@ -144,7 +144,7 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Joint</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#add-joint">Add Joint</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#add-a-joint-between-two-rigid-bodies">Add a Joint Between Two Rigid Bodies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-joint-between-two-rigid-bodies">Add Joint Between Two Rigid Bodies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#add-joints-along-a-bone-chain">Add Joints Along a Bone Chain</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#save-presets">Save Presets</a></li>
 </ul>
@@ -175,7 +175,7 @@
 <li class="toctree-l2"><a class="reference internal" href="scene.html#workflow-notes">Workflow Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="link.html">Link &amp; Library Overrides</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="link.html">Linking &amp; Library Overrides</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="link.html#id1">Link</a></li>
 <li class="toctree-l2"><a class="reference internal" href="link.html#library-overrides">Library Overrides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="link.html#overridable-properties">Overridable Properties</a></li>
@@ -211,12 +211,13 @@
 <span id="id1"></span><h1>Joint<a class="headerlink" href="#joint" title="Link to this heading"></a></h1>
 <section id="add-joint">
 <h2>Add Joint<a class="headerlink" href="#add-joint" title="Link to this heading"></a></h2>
-<section id="add-a-joint-between-two-rigid-bodies">
-<h3>Add a Joint Between Two Rigid Bodies<a class="headerlink" href="#add-a-joint-between-two-rigid-bodies" title="Link to this heading"></a></h3>
+<section id="add-joint-between-two-rigid-bodies">
+<h3>Add Joint Between Two Rigid Bodies<a class="headerlink" href="#add-joint-between-two-rigid-bodies" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>Switch to <em>Object Mode</em> and select the two rigid bodies to which you want to add a constraint.</p></li>
-<li><p>Click the <strong>➕ button</strong>.</p></li>
-<li><p>Configure the joint properties, then press <strong>OK</strong> to finish.</p></li>
+<li><p>Switch to <em>Object Mode</em>.</p></li>
+<li><p>Select the two rigid bodies to which you want to add a constraint.</p></li>
+<li><p>Click the <span class="menuselection">+</span> button.</p></li>
+<li><p>Configure the joint properties, then press <span class="menuselection">OK</span> to comfirm.</p></li>
 </ol>
 <img alt="_images/addon_add_joint.gif" class="align-center" src="_images/addon_add_joint.gif" />
 <div class="line-block">
@@ -224,28 +225,32 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>When adding a joint, the add-on automatically places it at the midpoint between the two Rigid Bodies' locations.
-This is reasonable in most cases, but in certain situations you may need to manually adjust the joint's position.</p>
-<p>For example, when adding a joint between the head Rigid Body and the “root” Rigid Body of a ponytail,
-the joint should be moved to the root of the ponytail instead of remaining at the default midpoint.
-This is because the ponytail's swinging motion should pivot around its root, not the midpoint between the two bodies.</p>
-<p>Similarly, when adding Rigid Bodies for a skirt,
-the joint connecting the skirt and the body's spine Rigid Body should be placed at the <strong>head</strong> of the first bone in the skirt's chain,
-rather than at the default midpoint.</p>
-<p>In some cases, you may also need to adjust the joint's rotation manually to achieve the most accurate simulation result.</p>
-<img alt="_images/addon_move_joint.gif" class="align-center" src="_images/addon_move_joint.gif" />
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
+<ul>
+<li><p>You can find detailed explanations of all joint parameters in <a class="reference internal" href="#joint-properties"><span class="std std-ref">Joint Properties</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">Bone</span> <span class="pre">Rotation</span></code>:</p>
+<p>When enabled, the joint's orientation will be aligned with the orientation of the associated bone.</p>
+<p>Disabling this option keeps the default joint orientation instead of matching the bone.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Is</span> <span class="pre">Lateral</span> <span class="pre">Joint</span></code>:</p>
+<p>Indicates that the joint connects two rigid bodies belonging to different bone chains (for example, neighboring skirt chains).</p>
+<p>When this option is enabled, the add-on places the joint at the midpoint between the two rigid bodies and computes an averaged
+orientation to produce a stable constraint.</p>
+</li>
+<li><p>While it is technically possible to create multiple joints between the same pair of rigid bodies, do so with caution.</p>
+<p>If you accidentally create duplicates when only one joint is needed, the simulation may behave unexpectedly.</p>
+<p>You can verify duplicates in the <a class="reference internal" href="#joint-list"><span class="std std-ref">Joint List</span></a> and <cite>Outliner</cite></p>
+<img alt="_images/addon_redundant_joints.png" class="align-center" src="_images/addon_redundant_joints.png" />
+</li>
+</ul>
 </div>
 </section>
 <section id="add-joints-along-a-bone-chain">
 <h3>Add Joints Along a Bone Chain<a class="headerlink" href="#add-joints-along-a-bone-chain" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>Switch to <em>Object Mode</em> and select all the rigid bodies along the bone chain that require constraints.
-(You can select multiple rigid bodies at once. See also <a class="reference internal" href="rigidbody.html#select-rigid-bodies"><span class="std std-ref">Select Rigid Bodies</span></a>.)</p></li>
-<li><p>Click the <strong>➕ button</strong>.</p></li>
-<li><p>Configure the joint properties, then press <strong>OK</strong> to finish.</p></li>
+<li><p>Switch to <em>Object Mode</em></p></li>
+<li><p>Select all rigid bodies along the same bone chain that require constraints.</p></li>
+<li><p>Click the <span class="menuselection">+</span> button.</p></li>
+<li><p>Configure the joint properties, then press <span class="menuselection">OK</span> to comfirm.</p></li>
 </ol>
 <img alt="_images/addon_add_joints.gif" class="align-center" src="_images/addon_add_joints.gif" />
 <div class="line-block">
@@ -253,29 +258,16 @@ rather than at the default midpoint.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>When both bone-chain rigid bodies (e.g. A, B, C) and non-chain rigid bodies (e.g. D, E) are selected,
+<p>When both bone-chain rigid bodies (e.g. A, B, C) and unrelated rigid bodies (e.g. D, E) are selected,
 the add-on will only create joints between the bone-chain rigid bodies (A, B, C).
 The others (D, E) will be ignored.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<ul>
-<li><p>Adjacent rigid bodies from <strong>different bone chains</strong> can only be connected <strong>one pair at a time</strong> —
-batch operations are not supported in this case.</p>
-<p>For example, when adding joints between rigid bodies belonging to different skirt bone chains,
-you must add them individually.</p>
-<p>This limitation exists because each model has unique structures and assumptions;
-we prioritize flexibility and compatibility over full automation.
-Although this may appear repetitive, in practice, using <strong>presets</strong> can still make the workflow quite efficient.</p>
-</li>
-<li><p>While it is technically possible to create <strong>multiple joints between the same pair of rigid bodies</strong>,
-do so with caution.
-If you accidentally create duplicates when only one joint is needed,
-the simulation results may differ from your expectations.
-You can verify duplicates in the <a class="reference internal" href="#joint-list"><span class="std std-ref">Joint List</span></a> and <cite>Outliner</cite></p>
-<img alt="_images/addon_redundant_joints.png" class="align-center" src="_images/addon_redundant_joints.png" />
-</li>
-</ul>
+<p>Rigid bodies from different bone chains must be connected one pair at a time —
+batch operations are <strong>Not</strong> supported in this case.</p>
+<p>For example, when adding joints between rigid bodies belonging to different skirt bone chains, you must add them individually.</p>
+<p>This limitation exists because each model has unique structures and assumptions, we prioritize flexibility and compatibility over full automation.</p>
 </div>
 </section>
 <section id="save-presets">
@@ -293,16 +285,14 @@ You can verify duplicates in the <a class="reference internal" href="#joint-list
 <li><p><strong>limit_lin_x_lower</strong>: Lower limit of linear motion along the <strong>X</strong> axis.</p></li>
 <li><p><strong>limit_lin_y_lower</strong>: Lower limit of linear motion along the <strong>Y</strong> axis.</p></li>
 <li><p><strong>limit_lin_z_lower</strong>: Lower limit of linear motion along the <strong>Z</strong> axis.</p></li>
-<li><p><strong>limit_ang_x_upper</strong>: Upper angular limit around the <strong>X</strong> axis (in degrees).</p></li>
-<li><p><strong>limit_ang_y_upper</strong>: Upper angular limit around the <strong>Y</strong> axis (in degrees).</p></li>
-<li><p><strong>limit_ang_z_upper</strong>: Upper angular limit around the <strong>Z</strong> axis (in degrees).</p></li>
-<li><p><strong>limit_ang_x_lower</strong>: Lower angular limit around the <strong>X</strong> axis (in degrees).</p></li>
-<li><p><strong>limit_ang_y_lower</strong>: Lower angular limit around the <strong>Y</strong> axis (in degrees).</p></li>
-<li><p><strong>limit_ang_z_lower</strong>: Lower angular limit around the <strong>Z</strong> axis (in degrees).</p></li>
-<li><p><strong>spring_linear</strong>: The spring stiffness that controls linear motion.
-Higher values produce stronger resistance when the joint is displaced.</p></li>
-<li><p><strong>spring_angular</strong>: The spring stiffness that controls angular (rotational) motion.
-Higher values produce stronger torque resistance when the joint is rotated.</p></li>
+<li><p><strong>limit_ang_x_upper</strong>: Upper angular limit around the <strong>X</strong> axis (<em>in degrees</em>).</p></li>
+<li><p><strong>limit_ang_y_upper</strong>: Upper angular limit around the <strong>Y</strong> axis (<em>in degrees</em>).</p></li>
+<li><p><strong>limit_ang_z_upper</strong>: Upper angular limit around the <strong>Z</strong> axis (<em>in degrees</em>).</p></li>
+<li><p><strong>limit_ang_x_lower</strong>: Lower angular limit around the <strong>X</strong> axis (<em>in degrees</em>).</p></li>
+<li><p><strong>limit_ang_y_lower</strong>: Lower angular limit around the <strong>Y</strong> axis (<em>in degrees</em>).</p></li>
+<li><p><strong>limit_ang_z_lower</strong>: Lower angular limit around the <strong>Z</strong> axis (<em>in degrees</em>).</p></li>
+<li><p><strong>spring_linear</strong>: The spring stiffness that controls linear motion (Higher values produce stronger resistance when the joint is displaced).</p></li>
+<li><p><strong>spring_angular</strong>: The spring stiffness that controls angular motion (Higher values produce stronger torque resistance when the joint is rotated).</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
@@ -311,8 +301,8 @@ Higher values produce stronger torque resistance when the joint is rotated.</p><
 </section>
 <section id="joint-properties-panel">
 <span id="id3"></span><h2>Joint Properties Panel<a class="headerlink" href="#joint-properties-panel" title="Link to this heading"></a></h2>
-<p>The <strong>Joint Properties Panel</strong> is where you can view and edit all joint-related attributes.
-It can be found under the <strong>Physics</strong> tab in Blender.</p>
+<p>The <em>Joint Properties Panel</em> is where you can view and edit all joint-related attributes.</p>
+<p>It can be found under the <em>Physics Tab</em> in Blender.</p>
 <img alt="_images/addon_joint_properties_panel.gif" class="align-center" src="_images/addon_joint_properties_panel.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
@@ -320,17 +310,17 @@ It can be found under the <strong>Physics</strong> tab in Blender.</p>
 </section>
 <section id="joint-list">
 <span id="id4"></span><h2>Joint List<a class="headerlink" href="#joint-list" title="Link to this heading"></a></h2>
-<p>The <strong>Joint List</strong> displays all joints (rigid body constraints) in the current scene.
-By default, it filters by <strong>Active Model</strong>, showing only the joints associated with the currently selected model.
-To view joints from <strong>all models</strong>, change the filter to <strong>All Models</strong>.</p>
+<p>The <em>Joint List</em> displays all joints (<em>Rigid Body Constraint</em>) in the current scene.</p>
+<p>By default, it filters by <span class="menuselection">Active Model</span>, displaying only the joints of the currently selected model.</p>
+<p>To view joints from all models, change the filter to <span class="menuselection">All Models</span>.</p>
 <img alt="_images/addon_joint_list.gif" class="align-center" src="_images/addon_joint_list.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 <section id="reordering-list-items">
 <h3>Reordering List Items<a class="headerlink" href="#reordering-list-items" title="Link to this heading"></a></h3>
-<p>You can reorder list items using the ⬆ and ⬇ buttons, or through the right-side dropdown menu options:
-<strong>Move To Top</strong> and <strong>Move To Bottom</strong>.</p>
+<p>You can reorder list items using the <span class="menuselection">⬆</span> and <span class="menuselection">⬇</span> buttons,
+or through the right-side dropdown menu options: <span class="menuselection">Move To Top</span> and <span class="menuselection">Move To Bottom</span>.</p>
 <img alt="_images/addon_joint_move.gif" class="align-center" src="_images/addon_joint_move.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
@@ -340,9 +330,9 @@ To view joints from <strong>all models</strong>, change the filter to <strong>Al
 <h3>Error Icon Indicators<a class="headerlink" href="#error-icon-indicators" title="Link to this heading"></a></h3>
 <section id="missing-joint">
 <h4>Missing Joint<a class="headerlink" href="#missing-joint" title="Link to this heading"></a></h4>
-<p>A <strong>&quot;Missing Joint&quot;</strong> error icon appears when the list entry has no valid <strong>Rigid Body Constraint</strong> data.
-This usually occurs when the joint was deleted from Blender's constraint system but still exists in the add-on's list.
-To fix this, recreate the joint using the <strong>Add Rigid Body Constraint</strong> button in the <a class="reference internal" href="#joint-properties-panel"><span class="std std-ref">Joint Properties Panel</span></a>.</p>
+<p>A <em>&quot;Missing Joint Error&quot;</em> icon appears when the list entry has no valid <em>Rigid Body Constraint</em> data.</p>
+<p>This usually occurs when the joint was deleted from Blender's constraint system but still exists in the add-on's list.</p>
+<p>To fix this, recreate the joint using the <span class="menuselection">Add Rigid Body Constraint</span> button in the <a class="reference internal" href="#joint-properties-panel"><span class="std std-ref">Joint Properties Panel</span></a>.</p>
 <img alt="_images/addon_joint_missing_joint.gif" class="align-center" src="_images/addon_joint_missing_joint.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
@@ -350,26 +340,24 @@ To fix this, recreate the joint using the <strong>Add Rigid Body Constraint</str
 </section>
 <section id="missing-linked-objects">
 <h4>Missing Linked Objects<a class="headerlink" href="#missing-linked-objects" title="Link to this heading"></a></h4>
-<p>A <strong>&quot;Missing Linked Objects&quot;</strong> warning icon appears when one or both of the rigid bodies linked by the joint are missing.
-For example, if <cite>Object1</cite> or <cite>Object2</cite> is not assigned, the joint cannot function properly.
-You can reassign the missing objects in the <a class="reference internal" href="#joint-properties-panel"><span class="std std-ref">Joint Properties Panel</span></a>.</p>
+<p>A <em>&quot;Missing Linked Objects Error&quot;</em> icon appears when one or both of the rigid bodies linked by the joint are missing.</p>
+<p>For example, if <code class="docutils literal notranslate"><span class="pre">Object1</span></code> or <code class="docutils literal notranslate"><span class="pre">Object2</span></code> is not assigned, the joint cannot function properly.</p>
+<p>You can reassign the missing objects in the <a class="reference internal" href="#joint-properties-panel"><span class="std std-ref">Joint Properties Panel</span></a>.</p>
 <img alt="_images/addon_joint_missing_object.gif" class="align-center" src="_images/addon_joint_missing_object.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
-<p>It is generally recommended to assign the <strong>static</strong> or <strong>bone-driven</strong> rigid body as <code class="docutils literal notranslate"><span class="pre">Object1</span></code>,
-and the <strong>simulated</strong> rigid body as <code class="docutils literal notranslate"><span class="pre">Object2</span></code>.
-This setup ensures a more stable and predictable constraint behavior,
-as Blender internally treats <code class="docutils literal notranslate"><span class="pre">Object1</span></code> as the reference frame for the joint's position and rotation limits.</p>
+<p>It is generally recommended to assign the <strong>static</strong> or <strong>bone-driven</strong> rigid body as <code class="docutils literal notranslate"><span class="pre">Object1</span></code>, and the <strong>simulated</strong> rigid body as <code class="docutils literal notranslate"><span class="pre">Object2</span></code>.</p>
+<p>This setup ensures a more stable and predictable constraint behavior, because Blender internally treats <code class="docutils literal notranslate"><span class="pre">Object1</span></code> as the reference frame for the joint's position and rotation limits.</p>
 </div>
 </section>
 <section id="invalid-joint-pair">
 <h4>Invalid Joint Pair<a class="headerlink" href="#invalid-joint-pair" title="Link to this heading"></a></h4>
-<p>An <strong>&quot;Invalid Joint Pair&quot;</strong> icon appears when both linked objects (<cite>Object1</cite> and <cite>Object2</cite>) refer to the <strong>same rigid body</strong>.
-This setup is invalid because a joint requires two distinct rigid bodies.
-Recreate the joint with two different rigid bodies to resolve this issue.</p>
+<p>An <em>&quot;Invalid Joint Pair Error&quot;</em> icon appears when both linked objects (<code class="docutils literal notranslate"><span class="pre">Object1</span></code> and <code class="docutils literal notranslate"><span class="pre">Object2</span></code>) refer to the same rigid body object.</p>
+<p>This setup is invalid because a joint requires two distinct rigid bodies.</p>
+<p>Recreate the joint with two different rigid bodies to resolve this issue.</p>
 <img alt="_images/addon_joint_invalid_pair.gif" class="align-center" src="_images/addon_joint_invalid_pair.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
@@ -379,8 +367,10 @@ Recreate the joint with two different rigid bodies to resolve this issue.</p>
 </section>
 <section id="remove-joint">
 <h2>Remove Joint<a class="headerlink" href="#remove-joint" title="Link to this heading"></a></h2>
-<p>Select a joint in the <strong>3D View</strong>, the <strong>Joint List</strong>, or the <strong>Outliner</strong>,
-then click the <strong>➖ button</strong> to remove it.</p>
+<ol class="arabic simple">
+<li><p>Select a joint in the <em>3D viewport</em>, the <em>Joint List</em>, or the <em>Outliner</em></p></li>
+<li><p>Click the <span class="menuselection">-</span> button to remove it.</p></li>
+</ol>
 <p>See also: <a class="reference internal" href="rigidbody.html#remove-rigid-body"><span class="std std-ref">Remove Rigid Body</span></a>.</p>
 </section>
 </section>

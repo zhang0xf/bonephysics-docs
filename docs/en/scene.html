@@ -22,7 +22,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Link &amp; Library Overrides" href="link.html" />
+    <link rel="next" title="Linking &amp; Library Overrides" href="link.html" />
     <link rel="prev" title="Joint" href="joint.html" /> 
 </head>
 
@@ -101,9 +101,9 @@
 <li class="toctree-l2"><a class="reference internal" href="setup.html#root-operations">Root Operations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="setup.html#create-root">Create Root</a></li>
 <li class="toctree-l3"><a class="reference internal" href="setup.html#select-root">Select Root</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#clear">Clear</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#clear-model">Clear Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#visibility">Visibility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig-physics">Build Rig Physics</a></li>
 </ul>
@@ -144,7 +144,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="joint.html">Joint</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="joint.html#add-joint">Add Joint</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#add-a-joint-between-two-rigid-bodies">Add a Joint Between Two Rigid Bodies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#add-joint-between-two-rigid-bodies">Add Joint Between Two Rigid Bodies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#add-joints-along-a-bone-chain">Add Joints Along a Bone Chain</a></li>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#save-presets">Save Presets</a></li>
 </ul>
@@ -175,7 +175,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#workflow-notes">Workflow Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="link.html">Link &amp; Library Overrides</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="link.html">Linking &amp; Library Overrides</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="link.html#id1">Link</a></li>
 <li class="toctree-l2"><a class="reference internal" href="link.html#library-overrides">Library Overrides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="link.html#overridable-properties">Overridable Properties</a></li>
@@ -209,91 +209,91 @@
              
   <section id="scene-setup">
 <span id="scene"></span><h1>Scene Setup<a class="headerlink" href="#scene-setup" title="Link to this heading"></a></h1>
-<p>This panel provides a centralized place to configure <strong>timeline</strong>, <strong>rigid body world</strong>,
-and <strong>baking</strong> settings required for a stable physics simulation workflow.</p>
-<p>It is especially useful when working with linked files, library overrides,
-or complex rigs that rely on multiple rigid bodies and constraints.</p>
+<p>This panel provides a centralized place to configure <em>Timeline</em>, <em>Rigid Body World</em>,
+and baking settings required for a stable physics simulation workflow.</p>
 <a class="reference internal image-reference" href="_images/addon_scene_panel.png"><img alt="Scene Setup panel" class="align-center" src="_images/addon_scene_panel.png" style="width: 50%;" />
 </a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <section id="timeline">
 <h2>Timeline<a class="headerlink" href="#timeline" title="Link to this heading"></a></h2>
-<p>The <strong>Timeline</strong> section displays and edits basic animation frame settings:</p>
+<p>The <em>Timeline</em> section displays and edits basic animation frame settings:</p>
 <ul class="simple">
-<li><p><strong>Current Frame</strong>
-Shows the current frame of the scene timeline.</p></li>
-<li><p><strong>Start / End</strong>
-Defines the playback range used for previewing and baking physics simulations.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Current</span> <span class="pre">Frame</span></code>: Displays the current frame of the scene timeline.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Start</span></code> / <code class="docutils literal notranslate"><span class="pre">End</span></code>: Defines the playback range used for previewing and baking physics simulations.</p></li>
 </ul>
-<p>These values are shared with Blender’s global timeline and directly affect
-rigid body simulation and cache baking.</p>
+<p>These values are shared with Blender’s main timeline.</p>
 </section>
 <section id="rigid-body-world">
 <h2>Rigid Body World<a class="headerlink" href="#rigid-body-world" title="Link to this heading"></a></h2>
-<p>Blender’s rigid body system relies on a scene-level container called the
-<strong>Rigid Body World</strong>, which manages:</p>
+<p>Blender’s rigid body system relies on a scene-level container called the <em>Rigid Body World</em>, which manages:</p>
 <ul class="simple">
-<li><p>Global simulation settings (solver iterations, substeps, gravity)</p></li>
-<li><p>Collections that store all rigid bodies</p></li>
-<li><p>Collections that store all rigid body constraints</p></li>
+<li><p>Global simulation settings (<em>solver iterations</em>, <em>substeps</em>, <em>gravity</em>)</p></li>
+<li><p>Collections that store rigid bodies</p></li>
+<li><p>Collections that store rigid body constraints</p></li>
 </ul>
-<p>Bone Physics automatically manages these settings to ensure consistency.</p>
+<p>This add-on automatically manages these settings to ensure consistency.</p>
 <section id="update-rigid-world">
 <span id="id1"></span><h3>Update Rigid World<a class="headerlink" href="#update-rigid-world" title="Link to this heading"></a></h3>
-<p>Click <strong>Update Rigid World</strong> to synchronize the scene with the rigid body system.</p>
+<p>Blender requires all rigid bodies and constraints to be placed in specific collections referenced by the <em>Rigid Body World</em>.</p>
+<p>This operator ensures that all add-on objects are correctly registered in those collections.</p>
+<p>Click <span class="menuselection">Update Rigid World</span> to synchronize the scene with the rigid body system.</p>
 <img alt="_images/addon_update_rigid_world.gif" class="align-center" src="_images/addon_update_rigid_world.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 <p>This operation will:</p>
 <ul class="simple">
-<li><p>Ensure a valid <strong>Rigid Body World</strong> exists in the scene</p></li>
+<li><p>Ensure a valid <em>Rigid Body World</em> exists in the scene</p></li>
 <li><p>Create and assign required collections if missing</p></li>
-<li><p>Add all Bone Physics rigid bodies to the world collection</p></li>
+<li><p>Add all rigid bodies to the world collection</p></li>
 <li><p>Add all rigid body constraints to the constraint collection</p></li>
 <li><p>Fix broken references caused by:</p>
 <ul>
 <li><p>Linked files</p></li>
 <li><p>Library Overrides</p></li>
-<li><p>Collection Instances</p></li>
+<li><p>Collection instances</p></li>
 </ul>
 </li>
 </ul>
-<p>This step is <strong>required</strong> after:</p>
-<ul class="simple">
-<li><p>Linking a rig from another file</p></li>
-<li><p>Creating or updating library overrides</p></li>
-<li><p>Duplicating or instancing rigs</p></li>
-<li><p>Encountering missing or invalid physics behavior</p></li>
-</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If the button displays an error icon, it indicates that the rigid body world
-settings differ from the recommended defaults and should be updated.</p>
+<p>If the button shows a warning icon, it indicates that the <em>Rigid Body World</em> settings differ from the recommended defaults and should be updated.</p>
+<p>This operator is safe to run at any time and is recommended whenever the scene structure changes.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Why <span class="menuselection">Update Rigid World</span> Is Needed</p>
+<p>Blender’s rigid body system relies on two internal collections:</p>
+<ul class="simple">
+<li><p>A collection containing all rigid body objects</p></li>
+<li><p>A collection containing all rigid body constraints</p></li>
+</ul>
+<p>When rigs are linked, duplicated, or overridden, these references may become outdated or invalid.</p>
+<p>The <span class="menuselection">Update Rigid World</span> operation rebuilds these references and ensures that all add-on objects are correctly registered in the simulation system.</p>
 </div>
 </section>
 <section id="simulation-quality-settings">
 <h3>Simulation Quality Settings<a class="headerlink" href="#simulation-quality-settings" title="Link to this heading"></a></h3>
 <p>The following parameters control simulation accuracy and stability:</p>
 <ul class="simple">
-<li><p><strong>Substeps</strong>
-Number of physics substeps per frame.
-Higher values improve stability for fast or lightweight objects.</p></li>
-<li><p><strong>Iterations</strong>
-Solver iteration count per substep.
-Higher values result in more accurate constraint solving at the cost of performance.</p></li>
+<li><p><span class="menuselection">Substeps</span>: Number of physics substeps per frame. Higher values improve stability for fast-moving or lightweight objects.</p></li>
+<li><p><span class="menuselection">Iterations</span>: Solver iteration count per substep. Higher values result in more accurate constraint solving at the cost of performance.</p></li>
 </ul>
-<p>The add-on sets conservative default values that balance stability and performance
-for character-based physics.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These parameters correspond to Blender’s Bullet physics solver settings.</p>
+<p>The add-on sets conservative default values that balance stability and performance for character-based physics.</p>
+</div>
 </section>
 </section>
 <section id="bake">
 <h2>Bake<a class="headerlink" href="#bake" title="Link to this heading"></a></h2>
-<p>Rigid body simulations can be cached (baked) for stable playback and rendering.</p>
+<p>Rigid body simulations can be cached for stable playback and rendering.</p>
 <ul class="simple">
-<li><p><strong>Bake</strong>
-Bakes the rigid body simulation into the point cache for the current frame range.</p></li>
-<li><p><strong>Delete Bake</strong>
-Clears the baked cache and restores the simulation to real-time evaluation.</p></li>
+<li><p><span class="menuselection">Bake</span>: Bakes the rigid body simulation into Blender’s point cache for the current frame range.</p></li>
+<li><p><span class="menuselection">Delete Bake</span>: Clears the baked cache and restores the simulation to real-time evaluation.</p></li>
 </ul>
 <p>When a bake exists:</p>
 <ul class="simple">
@@ -303,17 +303,15 @@ Clears the baked cache and restores the simulation to real-time evaluation.</p><
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Baking is recommended before final animation polish or rendering.
-If you need to adjust rigid bodies or constraints, delete the bake first.</p>
+<p>If you need to adjust rigid bodies or constraints, delete the bake first.</p>
 </div>
 </section>
 <section id="workflow-notes">
 <h2>Workflow Notes<a class="headerlink" href="#workflow-notes" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>Always run <strong>Update Rigid World</strong> after structural changes to the rig.</p></li>
+<li><p>Always run <span class="menuselection">Update Rigid World</span> after structural changes to the rig.</p></li>
 <li><p>Bake only after confirming the simulation behaves as expected.</p></li>
-<li><p>When working in a multi-file pipeline, update the rigid body world
-after linking or overriding assets to avoid broken constraints.</p></li>
+<li><p>When working in a multi-file pipeline, run <span class="menuselection">Update Rigid World</span> after using <span class="menuselection">Link</span> or <span class="menuselection">Library Override</span> to avoid broken constraints.</p></li>
 </ul>
 </section>
 </section>
@@ -323,7 +321,7 @@ after linking or overriding assets to avoid broken constraints.</p></li>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="joint.html" class="btn btn-neutral float-left" title="Joint" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="link.html" class="btn btn-neutral float-right" title="Link &amp; Library Overrides" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="link.html" class="btn btn-neutral float-right" title="Linking &amp; Library Overrides" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
