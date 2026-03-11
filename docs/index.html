@@ -20,8 +20,9 @@
 
             // 兼容 file:// 和 http(s)://
             var newPath;
-            if (currentUrl.startsWith("file://")) {
+            if (currentUrl.toLowerCase().startsWith("file://")) {
                 newPath = targetLang + "/index.html";
+                window.location.href = newPath;
             } else {
                 var urlObject = new URL(currentUrl);
                 var pathname = urlObject.pathname;
@@ -36,11 +37,7 @@
                 newPath = pathname + targetLang + "/";
                 var newUrl = urlObject.origin + newPath;
                 window.location.href = newUrl;
-                return;
             }
-
-            // 本地跳转
-            window.location.href = newPath;
         })();
     </script>
 </head>
