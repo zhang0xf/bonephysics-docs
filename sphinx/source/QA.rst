@@ -7,19 +7,23 @@ Q&A
 
    You can purchase it on |superhivemarket|, |gumroad|, and |bilibili_shop|.
    
-   You can also download the add-on ``.zip`` file directly from the GitHub *Releases* page.
+   You can also download the add-on ``.zip`` file directly from the |github_releases| page.
 
 .. |superhivemarket| raw:: html
          
-   <a href="https://superhivemarket.com" target="_blank">superhivemarket</a>
+   <a href="https://superhivemarket.com" target="_blank">Superhive Market</a>
 
 .. |gumroad| raw:: html
 
-   <a href="https://gumroad.com" target="_blank">gumroad</a>
+   <a href="https://gumroad.com" target="_blank">Gumroad</a>
 
 .. |bilibili_shop| raw:: html
 
-   <a href="https://shop.bilibili.com" target="_blank">bilibili_shop</a>
+   <a href="https://shop.bilibili.com" target="_blank">B站商店</a>
+
+.. |github_releases| raw:: html
+
+   <a href="https://github.com/your-repo/releases" target="_blank">GitHub Releases</a>
 
 .. dropdown:: Q: Which versions of Blender are supported?
 
@@ -82,12 +86,4 @@ Q&A
 .. |github_issues| raw:: html
          
    <a href="https://github.com/your-repo/issues" target="_blank">GitHub Issues</a>
-
-.. dropdown:: Q: How can I contribute to the project?
-
-   Contributions are welcome.
-
-   If you are interested in contributing code, documentation, or bug fixes, please refer to the **CONTRIBUTING.md** file
-   in the repository for detailed guidelines.
-
-   You can also open an issue on |github_issues| to discuss your ideas before submitting a pull request.
+   

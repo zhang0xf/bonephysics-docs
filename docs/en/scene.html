@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Linking &amp; Library Overrides" href="link.html" />
-    <link rel="prev" title="Joint" href="joint.html" /> 
+    <link rel="prev" title="Joint (Constraints)" href="joint.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -126,7 +126,7 @@
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-properties-panel">Rigid Body Properties Panel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-list">Rigid Body List</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="rigidbody.html#reordering-list-items">Reordering List Items</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#error-icon-indicators">Error Icon Indicators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#error-indicators">Error Indicators</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-physics">Missing Physics</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-bone">Missing Bone</a></li>
 </ul>
@@ -142,7 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#example-auxiliary-rigid-bodies">Example: Auxiliary Rigid Bodies</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="joint.html">Joint</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="joint.html">Joint (Constraints)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="joint.html#add-joint">Add Joint</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#add-joint-between-two-rigid-bodies">Add Joint Between Two Rigid Bodies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#add-joints-along-a-bone-chain">Add Joints Along a Bone Chain</a></li>
@@ -153,7 +153,7 @@
 <li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties-panel">Joint Properties Panel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="joint.html#joint-list">Joint List</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#reordering-list-items">Reordering List Items</a></li>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#error-icon-indicators">Error Icon Indicators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#error-indicators">Error Indicators</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="joint.html#missing-joint">Missing Joint</a></li>
 <li class="toctree-l4"><a class="reference internal" href="joint.html#missing-linked-objects">Missing Linked Objects</a></li>
 <li class="toctree-l4"><a class="reference internal" href="joint.html#invalid-joint-pair">Invalid Joint Pair</a></li>
@@ -209,8 +209,7 @@
              
   <section id="scene-setup">
 <span id="scene"></span><h1>Scene Setup<a class="headerlink" href="#scene-setup" title="Link to this heading"></a></h1>
-<p>This panel provides a centralized place to configure <em>Timeline</em>, <em>Rigid Body World</em>,
-and baking settings required for a stable physics simulation workflow.</p>
+<p>This panel provides access to configure <em>Timeline</em>, <em>Rigid Body World</em>, and <em>Bake</em>.</p>
 <a class="reference internal image-reference" href="_images/addon_scene_panel.png"><img alt="Scene Setup panel" class="align-center" src="_images/addon_scene_panel.png" style="width: 50%;" />
 </a>
 <div class="line-block">
@@ -237,8 +236,8 @@ and baking settings required for a stable physics simulation workflow.</p>
 <section id="update-rigid-world">
 <span id="id1"></span><h3>Update Rigid World<a class="headerlink" href="#update-rigid-world" title="Link to this heading"></a></h3>
 <p>Blender requires all rigid bodies and constraints to be placed in specific collections referenced by the <em>Rigid Body World</em>.</p>
-<p>This operator ensures that all add-on objects are correctly registered in those collections.</p>
-<p>Click <span class="menuselection">Update Rigid World</span> to synchronize the scene with the rigid body system.</p>
+<p>Click <span class="menuselection">Update Rigid World</span> to synchronize the scene with the rigid body system
+and ensure that all add-on objects are correctly registered in the required collections.</p>
 <img alt="_images/addon_update_rigid_world.gif" class="align-center" src="_images/addon_update_rigid_world.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
@@ -262,8 +261,8 @@ and baking settings required for a stable physics simulation workflow.</p>
 <p>If the button shows a warning icon, it indicates that the <em>Rigid Body World</em> settings differ from the recommended defaults and should be updated.</p>
 <p>This operator is safe to run at any time and is recommended whenever the scene structure changes.</p>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Why <span class="menuselection">Update Rigid World</span> Is Needed</p>
 <p>Blender’s rigid body system relies on two internal collections:</p>
 <ul class="simple">
@@ -284,7 +283,7 @@ and baking settings required for a stable physics simulation workflow.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>These parameters correspond to Blender’s Bullet physics solver settings.</p>
-<p>The add-on sets conservative default values that balance stability and performance for character-based physics.</p>
+<p>The add-on provides default values for these parameters based on practical experience, balancing stability and performance.</p>
 </div>
 </section>
 </section>
@@ -293,7 +292,7 @@ and baking settings required for a stable physics simulation workflow.</p>
 <p>Rigid body simulations can be cached for stable playback and rendering.</p>
 <ul class="simple">
 <li><p><span class="menuselection">Bake</span>: Bakes the rigid body simulation into Blender’s point cache for the current frame range.</p></li>
-<li><p><span class="menuselection">Delete Bake</span>: Clears the baked cache and restores the simulation to real-time evaluation.</p></li>
+<li><p><span class="menuselection">Delete Bake</span>: Clears the baked cache and restores real-time simulation.</p></li>
 </ul>
 <p>When a bake exists:</p>
 <ul class="simple">
@@ -301,17 +300,17 @@ and baking settings required for a stable physics simulation workflow.</p>
 <li><p>Simulation results are deterministic</p></li>
 <li><p>Performance during animation playback improves</p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>If you need to adjust rigid bodies or constraints, delete the bake first.</p>
 </div>
 </section>
 <section id="workflow-notes">
 <h2>Workflow Notes<a class="headerlink" href="#workflow-notes" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>Always run <span class="menuselection">Update Rigid World</span> after structural changes to the rig.</p></li>
-<li><p>Bake only after confirming the simulation behaves as expected.</p></li>
-<li><p>When working in a multi-file pipeline, run <span class="menuselection">Update Rigid World</span> after using <span class="menuselection">Link</span> or <span class="menuselection">Library Override</span> to avoid broken constraints.</p></li>
+<li><p>Bake only after confirming that the simulation results behave as expected.</p></li>
+<li><p>After duplicating, linking, or reorganizing the scene structure, it is recommended to run <span class="menuselection">Update Rigid World</span>.</p></li>
+<li><p>When working in a multi-file workflow, run <span class="menuselection">Update Rigid World</span> after using <span class="menuselection">Link</span> or <span class="menuselection">Library Override</span> to avoid broken references.</p></li>
 </ul>
 </section>
 </section>
@@ -320,7 +319,7 @@ and baking settings required for a stable physics simulation workflow.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="joint.html" class="btn btn-neutral float-left" title="Joint" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="joint.html" class="btn btn-neutral float-left" title="Joint (Constraints)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="link.html" class="btn btn-neutral float-right" title="Linking &amp; Library Overrides" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

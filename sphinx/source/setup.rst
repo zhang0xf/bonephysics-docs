@@ -44,7 +44,7 @@ This approach makes it much easier to manage multi-character scenes in a clean a
 For example:  
 
 * `Linking` and `Library Overrides` become straightforward, since you only need to link a single collection.  
-* You can also attach custom-purpose objects to the root, such as special effect emitters, camera focus targets, or gameplay markers — a workflow that is very common in game development.  
+* You can also attach custom-purpose objects to the root, such as special effect emitters, or camera focus targets.  
 
 This add-on requires that every armature model be placed under a `Root Empty`.
 

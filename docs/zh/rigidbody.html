@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rigid Body &mdash; Bone Physics Docs 1.0.0 文档</title>
+  <title>刚体 &mdash; Bone Physics Docs 1.0.0 文档</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
@@ -23,8 +23,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Joint" href="joint.html" />
-    <link rel="prev" title="Model Setup" href="setup.html" /> 
+    <link rel="next" title="关节（约束）" href="joint.html" />
+    <link rel="prev" title="模型设置" href="setup.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -94,95 +94,95 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">安装</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#installing-the-extension">安装插件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#remove-the-extension">Remove the extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#remove-the-extension">卸载插件</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="setup.html">Model Setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#check-model">Check Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#root-operations">Root Operations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="setup.html#create-root">Create Root</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup.html#select-root">Select Root</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup.html#clear">Clear</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">模型设置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#check-model">检查模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#root-operations">Root 操作</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#create-root">创建 Root</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#select-root">选择 Root</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#clear">清理</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#visibility">Visibility</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig-physics">Build Rig Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#visibility">可见性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig-physics">构建 Rig 物理</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Rigid Body</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#mass">Mass</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#friction">Friction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bounce">Bounce</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#linear-damping">Linear Damping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#angular-damping">Angular Damping</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">刚体</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#parameters">参数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mass">质量（Mass）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#friction">摩擦力（Friction）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bounce">弹性（Bounce）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linear-damping">线性阻尼（Linear Damping）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#angular-damping">角阻尼（Angular Damping）</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#add-rigid-body">Add Rigid Body</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#quick-add">Quick Add</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#save-presets">Save Presets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-rigid-body">添加刚体</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quick-add">快速添加</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save-presets">保存预设</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#rigid-body-properties">Rigid Body Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rigid-body-properties-panel">Rigid Body Properties Panel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rigid-body-list">Rigid Body List</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#reordering-list-items">Reordering List Items</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#error-icon-indicators">Error Icon Indicators</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#missing-physics">Missing Physics</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#missing-bone">Missing Bone</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#select-rigid-bodies">Select Rigid Bodies</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#properties-for-comparison">Properties for Comparison</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hide-others">Hide Others</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#remove-rigid-body">Remove Rigid Body</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#example-auxiliary-rigid-bodies">Example: Auxiliary Rigid Bodies</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="joint.html">Joint</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="joint.html#add-joint">Add Joint</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#add-joint-between-two-rigid-bodies">Add Joint Between Two Rigid Bodies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#add-joints-along-a-bone-chain">Add Joints Along a Bone Chain</a></li>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#save-presets">Save Presets</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties">Joint Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties-panel">Joint Properties Panel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-list">Joint List</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#reordering-list-items">Reordering List Items</a></li>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#error-icon-indicators">Error Icon Indicators</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="joint.html#missing-joint">Missing Joint</a></li>
-<li class="toctree-l4"><a class="reference internal" href="joint.html#missing-linked-objects">Missing Linked Objects</a></li>
-<li class="toctree-l4"><a class="reference internal" href="joint.html#invalid-joint-pair">Invalid Joint Pair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rigid-body-properties">刚体属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rigid-body-properties-panel">刚体属性面板</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rigid-body-list">刚体列表</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reordering-list-items">重新排序列表项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-indicators">错误提示</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#missing-physics">缺少 Physics 组件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#missing-bone">缺少骨骼</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="joint.html#remove-joint">Remove Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#select-rigid-bodies">选择刚体</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#properties-for-comparison">匹配属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hide-others">隐藏其他对象</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="scene.html">Scene Setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="scene.html#timeline">Timeline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scene.html#rigid-body-world">Rigid Body World</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="scene.html#update-rigid-world">Update Rigid World</a></li>
-<li class="toctree-l3"><a class="reference internal" href="scene.html#simulation-quality-settings">Simulation Quality Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#remove-rigid-body">删除刚体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-auxiliary-rigid-bodies">示例：辅助刚体</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="scene.html#bake">Bake</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scene.html#workflow-notes">Workflow Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="joint.html">关节（约束）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="joint.html#add-joint">添加关节</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#add-joint-between-two-rigid-bodies">在两个刚体之间添加关节</a></li>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#add-joints-along-a-bone-chain">沿骨骼链添加关节</a></li>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#save-presets">保存预设</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="link.html">Linking &amp; Library Overrides</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="link.html#id1">Link</a></li>
-<li class="toctree-l2"><a class="reference internal" href="link.html#library-overrides">Library Overrides</a></li>
-<li class="toctree-l2"><a class="reference internal" href="link.html#overridable-properties">Overridable Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties">关节属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties-panel">关节属性面板</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-list">关节列表</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#reordering-list-items">列表项排序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#error-indicators">错误提示</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="joint.html#missing-joint">关节缺失</a></li>
+<li class="toctree-l4"><a class="reference internal" href="joint.html#missing-linked-objects">关联对象缺失</a></li>
+<li class="toctree-l4"><a class="reference internal" href="joint.html#invalid-joint-pair">无效的关节对</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="QA.html">Q&amp;A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="joint.html#remove-joint">移除关节</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scene.html">场景设置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scene.html#timeline">时间轴</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scene.html#rigid-body-world">刚体世界</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scene.html#update-rigid-world">更新刚体世界</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scene.html#simulation-quality-settings">模拟质量设置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scene.html#bake">烘焙</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scene.html#workflow-notes">工作流程注意事项</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="link.html">链接 &amp; 库覆盖</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="link.html#id1">链接</a></li>
+<li class="toctree-l2"><a class="reference internal" href="link.html#library-overrides">库覆盖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="link.html#overridable-properties">可覆盖属性</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="QA.html">问答</a></li>
 </ul>
 
         </div>
@@ -199,7 +199,7 @@
           <div role="navigation" aria-label="页面导航">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Rigid Body</li>
+      <li class="breadcrumb-item active">刚体</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -209,104 +209,98 @@
            <div itemprop="articleBody">
              
   <section id="rigid-body">
-<span id="id1"></span><h1>Rigid Body<a class="headerlink" href="#rigid-body" title="Link to this heading"></a></h1>
+<span id="id1"></span><h1>刚体<a class="headerlink" href="#rigid-body" title="Link to this heading"></a></h1>
 <section id="parameters">
-<span id="id2"></span><h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
-<p>This add-on uses Blender's built-in Rigid Body system for physics simulation,
-so all parameters behave exactly as they do in Blender's native Rigid Body settings.</p>
-<p>If you are already familiar with these parameters, you may skip this section.</p>
-<p>Otherwise, the following sections provide a practical overview of the key parameters along with real-world usage tips.</p>
+<span id="id2"></span><h2>参数<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<p>本插件使用 Blender 内置的 <strong>刚体系统（Rigid Body System）</strong> 进行物理模拟，因此所有参数的行为与 Blender 原生刚体的设置完全一致。</p>
+<p>如果你已经熟悉这些参数，可以跳过本节。</p>
+<p>否则，下面的内容将对几个关键参数进行简要说明，并结合实际使用经验提供一些调整建议。</p>
 <section id="mass">
-<span id="id3"></span><h3>Mass<a class="headerlink" href="#mass" title="Link to this heading"></a></h3>
-<p>The <strong>Mass</strong> parameter defines the inertia of an object, i.e. its resistance to acceleration.</p>
+<span id="id3"></span><h3>质量（Mass）<a class="headerlink" href="#mass" title="Link to this heading"></a></h3>
+<p><strong>Mass（质量）</strong> 参数定义了物体的惯性，即物体对加速度变化的抵抗程度。</p>
 <ul class="simple">
-<li><p><strong>Acceleration response</strong>: With the same applied force, heavier objects accelerate more slowly.</p></li>
-<li><p><strong>Collision behavior</strong>: A high-mass object will push lighter ones aside while being barely affected itself (conservation of momentum).</p></li>
-<li><p><strong>Gravity</strong>: Mass does not change the free-fall speed (gravity is constant), but it does affect impact forces.</p></li>
-<li><p><strong>Rotational inertia</strong>: Heavier objects are also harder to rotate due to larger inertia tensors.</p></li>
+<li><p><strong>加速度响应</strong>：在施加相同力的情况下，质量越大的物体加速越慢。</p></li>
+<li><p><strong>碰撞行为</strong>：质量较大的物体会更容易推动质量较小的物体，而自身受到的影响较小（动量守恒）。</p></li>
+<li><p><strong>重力影响</strong>：质量不会改变自由落体速度（重力加速度恒定），但会影响碰撞时产生的冲击力。</p></li>
+<li><p><strong>转动惯量</strong>：质量较大的物体通常具有更大的惯性张量，因此更难被旋转。</p></li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
-<p>The default value of <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is neutral — you can treat it as a baseline and adjust other objects relative to it.</p>
+<p>默认值 <code class="docutils literal notranslate"><span class="pre">1.0</span></code> 可以视为一个基准值，你可以以此为参考，根据需要对其他物体进行相对调整。</p>
 </div>
 </section>
 <section id="friction">
-<span id="id4"></span><h3>Friction<a class="headerlink" href="#friction" title="Link to this heading"></a></h3>
-<p><strong>Friction</strong> controls how much resistance occurs when a Rigid Body slides across another surface.</p>
+<span id="id4"></span><h3>摩擦力（Friction）<a class="headerlink" href="#friction" title="Link to this heading"></a></h3>
+<p><strong>Friction（摩擦力）</strong> 控制刚体在另一个表面上滑动时产生的阻力大小。</p>
 <ul class="simple">
-<li><p>Higher values mean more resistance; objects slow down faster.</p></li>
-<li><p>Lower values mean smoother surfaces, objects slide more easily.</p></li>
+<li><p>数值越高，阻力越大，物体会更快停止。</p></li>
+<li><p>数值越低，表面越光滑，物体更容易滑动。</p></li>
 </ul>
-<p>Blender uses its built-in Bullet physics engine to simulate Rigid Body dynamics.
-The engine computes the combined friction between two objects using Bullet's default formula:</p>
+<p>Blender 使用内置的 <strong>Bullet 物理引擎（Bullet Physics Engine）</strong> 来模拟刚体动力学。两个物体之间的综合摩擦力由 Bullet 使用如下公式计算：</p>
 <div class="math notranslate nohighlight">
 \[friction_{total} = \sqrt{friction_A \times friction_B}\]</div>
-<p>In practice, this means that if either object has a very low friction value, the resulting combined friction will also be low.
-Both objects must have sufficiently high friction values for the interaction to provide strong resistance.</p>
+<p>在实际计算中，如果其中一个物体的摩擦值非常低，最终得到的综合摩擦力也会较低。只有当两个物体都具有较高摩擦值时，接触时才会产生明显的阻力。</p>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code>: ice-like surface, endless sliding.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">0.2</span></code>: slippery floor, slow stop.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">0.5</span></code>: typical wood or desktop friction.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">0.8</span></code>: rubber-like, objects stop almost immediately.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&gt;1.0</span></code>: extreme values, objects barely move without a strong push.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code>：类似冰面，几乎无限滑动。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.2</span></code>：较滑的地面，缓慢停止。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.5</span></code>：典型的木材或桌面摩擦。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.8</span></code>：类似橡胶，物体几乎立即停止。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;1.0</span></code>：极高摩擦，物体几乎不会移动，除非受到较大的推动。</p></li>
 </ul>
 </div>
 </section>
 <section id="bounce">
-<span id="id5"></span><h3>Bounce<a class="headerlink" href="#bounce" title="Link to this heading"></a></h3>
-<p>The <strong>Bounce</strong> parameter defines how much energy is preserved in a collision, also known as the <em>Coefficient of Restitution (e)</em>.
-It only affects motion along the collision normal, not along the surface.</p>
+<span id="id5"></span><h3>弹性（Bounce）<a class="headerlink" href="#bounce" title="Link to this heading"></a></h3>
+<p><strong>Bounce（弹性）</strong> 用于定义碰撞时能量保留的比例，也称为 <strong>恢复系数（Coefficient of Restitution, e）</strong>。该参数只影响碰撞法线方向的速度，不影响沿表面方向的运动。</p>
 <div class="math notranslate nohighlight">
 \[e = \frac{v_{after}}{v_{before}}\]</div>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code>: perfectly inelastic — the object sticks to the surface (like clay).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code>: perfectly elastic — the object bounces back with the same speed (idealized).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span> <span class="pre">~</span> <span class="pre">1.0</span></code>: partially elastic, some energy is lost.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code>：完全非弹性碰撞 —— 物体会粘在表面上（类似黏土）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code>：完全弹性碰撞 —— 物体会以相同速度反弹（理想情况）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span> <span class="pre">~</span> <span class="pre">1.0</span></code>：部分弹性碰撞，会损失一部分能量。</p></li>
 </ul>
 </div>
 </section>
 <section id="linear-damping">
-<span id="id6"></span><h3>Linear Damping<a class="headerlink" href="#linear-damping" title="Link to this heading"></a></h3>
-<p><strong>Linear Damping</strong> simulates drag forces (like air resistance) that slow down an object's motion when no external force is applied.
-It gradually reduces the object's linear velocity.</p>
+<span id="id6"></span><h3>线性阻尼（Linear Damping）<a class="headerlink" href="#linear-damping" title="Link to this heading"></a></h3>
+<p><strong>Linear Damping（线性阻尼）</strong> 用于模拟阻力（例如空气阻力）。当没有外力作用时，它会逐渐降低物体的线性速度。</p>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code>: no damping — the object slides forever, like on ice.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">0.04</span></code> (default): slight drag, objects slowly come to rest.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">0.3</span></code>: noticeable drag, objects stop within a few seconds.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code>: immediate stop, objects lose velocity almost instantly.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code>：没有阻尼 —— 物体会像在冰面上一样持续滑动。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.04</span></code> （默认）：轻微阻力，物体会逐渐停止。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.3</span></code>：明显阻力，物体会在几秒内停止。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code>：几乎立即停止。</p></li>
 </ul>
 </div>
 </section>
 <section id="angular-damping">
-<span id="id7"></span><h3>Angular Damping<a class="headerlink" href="#angular-damping" title="Link to this heading"></a></h3>
-<p><strong>Angular Damping</strong> controls how quickly an object's rotation slows down.
-It works the same way as <a class="reference internal" href="#linear-damping"><span class="std std-ref">Linear Damping</span></a>, but affects angular velocity instead of linear velocity.</p>
+<span id="id7"></span><h3>角阻尼（Angular Damping）<a class="headerlink" href="#angular-damping" title="Link to this heading"></a></h3>
+<p><strong>Angular Damping（角阻尼）</strong> 控制物体旋转速度衰减的速度。它的作用方式与 <a class="reference internal" href="#linear-damping"><span class="std std-ref">线性阻尼（Linear Damping）</span></a> 相同，但影响的是角速度，而不是线速度。</p>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code>: spins like a top, never slows down.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">0.1</span></code> (default): slight rotational drag, spin fades over time.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">0.3</span></code>: strong drag, object stops rotating in a few seconds.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code>: rotation stops almost immediately.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code>：像陀螺一样持续旋转，不会减速。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.1</span></code> （默认）：轻微旋转阻力，旋转会逐渐减弱。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.3</span></code>：较强阻力，旋转会在几秒内停止。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code>：几乎立即停止旋转。</p></li>
 </ul>
 </div>
 </section>
 </section>
 <section id="add-rigid-body">
-<h2>Add Rigid Body<a class="headerlink" href="#add-rigid-body" title="Link to this heading"></a></h2>
+<h2>添加刚体<a class="headerlink" href="#add-rigid-body" title="Link to this heading"></a></h2>
 <section id="quick-add">
-<h3>Quick Add<a class="headerlink" href="#quick-add" title="Link to this heading"></a></h3>
+<h3>快速添加<a class="headerlink" href="#quick-add" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>Select the <strong>Armature</strong> and switch to <em>Pose Mode</em>.</p></li>
-<li><p>Choose the bone(s) that should receive a Rigid Body.</p></li>
-<li><p>Click the <span class="menuselection">+</span> button</p></li>
-<li><p>Configure the properties and press <span class="menuselection">OK</span> to confirm.</p></li>
+<li><p>选择 <strong>骨架</strong>，并切换到 <em>姿态模式</em>。</p></li>
+<li><p>选择需要添加刚体的骨骼。</p></li>
+<li><p>点击 <span class="menuselection">+</span> 按钮。</p></li>
+<li><p>设置相关属性后，点击 <span class="menuselection">OK</span> 确认。</p></li>
 </ol>
 <img alt="_images/addon_add_rigid_body.gif" class="align-center" src="_images/addon_add_rigid_body.gif" />
 <div class="line-block">
@@ -315,44 +309,35 @@ It works the same way as <a class="reference internal" href="#linear-damping"><s
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <ul>
-<li><p>You can find detailed explanations of all rigid body parameters in <a class="reference internal" href="#rigid-body-properties"><span class="std std-ref">Rigid Body Properties</span></a>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">$name</span></code> is a placeholder that will use the name of the target bone as the rigid body's name.</p></li>
-<li><p>When no bone is selected in <em>Pose Mode</em>, the add-on creates an <a class="reference internal" href="#auxiliary-rigid-bodies"><span class="std std-ref">Auxiliary Rigid Body</span></a> for the model.</p></li>
-<li><p>You can adjust the <a class="reference internal" href="#rigid-body-properties"><span class="std std-ref">Rigid Body Properties</span></a> at any time in the <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">Rigid Body Properties Panel</span></a>.</p></li>
+<li><p>所有刚体参数的详细说明可以在 <a class="reference internal" href="#rigid-body-properties"><span class="std std-ref">刚体属性</span></a> 部分查看。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$name</span></code> 是一个占位符，会自动使用目标骨骼的名称作为刚体名称。</p></li>
+<li><p>如果在 <em>姿态模式</em> 中没有选中任何骨骼，插件会为模型创建一个 <a class="reference internal" href="#auxiliary-rigid-bodies"><span class="std std-ref">辅助刚体</span></a>。</p></li>
+<li><p>你可以随时在 <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">刚体属性面板</span></a> 中修改 <a class="reference internal" href="#rigid-body-properties"><span class="std std-ref">刚体属性</span></a>。</p></li>
 <li><dl>
-<dt>For <strong>Rigify</strong> armatures, it is recommended to:</dt><dd><ul>
-<li><p>Attach rigid bodies of type <code class="docutils literal notranslate"><span class="pre">Bone</span></code> (i.e., fully bone-driven rigid bodies) to the <code class="docutils literal notranslate"><span class="pre">DEF-</span></code> bones.</p>
-<p>You can move and rotate the rigid bodies freely (in 3D viewport), and scale them (through the <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">Rigid Body Properties Panel</span></a> ),
-to fit the model's mesh contour as closely as possible and achieve more accurate physical simulation.</p>
-<p>A single bone can drive multiple rigid bodies of this type, all of which follow the same bone transform.</p>
+<dt>对于 <strong>Rigify</strong> 骨架，建议采用以下方式：</dt><dd><ul>
+<li><p>将 <code class="docutils literal notranslate"><span class="pre">Bone</span></code> 类型的刚体（即完全由骨骼驱动的刚体）绑定到 <code class="docutils literal notranslate"><span class="pre">DEF-</span></code> 骨骼。</p>
+<p>你可以在 <em>3D视图</em> 中自由移动和旋转刚体，并在 <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">刚体属性面板</span></a> 中调整尺寸，使其尽可能贴合模型的网格轮廓，从而获得更准确的物理模拟效果。</p>
+<p>一个骨骼可以驱动多个此类型的刚体，这些刚体都会跟随同一个骨骼的变换。</p>
 <img alt="_images/addon_add_bone_rigid.png" class="align-center" src="_images/addon_add_bone_rigid.png" />
 </li>
-<li><p>Attach rigid bodies of type <code class="docutils literal notranslate"><span class="pre">Physics</span></code> or <code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code> (i.e., physics-driven rigid bodies) to the <code class="docutils literal notranslate"><span class="pre">CTRL-</span></code> bones.</p>
-<p>To allow manual correction of physics results, two <strong>Bone Collections</strong> are required:</p>
-<p>one named <code class="docutils literal notranslate"><span class="pre">xxx_Physics</span></code> that stores the bones directly controlled by the physics system,
-and another that mirrors their rotation via <code class="docutils literal notranslate"><span class="pre">Copy</span> <span class="pre">Rotation</span></code> and uses <code class="docutils literal notranslate"><span class="pre">Mix</span> <span class="pre">Before</span> <span class="pre">Original</span></code> to support manual adjustments.</p>
-<p>The second collection enables animators to fix minor penetrations or unwanted motion after the simulation is baked,
-while still retaining the physics-driven motion in the <code class="docutils literal notranslate"><span class="pre">xxx_Physics</span></code> collection.</p>
-<p>This modular structure helps isolate and debug issues efficiently.
-For details on creating such bone collections and adding custom ones to a Rigify Armature,</p>
-<p>Check <a href="https://www.youtube.com/watch?v=BKtVuqnCbK0" target="_blank">Youtube</a> or <a href="https://www.bilibili.com/video/BV16G4y1z7BD/?spm_id_from=333.1387.favlist.content.click&vd_source=b9589ad635db7dddd215259c55a8a09c" target="_blank">Bilibili</a> for the tutorial, or refer to the setup shown in the sample file.
-(<strong>Note</strong>: You may focus only on the part of the video demonstrating how to add bone collections; the cloth simulation section can be ignored.)</p>
-<p>For <code class="docutils literal notranslate"><span class="pre">Physics</span></code> or <code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code> type rigid bodies, a single bone can also be bound to multiple rigid bodies.
-During simulation, the bone will be driven by the rigid body with the greatest mass,
-while the others act as auxiliary bodies.</p>
+<li><p>将 <code class="docutils literal notranslate"><span class="pre">Physics</span></code> 或 <code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code> 类型的刚体（即由物理系统驱动的刚体）绑定到 <code class="docutils literal notranslate"><span class="pre">CTRL-</span></code> 骨骼。</p>
+<p>为了允许在物理模拟后进行手动修正，需要创建两个骨骼集合（Bone Collections）：</p>
+<p>其中一个命名为 <code class="docutils literal notranslate"><span class="pre">xxx_Physics</span></code>，用于存放直接由物理系统驱动的骨骼；另一个集合通过 <code class="docutils literal notranslate"><span class="pre">Copy</span> <span class="pre">Rotation</span></code> 约束复制其旋转，并使用 <code class="docutils literal notranslate"><span class="pre">Mix</span> <span class="pre">Before</span> <span class="pre">Original</span></code> 模式，从而允许在其基础上进行手动调整，修正一些轻微的穿插或不理想的运动。</p>
+<p>这种模块化结构有助于快速定位和调试问题。关于如何创建这些骨骼集合以及在 Rigify 骨架中添加自定义集合的详细方法：</p>
+<p>可以参考 <a href="https://www.youtube.com/watch?v=BKtVuqnCbK0" target="_blank">Youtube</a> 或 <a href="https://www.bilibili.com/video/BV16G4y1z7BD/?spm_id_from=333.1387.favlist.content.click&vd_source=b9589ad635db7dddd215259c55a8a09c" target="_blank">Bilibili</a> 中的教程，或者查看示例文件中的设置。（<strong>注意</strong>：只需关注视频中如何添加 Bone Collection 的部分，布料模拟部分可以忽略）</p>
+<p>对于 <code class="docutils literal notranslate"><span class="pre">Physics</span></code> 或 <code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code> 类型的刚体，一个骨骼同样可以绑定多个刚体。在模拟过程中，骨骼会由 <strong>质量最大的刚体</strong> 驱动，其余刚体则作为辅助刚体参与计算。</p>
 </li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p>With other rigs or custom armatures, make sure that all bones participating in the physics simulation
-have corresponding <strong>control bones</strong>, allowing you to override the simulation when necessary and prevent mesh intersections or penetrations.</p></li>
+<li><p>对于其他绑定系统或自定义骨架，请确保所有参与物理模拟的骨骼都具有对应的 <strong>控制骨骼</strong>。这样在必要时你可以手动覆盖物理模拟结果，从而避免网格发生相交或穿插。</p></li>
 </ul>
 </div>
 </section>
 <section id="save-presets">
-<span id="id8"></span><h3>Save Presets<a class="headerlink" href="#save-presets" title="Link to this heading"></a></h3>
-<p>You can save presets for reuse. This workflow is very useful in practice, as it can save a significant amount of time!</p>
+<span id="id8"></span><h3>保存预设<a class="headerlink" href="#save-presets" title="Link to this heading"></a></h3>
+<p>你可以保存参数预设以便重复使用。在实际工作中，这种方式可以显著节省时间。</p>
 <img alt="_images/addon_save_preset.gif" class="align-center" src="_images/addon_save_preset.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
@@ -360,70 +345,67 @@ have corresponding <strong>control bones</strong>, allowing you to override the 
 </section>
 </section>
 <section id="rigid-body-properties">
-<span id="id9"></span><h2>Rigid Body Properties<a class="headerlink" href="#rigid-body-properties" title="Link to this heading"></a></h2>
+<span id="id9"></span><h2>刚体属性<a class="headerlink" href="#rigid-body-properties" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p><strong>name</strong>: The name of the Rigid Body.</p></li>
-<li><p><strong>collision_group_number</strong>: Collision group assigned to this object.</p></li>
-<li><p><strong>collision_group_mask</strong>: Groups that this object should <strong>Not</strong> collide with.</p></li>
-<li><p><strong>rigid_type</strong>:</p>
+<li><p><strong>Name</strong>：刚体名称。</p></li>
+<li><p><strong>Collision Group</strong>：该刚体所属的碰撞组。</p></li>
+<li><p><strong>Collision Group Mask</strong>：<strong>不会</strong> 与该刚体发生碰撞的组。</p></li>
+<li><p><strong>Rigid Type（刚体类型）：</strong></p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">Bone</span></code>: The rigid body follows the orientation of the attached bone.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Physics</span></code>: The bone's transform is fully driven by the rigid body.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code>: The bone's position follows its parent, but its rotation is copied from the rigid body.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bone</span></code>：刚体跟随绑定骨骼的变换。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Physics</span></code>：骨骼的变换完全由刚体驱动。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code>：骨骼位置仍然跟随父骨骼，但旋转来自刚体。</p></li>
 </ul>
 </li>
-<li><p><strong>rigid_shape</strong>: Collision shape type.</p></li>
-<li><p><strong>axis_outward</strong>: Local bone axis that points &quot;outward&quot;.</p></li>
-<li><p><strong>size</strong>: Dimensions of the collision shape, scaled relative to the target bone length.</p></li>
-<li><p><strong>mass</strong>: See <a class="reference internal" href="#mass"><span class="std std-ref">Mass</span></a>.</p></li>
-<li><p><strong>friction</strong>: See <a class="reference internal" href="#friction"><span class="std std-ref">Friction</span></a>.</p></li>
-<li><p><strong>bounce</strong>: See <a class="reference internal" href="#bounce"><span class="std std-ref">Bounce</span></a>.</p></li>
-<li><p><strong>linear damping</strong>: See <a class="reference internal" href="#linear-damping"><span class="std std-ref">Linear Damping</span></a>.</p></li>
-<li><p><strong>angular damping</strong>: See <a class="reference internal" href="#angular-damping"><span class="std std-ref">Angular Damping</span></a>.</p></li>
+<li><p><strong>Shape</strong>：碰撞体形状。</p></li>
+<li><p><strong>Outward Axis</strong>：骨骼局部坐标中指向“外侧”的轴。</p></li>
+<li><p><strong>Size</strong>：碰撞体尺寸，相对于目标骨骼的长度进行缩放。</p></li>
+<li><p><strong>Mass</strong>：<a class="reference internal" href="#mass"><span class="std std-ref">质量（Mass）</span></a>。</p></li>
+<li><p><strong>Friction</strong>：<a class="reference internal" href="#friction"><span class="std std-ref">摩擦力（Friction）</span></a>。</p></li>
+<li><p><strong>Bounce</strong>：<a class="reference internal" href="#bounce"><span class="std std-ref">弹性（Bounce）</span></a>。</p></li>
+<li><p><strong>Linear Damping</strong>：<a class="reference internal" href="#linear-damping"><span class="std std-ref">线性阻尼（Linear Damping）</span></a>。</p></li>
+<li><p><strong>Angular Damping</strong>：<a class="reference internal" href="#angular-damping"><span class="std std-ref">角阻尼（Angular Damping）</span></a>.</p></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>When modifying rigid body properties, always use the add-on's <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">Rigid Body Properties Panel</span></a>.
-Do not edit them through Blender's built-in interface.</p>
+<p>修改刚体属性时，请始终使用本插件提供的 <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">刚体属性面板</span></a>，不要通过 Blender 内置界面直接编辑。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <ul>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">Physics</span></code> vs <code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code></dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Physics</span></code>: The bone's location and rotation are completely determined by the rigid body. The rigid body may move the bone away from the Armature.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code>: The bone's position is still driven by its parent, but its rotation is copied from the rigid body. This prevents the bone from detaching while still inheriting the physical simulation results.</p></li>
+<dt><code class="docutils literal notranslate"><span class="pre">Physics</span></code> 与 <code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Physics</span></code>：骨骼的位置和旋转完全由刚体控制。刚体可能会使骨骼偏离骨架。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code>：骨骼的位置仍由父骨驱动，但旋转从刚体复制。这样可以在保持物理模拟结果的同时，防止骨骼脱离父骨。</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt><strong>axis_outward</strong></dt><dd><p>When using <strong>box-shaped</strong> rigid bodies (<strong>sphere</strong> or <strong>capsule</strong> shapes can ignore this setting) to simulate skirt physics,
-make sure that the target bones already have the correct local orientation —
-either <strong>Z Outward</strong> or <strong>X Outward</strong>.</p>
-<p>Then, when adding the rigid body, simply set <code class="docutils literal notranslate"><span class="pre">Outward</span> <span class="pre">Axis</span></code> to <code class="docutils literal notranslate"><span class="pre">Z</span></code> or <code class="docutils literal notranslate"><span class="pre">X</span></code> accordingly.</p>
-<p>This ensures that the newly added rigid body inherits the correct initial rotation:</p>
+<dt><code class="docutils literal notranslate"><span class="pre">Outward</span> <span class="pre">Axis</span></code></dt><dd><p>在使用 <strong>盒状</strong> 刚体（<strong>球形</strong> 或 <strong>胶囊形</strong> 刚体可忽略此设置）模拟裙子物理时，请确保目标骨骼已经具有正确的局部方向——即 <strong>Z轴向外</strong> 或 <strong>X轴向外</strong>。</p>
+<p>然后，在添加刚体时，将 <code class="docutils literal notranslate"><span class="pre">Outward</span> <span class="pre">Axis</span></code> 设置为相应的 <code class="docutils literal notranslate"><span class="pre">Z</span></code> 或 <code class="docutils literal notranslate"><span class="pre">X</span></code>。</p>
+<p>这样可以确保新添加的刚体继承正确的初始旋转：</p>
 <ul class="simple">
-<li><p>The <strong>Z-axis</strong> aligns with the bone direction,</p></li>
-<li><p>The <strong>Y-axis</strong> points outward along the skirt's normal,</p></li>
-<li><p>The <strong>X-axis</strong> runs tangentially along the skirt surface.</p></li>
+<li><p><strong>Z 轴</strong> 与骨骼方向对齐；</p></li>
+<li><p><strong>Y 轴</strong> 沿裙子法线指向外侧；</p></li>
+<li><p><strong>X 轴</strong> 沿裙子表面切向延伸。</p></li>
 </ul>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p class="rubric">Comparison: Correct vs Incorrect Setup</p>
+<p class="rubric">对比：正确设置与错误设置</p>
 <figure class="align-center" id="id14">
-<a class="reference internal image-reference" href="_images/addon_rigid_body_axis_correct.png"><img alt="Correct bone orientation with matching Outward Axis" src="_images/addon_rigid_body_axis_correct.png" style="width: 80%;" />
+<a class="reference internal image-reference" href="_images/addon_rigid_body_axis_correct.png"><img alt="正确的骨骼方向及匹配的 Outward Axis" src="_images/addon_rigid_body_axis_correct.png" style="width: 80%;" />
 </a>
 <figcaption>
-<p><span class="caption-text"><strong>Correct Setup</strong> — The rigid body aligns perfectly with the mesh, ensuring stable joint orientation and smooth motion.</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+<p><span class="caption-text"><strong>正确设置</strong> — 刚体与网格完美对齐。</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id15">
-<a class="reference internal image-reference" href="_images/addon_rigid_body_axis_incorrect.png"><img alt="Incorrect bone orientation or mismatched Outward Axis" src="_images/addon_rigid_body_axis_incorrect.png" style="width: 80%;" />
+<a class="reference internal image-reference" href="_images/addon_rigid_body_axis_incorrect.png"><img alt="骨骼方向错误或 Outward Axis 不匹配" src="_images/addon_rigid_body_axis_incorrect.png" style="width: 80%;" />
 </a>
 <figcaption>
-<p><span class="caption-text"><strong>Incorrect Setup</strong> — The rigid body appears twisted or offset, and the resulting joints may flip or behave unpredictably during simulation.</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+<p><span class="caption-text"><strong>错误设置</strong> — 刚体出现扭曲或偏移。</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </dd>
@@ -433,17 +415,15 @@ either <strong>Z Outward</strong> or <strong>X Outward</strong>.</p>
 <blockquote>
 <div><ul>
 <li><dl>
-<dt><strong>size</strong></dt><dd><p>In the preset panel, all shapes have three components (<code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z</span></code>).
-However, the number of components required varies by shape:</p>
+<dt><strong>Size</strong></dt><dd><p>在预设面板中，所有形状都有三个分量（<code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z</span></code>）。但是，不同形状需要的分量数量不同：</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><em>Sphere</em>: only radius (use <code class="docutils literal notranslate"><span class="pre">x</span></code>).</p></li>
-<li><p><em>Box</em>: width, height, depth (use <code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z</span></code>).</p></li>
-<li><p><em>Capsule</em>: radius (hemisphere) and height (use <code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y</span></code>).</p></li>
+<li><p><em>球体</em>：仅半径（使用 <code class="docutils literal notranslate"><span class="pre">x</span></code>）。</p></li>
+<li><p><em>盒体</em>：长、宽、高（使用 <code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z</span></code>）。</p></li>
+<li><p><em>胶囊体</em>：半径（半球）和高度（使用 <code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y</span></code>）。</p></li>
 </ul>
 </div></blockquote>
-<p>It is recommended to keep the default values in the preset panel and
-make any necessary fine-tuning in the <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">Rigid Body Properties Panel</span></a>.</p>
+<p>建议保持预设面板中的默认值，并在 <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">刚体属性面板</span></a> 中进行必要的微调。</p>
 </dd>
 </dl>
 </li>
@@ -452,67 +432,57 @@ make any necessary fine-tuning in the <a class="reference internal" href="#rigid
 </div>
 </section>
 <section id="rigid-body-properties-panel">
-<span id="id10"></span><h2>Rigid Body Properties Panel<a class="headerlink" href="#rigid-body-properties-panel" title="Link to this heading"></a></h2>
-<p>The <em>Rigid Body Properties Panel</em> is where you can view and edit rigid body attributes.
-It can be found under the <em>Physics Tab</em> in Blender.</p>
+<span id="id10"></span><h2>刚体属性面板<a class="headerlink" href="#rigid-body-properties-panel" title="Link to this heading"></a></h2>
+<p><em>刚体属性面板</em> 用于查看和编辑刚体属性。该面板位于 Blender 的 <em>Physics</em> 选项卡中。</p>
 <img alt="_images/addon_rigid_body_properties_panel.gif" class="align-center" src="_images/addon_rigid_body_properties_panel.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>For consistency and to avoid unintended errors, all rigid body attributes <strong>Must</strong> be modified via the add-on's <em>Rigid Body Properties Panel</em>.</p>
+<p>为了保持一致性并避免意外错误，所有刚体属性 <strong>必须</strong> 通过插件提供的 <em>刚体属性面板</em> 进行修改。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>Some properties can still be edited through Blender's default UI, and these actions cannot be blocked.
-For example:</p>
+<p>某些属性仍可通过 Blender 的内置界面进行编辑，这些操作无法被阻止。例如：</p>
 <ul class="simple">
-<li><p>Physical parameters such as <a class="reference internal" href="#mass"><span class="std std-ref">Mass</span></a> and <a class="reference internal" href="#friction"><span class="std std-ref">Friction</span></a> can still be edited in the <em>Physics Tab</em>.</p></li>
-<li><p>Scaling a rigid body in the 3D viewport with the <span class="menuselection">S</span> key.</p></li>
+<li><p>物理参数，如 <a class="reference internal" href="#mass"><span class="std std-ref">质量</span></a> 和 <a class="reference internal" href="#friction"><span class="std std-ref">摩擦力</span></a>，仍可在 <em>物理选项卡</em> 中编辑。</p></li>
+<li><p>在 <em>3D视图</em> 中使用 <span class="menuselection">S</span> 键缩放刚体。</p></li>
 </ul>
-<p>However, editing through Blender's defaults will bypass the add-on's callbacks.
-These callbacks may perform important tasks such as updating data, reassigning materials, or adjusting constraints.</p>
-<p><strong>Example - Scaling in the 3D viewport:</strong></p>
-<p>Using the <span class="menuselection">S</span> key only changes the <strong>Visible Mesh</strong>, the internal size data remains unchanged.
-This can cause the <strong>Visual Mesh</strong> and the <strong>Collision Shape</strong> to diverge, leading to clipping or misalignment.</p>
-<p>Another reason manual scaling should be avoided is that the Bullet physics engine requires ideal mathematical shapes (<em>Sphere</em>, <em>Box</em>, <em>Capsule</em>, etc.).
-Manual scaling can easily break these ideal shapes, leading to inaccurate or unstable simulation results.</p>
+<p>然而，通过 Blender 内置操作编辑刚体将绕过插件的回调，这些回调可能执行某些关键任务，如更新数据、重新分配材质或调整约束等。</p>
+<p><strong>示例 - 在 3D 视图中缩放:</strong></p>
+<p>使用 <span class="menuselection">S</span> 键仅会改变 <strong>可视网格</strong>，内部尺寸数据仍保持不变。这可能导致 <strong>可视网格</strong> 与实际 <strong>碰撞形状</strong> 不一致，引发穿模或错位。</p>
 </div>
 </section>
 <section id="rigid-body-list">
-<span id="id11"></span><h2>Rigid Body List<a class="headerlink" href="#rigid-body-list" title="Link to this heading"></a></h2>
-<p>The <em>Rigid Body List</em> shows all rigid bodies in the current scene.</p>
-<p>By default, it filters by <span class="menuselection">Active Model</span>, displaying only the rigid bodies of the currently selected model.
-To view rigid bodies from all models, change the filter to <span class="menuselection">All Models</span>.</p>
+<span id="id11"></span><h2>刚体列表<a class="headerlink" href="#rigid-body-list" title="Link to this heading"></a></h2>
+<p><em>刚体列表</em> 显示当前场景中的所有刚体。</p>
+<p>默认情况下会按照 <span class="menuselection">Active Model</span> 进行筛选，只显示当前选中模型的刚体。如果需要查看所有模型的刚体，可以将筛选切换为 <span class="menuselection">All Models</span>。</p>
 <img alt="_images/addon_rigid_body_list.gif" class="align-center" src="_images/addon_rigid_body_list.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 <section id="reordering-list-items">
-<h3>Reordering List Items<a class="headerlink" href="#reordering-list-items" title="Link to this heading"></a></h3>
-<p>You can reorder list items using the <span class="menuselection">⬆</span> and <span class="menuselection">⬇</span> buttons,
-or through the right-side dropdown menu options: <span class="menuselection">Move To Top</span> and <span class="menuselection">Move To Bottom</span>.</p>
+<h3>重新排序列表项<a class="headerlink" href="#reordering-list-items" title="Link to this heading"></a></h3>
+<p>你可以使用 <span class="menuselection">⬆</span> 和 <span class="menuselection">⬇</span> 按钮重新排列列表项，也可以通过右侧下拉菜单中的 <span class="menuselection">Move To Top</span> 和 <span class="menuselection">Move To Bottom</span> 选项进行排序。</p>
 <img alt="_images/addon_rigid_body_move.gif" class="align-center" src="_images/addon_rigid_body_move.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 </section>
-<section id="error-icon-indicators">
-<h3>Error Icon Indicators<a class="headerlink" href="#error-icon-indicators" title="Link to this heading"></a></h3>
+<section id="error-indicators">
+<h3>错误提示<a class="headerlink" href="#error-indicators" title="Link to this heading"></a></h3>
 <section id="missing-physics">
-<h4>Missing Physics<a class="headerlink" href="#missing-physics" title="Link to this heading"></a></h4>
-<p>A list item will show a <em>&quot;Missing Physics Warning&quot;</em> when its rigid body has no <em>Rigid Body Settings</em> component.
-To fix this, use the <span class="menuselection">Add Rigid Body</span> button in the <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">Rigid Body Properties Panel</span></a> to restore the settings.</p>
+<h4>缺少 Physics 组件<a class="headerlink" href="#missing-physics" title="Link to this heading"></a></h4>
+<p>当刚体对象缺少 <em>Rigid Body Settings</em> 组件时，对应的列表项会显示 <em>&quot;缺少物理组件&quot;</em> 图标。要修复此问题，可以在 <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">刚体属性面板</span></a> 中点击 <span class="menuselection">Add Rigid Body</span> 按钮以恢复该设置。</p>
 <img alt="_images/addon_rigid_body_missing_physics.gif" class="align-center" src="_images/addon_rigid_body_missing_physics.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 </section>
 <section id="missing-bone">
-<h4>Missing Bone<a class="headerlink" href="#missing-bone" title="Link to this heading"></a></h4>
-<p>A list item will show a <em>&quot;Missing Bone Warning&quot;</em> when its rigid body has no assigned bone.
-The missing bone can be reassigned in the <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">Rigid Body Properties Panel</span></a>.</p>
+<h4>缺少骨骼<a class="headerlink" href="#missing-bone" title="Link to this heading"></a></h4>
+<p>当刚体没有绑定骨骼时，对应的列表项会显示 <em>&quot;缺少骨骼&quot;</em> 图标。你可以在 <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">刚体属性面板</span></a> 中重新分配骨骼。</p>
 <img alt="_images/addon_rigid_body_missing_bone.gif" class="align-center" src="_images/addon_rigid_body_missing_bone.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
@@ -521,77 +491,67 @@ The missing bone can be reassigned in the <a class="reference internal" href="#r
 </section>
 </section>
 <section id="select-rigid-bodies">
-<span id="id12"></span><h2>Select Rigid Bodies<a class="headerlink" href="#select-rigid-bodies" title="Link to this heading"></a></h2>
-<p>You can quickly perform batch selection of rigid bodies through <strong>Select Similar</strong> in the right-side menu.
-This tool compares the properties of the active rigid body and selects all other rigid bodies that share the same values.</p>
+<span id="id12"></span><h2>选择刚体<a class="headerlink" href="#select-rigid-bodies" title="Link to this heading"></a></h2>
+<p>你可以通过右侧菜单中的 <span class="menuselection">Select Similar</span> 快速批量选择刚体。该工具会比较当前激活刚体的属性，并选择所有具有相同属性值的其他刚体。</p>
 <section id="properties-for-comparison">
-<h3>Properties for Comparison<a class="headerlink" href="#properties-for-comparison" title="Link to this heading"></a></h3>
-<p>When invoking <strong>Select Similar</strong>, a pop-up dialog will appear, allowing you to choose which properties should be matched:</p>
+<h3>匹配属性<a class="headerlink" href="#properties-for-comparison" title="Link to this heading"></a></h3>
+<p>点击 <span class="menuselection">Select Similar</span> 后，会弹出一个对话框，允许你选择用于匹配的属性：</p>
 <ul class="simple">
-<li><p><span class="menuselection">Collision Group</span>: Selects rigid bodies that share the same collision group number.</p></li>
-<li><p><span class="menuselection">Collision Group Mask</span>: Selects rigid bodies that have the same collision mask configuration.</p></li>
-<li><p><span class="menuselection">Rigid Type</span>: Matches the rigid body type (e.g., Bone, Physics, Physics + Bone).</p></li>
-<li><p><span class="menuselection">Shape</span>: Matches the collision shape.</p></li>
-<li><p><span class="menuselection">Bone</span>: Selects rigid bodies bound to the same target bone.</p></li>
+<li><p><span class="menuselection">Collision Group</span>：选择具有相同碰撞组编号的刚体。</p></li>
+<li><p><span class="menuselection">Collision Group Mask</span>：选择具有相同碰撞掩码配置的刚体。</p></li>
+<li><p><span class="menuselection">Rigid Type</span>：选择具有相同刚体类型的刚体（例如 <code class="docutils literal notranslate"><span class="pre">Bone</span></code>、<code class="docutils literal notranslate"><span class="pre">Physics</span></code>、<code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code>）。</p></li>
+<li><p><span class="menuselection">Shape</span>：选择使用相同碰撞体形状的刚体。</p></li>
+<li><p><span class="menuselection">Bone</span>：选择绑定到同一目标骨骼的刚体。</p></li>
 </ul>
-<p>These properties can be selected individually or in any combination.</p>
+<p>这些属性可以单独选择，也可以任意组合使用。</p>
 <img alt="_images/addon_rigid_body_select_similar.gif" class="align-center" src="_images/addon_rigid_body_select_similar.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 </section>
 <section id="hide-others">
-<h3>Hide Others<a class="headerlink" href="#hide-others" title="Link to this heading"></a></h3>
-<p>The dialog also includes a <em>Hide Others</em> option:</p>
+<h3>隐藏其他对象<a class="headerlink" href="#hide-others" title="Link to this heading"></a></h3>
+<p>该对话框还包含一个 <em>Hide Others</em> 选项：</p>
 <ul class="simple">
-<li><p>When enabled, all rigid bodies that do not match the chosen properties will be hidden.</p></li>
-<li><p>When disabled, unmatched objects remain visible but are simply not selected.</p></li>
+<li><p>启用后，所有不符合所选属性条件的刚体都会被隐藏。</p></li>
+<li><p>关闭后，不符合条件的对象仍然保持可见，但不会被选中。</p></li>
 </ul>
 </section>
 </section>
 <section id="remove-rigid-body">
-<span id="id13"></span><h2>Remove Rigid Body<a class="headerlink" href="#remove-rigid-body" title="Link to this heading"></a></h2>
-<p>Select a rigid body in the <em>3D viewport</em>, the <em>Rigid Body List</em>, or the <em>Outliner</em>, then click the <span class="menuselection">-</span> button to remove it.</p>
+<span id="id13"></span><h2>删除刚体<a class="headerlink" href="#remove-rigid-body" title="Link to this heading"></a></h2>
+<p>在 <em>3D视图</em>、<em>刚体列表</em> 或 <em>大纲视图</em> 中选择刚体，然后点击 <span class="menuselection">-</span> 按钮即可删除。</p>
 <img alt="_images/addon_rigid_body_remove.gif" class="align-center" src="_images/addon_rigid_body_remove.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 </section>
 <section id="example-auxiliary-rigid-bodies">
-<span id="auxiliary-rigid-bodies"></span><h2>Example: Auxiliary Rigid Bodies<a class="headerlink" href="#example-auxiliary-rigid-bodies" title="Link to this heading"></a></h2>
-<p>When adding rigid bodies to the hair of a stylized character —
-especially for curved bangs or side locks — simply assigning a single rigid body to each bone often leads to an undesired effect:</p>
-<p>The hair strands will hang straight down under gravity during simulation.</p>
-<p>However, stylized (non-realistic) hair should retain its designed shape and elasticity even in an <strong>Idle</strong> state.
-To reproduce this elastic behavior and maintain a smooth, natural motion during simulation,
-we introduce <em>Auxiliary Rigid Bodies</em> that influence the target Rigid Bodies,
-helping them maintain their intended modeled pose instead of collapsing under gravity.</p>
-<p>The <em>Auxiliary Rigid Body</em> usually has the same mass as its target.
-By adjusting the <strong>Angle</strong> between them, or the <strong>Length</strong> of the <em>Auxiliary Rigid Body</em>,
-you can control the amount of torque it applies to the target and achieve the desired balance in simulation.</p>
-<p class="rubric">Comparison: With vs. Without Auxiliary Rigid Bodies</p>
+<span id="auxiliary-rigid-bodies"></span><h2>示例：辅助刚体<a class="headerlink" href="#example-auxiliary-rigid-bodies" title="Link to this heading"></a></h2>
+<p>在为风格化角色的头发添加刚体时（特别是弯曲的刘海或侧发），如果每个骨骼只使用一个刚体，往往会产生不理想的效果：</p>
+<p>在模拟过程中，头发会在重力作用下垂直下垂。</p>
+<p>但对于非写实的风格化头发，即使在 <strong>Idle</strong> 状态下，也应该保持设计时的形状和弹性。为了重现这种弹性效果，并在模拟过程中保持平滑自然的运动，我们引入 <em>辅助刚体</em> 来影响目标刚体，使其能够维持建模时的姿态，而不是在重力作用下直接下垂。</p>
+<p><em>辅助刚体</em> 通常与其目标刚体具有相同的质量。通过调整它们之间的 <strong>角度</strong>，或 <em>辅助刚体</em> 的 <strong>长度</strong>，你可以控制其对目标刚体施加的扭矩，从而在模拟中达到期望的平衡效果。</p>
+<p class="rubric">对比：使用辅助刚体 与 不使用辅助刚体</p>
 <figure class="align-center" id="id16">
-<a class="reference internal image-reference" href="_images/addon_with_assist_rigid.gif"><img alt="Correct setup with auxiliary Rigid Body" src="_images/addon_with_assist_rigid.gif" style="width: 80%;" />
+<a class="reference internal image-reference" href="_images/addon_with_assist_rigid.gif"><img alt="使用辅助刚体的正确设置" src="_images/addon_with_assist_rigid.gif" style="width: 80%;" />
 </a>
 <figcaption>
-<p><span class="caption-text"><strong>With Auxiliary Rigid Body</strong> —
-The target rigid body is supported by an angled <em>Auxiliary Rigid Body</em>, maintaining the stylized curvature and preventing it from drooping under gravity.</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+<p><span class="caption-text"><strong>使用辅助刚体</strong> — 目标刚体由一个带角度的辅助刚体提供支撑，从而保持风格化的形状，防止其在重力作用下下垂。</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id17">
-<a class="reference internal image-reference" href="_images/addon_without_assist_rigid.gif"><img alt="Setup without auxiliary Rigid Body" src="_images/addon_without_assist_rigid.gif" style="width: 80%;" />
+<a class="reference internal image-reference" href="_images/addon_without_assist_rigid.gif"><img alt="未使用辅助刚体的设置" src="_images/addon_without_assist_rigid.gif" style="width: 80%;" />
 </a>
 <figcaption>
-<p><span class="caption-text"><strong>Without Auxiliary Rigid Body</strong> —
-The target Rigid Body is only constrained by gravity, causing the hair to fall straight down and lose its designed curvature.</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+<p><span class="caption-text"><strong>未使用辅助刚体</strong> — 目标刚体仅受到重力约束，导致头发在模拟中直接下垂，并失去原本设计的弯曲形状。</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id18">
-<a class="reference internal image-reference" href="_images/addon_mmd_sample.gif"><img alt="MMD model example using auxiliary Rigid Bodies" src="_images/addon_mmd_sample.gif" style="width: 80%;" />
+<a class="reference internal image-reference" href="_images/addon_mmd_sample.gif"><img alt="使用辅助刚体的 MMD 模型示例" src="_images/addon_mmd_sample.gif" style="width: 80%;" />
 </a>
 <figcaption>
-<p><span class="caption-text"><strong>MMD Model Example</strong> —
-The “Nico” model uses multiple <em>Auxiliary Rigid Bodies</em> on the hair, keeping the hair elastic and lifted even in the idle pose.</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+<p><span class="caption-text"><strong>MMD 模型示例</strong> — “妮可”模型在头发上使用了大量辅助刚体，使头发即使在 <strong>Idle</strong> 姿态下也能保持弹性和上扬的形状。</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -601,8 +561,8 @@ The “Nico” model uses multiple <em>Auxiliary Rigid Bodies</em> on the hair, 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
-        <a href="setup.html" class="btn btn-neutral float-left" title="Model Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="joint.html" class="btn btn-neutral float-right" title="Joint" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="setup.html" class="btn btn-neutral float-left" title="模型设置" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="joint.html" class="btn btn-neutral float-right" title="关节（约束）" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

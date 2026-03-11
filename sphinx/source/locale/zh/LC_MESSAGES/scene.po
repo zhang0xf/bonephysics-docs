@@ -1,0 +1,275 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, zhang0xf
+# This file is distributed under the same license as the Bone Physics Docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Bone Physics Docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-10 20:14+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../source/scene.rst:4
+msgid "Scene Setup"
+msgstr "场景设置"
+
+#: ../../source/scene.rst:6
+msgid ""
+"This panel provides access to configure *Timeline*, *Rigid Body World*, "
+"and *Bake*."
+msgstr "该面板提供了配置 *时间轴（Timeline）*、*刚体世界（Rigid Body World）* 以及 *烘焙（Bake）* 的入口。"
+
+#: ../../source/scene.rst:8
+msgid "Scene Setup panel"
+msgstr "场景设置面板"
+
+#: ../../source/scene.rst:16
+msgid "Timeline"
+msgstr "时间轴"
+
+#: ../../source/scene.rst:18
+msgid "The *Timeline* section displays and edits basic animation frame settings:"
+msgstr "*时间轴* 部分用于显示和编辑基本的动画帧设置："
+
+#: ../../source/scene.rst:20
+msgid "``Current Frame``: Displays the current frame of the scene timeline."
+msgstr "``Current Frame``：显示场景时间轴的当前帧。"
+
+#: ../../source/scene.rst:21
+msgid ""
+"``Start`` / ``End``: Defines the playback range used for previewing and "
+"baking physics simulations."
+msgstr "``Start`` / ``End``：定义预览和烘焙物理模拟的播放范围。"
+
+#: ../../source/scene.rst:23
+msgid "These values are shared with Blender's main timeline."
+msgstr "这些值与 Blender 的主时间轴同步。"
+
+#: ../../source/scene.rst:26
+msgid "Rigid Body World"
+msgstr "刚体世界"
+
+#: ../../source/scene.rst:28
+msgid ""
+"Blender's rigid body system relies on a scene-level container called the "
+"*Rigid Body World*, which manages:"
+msgstr "Blender 的刚体系统依赖于一个场景级容器 *刚体世界（Rigid Body World）*，它管理："
+
+#: ../../source/scene.rst:30
+msgid "Global simulation settings (*solver iterations*, *substeps*, *gravity*)"
+msgstr "全局模拟设置（*求解迭代次数（solver iterations）*、*子步数（substeps）*、*重力（gravity）*）"
+
+#: ../../source/scene.rst:31
+msgid "Collections that store rigid bodies"
+msgstr "存放刚体（*Rigid Body*）的集合"
+
+#: ../../source/scene.rst:32
+msgid "Collections that store rigid body constraints"
+msgstr "存放刚体约束（*Rigid Body Constraints*）的集合"
+
+#: ../../source/scene.rst:34
+msgid "This add-on automatically manages these settings to ensure consistency."
+msgstr "本插件会自动管理这些设置，以保证一致性。"
+
+#: ../../source/scene.rst:39
+msgid "Update Rigid World"
+msgstr "更新刚体世界"
+
+#: ../../source/scene.rst:41
+msgid ""
+"Blender requires all rigid bodies and constraints to be placed in "
+"specific collections referenced by the *Rigid Body World*."
+msgstr "Blender 要求所有刚体和约束都必须放置在 *刚体世界（Rigid Body World）* 所指定的集合中。"
+
+#: ../../source/scene.rst:43
+msgid ""
+"Click :menuselection:`Update Rigid World` to synchronize the scene with "
+"the rigid body system and ensure that all add-on objects are correctly "
+"registered in the required collections."
+msgstr ""
+"点击 :menuselection:`Update Rigid World` "
+"以将场景与刚体系统同步，确保所有插件对象都正确注册到刚体世界所使用的集合中。"
+
+#: ../../source/scene.rst:51
+msgid "This operation will:"
+msgstr "该操作将会："
+
+#: ../../source/scene.rst:53
+msgid "Ensure a valid *Rigid Body World* exists in the scene"
+msgstr "确保场景中存在有效的 *刚体世界（Rigid Body World）*"
+
+#: ../../source/scene.rst:54
+msgid "Create and assign required collections if missing"
+msgstr "缺少集合时，创建并分配必要的集合"
+
+#: ../../source/scene.rst:55
+msgid "Add all rigid bodies to the world collection"
+msgstr "将所有 *刚体（Rigid Body）* 添加到世界集合中"
+
+#: ../../source/scene.rst:56
+msgid "Add all rigid body constraints to the constraint collection"
+msgstr "将所有 *刚体约束（Rigid Body Constraint）* 添加到约束集合中"
+
+#: ../../source/scene.rst:57
+msgid "Fix broken references caused by:"
+msgstr "修复因以下原因导致的断链引用："
+
+#: ../../source/scene.rst:59
+msgid "Linked files"
+msgstr "链接文件"
+
+#: ../../source/scene.rst:60
+msgid "Library Overrides"
+msgstr "库覆盖"
+
+#: ../../source/scene.rst:61
+msgid "Collection instances"
+msgstr "实例化集合"
+
+#: ../../source/scene.rst:64
+msgid ""
+"If the button shows a warning icon, it indicates that the *Rigid Body "
+"World* settings differ from the recommended defaults and should be "
+"updated."
+msgstr "如果按钮显示警告图标，说明 *刚体世界（Rigid Body World）* 的设置与推荐默认值不同，需要更新。"
+
+#: ../../source/scene.rst:66
+msgid ""
+"This operator is safe to run at any time and is recommended whenever the "
+"scene structure changes."
+msgstr "该操作可随时安全运行，建议在场景结构发生变化时使用。"
+
+#: ../../source/scene.rst:69
+msgid "Why :menuselection:`Update Rigid World` Is Needed"
+msgstr "为什么需要 :menuselection:`Update Rigid World`"
+
+#: ../../source/scene.rst:71
+msgid "Blender's rigid body system relies on two internal collections:"
+msgstr "Blender 的刚体系统依赖于两个内部集合："
+
+#: ../../source/scene.rst:73
+msgid "A collection containing all rigid body objects"
+msgstr "存放所有刚体的集合"
+
+#: ../../source/scene.rst:74
+msgid "A collection containing all rigid body constraints"
+msgstr "存放所有刚体约束的集合"
+
+#: ../../source/scene.rst:76
+msgid ""
+"When rigs are linked, duplicated, or overridden, these references may "
+"become outdated or invalid."
+msgstr "当骨架被链接、复制或覆写时，这些引用可能会变得过时或无效。"
+
+#: ../../source/scene.rst:78
+msgid ""
+"The :menuselection:`Update Rigid World` operation rebuilds these "
+"references and ensures that all add-on objects are correctly registered "
+"in the simulation system."
+msgstr ":menuselection:`Update Rigid World` 操作会重建这些引用，并确保所有插件对象正确注册到模拟系统中。"
+
+#: ../../source/scene.rst:81
+msgid "Simulation Quality Settings"
+msgstr "模拟质量设置"
+
+#: ../../source/scene.rst:83
+msgid "The following parameters control simulation accuracy and stability:"
+msgstr "以下参数用于控制模拟的精度与稳定性："
+
+#: ../../source/scene.rst:85
+msgid ""
+":menuselection:`Substeps`: Number of physics substeps per frame. Higher "
+"values improve stability for fast-moving or lightweight objects."
+msgstr ":menuselection:`Substeps`：每帧的物理子步数。值越高，快速移动或轻量物体的稳定性越好。"
+
+#: ../../source/scene.rst:86
+msgid ""
+":menuselection:`Iterations`: Solver iteration count per substep. Higher "
+"values result in more accurate constraint solving at the cost of "
+"performance."
+msgstr ":menuselection:`Iterations`：每个子步的求解迭代次数。值越高，约束求解越精确，但会牺牲性能。"
+
+#: ../../source/scene.rst:89
+msgid "These parameters correspond to Blender's Bullet physics solver settings."
+msgstr "这些参数对应 Blender 的 Bullet 物理求解器设置。"
+
+#: ../../source/scene.rst:91
+msgid ""
+"The add-on provides default values for these parameters based on "
+"practical experience, balancing stability and performance."
+msgstr "插件根据经验为这些参数设置了默认值，以在稳定性和性能之间取得平衡。"
+
+#: ../../source/scene.rst:94
+msgid "Bake"
+msgstr "烘焙"
+
+#: ../../source/scene.rst:96
+msgid "Rigid body simulations can be cached for stable playback and rendering."
+msgstr "刚体模拟可以缓存，以实现稳定的播放和渲染。"
+
+#: ../../source/scene.rst:98
+msgid ""
+":menuselection:`Bake`: Bakes the rigid body simulation into Blender's "
+"point cache for the current frame range."
+msgstr ":menuselection:`Bake`：将当前帧范围内的刚体模拟烘焙到 Blender 的 *点缓存（Point Cache）* 中。"
+
+#: ../../source/scene.rst:99
+msgid ""
+":menuselection:`Delete Bake`: Clears the baked cache and restores real-"
+"time simulation."
+msgstr ":menuselection:`Delete Bake`：清除烘焙缓存，并恢复为实时模拟。"
+
+#: ../../source/scene.rst:101
+msgid "When a bake exists:"
+msgstr "当存在烘焙时："
+
+#: ../../source/scene.rst:103
+msgid "Timeline playback no longer recalculates physics"
+msgstr "播放时间轴时不再重新计算物理"
+
+#: ../../source/scene.rst:104
+msgid "Simulation results are deterministic"
+msgstr "模拟结果是确定的"
+
+#: ../../source/scene.rst:105
+msgid "Performance during animation playback improves"
+msgstr "动画播放时性能提升"
+
+#: ../../source/scene.rst:108
+msgid "If you need to adjust rigid bodies or constraints, delete the bake first."
+msgstr "如果你需要调整刚体或约束，请先删除烘焙。"
+
+#: ../../source/scene.rst:111
+msgid "Workflow Notes"
+msgstr "工作流程注意事项"
+
+#: ../../source/scene.rst:113
+msgid ""
+"After duplicating, linking, or reorganizing the scene structure, it is "
+"recommended to run :menuselection:`Update Rigid World`."
+msgstr "在复制、链接或重新组织场景结构后，建议运行 :menuselection:`Update Rigid World`。"
+
+#: ../../source/scene.rst:114
+msgid "Bake only after confirming that the simulation results behave as expected."
+msgstr "确认模拟结果符合预期后再进行烘焙。"
+
+#: ../../source/scene.rst:115
+msgid ""
+"When working in a multi-file workflow, run :menuselection:`Update Rigid "
+"World` after using :menuselection:`Link` or :menuselection:`Library "
+"Override` to avoid broken references."
+msgstr ""
+"在多文件工作流中，使用 :menuselection:`链接` 或 :menuselection:`库覆盖` "
+"后，请运行 :menuselection:`Update Rigid World` 以避免引用断链。"
+

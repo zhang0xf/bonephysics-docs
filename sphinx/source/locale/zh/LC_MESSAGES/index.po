@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bone Physics Docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 01:08+0800\n"
+"POT-Creation-Date: 2026-03-09 13:19+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh\n"
@@ -26,14 +26,43 @@ msgstr "欢迎使用 Bone Physics 文档"
 
 #: ../../source/index.rst:9
 msgid ""
-"Bone Physics is a blender add-on focused on skeletal physics simulation "
-"for character animation. It is suitable for dynamic parts like hair, "
-"ribbons, tails, as well as soft-body parts"
-msgstr "Bone Physics 是一个 Blender 插件，专注于角色动画的骨骼物理模拟，适用于头发、飘带、尾巴等动态部位，以及软体部分。"
+"**Bone Physics** is a `Blender` add-on that provides rigid-body-based "
+"bone physics for dynamic elements such as hair, ribbons, and tails in "
+"stylized character animation."
+msgstr "**Bone Physics** 是一款 `Blender` 插件，用于在风格化角色动画中为头发、飘带、尾巴等动态元素创建基于刚体的骨骼物理模拟。"
 
 #: ../../source/index.rst:12
 msgid ""
-"Check |youtube_link| or |bilibili_link| for video tutorials and complete "
-"workflow demonstrations."
-msgstr "请查看 |youtube_link| 或 |bilibili_link| 获取视频教程以及完整的工作流程演示。"
+"This add-on is developed on top of |blender_mmd_tools|. Its goal is to "
+"port the MMD physics system to `Blender` and use it as a standalone "
+"module, making it compatible with `Blender`'s built-in **Rigify** "
+"armature and other common rigging systems."
+msgstr ""
+"本插件基于 |blender_mmd_tools| 开发，目的是将 **MMD** 的物理系统移植到 Blender "
+"中，并作为一个独立模块使用，从而兼容 `Blender` 内置的 **Rigify** 骨架以及其他常见绑定系统。"
+
+#: ../../source/index.rst:16
+msgid ""
+"This add-on is open-source on |github| and distributed under the GPL-3.0 "
+"license."
+msgstr "本插件已在 |github| 上开源，并按照 GPL-3.0 许可证发布。"
+
+#: ../../source/index.rst:18
+msgid ""
+"If you would like to support its development, you may also purchase it on"
+" |superhivemarket|, |gumroad|, and |bilibili_shop|."
+msgstr "如果你愿意支持本插件的开发，也可以在 |superhivemarket|、|gumroad| 或 |bilibili_shop| 购买此插件。"
+
+#: ../../source/index.rst:21
+msgid ""
+"Since this add-on is based on |blender_mmd_tools|, you can refer to the "
+"physics setups used in many existing **MMD** models when configuring your"
+" own characters."
+msgstr "由于本插件基于 |blender_mmd_tools| 开发，在设置物理参数时，你可以参考许多现有 **MMD** 模型中的物理配置。"
+
+#: ../../source/index.rst:24
+msgid ""
+"Video tutorials and complete workflow demonstrations are available on "
+"|youtube_link| and |bilibili_link|."
+msgstr "视频教程以及完整的工作流程演示可以在 |youtube_link| 和 |bilibili_link| 上查看。"
 

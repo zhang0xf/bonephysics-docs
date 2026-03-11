@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Model Setup &mdash; Bone Physics Docs 1.0.0 文档</title>
+  <title>模型设置 &mdash; Bone Physics Docs 1.0.0 文档</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
@@ -22,7 +22,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Rigid Body" href="rigidbody.html" />
+    <link rel="next" title="刚体" href="rigidbody.html" />
     <link rel="prev" title="安装" href="installation.html" /> 
 </head>
 
@@ -93,95 +93,95 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">安装</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#installing-the-extension">安装插件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#remove-the-extension">Remove the extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#remove-the-extension">卸载插件</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Model Setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#check-model">Check Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#root-operations">Root Operations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#create-root">Create Root</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#select-root">Select Root</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#clear">Clear</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">模型设置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#check-model">检查模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#root-operations">Root 操作</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-root">创建 Root</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#select-root">选择 Root</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clear">清理</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#visibility">Visibility</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#build-rig-physics">Build Rig Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visibility">可见性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-rig-physics">构建 Rig 物理</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rigidbody.html">Rigid Body</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#parameters">Parameters</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#mass">Mass</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#friction">Friction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#bounce">Bounce</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#linear-damping">Linear Damping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#angular-damping">Angular Damping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rigidbody.html">刚体</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#parameters">参数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#mass">质量（Mass）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#friction">摩擦力（Friction）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#bounce">弹性（Bounce）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#linear-damping">线性阻尼（Linear Damping）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#angular-damping">角阻尼（Angular Damping）</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#add-rigid-body">Add Rigid Body</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#quick-add">Quick Add</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#save-presets">Save Presets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#add-rigid-body">添加刚体</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#quick-add">快速添加</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#save-presets">保存预设</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-properties">Rigid Body Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-properties-panel">Rigid Body Properties Panel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-list">Rigid Body List</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#reordering-list-items">Reordering List Items</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#error-icon-indicators">Error Icon Indicators</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-physics">Missing Physics</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-bone">Missing Bone</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#select-rigid-bodies">Select Rigid Bodies</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#properties-for-comparison">Properties for Comparison</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#hide-others">Hide Others</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#remove-rigid-body">Remove Rigid Body</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#example-auxiliary-rigid-bodies">Example: Auxiliary Rigid Bodies</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="joint.html">Joint</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="joint.html#add-joint">Add Joint</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#add-joint-between-two-rigid-bodies">Add Joint Between Two Rigid Bodies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#add-joints-along-a-bone-chain">Add Joints Along a Bone Chain</a></li>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#save-presets">Save Presets</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties">Joint Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties-panel">Joint Properties Panel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-list">Joint List</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#reordering-list-items">Reordering List Items</a></li>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#error-icon-indicators">Error Icon Indicators</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="joint.html#missing-joint">Missing Joint</a></li>
-<li class="toctree-l4"><a class="reference internal" href="joint.html#missing-linked-objects">Missing Linked Objects</a></li>
-<li class="toctree-l4"><a class="reference internal" href="joint.html#invalid-joint-pair">Invalid Joint Pair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-properties">刚体属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-properties-panel">刚体属性面板</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-list">刚体列表</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#reordering-list-items">重新排序列表项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#error-indicators">错误提示</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-physics">缺少 Physics 组件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-bone">缺少骨骼</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="joint.html#remove-joint">Remove Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#select-rigid-bodies">选择刚体</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#properties-for-comparison">匹配属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#hide-others">隐藏其他对象</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="scene.html">Scene Setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="scene.html#timeline">Timeline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scene.html#rigid-body-world">Rigid Body World</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="scene.html#update-rigid-world">Update Rigid World</a></li>
-<li class="toctree-l3"><a class="reference internal" href="scene.html#simulation-quality-settings">Simulation Quality Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#remove-rigid-body">删除刚体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#example-auxiliary-rigid-bodies">示例：辅助刚体</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="scene.html#bake">Bake</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scene.html#workflow-notes">Workflow Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="joint.html">关节（约束）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="joint.html#add-joint">添加关节</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#add-joint-between-two-rigid-bodies">在两个刚体之间添加关节</a></li>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#add-joints-along-a-bone-chain">沿骨骼链添加关节</a></li>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#save-presets">保存预设</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="link.html">Linking &amp; Library Overrides</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="link.html#id1">Link</a></li>
-<li class="toctree-l2"><a class="reference internal" href="link.html#library-overrides">Library Overrides</a></li>
-<li class="toctree-l2"><a class="reference internal" href="link.html#overridable-properties">Overridable Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties">关节属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties-panel">关节属性面板</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joint.html#joint-list">关节列表</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#reordering-list-items">列表项排序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#error-indicators">错误提示</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="joint.html#missing-joint">关节缺失</a></li>
+<li class="toctree-l4"><a class="reference internal" href="joint.html#missing-linked-objects">关联对象缺失</a></li>
+<li class="toctree-l4"><a class="reference internal" href="joint.html#invalid-joint-pair">无效的关节对</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="QA.html">Q&amp;A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="joint.html#remove-joint">移除关节</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scene.html">场景设置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scene.html#timeline">时间轴</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scene.html#rigid-body-world">刚体世界</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scene.html#update-rigid-world">更新刚体世界</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scene.html#simulation-quality-settings">模拟质量设置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scene.html#bake">烘焙</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scene.html#workflow-notes">工作流程注意事项</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="link.html">链接 &amp; 库覆盖</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="link.html#id1">链接</a></li>
+<li class="toctree-l2"><a class="reference internal" href="link.html#library-overrides">库覆盖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="link.html#overridable-properties">可覆盖属性</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="QA.html">问答</a></li>
 </ul>
 
         </div>
@@ -198,7 +198,7 @@
           <div role="navigation" aria-label="页面导航">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Model Setup</li>
+      <li class="breadcrumb-item active">模型设置</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -208,33 +208,29 @@
            <div itemprop="articleBody">
              
   <section id="model-setup">
-<h1>Model Setup<a class="headerlink" href="#model-setup" title="Link to this heading"></a></h1>
+<h1>模型设置<a class="headerlink" href="#model-setup" title="Link to this heading"></a></h1>
 <section id="check-model">
-<h2>Check Model<a class="headerlink" href="#check-model" title="Link to this heading"></a></h2>
-<p>Before you begin, make sure the armature model is properly prepared.</p>
-<p>Make sure the vertex weights are assigned correctly,
-especially for the bones that will participate in the physics simulation.
-Incorrect or overlapping weights are one of the most common causes of unexpected simulation issues.</p>
+<h2>检查模型<a class="headerlink" href="#check-model" title="Link to this heading"></a></h2>
+<p>在开始之前，请确保骨架模型已经正确准备。</p>
+<p>请确保顶点权重分配正确，尤其是参与物理模拟的骨骼。错误或重叠的权重是导致模拟异常的最常见原因之一。</p>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
 <div class="line-block">
-<div class="line">While the following setup steps are not strictly required, starting with these standards will help you avoid many common problems later:</div>
+<div class="line">虽然以下设置步骤并非强制要求，但按照这些规范开始可以避免后续出现许多常见问题：</div>
 </div>
 <ul class="simple">
 <li><dl class="simple">
-<dt>Place the model at the world origin ( 0, 0, 0 ).</dt><dd><p>This makes it easier to align with other assets and ensures consistency when exporting.</p>
+<dt>将模型放置在世界原点（0, 0, 0）。</dt><dd><p>这样可以更方便地与其他资源对齐，并在导出时保持一致性。</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Face the -Y axis.</dt><dd><p>In Blender, by convention characters usually face the negative Y direction.
-This aligns better with many add-ons, rigging tools, and export pipelines (e.g. for game engines).</p>
+<dt>面向 -Y 轴方向。</dt><dd><p>在 Blender 中，按照惯例角色通常面向负 Y 方向。这样可以更好地兼容许多插件、绑定工具以及导出流程（例如用于游戏引擎）。</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Apply all transforms (<span class="menuselection">Ctrl + A ‣ Apply All Transforms</span>).</dt><dd><p>Make sure location, rotation, and scale are all applied before rigging or running simulations.
-Non-applied transforms can cause inconsistent bone behavior, incorrect physics, or scaling issues when importing into other software.</p>
+<dt>应用所有变换（<span class="menuselection">Ctrl + A ‣ 应用全部变换</span>）。</dt><dd><p>在进行绑定或运行模拟之前，请确保位置（Location）、旋转（Rotation）和缩放（Scale）都已经应用。未应用的变换可能导致骨骼行为异常、物理结果错误，或者在导入其他软件时出现比例问题。</p>
 </dd>
 </dl>
 </li>
@@ -246,125 +242,109 @@ Non-applied transforms can cause inconsistent bone behavior, incorrect physics, 
 </div>
 </section>
 <section id="root-operations">
-<span id="id1"></span><h2>Root Operations<a class="headerlink" href="#root-operations" title="Link to this heading"></a></h2>
+<span id="id1"></span><h2>Root 操作<a class="headerlink" href="#root-operations" title="Link to this heading"></a></h2>
 <a class="reference internal image-reference" href="_images/addon_root_operations.png"><img alt="Visibility panel :align: center" src="_images/addon_root_operations.png" style="width: 50%;" />
 </a>
-<p>The purpose of <strong>Root Operations</strong> is to configure an Empty object as the <cite>Root Empty</cite> for the current armature model.
-Through this root object, all auxiliary elements used in physics simulation — such as rigid bodies, joints, or temporary helper objects — can be organized under a single parent.</p>
-<p>This approach makes it much easier to manage multi-character scenes in a clean and structured way.
-For example:</p>
+<p><strong>Root Operations</strong> 的作用是为当前骨架模型设置一个空对象（Empty）作为 <cite>Root Empty</cite>。通过该 Root 对象，可以将物理模拟所需的所有辅助元素 —— 例如刚体（Rigid Bodies）、关节（Joints）或临时辅助对象 —— 统一组织在同一个父级之下。</p>
+<p>这种方式可以更清晰地管理多角色场景。例如：</p>
 <ul class="simple">
-<li><p><cite>Linking</cite> and <cite>Library Overrides</cite> become straightforward, since you only need to link a single collection.</p></li>
-<li><p>You can also attach custom-purpose objects to the root, such as special effect emitters, camera focus targets, or gameplay markers — a workflow that is very common in game development.</p></li>
+<li><p><cite>链接（Linking）</cite> 和 <cite>库覆写（Library Overrides）</cite> 会变得更加简单，因为你只需要链接一个集合。</p></li>
+<li><p>你也可以将一些自定义用途的对象附加到 Root 上，例如特效发射器、摄像机对焦目标。</p></li>
 </ul>
-<p>This add-on requires that every armature model be placed under a <cite>Root Empty</cite>.</p>
+<p>该插件要求每个骨架模型都必须放置在一个 <cite>Root Empty</cite> 之下。</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>This requirement is fundamental to how the add-on organizes physics data.
-If this workflow does not fit your project, the add-on may not be suitable for your pipeline.</p>
+<p>这是插件组织物理数据的核心结构。如果这种工作流程不适合你的项目，那么该插件可能不适合你的制作流程。</p>
 </div>
-<p>There are two possible scenarios:</p>
+<p>通常有两种情况：</p>
 <ul class="simple">
-<li><p>Your armature does not yet have an empty parent → use <a class="reference internal" href="#create-root"><span class="std std-ref">Create Root</span></a> to generate one.</p></li>
-<li><p>Your armature already has a direct empty parent → use <a class="reference internal" href="#select-root"><span class="std std-ref">Select Root</span></a> to assign it as the root.</p></li>
+<li><p>骨架还没有 Empty 父级 → 使用 <a class="reference internal" href="#create-root"><span class="std std-ref">创建 Root</span></a> 创建一个。</p></li>
+<li><p>骨架已经有一个直接的 Empty 父级 → 使用 <a class="reference internal" href="#select-root"><span class="std std-ref">选择 Root</span></a> 将其指定为 Root。</p></li>
 </ul>
 <section id="create-root">
-<span id="id2"></span><h3>Create Root<a class="headerlink" href="#create-root" title="Link to this heading"></a></h3>
-<p>This operation creates a new Empty object as the parent of the selected armature model, serving as its root.</p>
+<span id="id2"></span><h3>创建 Root<a class="headerlink" href="#create-root" title="Link to this heading"></a></h3>
+<p>该操作会创建一个新的 Empty 对象，并将其设置为所选骨架模型的父级，作为 Root。</p>
 <img alt="_images/addon_create_root.gif" class="align-center" src="_images/addon_create_root.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 <ul class="simple">
-<li><p>You can set the Empty's <cite>name</cite>, <cite>display type</cite>, and <cite>scale</cite>.</p></li>
-<li><p>The root will be created at the <strong>current location of the armature</strong> and will automatically become its parent.
-(Therefore, we recommend placing the armature at the world origin)</p></li>
-<li><p>Once the root is created, the armature's <strong>Transform</strong> (<cite>Location</cite>, <cite>Rotation</cite>, <cite>Scale</cite>) will be locked.</p></li>
-<li><p>Finally, the armature will be set to <strong>Show In Front</strong> , which helps keep it visible over other objects.</p></li>
+<li><p>你可以设置 Empty 的 <cite>名称 (Name)</cite>、<cite>显示类型 (Display Type)</cite> 和 <cite>缩放 (Scale)</cite>。</p></li>
+<li><p>Root 会创建在 <strong>骨架当前位置</strong>，并自动成为其父对象。（因此建议将骨架放置在世界原点）</p></li>
+<li><p>创建 Root 后，骨架的 <strong>Transform</strong> （位置 Location、旋转 Rotation、缩放 Scale）将被锁定。</p></li>
+<li><p>最后，骨架会被设置为 <strong>Show In Front（始终显示在前）</strong>，以便在其他物体前方保持可见。</p></li>
 </ul>
 </section>
 <section id="select-root">
-<span id="id3"></span><h3>Select Root<a class="headerlink" href="#select-root" title="Link to this heading"></a></h3>
-<p>This operation allows you to select an existing <strong>direct parent</strong> of the selected armature as its root.</p>
+<span id="id3"></span><h3>选择 Root<a class="headerlink" href="#select-root" title="Link to this heading"></a></h3>
+<p>该操作允许你将所选骨架的现有 <strong>直接父级对象</strong> 指定为 Root。</p>
 <img alt="_images/addon_select_root.gif" class="align-center" src="_images/addon_select_root.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 <ul class="simple">
-<li><p>Currently, only Empty objects that are direct parents are supported.</p></li>
-<li><p>Although the Empty does not have to coincide with the armature's origin, it is recommended to align them for cleaner transformations.</p></li>
-<li><p>Once the root is selected, the armature's <strong>Transform</strong> (<cite>Location</cite>, <cite>Rotation</cite>, <cite>Scale</cite>) will be locked.</p></li>
-<li><p>Finally, the armature will be set to <strong>Show In Front</strong>, which helps keep it visible over other objects.</p></li>
+<li><p>目前仅支持作为 <strong>直接父级</strong> 的空对象（Empty）。</p></li>
+<li><p>虽然 Empty 不一定必须与骨架原点重合，但建议将它们对齐，以获得更清晰的变换结构。</p></li>
+<li><p>选择 Root 后，骨架的 <strong>Transform</strong> （位置 Location、旋转 Rotation、缩放 Scale）将被锁定。</p></li>
+<li><p>最后，骨架会被设置为 <strong>Show In Front（始终显示在前）</strong>，以便在其他物体前方保持可见。</p></li>
 </ul>
 </section>
 <section id="clear">
-<h3>Clear<a class="headerlink" href="#clear" title="Link to this heading"></a></h3>
-<p>This operation removes all rigid bodies and constraints under the <cite>rigidbodies</cite>, <cite>joints</cite>, and <cite>temporary</cite> groups.
-It will also unlock the armature's <strong>Transform</strong> (<cite>Location</cite>, <cite>Rotation</cite>, <cite>Scale</cite>).
-After performing a <span class="menuselection">Clear</span> operation, you may also choose to delete the <cite>Root Empty</cite> object if it is no longer needed.</p>
+<h3>清理<a class="headerlink" href="#clear" title="Link to this heading"></a></h3>
+<p>该操作会移除 <cite>rigidbodies</cite>、<cite>joints</cite> 和 <cite>temporary</cite> 组下的所有刚体与约束。同时也会解除骨架 <strong>Transform</strong> （位置 Location、旋转 Rotation、缩放 Scale）的锁定。执行 <span class="menuselection">Clear</span> 操作后，如果不再需要 <cite>Root Empty</cite>，你也可以选择将其删除。</p>
 <div class="admonition caution">
 <p class="admonition-title">小心</p>
 <div class="line-block">
-<div class="line">Clearing everything will remove all physics-related data. Once deleted, the model will no longer participate in physics simulation unless the setup is rebuilt.</div>
+<div class="line">执行清理操作会移除所有与物理相关的数据。删除后，模型将不再参与物理模拟，除非重新构建物理系统。</div>
 </div>
 </div>
 </section>
 </section>
 <section id="visibility">
-<h2>Visibility<a class="headerlink" href="#visibility" title="Link to this heading"></a></h2>
-<p>You can use the buttons under the <strong>Visibility</strong> section to show or hide related objects in the scene:</p>
+<h2>可见性<a class="headerlink" href="#visibility" title="Link to this heading"></a></h2>
+<p>你可以使用 <strong>Visibility</strong> 区域中的按钮来显示或隐藏场景中的相关对象：</p>
 <a class="reference internal image-reference" href="_images/addon_visibility.png"><img alt="Visibility panel :align: center" src="_images/addon_visibility.png" style="width: 50%;" />
 </a>
 <ul class="simple">
-<li><p><span class="menuselection">Mesh</span> — Show or hide the model meshes.</p></li>
-<li><p><span class="menuselection">Armature</span> — Show or hide the armature.</p></li>
-<li><p><span class="menuselection">Rigid Body</span> — Show or hide all rigid body objects used for simulation.</p></li>
-<li><p><span class="menuselection">Rigid Body Name</span> — Toggle the display of rigid body names in the viewport.
-which helps in identifying and debugging complex setups.</p></li>
-<li><p><span class="menuselection">Joint</span> — Show or hide the joints (Rigid Body Constraints) that connect Rigid Bodies.</p></li>
-<li><p><span class="menuselection">Joint Name</span> — Display or hide the joint names in the viewport for easier inspection.</p></li>
-<li><p><span class="menuselection">Temporary Objects</span> — Show or hide helper or temporary objects generated during setup.</p></li>
-<li><p><span class="menuselection">Reset</span> — Restore all visibility options to their default state.</p></li>
+<li><p><span class="menuselection">Mesh</span> — 显示或隐藏模型网格。</p></li>
+<li><p><span class="menuselection">Armature</span> — 显示或隐藏骨架。</p></li>
+<li><p><span class="menuselection">Rigid Body</span> — 显示或隐藏所有用于模拟的刚体对象。</p></li>
+<li><p><span class="menuselection">Rigid Body Name</span> — 在视口中显示或隐藏刚体名称，有助于识别和调试复杂的设置。</p></li>
+<li><p><span class="menuselection">Joint</span> — 显示或隐藏连接刚体的关节（Rigid Body Constraints）。</p></li>
+<li><p><span class="menuselection">Joint Name</span> — 在视口中显示或隐藏关节名称，以便更容易检查。</p></li>
+<li><p><span class="menuselection">Temporary Objects</span> — 显示或隐藏设置过程中生成的辅助或临时对象。</p></li>
+<li><p><span class="menuselection">Reset</span> — 将所有可见性选项恢复为默认状态。</p></li>
 </ul>
 </section>
 <section id="build-rig-physics">
-<h2>Build Rig Physics<a class="headerlink" href="#build-rig-physics" title="Link to this heading"></a></h2>
-<p>After adding all <a class="reference internal" href="rigidbody.html#rigid-body"><span class="std std-ref">Rigid Bodies</span></a> and <a class="reference internal" href="joint.html#joint"><span class="std std-ref">Joints</span></a>,
-click the <span class="menuselection">Build Rig Physics</span> button to generate the physical simulation system.</p>
+<h2>构建 Rig 物理<a class="headerlink" href="#build-rig-physics" title="Link to this heading"></a></h2>
+<p>在添加完所有 <a class="reference internal" href="rigidbody.html#rigid-body"><span class="std std-ref">刚体</span></a> 和 <a class="reference internal" href="joint.html#joint"><span class="std std-ref">关节</span></a> 之后，点击 <span class="menuselection">Build Rig Physics</span> 按钮以生成物理模拟系统。</p>
 <a class="reference internal image-reference" href="_images/addon_build_rig_physics.png"><img alt="Visibility panel :align: center" src="_images/addon_build_rig_physics.png" style="width: 50%;" />
 </a>
-<p>During this process, the add-on will:</p>
+<p>在此过程中，插件将会：</p>
 <ol class="arabic simple">
-<li><p>Temporarily mute <strong>Parent constraints</strong> and <strong>IK constraints</strong> to prevent conflicts with the physics solver.</p></li>
-<li><p>Identify rigid bodies without parent bones, and establish <em>fake parent relationships</em> based on their connected joints.</p></li>
-<li><p>Rebuild the rigid body hierarchy and update their transforms to align with the armature's current pose.</p></li>
-<li><p>Automatically create non-collision constraints <strong>(NCC)</strong> between nearby rigid bodies that should not collide,
-improving stability and avoiding unwanted intersections.</p></li>
-<li><p>For dynamic bones, attach hidden Empty objects as tracking targets (<cite>bone_physics_rigid_track</cite>)
-to allow bones to be driven by Rigid Bodies through <code class="docutils literal notranslate"><span class="pre">COPY_TRANSFORMS</span></code> or <code class="docutils literal notranslate"><span class="pre">COPY_ROTATION</span></code> constraints.</p></li>
-<li><p>Restore and synchronize all constraint states once the system is fully initialized.</p></li>
+<li><p>临时禁用 <strong>Parent 约束</strong> 和 <strong>IK 约束</strong>，以避免与物理解算器发生冲突。</p></li>
+<li><p>识别没有父骨骼的刚体，并根据其连接的关节建立 <em>虚拟父级关系（fake parent relationships）</em>。</p></li>
+<li><p>重建刚体层级结构，并更新其 Transform，使其与当前骨架姿态保持一致。</p></li>
+<li><p>在不应发生碰撞的相邻刚体之间自动创建非碰撞约束 <strong>(NCC)</strong>，以提高稳定性并避免不必要的相互穿插。</p></li>
+<li><p>对于动态骨骼，会附加隐藏的 Empty 对象作为跟踪目标（<cite>bone_physics_rigid_track</cite>），从而通过 <code class="docutils literal notranslate"><span class="pre">COPY_TRANSFORMS</span></code> 或 <code class="docutils literal notranslate"><span class="pre">COPY_ROTATION</span></code> 约束使骨骼能够被刚体驱动。</p></li>
+<li><p>在系统完全初始化后恢复并同步所有约束状态。</p></li>
 </ol>
-<p>When the build is complete, the <span class="menuselection">Clean Rig Physics</span> button will appear —
-clicking it will remove the constructed simulation system and restore the rig to its pre-build state.</p>
+<p>构建完成后，会出现 <span class="menuselection">Clean Rig Physics</span> 按钮。点击该按钮可以移除已构建的模拟系统，并将 Rig 恢复到构建之前的状态。</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>Always <strong>save your project</strong> before performing any physics build or cleanup operations.</p>
+<p>在执行任何物理构建或清理操作之前，请务必 <strong>保存你的项目</strong>。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>If you are using a <em>single-file workflow</em>, pay close attention to the operation order.
-After <span class="menuselection">Build Rig Physics</span> is complete, you may preview the simulation by playing the timeline.
-When finished, follow this exact sequence before cleaning:</p>
+<p>如果你使用的是 <em>单文件工作流程</em>，请特别注意操作顺序。在 <span class="menuselection">Build Rig Physics</span> 完成后，可以通过播放时间轴预览模拟。预览完毕，在清理之前请严格按照以下步骤操作：</p>
 <ol class="arabic simple">
-<li><p>Pause the timeline playback.</p></li>
-<li><p>Press <kbd class="kbd docutils literal notranslate">Shift</kbd> + <kbd class="kbd docutils literal notranslate">←</kbd> to reset the timeline to the first frame.</p></li>
-<li><p>Click <span class="menuselection">Clean Rig Physics</span>.</p></li>
+<li><p>暂停时间轴播放。</p></li>
+<li><p>按 <kbd class="kbd docutils literal notranslate">Shift</kbd> + <kbd class="kbd docutils literal notranslate">←</kbd> 将时间轴重置到第一帧。</p></li>
+<li><p>点击 <span class="menuselection">Clean Rig Physics</span>。</p></li>
 </ol>
-<p>Failing to reset the timeline before cleaning may cause <strong>Blender to crash</strong>.
-This happens because the physics system is still actively simulating while
-the rig hierarchy and constraints are being removed, leading to dependency conflicts.</p>
-<p>In <em>multi-file collaborative workflows</em>, animators can safely disable physics temporarily by performing <span class="menuselection">Clean Rig Physics</span>
-before animation editing, and rebuild it again when needed.</p>
+<p>如果在清理之前没有重置时间轴，可能会导致 <strong>Blender 崩溃</strong>。这是因为在移除 Rig 层级结构和约束时，物理系统仍在运行模拟，从而引发依赖关系冲突。</p>
+<p>在 <em>多文件协作工作流程</em> 中，动画师可以在编辑动画之前执行 <span class="menuselection">Clean Rig Physics</span> 来临时禁用物理系统，并在需要时重新构建。</p>
 </div>
 </section>
 </section>
@@ -374,7 +354,7 @@ before animation editing, and rebuild it again when needed.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
         <a href="installation.html" class="btn btn-neutral float-left" title="安装" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="rigidbody.html" class="btn btn-neutral float-right" title="Rigid Body" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="rigidbody.html" class="btn btn-neutral float-right" title="刚体" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

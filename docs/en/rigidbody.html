@@ -23,7 +23,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Joint" href="joint.html" />
+    <link rel="next" title="Joint (Constraints)" href="joint.html" />
     <link rel="prev" title="Model Setup" href="setup.html" /> 
 </head>
 
@@ -127,7 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#rigid-body-properties-panel">Rigid Body Properties Panel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rigid-body-list">Rigid Body List</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#reordering-list-items">Reordering List Items</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#error-icon-indicators">Error Icon Indicators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#error-indicators">Error Indicators</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#missing-physics">Missing Physics</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#missing-bone">Missing Bone</a></li>
 </ul>
@@ -143,7 +143,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#example-auxiliary-rigid-bodies">Example: Auxiliary Rigid Bodies</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="joint.html">Joint</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="joint.html">Joint (Constraints)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="joint.html#add-joint">Add Joint</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#add-joint-between-two-rigid-bodies">Add Joint Between Two Rigid Bodies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#add-joints-along-a-bone-chain">Add Joints Along a Bone Chain</a></li>
@@ -154,7 +154,7 @@
 <li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties-panel">Joint Properties Panel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="joint.html#joint-list">Joint List</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#reordering-list-items">Reordering List Items</a></li>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#error-icon-indicators">Error Icon Indicators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#error-indicators">Error Indicators</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="joint.html#missing-joint">Missing Joint</a></li>
 <li class="toctree-l4"><a class="reference internal" href="joint.html#missing-linked-objects">Missing Linked Objects</a></li>
 <li class="toctree-l4"><a class="reference internal" href="joint.html#invalid-joint-pair">Invalid Joint Pair</a></li>
@@ -330,11 +330,10 @@ to fit the model’s mesh contour as closely as possible and achieve more accura
 <li><p>Attach rigid bodies of type <code class="docutils literal notranslate"><span class="pre">Physics</span></code> or <code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code> (i.e., physics-driven rigid bodies) to the <code class="docutils literal notranslate"><span class="pre">CTRL-</span></code> bones.</p>
 <p>To allow manual correction of physics results, two <strong>Bone Collections</strong> are required:</p>
 <p>one named <code class="docutils literal notranslate"><span class="pre">xxx_Physics</span></code> that stores the bones directly controlled by the physics system,
-and another that mirrors their rotation via <code class="docutils literal notranslate"><span class="pre">Copy</span> <span class="pre">Rotation</span></code> and uses <code class="docutils literal notranslate"><span class="pre">Mix</span> <span class="pre">Before</span> <span class="pre">Original</span></code> to support manual adjustments.</p>
-<p>The second collection enables animators to fix minor penetrations or unwanted motion after the simulation is baked,
-while still retaining the physics-driven motion in the <code class="docutils literal notranslate"><span class="pre">xxx_Physics</span></code> collection.</p>
+and another that mirrors their rotation via <code class="docutils literal notranslate"><span class="pre">Copy</span> <span class="pre">Rotation</span></code> and uses <code class="docutils literal notranslate"><span class="pre">Mix</span> <span class="pre">Before</span> <span class="pre">Original</span></code> to support manual adjustments
+for fixing minor penetrations or undesirable motion.</p>
 <p>This modular structure helps isolate and debug issues efficiently.
-For details on creating such bone collections and adding custom ones to a Rigify Armature,</p>
+For details on creating such bone collections and adding custom ones to a Rigify Armature:</p>
 <p>Check <a href="https://www.youtube.com/watch?v=BKtVuqnCbK0" target="_blank">Youtube</a> or <a href="https://www.bilibili.com/video/BV16G4y1z7BD/?spm_id_from=333.1387.favlist.content.click&vd_source=b9589ad635db7dddd215259c55a8a09c" target="_blank">Bilibili</a> for the tutorial, or refer to the setup shown in the sample file.
 (<strong>Note</strong>: You may focus only on the part of the video demonstrating how to add bone collections; the cloth simulation section can be ignored.)</p>
 <p>For <code class="docutils literal notranslate"><span class="pre">Physics</span></code> or <code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code> type rigid bodies, a single bone can also be bound to multiple rigid bodies.
@@ -362,24 +361,24 @@ have corresponding <strong>control bones</strong>, allowing you to override the 
 <section id="rigid-body-properties">
 <span id="id9"></span><h2>Rigid Body Properties<a class="headerlink" href="#rigid-body-properties" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p><strong>name</strong>: The name of the Rigid Body.</p></li>
-<li><p><strong>collision_group_number</strong>: Collision group assigned to this object.</p></li>
-<li><p><strong>collision_group_mask</strong>: Groups that this object should <strong>Not</strong> collide with.</p></li>
-<li><p><strong>rigid_type</strong>:</p>
+<li><p><strong>Name</strong>: The name of the Rigid Body.</p></li>
+<li><p><strong>Collision Group</strong>: Collision group assigned to this object.</p></li>
+<li><p><strong>Collision Group Mask</strong>: Groups that this object should <strong>Not</strong> collide with.</p></li>
+<li><p><strong>Rigid Type</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">Bone</span></code>: The rigid body follows the orientation of the attached bone.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Physics</span></code>: The bone’s transform is fully driven by the rigid body.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code>: The bone’s position follows its parent, but its rotation is copied from the rigid body.</p></li>
 </ul>
 </li>
-<li><p><strong>rigid_shape</strong>: Collision shape type.</p></li>
-<li><p><strong>axis_outward</strong>: Local bone axis that points “outward”.</p></li>
-<li><p><strong>size</strong>: Dimensions of the collision shape, scaled relative to the target bone length.</p></li>
-<li><p><strong>mass</strong>: See <a class="reference internal" href="#mass"><span class="std std-ref">Mass</span></a>.</p></li>
-<li><p><strong>friction</strong>: See <a class="reference internal" href="#friction"><span class="std std-ref">Friction</span></a>.</p></li>
-<li><p><strong>bounce</strong>: See <a class="reference internal" href="#bounce"><span class="std std-ref">Bounce</span></a>.</p></li>
-<li><p><strong>linear damping</strong>: See <a class="reference internal" href="#linear-damping"><span class="std std-ref">Linear Damping</span></a>.</p></li>
-<li><p><strong>angular damping</strong>: See <a class="reference internal" href="#angular-damping"><span class="std std-ref">Angular Damping</span></a>.</p></li>
+<li><p><strong>Shape</strong>: Collision shape type.</p></li>
+<li><p><strong>Outward Axis</strong>: Local bone axis that points “outward”.</p></li>
+<li><p><strong>Size</strong>: Dimensions of the collision shape, scaled relative to the target bone length.</p></li>
+<li><p><strong>Mass</strong>: <a class="reference internal" href="#mass"><span class="std std-ref">Mass</span></a>.</p></li>
+<li><p><strong>Friction</strong>: <a class="reference internal" href="#friction"><span class="std std-ref">Friction</span></a>.</p></li>
+<li><p><strong>Bounce</strong>: <a class="reference internal" href="#bounce"><span class="std std-ref">Bounce</span></a>.</p></li>
+<li><p><strong>Linear Damping</strong>: <a class="reference internal" href="#linear-damping"><span class="std std-ref">Linear Damping</span></a>.</p></li>
+<li><p><strong>Angular Damping</strong>: <a class="reference internal" href="#angular-damping"><span class="std std-ref">Angular Damping</span></a>.</p></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -398,7 +397,7 @@ Do not edit them through Blender’s built-in interface.</p>
 </dl>
 </li>
 <li><dl>
-<dt><strong>axis_outward</strong></dt><dd><p>When using <strong>box-shaped</strong> rigid bodies (<strong>sphere</strong> or <strong>capsule</strong> shapes can ignore this setting) to simulate skirt physics,
+<dt><code class="docutils literal notranslate"><span class="pre">Outward</span> <span class="pre">Axis</span></code></dt><dd><p>When using <strong>box-shaped</strong> rigid bodies (<strong>sphere</strong> or <strong>capsule</strong> shapes can ignore this setting) to simulate skirt physics,
 make sure that the target bones already have the correct local orientation —
 either <strong>Z Outward</strong> or <strong>X Outward</strong>.</p>
 <p>Then, when adding the rigid body, simply set <code class="docutils literal notranslate"><span class="pre">Outward</span> <span class="pre">Axis</span></code> to <code class="docutils literal notranslate"><span class="pre">Z</span></code> or <code class="docutils literal notranslate"><span class="pre">X</span></code> accordingly.</p>
@@ -416,14 +415,14 @@ either <strong>Z Outward</strong> or <strong>X Outward</strong>.</p>
 <a class="reference internal image-reference" href="_images/addon_rigid_body_axis_correct.png"><img alt="Correct bone orientation with matching Outward Axis" src="_images/addon_rigid_body_axis_correct.png" style="width: 80%;" />
 </a>
 <figcaption>
-<p><span class="caption-text"><strong>Correct Setup</strong> — The rigid body aligns perfectly with the mesh, ensuring stable joint orientation and smooth motion.</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+<p><span class="caption-text"><strong>Correct Setup</strong> — The rigid body aligns perfectly with the mesh.</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id15">
 <a class="reference internal image-reference" href="_images/addon_rigid_body_axis_incorrect.png"><img alt="Incorrect bone orientation or mismatched Outward Axis" src="_images/addon_rigid_body_axis_incorrect.png" style="width: 80%;" />
 </a>
 <figcaption>
-<p><span class="caption-text"><strong>Incorrect Setup</strong> — The rigid body appears twisted or offset, and the resulting joints may flip or behave unpredictably during simulation.</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+<p><span class="caption-text"><strong>Incorrect Setup</strong> — The rigid body appears twisted or offset.</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </dd>
@@ -433,7 +432,7 @@ either <strong>Z Outward</strong> or <strong>X Outward</strong>.</p>
 <blockquote>
 <div><ul>
 <li><dl>
-<dt><strong>size</strong></dt><dd><p>In the preset panel, all shapes have three components (<code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z</span></code>).
+<dt><strong>Size</strong></dt><dd><p>In the preset panel, all shapes have three components (<code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z</span></code>).
 However, the number of components required varies by shape:</p>
 <blockquote>
 <div><ul class="simple">
@@ -476,8 +475,6 @@ These callbacks may perform important tasks such as updating data, reassigning m
 <p><strong>Example - Scaling in the 3D viewport:</strong></p>
 <p>Using the <span class="menuselection">S</span> key only changes the <strong>Visible Mesh</strong>, the internal size data remains unchanged.
 This can cause the <strong>Visual Mesh</strong> and the <strong>Collision Shape</strong> to diverge, leading to clipping or misalignment.</p>
-<p>Another reason manual scaling should be avoided is that the Bullet physics engine requires ideal mathematical shapes (<em>Sphere</em>, <em>Box</em>, <em>Capsule</em>, etc.).
-Manual scaling can easily break these ideal shapes, leading to inaccurate or unstable simulation results.</p>
 </div>
 </section>
 <section id="rigid-body-list">
@@ -498,11 +495,11 @@ or through the right-side dropdown menu options: <span class="menuselection">Mov
 <div class="line"><br /></div>
 </div>
 </section>
-<section id="error-icon-indicators">
-<h3>Error Icon Indicators<a class="headerlink" href="#error-icon-indicators" title="Link to this heading"></a></h3>
+<section id="error-indicators">
+<h3>Error Indicators<a class="headerlink" href="#error-indicators" title="Link to this heading"></a></h3>
 <section id="missing-physics">
 <h4>Missing Physics<a class="headerlink" href="#missing-physics" title="Link to this heading"></a></h4>
-<p>A list item will show a <em>“Missing Physics Warning”</em> when its rigid body has no <em>Rigid Body Settings</em> component.
+<p>A list item will show a <em>“Missing Physics”</em> icon when its rigid body has no <em>Rigid Body Settings</em> component.
 To fix this, use the <span class="menuselection">Add Rigid Body</span> button in the <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">Rigid Body Properties Panel</span></a> to restore the settings.</p>
 <img alt="_images/addon_rigid_body_missing_physics.gif" class="align-center" src="_images/addon_rigid_body_missing_physics.gif" />
 <div class="line-block">
@@ -511,7 +508,7 @@ To fix this, use the <span class="menuselection">Add Rigid Body</span> button in
 </section>
 <section id="missing-bone">
 <h4>Missing Bone<a class="headerlink" href="#missing-bone" title="Link to this heading"></a></h4>
-<p>A list item will show a <em>“Missing Bone Warning”</em> when its rigid body has no assigned bone.
+<p>A list item will show a <em>“Missing Bone”</em> icon when its rigid body has no assigned bone.
 The missing bone can be reassigned in the <a class="reference internal" href="#rigid-body-properties-panel"><span class="std std-ref">Rigid Body Properties Panel</span></a>.</p>
 <img alt="_images/addon_rigid_body_missing_bone.gif" class="align-center" src="_images/addon_rigid_body_missing_bone.gif" />
 <div class="line-block">
@@ -522,7 +519,7 @@ The missing bone can be reassigned in the <a class="reference internal" href="#r
 </section>
 <section id="select-rigid-bodies">
 <span id="id12"></span><h2>Select Rigid Bodies<a class="headerlink" href="#select-rigid-bodies" title="Link to this heading"></a></h2>
-<p>You can quickly perform batch selection of rigid bodies through <strong>Select Similar</strong> in the right-side menu.
+<p>You can quickly perform batch selection of rigid bodies through <span class="menuselection">Select Similar</span> in the right-side menu.
 This tool compares the properties of the active rigid body and selects all other rigid bodies that share the same values.</p>
 <section id="properties-for-comparison">
 <h3>Properties for Comparison<a class="headerlink" href="#properties-for-comparison" title="Link to this heading"></a></h3>
@@ -530,8 +527,8 @@ This tool compares the properties of the active rigid body and selects all other
 <ul class="simple">
 <li><p><span class="menuselection">Collision Group</span>: Selects rigid bodies that share the same collision group number.</p></li>
 <li><p><span class="menuselection">Collision Group Mask</span>: Selects rigid bodies that have the same collision mask configuration.</p></li>
-<li><p><span class="menuselection">Rigid Type</span>: Matches the rigid body type (e.g., Bone, Physics, Physics + Bone).</p></li>
-<li><p><span class="menuselection">Shape</span>: Matches the collision shape.</p></li>
+<li><p><span class="menuselection">Rigid Type</span>: Selects rigid bodies that have the same rigid body type (e.g., <code class="docutils literal notranslate"><span class="pre">Bone</span></code>, <code class="docutils literal notranslate"><span class="pre">Physics</span></code>, <code class="docutils literal notranslate"><span class="pre">Physics</span> <span class="pre">+</span> <span class="pre">Bone</span></code>).</p></li>
+<li><p><span class="menuselection">Shape</span>: Selects rigid bodies that use the same collision shape.</p></li>
 <li><p><span class="menuselection">Bone</span>: Selects rigid bodies bound to the same target bone.</p></li>
 </ul>
 <p>These properties can be selected individually or in any combination.</p>
@@ -602,7 +599,7 @@ The “Nico” model uses multiple <em>Auxiliary Rigid Bodies</em> on the hair, 
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="setup.html" class="btn btn-neutral float-left" title="Model Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="joint.html" class="btn btn-neutral float-right" title="Joint" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="joint.html" class="btn btn-neutral float-right" title="Joint (Constraints)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

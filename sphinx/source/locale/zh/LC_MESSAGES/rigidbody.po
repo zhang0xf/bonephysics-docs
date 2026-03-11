@@ -1,0 +1,849 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, zhang0xf
+# This file is distributed under the same license as the Bone Physics Docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Bone Physics Docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-10 17:05+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../source/rigidbody.rst:4
+msgid "Rigid Body"
+msgstr "刚体"
+
+#: ../../source/rigidbody.rst:9
+msgid "Parameters"
+msgstr "参数"
+
+#: ../../source/rigidbody.rst:11
+msgid ""
+"This add-on uses Blender's built-in Rigid Body system for physics "
+"simulation, so all parameters behave exactly as they do in Blender's "
+"native Rigid Body settings."
+msgstr ""
+"本插件使用 Blender 内置的 **刚体系统（Rigid Body System）** 进行物理模拟，因此所有参数的行为与 Blender "
+"原生刚体的设置完全一致。"
+
+#: ../../source/rigidbody.rst:14
+msgid ""
+"If you are already familiar with these parameters, you may skip this "
+"section."
+msgstr "如果你已经熟悉这些参数，可以跳过本节。"
+
+#: ../../source/rigidbody.rst:16
+msgid ""
+"Otherwise, the following sections provide a practical overview of the key"
+" parameters along with real-world usage tips."
+msgstr "否则，下面的内容将对几个关键参数进行简要说明，并结合实际使用经验提供一些调整建议。"
+
+#: ../../source/rigidbody.rst:21
+msgid "Mass"
+msgstr "质量（Mass）"
+
+#: ../../source/rigidbody.rst:22
+msgid ""
+"The **Mass** parameter defines the inertia of an object, i.e. its "
+"resistance to acceleration."
+msgstr "**Mass（质量）** 参数定义了物体的惯性，即物体对加速度变化的抵抗程度。"
+
+#: ../../source/rigidbody.rst:24
+msgid ""
+"**Acceleration response**: With the same applied force, heavier objects "
+"accelerate more slowly."
+msgstr "**加速度响应**：在施加相同力的情况下，质量越大的物体加速越慢。"
+
+#: ../../source/rigidbody.rst:25
+msgid ""
+"**Collision behavior**: A high-mass object will push lighter ones aside "
+"while being barely affected itself (conservation of momentum)."
+msgstr "**碰撞行为**：质量较大的物体会更容易推动质量较小的物体，而自身受到的影响较小（动量守恒）。"
+
+#: ../../source/rigidbody.rst:26
+msgid ""
+"**Gravity**: Mass does not change the free-fall speed (gravity is "
+"constant), but it does affect impact forces."
+msgstr "**重力影响**：质量不会改变自由落体速度（重力加速度恒定），但会影响碰撞时产生的冲击力。"
+
+#: ../../source/rigidbody.rst:27
+msgid ""
+"**Rotational inertia**: Heavier objects are also harder to rotate due to "
+"larger inertia tensors."
+msgstr "**转动惯量**：质量较大的物体通常具有更大的惯性张量，因此更难被旋转。"
+
+#: ../../source/rigidbody.rst:30
+msgid ""
+"The default value of ``1.0`` is neutral — you can treat it as a baseline "
+"and adjust other objects relative to it."
+msgstr "默认值 ``1.0`` 可以视为一个基准值，你可以以此为参考，根据需要对其他物体进行相对调整。"
+
+#: ../../source/rigidbody.rst:35
+msgid "Friction"
+msgstr "摩擦力（Friction）"
+
+#: ../../source/rigidbody.rst:36
+msgid ""
+"**Friction** controls how much resistance occurs when a Rigid Body slides"
+" across another surface."
+msgstr "**Friction（摩擦力）** 控制刚体在另一个表面上滑动时产生的阻力大小。"
+
+#: ../../source/rigidbody.rst:38
+msgid "Higher values mean more resistance; objects slow down faster."
+msgstr "数值越高，阻力越大，物体会更快停止。"
+
+#: ../../source/rigidbody.rst:39
+msgid "Lower values mean smoother surfaces, objects slide more easily."
+msgstr "数值越低，表面越光滑，物体更容易滑动。"
+
+#: ../../source/rigidbody.rst:41
+msgid ""
+"Blender uses its built-in Bullet physics engine to simulate Rigid Body "
+"dynamics. The engine computes the combined friction between two objects "
+"using Bullet's default formula:"
+msgstr ""
+"Blender 使用内置的 **Bullet 物理引擎（Bullet Physics Engine）** "
+"来模拟刚体动力学。两个物体之间的综合摩擦力由 Bullet 使用如下公式计算："
+
+#: ../../source/rigidbody.rst:44
+#, python-brace-format
+msgid "friction_{total} = \\sqrt{friction_A \\times friction_B}"
+msgstr ""
+
+#: ../../source/rigidbody.rst:48
+msgid ""
+"In practice, this means that if either object has a very low friction "
+"value, the resulting combined friction will also be low. Both objects "
+"must have sufficiently high friction values for the interaction to "
+"provide strong resistance."
+msgstr "在实际计算中，如果其中一个物体的摩擦值非常低，最终得到的综合摩擦力也会较低。只有当两个物体都具有较高摩擦值时，接触时才会产生明显的阻力。"
+
+#: ../../source/rigidbody.rst:53
+msgid "``0.0``: ice-like surface, endless sliding."
+msgstr "``0.0``：类似冰面，几乎无限滑动。"
+
+#: ../../source/rigidbody.rst:54
+msgid "``0.2``: slippery floor, slow stop."
+msgstr "``0.2``：较滑的地面，缓慢停止。"
+
+#: ../../source/rigidbody.rst:55
+msgid "``0.5``: typical wood or desktop friction."
+msgstr "``0.5``：典型的木材或桌面摩擦。"
+
+#: ../../source/rigidbody.rst:56
+msgid "``0.8``: rubber-like, objects stop almost immediately."
+msgstr "``0.8``：类似橡胶，物体几乎立即停止。"
+
+#: ../../source/rigidbody.rst:57
+msgid "``>1.0``: extreme values, objects barely move without a strong push."
+msgstr "``>1.0``：极高摩擦，物体几乎不会移动，除非受到较大的推动。"
+
+#: ../../source/rigidbody.rst:62
+msgid "Bounce"
+msgstr "弹性（Bounce）"
+
+#: ../../source/rigidbody.rst:63
+msgid ""
+"The **Bounce** parameter defines how much energy is preserved in a "
+"collision, also known as the *Coefficient of Restitution (e)*. It only "
+"affects motion along the collision normal, not along the surface."
+msgstr ""
+"**Bounce（弹性）** 用于定义碰撞时能量保留的比例，也称为 **恢复系数（Coefficient of Restitution, "
+"e）**。该参数只影响碰撞法线方向的速度，不影响沿表面方向的运动。"
+
+#: ../../source/rigidbody.rst:66
+msgid "e = \\frac{v_{after}}{v_{before}}"
+msgstr ""
+
+#: ../../source/rigidbody.rst:72
+msgid ""
+"``0.0``: perfectly inelastic — the object sticks to the surface (like "
+"clay)."
+msgstr "``0.0``：完全非弹性碰撞 —— 物体会粘在表面上（类似黏土）。"
+
+#: ../../source/rigidbody.rst:73
+msgid ""
+"``1.0``: perfectly elastic — the object bounces back with the same speed "
+"(idealized)."
+msgstr "``1.0``：完全弹性碰撞 —— 物体会以相同速度反弹（理想情况）。"
+
+#: ../../source/rigidbody.rst:74
+msgid "``0.0 ~ 1.0``: partially elastic, some energy is lost."
+msgstr "``0.0 ~ 1.0``：部分弹性碰撞，会损失一部分能量。"
+
+#: ../../source/rigidbody.rst:79
+msgid "Linear Damping"
+msgstr "线性阻尼（Linear Damping）"
+
+#: ../../source/rigidbody.rst:80
+msgid ""
+"**Linear Damping** simulates drag forces (like air resistance) that slow "
+"down an object's motion when no external force is applied. It gradually "
+"reduces the object's linear velocity."
+msgstr "**Linear Damping（线性阻尼）** 用于模拟阻力（例如空气阻力）。当没有外力作用时，它会逐渐降低物体的线性速度。"
+
+#: ../../source/rigidbody.rst:85
+msgid "``0.0``: no damping — the object slides forever, like on ice."
+msgstr "``0.0``：没有阻尼 —— 物体会像在冰面上一样持续滑动。"
+
+#: ../../source/rigidbody.rst:86
+msgid "``0.04`` (default): slight drag, objects slowly come to rest."
+msgstr "``0.04`` （默认）：轻微阻力，物体会逐渐停止。"
+
+#: ../../source/rigidbody.rst:87
+msgid "``0.3``: noticeable drag, objects stop within a few seconds."
+msgstr "``0.3``：明显阻力，物体会在几秒内停止。"
+
+#: ../../source/rigidbody.rst:88
+msgid "``1.0``: immediate stop, objects lose velocity almost instantly."
+msgstr "``1.0``：几乎立即停止。"
+
+#: ../../source/rigidbody.rst:93
+msgid "Angular Damping"
+msgstr "角阻尼（Angular Damping）"
+
+#: ../../source/rigidbody.rst:94
+msgid ""
+"**Angular Damping** controls how quickly an object's rotation slows down."
+" It works the same way as :ref:`linear-damping`, but affects angular "
+"velocity instead of linear velocity."
+msgstr ""
+"**Angular Damping（角阻尼）** 控制物体旋转速度衰减的速度。它的作用方式与 :ref:`线性阻尼（Linear Damping）"
+" <linear-damping>` 相同，但影响的是角速度，而不是线速度。"
+
+#: ../../source/rigidbody.rst:99
+msgid "``0.0``: spins like a top, never slows down."
+msgstr "``0.0``：像陀螺一样持续旋转，不会减速。"
+
+#: ../../source/rigidbody.rst:100
+msgid "``0.1`` (default): slight rotational drag, spin fades over time."
+msgstr "``0.1`` （默认）：轻微旋转阻力，旋转会逐渐减弱。"
+
+#: ../../source/rigidbody.rst:101
+msgid "``0.3``: strong drag, object stops rotating in a few seconds."
+msgstr "``0.3``：较强阻力，旋转会在几秒内停止。"
+
+#: ../../source/rigidbody.rst:102
+msgid "``1.0``: rotation stops almost immediately."
+msgstr "``1.0``：几乎立即停止旋转。"
+
+#: ../../source/rigidbody.rst:105
+msgid "Add Rigid Body"
+msgstr "添加刚体"
+
+#: ../../source/rigidbody.rst:108
+msgid "Quick Add"
+msgstr "快速添加"
+
+#: ../../source/rigidbody.rst:109
+msgid "Select the **Armature** and switch to *Pose Mode*."
+msgstr "选择 **骨架**，并切换到 *姿态模式*。"
+
+#: ../../source/rigidbody.rst:110
+msgid "Choose the bone(s) that should receive a Rigid Body."
+msgstr "选择需要添加刚体的骨骼。"
+
+#: ../../source/rigidbody.rst:111
+msgid "Click the :menuselection:`+` button"
+msgstr "点击 :menuselection:`+` 按钮。"
+
+#: ../../source/rigidbody.rst:112
+msgid "Configure the properties and press :menuselection:`OK` to confirm."
+msgstr "设置相关属性后，点击 :menuselection:`OK` 确认。"
+
+#: ../../source/rigidbody.rst:120
+msgid ""
+"You can find detailed explanations of all rigid body parameters in "
+":ref:`Rigid Body Properties <rigid_body_properties>`."
+msgstr "所有刚体参数的详细说明可以在 :ref:`刚体属性 <rigid_body_properties>` 部分查看。"
+
+#: ../../source/rigidbody.rst:121
+msgid ""
+"``$name`` is a placeholder that will use the name of the target bone as "
+"the rigid body's name."
+msgstr "``$name`` 是一个占位符，会自动使用目标骨骼的名称作为刚体名称。"
+
+#: ../../source/rigidbody.rst:122
+msgid ""
+"When no bone is selected in *Pose Mode*, the add-on creates an "
+":ref:`Auxiliary Rigid Body <auxiliary_rigid_bodies>` for the model."
+msgstr "如果在 *姿态模式* 中没有选中任何骨骼，插件会为模型创建一个 :ref:`辅助刚体 <auxiliary_rigid_bodies>`。"
+
+#: ../../source/rigidbody.rst:123
+msgid ""
+"You can adjust the :ref:`Rigid Body Properties <rigid_body_properties>` "
+"at any time in the :ref:`Rigid Body Properties Panel "
+"<rigid_body_properties_panel>`."
+msgstr ""
+"你可以随时在 :ref:`刚体属性面板 <rigid_body_properties_panel>` 中修改 :ref:`刚体属性 "
+"<rigid_body_properties>`。"
+
+#: ../../source/rigidbody.rst:125
+msgid "For **Rigify** armatures, it is recommended to:"
+msgstr "对于 **Rigify** 骨架，建议采用以下方式："
+
+#: ../../source/rigidbody.rst:126
+msgid ""
+"Attach rigid bodies of type ``Bone`` (i.e., fully bone-driven rigid "
+"bodies) to the ``DEF-`` bones."
+msgstr "将 ``Bone`` 类型的刚体（即完全由骨骼驱动的刚体）绑定到 ``DEF-`` 骨骼。"
+
+#: ../../source/rigidbody.rst:128
+msgid ""
+"You can move and rotate the rigid bodies freely (in 3D viewport), and "
+"scale them (through the :ref:`Rigid Body Properties Panel "
+"<rigid_body_properties_panel>` ), to fit the model's mesh contour as "
+"closely as possible and achieve more accurate physical simulation."
+msgstr ""
+"你可以在 *3D视图* 中自由移动和旋转刚体，并在 :ref:`刚体属性面板 <rigid_body_properties_panel>` "
+"中调整尺寸，使其尽可能贴合模型的网格轮廓，从而获得更准确的物理模拟效果。"
+
+#: ../../source/rigidbody.rst:131
+msgid ""
+"A single bone can drive multiple rigid bodies of this type, all of which "
+"follow the same bone transform."
+msgstr "一个骨骼可以驱动多个此类型的刚体，这些刚体都会跟随同一个骨骼的变换。"
+
+#: ../../source/rigidbody.rst:136
+msgid ""
+"Attach rigid bodies of type ``Physics`` or ``Physics + Bone`` (i.e., "
+"physics-driven rigid bodies) to the ``CTRL-`` bones."
+msgstr "将 ``Physics`` 或 ``Physics + Bone`` 类型的刚体（即由物理系统驱动的刚体）绑定到 ``CTRL-`` 骨骼。"
+
+#: ../../source/rigidbody.rst:138
+msgid ""
+"To allow manual correction of physics results, two **Bone Collections** "
+"are required:"
+msgstr "为了允许在物理模拟后进行手动修正，需要创建两个骨骼集合（Bone Collections）："
+
+#: ../../source/rigidbody.rst:140
+msgid ""
+"one named ``xxx_Physics`` that stores the bones directly controlled by "
+"the physics system, and another that mirrors their rotation via ``Copy "
+"Rotation`` and uses ``Mix Before Original`` to support manual adjustments"
+" for fixing minor penetrations or undesirable motion."
+msgstr ""
+"其中一个命名为 ``xxx_Physics``，用于存放直接由物理系统驱动的骨骼；另一个集合通过 ``Copy Rotation`` "
+"约束复制其旋转，并使用 ``Mix Before Original`` 模式，从而允许在其基础上进行手动调整，修正一些轻微的穿插或不理想的运动。"
+
+#: ../../source/rigidbody.rst:144
+msgid ""
+"This modular structure helps isolate and debug issues efficiently. For "
+"details on creating such bone collections and adding custom ones to a "
+"Rigify Armature:"
+msgstr "这种模块化结构有助于快速定位和调试问题。关于如何创建这些骨骼集合以及在 Rigify 骨架中添加自定义集合的详细方法："
+
+#: ../../source/rigidbody.rst:147
+msgid ""
+"Check |youtube_link| or |bilibili_link| for the tutorial, or refer to the"
+" setup shown in the sample file. (**Note**: You may focus only on the "
+"part of the video demonstrating how to add bone collections; the cloth "
+"simulation section can be ignored.)"
+msgstr ""
+"可以参考 |youtube_link| 或 |bilibili_link| "
+"中的教程，或者查看示例文件中的设置。（**注意**：只需关注视频中如何添加 Bone Collection 的部分，布料模拟部分可以忽略）"
+
+#: ../../source/rigidbody.rst:158
+msgid ""
+"For ``Physics`` or ``Physics + Bone`` type rigid bodies, a single bone "
+"can also be bound to multiple rigid bodies. During simulation, the bone "
+"will be driven by the rigid body with the greatest mass, while the others"
+" act as auxiliary bodies."
+msgstr ""
+"对于 ``Physics`` 或 ``Physics + Bone`` 类型的刚体，一个骨骼同样可以绑定多个刚体。在模拟过程中，骨骼会由 "
+"**质量最大的刚体** 驱动，其余刚体则作为辅助刚体参与计算。"
+
+#: ../../source/rigidbody.rst:162
+msgid ""
+"With other rigs or custom armatures, make sure that all bones "
+"participating in the physics simulation have corresponding **control "
+"bones**, allowing you to override the simulation when necessary and "
+"prevent mesh intersections or penetrations."
+msgstr ""
+"对于其他绑定系统或自定义骨架，请确保所有参与物理模拟的骨骼都具有对应的 "
+"**控制骨骼**。这样在必要时你可以手动覆盖物理模拟结果，从而避免网格发生相交或穿插。"
+
+#: ../../source/rigidbody.rst:168
+msgid "Save Presets"
+msgstr "保存预设"
+
+#: ../../source/rigidbody.rst:169
+msgid ""
+"You can save presets for reuse. This workflow is very useful in practice,"
+" as it can save a significant amount of time!"
+msgstr "你可以保存参数预设以便重复使用。在实际工作中，这种方式可以显著节省时间。"
+
+#: ../../source/rigidbody.rst:179
+msgid "Rigid Body Properties"
+msgstr "刚体属性"
+
+#: ../../source/rigidbody.rst:181
+msgid "**Name**: The name of the Rigid Body."
+msgstr "**Name**：刚体名称。"
+
+#: ../../source/rigidbody.rst:182
+msgid "**Collision Group**: Collision group assigned to this object."
+msgstr "**Collision Group**：该刚体所属的碰撞组。"
+
+#: ../../source/rigidbody.rst:183
+msgid ""
+"**Collision Group Mask**: Groups that this object should **Not** collide "
+"with."
+msgstr "**Collision Group Mask**：**不会** 与该刚体发生碰撞的组。"
+
+#: ../../source/rigidbody.rst:184
+msgid "**Rigid Type**:"
+msgstr "**Rigid Type（刚体类型）：**"
+
+#: ../../source/rigidbody.rst:186
+msgid "``Bone``: The rigid body follows the orientation of the attached bone."
+msgstr "``Bone``：刚体跟随绑定骨骼的变换。"
+
+#: ../../source/rigidbody.rst:187
+msgid "``Physics``: The bone's transform is fully driven by the rigid body."
+msgstr "``Physics``：骨骼的变换完全由刚体驱动。"
+
+#: ../../source/rigidbody.rst:188
+msgid ""
+"``Physics + Bone``: The bone's position follows its parent, but its "
+"rotation is copied from the rigid body."
+msgstr "``Physics + Bone``：骨骼位置仍然跟随父骨骼，但旋转来自刚体。"
+
+#: ../../source/rigidbody.rst:190
+msgid "**Shape**: Collision shape type."
+msgstr "**Shape**：碰撞体形状。"
+
+#: ../../source/rigidbody.rst:191
+msgid "**Outward Axis**: Local bone axis that points \"outward\"."
+msgstr "**Outward Axis**：骨骼局部坐标中指向“外侧”的轴。"
+
+#: ../../source/rigidbody.rst:192
+msgid ""
+"**Size**: Dimensions of the collision shape, scaled relative to the "
+"target bone length."
+msgstr "**Size**：碰撞体尺寸，相对于目标骨骼的长度进行缩放。"
+
+#: ../../source/rigidbody.rst:193
+msgid "**Mass**: :ref:`Mass <mass>`."
+msgstr "**Mass**：:ref:`质量（Mass） <mass>`。"
+
+#: ../../source/rigidbody.rst:194
+msgid "**Friction**: :ref:`Friction <friction>`."
+msgstr "**Friction**：:ref:`摩擦力（Friction） <friction>`。"
+
+#: ../../source/rigidbody.rst:195
+msgid "**Bounce**: :ref:`Bounce <bounce>`."
+msgstr "**Bounce**：:ref:`弹性（Bounce） <bounce>`。"
+
+#: ../../source/rigidbody.rst:196
+msgid "**Linear Damping**: :ref:`Linear Damping <linear-damping>`."
+msgstr "**Linear Damping**：:ref:`线性阻尼（Linear Damping） <linear-damping>`。"
+
+#: ../../source/rigidbody.rst:197
+msgid "**Angular Damping**: :ref:`Angular Damping <angular-damping>`."
+msgstr "**Angular Damping**：:ref:`角阻尼（Angular Damping） <angular-damping>`."
+
+#: ../../source/rigidbody.rst:200
+msgid ""
+"When modifying rigid body properties, always use the add-on's :ref:`Rigid"
+" Body Properties Panel <rigid_body_properties_panel>`. Do not edit them "
+"through Blender's built-in interface."
+msgstr ""
+"修改刚体属性时，请始终使用本插件提供的 :ref:`刚体属性面板 <rigid_body_properties_panel>`，不要通过 "
+"Blender 内置界面直接编辑。"
+
+#: ../../source/rigidbody.rst:204
+msgid "``Physics`` vs ``Physics + Bone``"
+msgstr "``Physics`` 与 ``Physics + Bone``"
+
+#: ../../source/rigidbody.rst:205
+msgid ""
+"``Physics``: The bone's location and rotation are completely determined "
+"by the rigid body. The rigid body may move the bone away from the "
+"Armature."
+msgstr "``Physics``：骨骼的位置和旋转完全由刚体控制。刚体可能会使骨骼偏离骨架。"
+
+#: ../../source/rigidbody.rst:206
+msgid ""
+"``Physics + Bone``: The bone's position is still driven by its parent, "
+"but its rotation is copied from the rigid body. This prevents the bone "
+"from detaching while still inheriting the physical simulation results."
+msgstr "``Physics + Bone``：骨骼的位置仍由父骨驱动，但旋转从刚体复制。这样可以在保持物理模拟结果的同时，防止骨骼脱离父骨。"
+
+#: ../../source/rigidbody.rst:208
+msgid "``Outward Axis``"
+msgstr ""
+
+#: ../../source/rigidbody.rst:209
+msgid ""
+"When using **box-shaped** rigid bodies (**sphere** or **capsule** shapes "
+"can ignore this setting) to simulate skirt physics, make sure that the "
+"target bones already have the correct local orientation — either **Z "
+"Outward** or **X Outward**."
+msgstr ""
+"在使用 **盒状** 刚体（**球形** 或 **胶囊形** 刚体可忽略此设置）模拟裙子物理时，请确保目标骨骼已经具有正确的局部方向——即 "
+"**Z轴向外** 或 **X轴向外**。"
+
+#: ../../source/rigidbody.rst:213
+msgid ""
+"Then, when adding the rigid body, simply set ``Outward Axis`` to ``Z`` or"
+" ``X`` accordingly."
+msgstr "然后，在添加刚体时，将 ``Outward Axis`` 设置为相应的 ``Z`` 或 ``X``。"
+
+#: ../../source/rigidbody.rst:215
+msgid ""
+"This ensures that the newly added rigid body inherits the correct initial"
+" rotation:"
+msgstr "这样可以确保新添加的刚体继承正确的初始旋转："
+
+#: ../../source/rigidbody.rst:217
+msgid "The **Z-axis** aligns with the bone direction,"
+msgstr "**Z 轴** 与骨骼方向对齐；"
+
+#: ../../source/rigidbody.rst:218
+msgid "The **Y-axis** points outward along the skirt's normal,"
+msgstr "**Y 轴** 沿裙子法线指向外侧；"
+
+#: ../../source/rigidbody.rst:219
+msgid "The **X-axis** runs tangentially along the skirt surface."
+msgstr "**X 轴** 沿裙子表面切向延伸。"
+
+#: ../../source/rigidbody.rst
+msgid "Comparison: Correct vs Incorrect Setup"
+msgstr "对比：正确设置与错误设置"
+
+#: ../../source/rigidbody.rst:225
+msgid "Correct bone orientation with matching Outward Axis"
+msgstr "正确的骨骼方向及匹配的 Outward Axis"
+
+#: ../../source/rigidbody.rst:230
+msgid "**Correct Setup** — The rigid body aligns perfectly with the mesh."
+msgstr "**正确设置** — 刚体与网格完美对齐。"
+
+#: ../../source/rigidbody.rst:232
+msgid "Incorrect bone orientation or mismatched Outward Axis"
+msgstr "骨骼方向错误或 Outward Axis 不匹配"
+
+#: ../../source/rigidbody.rst:237
+msgid "**Incorrect Setup** — The rigid body appears twisted or offset."
+msgstr "**错误设置** — 刚体出现扭曲或偏移。"
+
+#: ../../source/rigidbody.rst:239
+msgid "**Size**"
+msgstr ""
+
+#: ../../source/rigidbody.rst:240
+msgid ""
+"In the preset panel, all shapes have three components (``x, y, z``). "
+"However, the number of components required varies by shape:"
+msgstr "在预设面板中，所有形状都有三个分量（``x, y, z``）。但是，不同形状需要的分量数量不同："
+
+#: ../../source/rigidbody.rst:243
+msgid "*Sphere*: only radius (use ``x``)."
+msgstr "*球体*：仅半径（使用 ``x``）。"
+
+#: ../../source/rigidbody.rst:244
+msgid "*Box*: width, height, depth (use ``x, y, z``)."
+msgstr "*盒体*：长、宽、高（使用 ``x, y, z``）。"
+
+#: ../../source/rigidbody.rst:245
+msgid "*Capsule*: radius (hemisphere) and height (use ``x, y``)."
+msgstr "*胶囊体*：半径（半球）和高度（使用 ``x, y``）。"
+
+#: ../../source/rigidbody.rst:247
+msgid ""
+"It is recommended to keep the default values in the preset panel and make"
+" any necessary fine-tuning in the :ref:`Rigid Body Properties Panel "
+"<rigid_body_properties_panel>`."
+msgstr "建议保持预设面板中的默认值，并在 :ref:`刚体属性面板 <rigid_body_properties_panel>` 中进行必要的微调。"
+
+#: ../../source/rigidbody.rst:253
+msgid "Rigid Body Properties Panel"
+msgstr "刚体属性面板"
+
+#: ../../source/rigidbody.rst:255
+msgid ""
+"The *Rigid Body Properties Panel* is where you can view and edit rigid "
+"body attributes. It can be found under the *Physics Tab* in Blender."
+msgstr "*刚体属性面板* 用于查看和编辑刚体属性。该面板位于 Blender 的 *Physics* 选项卡中。"
+
+#: ../../source/rigidbody.rst:265
+msgid ""
+"For consistency and to avoid unintended errors, all rigid body attributes"
+" **Must** be modified via the add-on's *Rigid Body Properties Panel*."
+msgstr "为了保持一致性并避免意外错误，所有刚体属性 **必须** 通过插件提供的 *刚体属性面板* 进行修改。"
+
+#: ../../source/rigidbody.rst:269
+msgid ""
+"Some properties can still be edited through Blender's default UI, and "
+"these actions cannot be blocked. For example:"
+msgstr "某些属性仍可通过 Blender 的内置界面进行编辑，这些操作无法被阻止。例如："
+
+#: ../../source/rigidbody.rst:272
+msgid ""
+"Physical parameters such as :ref:`Mass <mass>` and :ref:`Friction "
+"<friction>` can still be edited in the *Physics Tab*."
+msgstr "物理参数，如 :ref:`质量 <mass>` 和 :ref:`摩擦力 <friction>`，仍可在 *物理选项卡* 中编辑。"
+
+#: ../../source/rigidbody.rst:273
+msgid "Scaling a rigid body in the 3D viewport with the :menuselection:`S` key."
+msgstr "在 *3D视图* 中使用 :menuselection:`S` 键缩放刚体。"
+
+#: ../../source/rigidbody.rst:275
+msgid ""
+"However, editing through Blender's defaults will bypass the add-on's "
+"callbacks. These callbacks may perform important tasks such as updating "
+"data, reassigning materials, or adjusting constraints."
+msgstr "然而，通过 Blender 内置操作编辑刚体将绕过插件的回调，这些回调可能执行某些关键任务，如更新数据、重新分配材质或调整约束等。"
+
+#: ../../source/rigidbody.rst:278
+msgid "**Example - Scaling in the 3D viewport:**"
+msgstr "**示例 - 在 3D 视图中缩放:**"
+
+#: ../../source/rigidbody.rst:280
+msgid ""
+"Using the :menuselection:`S` key only changes the **Visible Mesh**, the "
+"internal size data remains unchanged. This can cause the **Visual Mesh** "
+"and the **Collision Shape** to diverge, leading to clipping or "
+"misalignment."
+msgstr ""
+"使用 :menuselection:`S` 键仅会改变 **可视网格**，内部尺寸数据仍保持不变。这可能导致 **可视网格** 与实际 "
+"**碰撞形状** 不一致，引发穿模或错位。"
+
+#: ../../source/rigidbody.rst:286
+msgid "Rigid Body List"
+msgstr "刚体列表"
+
+#: ../../source/rigidbody.rst:288
+msgid "The *Rigid Body List* shows all rigid bodies in the current scene."
+msgstr "*刚体列表* 显示当前场景中的所有刚体。"
+
+#: ../../source/rigidbody.rst:290
+msgid ""
+"By default, it filters by :menuselection:`Active Model`, displaying only "
+"the rigid bodies of the currently selected model. To view rigid bodies "
+"from all models, change the filter to :menuselection:`All Models`."
+msgstr ""
+"默认情况下会按照 :menuselection:`Active Model` "
+"进行筛选，只显示当前选中模型的刚体。如果需要查看所有模型的刚体，可以将筛选切换为 :menuselection:`All Models`。"
+
+#: ../../source/rigidbody.rst:299
+msgid "Reordering List Items"
+msgstr "重新排序列表项"
+
+#: ../../source/rigidbody.rst:300
+msgid ""
+"You can reorder list items using the :menuselection:`⬆` and "
+":menuselection:`⬇` buttons, or through the right-side dropdown menu "
+"options: :menuselection:`Move To Top` and :menuselection:`Move To "
+"Bottom`."
+msgstr ""
+"你可以使用 :menuselection:`⬆` 和 :menuselection:`⬇` 按钮重新排列列表项，也可以通过右侧下拉菜单中的 "
+":menuselection:`Move To Top` 和 :menuselection:`Move To Bottom` 选项进行排序。"
+
+#: ../../source/rigidbody.rst:309
+msgid "Error Indicators"
+msgstr "错误提示"
+
+#: ../../source/rigidbody.rst:312
+msgid "Missing Physics"
+msgstr "缺少 Physics 组件"
+
+#: ../../source/rigidbody.rst:313
+msgid ""
+"A list item will show a *\"Missing Physics\"* icon when its rigid body "
+"has no *Rigid Body Settings* component. To fix this, use the "
+":menuselection:`Add Rigid Body` button in the :ref:`Rigid Body Properties"
+" Panel <rigid_body_properties_panel>` to restore the settings."
+msgstr ""
+"当刚体对象缺少 *Rigid Body Settings* 组件时，对应的列表项会显示 *\"缺少物理组件\"* 图标。要修复此问题，可以在 "
+":ref:`刚体属性面板 <rigid_body_properties_panel>` 中点击 :menuselection:`Add Rigid"
+" Body` 按钮以恢复该设置。"
+
+#: ../../source/rigidbody.rst:322
+msgid "Missing Bone"
+msgstr "缺少骨骼"
+
+#: ../../source/rigidbody.rst:323
+msgid ""
+"A list item will show a *\"Missing Bone\"* icon when its rigid body has "
+"no assigned bone. The missing bone can be reassigned in the :ref:`Rigid "
+"Body Properties Panel <rigid_body_properties_panel>`."
+msgstr ""
+"当刚体没有绑定骨骼时，对应的列表项会显示 *\"缺少骨骼\"* 图标。你可以在 :ref:`刚体属性面板 "
+"<rigid_body_properties_panel>` 中重新分配骨骼。"
+
+#: ../../source/rigidbody.rst:334
+msgid "Select Rigid Bodies"
+msgstr "选择刚体"
+
+#: ../../source/rigidbody.rst:336
+msgid ""
+"You can quickly perform batch selection of rigid bodies through "
+":menuselection:`Select Similar` in the right-side menu. This tool "
+"compares the properties of the active rigid body and selects all other "
+"rigid bodies that share the same values."
+msgstr ""
+"你可以通过右侧菜单中的 :menuselection:`Select Similar` "
+"快速批量选择刚体。该工具会比较当前激活刚体的属性，并选择所有具有相同属性值的其他刚体。"
+
+#: ../../source/rigidbody.rst:340
+msgid "Properties for Comparison"
+msgstr "匹配属性"
+
+#: ../../source/rigidbody.rst:342
+msgid ""
+"When invoking **Select Similar**, a pop-up dialog will appear, allowing "
+"you to choose which properties should be matched:"
+msgstr "点击 :menuselection:`Select Similar` 后，会弹出一个对话框，允许你选择用于匹配的属性："
+
+#: ../../source/rigidbody.rst:344
+msgid ""
+":menuselection:`Collision Group`: Selects rigid bodies that share the "
+"same collision group number."
+msgstr ":menuselection:`Collision Group`：选择具有相同碰撞组编号的刚体。"
+
+#: ../../source/rigidbody.rst:345
+msgid ""
+":menuselection:`Collision Group Mask`: Selects rigid bodies that have the"
+" same collision mask configuration."
+msgstr ":menuselection:`Collision Group Mask`：选择具有相同碰撞掩码配置的刚体。"
+
+#: ../../source/rigidbody.rst:346
+msgid ""
+":menuselection:`Rigid Type`: Selects rigid bodies that have the same "
+"rigid body type (e.g., ``Bone``, ``Physics``, ``Physics + Bone``)."
+msgstr ""
+":menuselection:`Rigid Type`：选择具有相同刚体类型的刚体（例如 "
+"``Bone``、``Physics``、``Physics + Bone``）。"
+
+#: ../../source/rigidbody.rst:347
+msgid ""
+":menuselection:`Shape`: Selects rigid bodies that use the same collision "
+"shape."
+msgstr ":menuselection:`Shape`：选择使用相同碰撞体形状的刚体。"
+
+#: ../../source/rigidbody.rst:348
+msgid ":menuselection:`Bone`: Selects rigid bodies bound to the same target bone."
+msgstr ":menuselection:`Bone`：选择绑定到同一目标骨骼的刚体。"
+
+#: ../../source/rigidbody.rst:350
+msgid "These properties can be selected individually or in any combination."
+msgstr "这些属性可以单独选择，也可以任意组合使用。"
+
+#: ../../source/rigidbody.rst:358
+msgid "Hide Others"
+msgstr "隐藏其他对象"
+
+#: ../../source/rigidbody.rst:360
+msgid "The dialog also includes a *Hide Others* option:"
+msgstr "该对话框还包含一个 *Hide Others* 选项："
+
+#: ../../source/rigidbody.rst:362
+msgid ""
+"When enabled, all rigid bodies that do not match the chosen properties "
+"will be hidden."
+msgstr "启用后，所有不符合所选属性条件的刚体都会被隐藏。"
+
+#: ../../source/rigidbody.rst:363
+msgid ""
+"When disabled, unmatched objects remain visible but are simply not "
+"selected."
+msgstr "关闭后，不符合条件的对象仍然保持可见，但不会被选中。"
+
+#: ../../source/rigidbody.rst:368
+msgid "Remove Rigid Body"
+msgstr "删除刚体"
+
+#: ../../source/rigidbody.rst:370
+msgid ""
+"Select a rigid body in the *3D viewport*, the *Rigid Body List*, or the "
+"*Outliner*, then click the :menuselection:`-` button to remove it."
+msgstr "在 *3D视图*、*刚体列表* 或 *大纲视图* 中选择刚体，然后点击 :menuselection:`-` 按钮即可删除。"
+
+#: ../../source/rigidbody.rst:380
+msgid "Example: Auxiliary Rigid Bodies"
+msgstr "示例：辅助刚体"
+
+#: ../../source/rigidbody.rst:382
+msgid ""
+"When adding rigid bodies to the hair of a stylized character — especially"
+" for curved bangs or side locks — simply assigning a single rigid body to"
+" each bone often leads to an undesired effect:"
+msgstr "在为风格化角色的头发添加刚体时（特别是弯曲的刘海或侧发），如果每个骨骼只使用一个刚体，往往会产生不理想的效果："
+
+#: ../../source/rigidbody.rst:385
+msgid "The hair strands will hang straight down under gravity during simulation."
+msgstr "在模拟过程中，头发会在重力作用下垂直下垂。"
+
+#: ../../source/rigidbody.rst:387
+msgid ""
+"However, stylized (non-realistic) hair should retain its designed shape "
+"and elasticity even in an **Idle** state. To reproduce this elastic "
+"behavior and maintain a smooth, natural motion during simulation, we "
+"introduce *Auxiliary Rigid Bodies* that influence the target Rigid "
+"Bodies, helping them maintain their intended modeled pose instead of "
+"collapsing under gravity."
+msgstr ""
+"但对于非写实的风格化头发，即使在 **Idle** "
+"状态下，也应该保持设计时的形状和弹性。为了重现这种弹性效果，并在模拟过程中保持平滑自然的运动，我们引入 *辅助刚体* "
+"来影响目标刚体，使其能够维持建模时的姿态，而不是在重力作用下直接下垂。"
+
+#: ../../source/rigidbody.rst:392
+msgid ""
+"The *Auxiliary Rigid Body* usually has the same mass as its target. By "
+"adjusting the **Angle** between them, or the **Length** of the *Auxiliary"
+" Rigid Body*, you can control the amount of torque it applies to the "
+"target and achieve the desired balance in simulation."
+msgstr ""
+"*辅助刚体* 通常与其目标刚体具有相同的质量。通过调整它们之间的 **角度**，或 *辅助刚体* 的 "
+"**长度**，你可以控制其对目标刚体施加的扭矩，从而在模拟中达到期望的平衡效果。"
+
+#: ../../source/rigidbody.rst:397
+msgid "Comparison: With vs. Without Auxiliary Rigid Bodies"
+msgstr "对比：使用辅助刚体 与 不使用辅助刚体"
+
+#: ../../source/rigidbody.rst:398
+msgid "Correct setup with auxiliary Rigid Body"
+msgstr "使用辅助刚体的正确设置"
+
+#: ../../source/rigidbody.rst:403
+msgid ""
+"**With Auxiliary Rigid Body** — The target rigid body is supported by an "
+"angled *Auxiliary Rigid Body*, maintaining the stylized curvature and "
+"preventing it from drooping under gravity."
+msgstr "**使用辅助刚体** — 目标刚体由一个带角度的辅助刚体提供支撑，从而保持风格化的形状，防止其在重力作用下下垂。"
+
+#: ../../source/rigidbody.rst:406
+msgid "Setup without auxiliary Rigid Body"
+msgstr "未使用辅助刚体的设置"
+
+#: ../../source/rigidbody.rst:411
+msgid ""
+"**Without Auxiliary Rigid Body** — The target Rigid Body is only "
+"constrained by gravity, causing the hair to fall straight down and lose "
+"its designed curvature."
+msgstr "**未使用辅助刚体** — 目标刚体仅受到重力约束，导致头发在模拟中直接下垂，并失去原本设计的弯曲形状。"
+
+#: ../../source/rigidbody.rst:414
+msgid "MMD model example using auxiliary Rigid Bodies"
+msgstr "使用辅助刚体的 MMD 模型示例"
+
+#: ../../source/rigidbody.rst:419
+msgid ""
+"**MMD Model Example** — The “Nico” model uses multiple *Auxiliary Rigid "
+"Bodies* on the hair, keeping the hair elastic and lifted even in the idle"
+" pose."
+msgstr "**MMD 模型示例** — “妮可”模型在头发上使用了大量辅助刚体，使头发即使在 **Idle** 姿态下也能保持弹性和上扬的形状。"
+

@@ -1,6 +1,6 @@
 .. _joint:
 
-Joint
+Joint (Constraints)
 ==============
 
 Add Joint
@@ -62,10 +62,11 @@ Add Joints Along a Bone Chain
 .. note::
    Rigid bodies from different bone chains must be connected one pair at a time —  
    batch operations are **Not** supported in this case.  
+   
+   For example, when adding joints between rigid bodies from different skirt bone chains, they must be added individually.
      
-   For example, when adding joints between rigid bodies belonging to different skirt bone chains, you must add them individually.  
-     
-   This limitation exists because each model has unique structures and assumptions, we prioritize flexibility and compatibility over full automation.  
+   This limitation exists because each model has a different structure and design.
+   We prioritize flexibility and compatibility over full automation.
 
    
 
@@ -78,24 +79,24 @@ See also: :ref:`Rigid Body Save Presets <save_presets>`
 Joint Properties
 ----------------------
 
-- **name**: The name of the joint.  
+- **Name**: The name of the joint.  
 
-- **limit_lin_x_upper**: Upper limit of linear motion along the **X** axis.  
-- **limit_lin_y_upper**: Upper limit of linear motion along the **Y** axis.  
-- **limit_lin_z_upper**: Upper limit of linear motion along the **Z** axis.  
-- **limit_lin_x_lower**: Lower limit of linear motion along the **X** axis.  
-- **limit_lin_y_lower**: Lower limit of linear motion along the **Y** axis.  
-- **limit_lin_z_lower**: Lower limit of linear motion along the **Z** axis.  
+- **Limit X Upper**: Upper limit of linear motion along the **X** axis.  
+- **Limit Y Upper**: Upper limit of linear motion along the **Y** axis.  
+- **Limit Z Upper**: Upper limit of linear motion along the **Z** axis.  
+- **Limit X Lower**: Lower limit of linear motion along the **X** axis.  
+- **Limit Y Lower**: Lower limit of linear motion along the **Y** axis.  
+- **Limit Z Lower**: Lower limit of linear motion along the **Z** axis.  
 
-- **limit_ang_x_upper**: Upper angular limit around the **X** axis (*in degrees*).  
-- **limit_ang_y_upper**: Upper angular limit around the **Y** axis (*in degrees*).  
-- **limit_ang_z_upper**: Upper angular limit around the **Z** axis (*in degrees*).  
-- **limit_ang_x_lower**: Lower angular limit around the **X** axis (*in degrees*).  
-- **limit_ang_y_lower**: Lower angular limit around the **Y** axis (*in degrees*).  
-- **limit_ang_z_lower**: Lower angular limit around the **Z** axis (*in degrees*).  
+- **Limit Ang X Upper**: Upper angular limit around the **X** axis (*in degrees*).  
+- **Limit Ang Y Upper**: Upper angular limit around the **Y** axis (*in degrees*).  
+- **Limit Ang Z Upper**: Upper angular limit around the **Z** axis (*in degrees*).  
+- **Limit Ang X Lower**: Lower angular limit around the **X** axis (*in degrees*).  
+- **Limit Ang Y Lower**: Lower angular limit around the **Y** axis (*in degrees*).  
+- **Limit Ang Z Lower**: Lower angular limit around the **Z** axis (*in degrees*).  
 
-- **spring_linear**: The spring stiffness that controls linear motion (Higher values produce stronger resistance when the joint is displaced).  
-- **spring_angular**: The spring stiffness that controls angular motion (Higher values produce stronger torque resistance when the joint is rotated).
+- **Spring Linear**: The spring stiffness that controls linear motion (Higher values produce stronger resistance when the joint is displaced).  
+- **Spring Angular**: The spring stiffness that controls angular motion (Higher values produce stronger torque resistance when the joint is rotated).
 
 .. note::
    The parameters above correspond to Blender's built-in *Rigid Body Constraint* properties.  
@@ -140,12 +141,12 @@ or through the right-side dropdown menu options: :menuselection:`Move To Top` an
 
 |
 
-Error Icon Indicators
+Error Indicators
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Missing Joint
 ~~~~~~~~~~~~~~~~
-A *"Missing Joint Error"* icon appears when the list entry has no valid *Rigid Body Constraint* data.  
+A *"Missing Joint"* icon appears when the list entry has no valid *Rigid Body Constraint* data.  
 
 This usually occurs when the joint was deleted from Blender's constraint system but still exists in the add-on's list.  
 
@@ -158,7 +159,7 @@ To fix this, recreate the joint using the :menuselection:`Add Rigid Body Constra
 
 Missing Linked Objects
 ~~~~~~~~~~~~~~~~~~~~~~~
-A *"Missing Linked Objects Error"* icon appears when one or both of the rigid bodies linked by the joint are missing. 
+A *"Missing Linked Objects"* icon appears when one or both of the rigid bodies linked by the joint are missing. 
 
 For example, if ``Object1`` or ``Object2`` is not assigned, the joint cannot function properly.  
 
@@ -176,7 +177,7 @@ You can reassign the missing objects in the :ref:`Joint Properties Panel <joint_
 
 Invalid Joint Pair
 ~~~~~~~~~~~~~~~~~~~~
-An *"Invalid Joint Pair Error"* icon appears when both linked objects (``Object1`` and ``Object2``) refer to the same rigid body object.  
+An *"Invalid Joint Pair"* icon appears when both linked objects (``Object1`` and ``Object2``) refer to the same rigid body object.  
 
 This setup is invalid because a joint requires two distinct rigid bodies.
 

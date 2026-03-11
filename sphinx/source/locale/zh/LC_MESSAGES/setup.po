@@ -1,0 +1,418 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, zhang0xf
+# This file is distributed under the same license as the Bone Physics Docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Bone Physics Docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-09 14:18+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../source/setup.rst:2
+msgid "Model Setup"
+msgstr "模型设置"
+
+#: ../../source/setup.rst:5
+msgid "Check Model"
+msgstr "检查模型"
+
+#: ../../source/setup.rst:7
+msgid "Before you begin, make sure the armature model is properly prepared."
+msgstr "在开始之前，请确保骨架模型已经正确准备。"
+
+#: ../../source/setup.rst:9
+msgid ""
+"Make sure the vertex weights are assigned correctly, especially for the "
+"bones that will participate in the physics simulation. Incorrect or "
+"overlapping weights are one of the most common causes of unexpected "
+"simulation issues."
+msgstr "请确保顶点权重分配正确，尤其是参与物理模拟的骨骼。错误或重叠的权重是导致模拟异常的最常见原因之一。"
+
+#: ../../source/setup.rst
+msgid ""
+"While the following setup steps are not strictly required, starting with "
+"these standards will help you avoid many common problems later:"
+msgstr "虽然以下设置步骤并非强制要求，但按照这些规范开始可以避免后续出现许多常见问题："
+
+#: ../../source/setup.rst:16
+msgid "Place the model at the world origin ( 0, 0, 0 )."
+msgstr "将模型放置在世界原点（0, 0, 0）。"
+
+#: ../../source/setup.rst:17
+msgid ""
+"This makes it easier to align with other assets and ensures consistency "
+"when exporting."
+msgstr "这样可以更方便地与其他资源对齐，并在导出时保持一致性。"
+
+#: ../../source/setup.rst:18
+msgid "Face the -Y axis."
+msgstr "面向 -Y 轴方向。"
+
+#: ../../source/setup.rst:19
+msgid ""
+"In Blender, by convention characters usually face the negative Y "
+"direction. This aligns better with many add-ons, rigging tools, and "
+"export pipelines (e.g. for game engines)."
+msgstr "在 Blender 中，按照惯例角色通常面向负 Y 方向。这样可以更好地兼容许多插件、绑定工具以及导出流程（例如用于游戏引擎）。"
+
+#: ../../source/setup.rst:21
+msgid "Apply all transforms (:menuselection:`Ctrl + A --> Apply All Transforms`)."
+msgstr "应用所有变换（:menuselection:`Ctrl + A --> 应用全部变换`）。"
+
+#: ../../source/setup.rst:22
+msgid ""
+"Make sure location, rotation, and scale are all applied before rigging or"
+" running simulations. Non-applied transforms can cause inconsistent bone "
+"behavior, incorrect physics, or scaling issues when importing into other "
+"software."
+msgstr "在进行绑定或运行模拟之前，请确保位置（Location）、旋转（Rotation）和缩放（Scale）都已经应用。未应用的变换可能导致骨骼行为异常、物理结果错误，或者在导入其他软件时出现比例问题。"
+
+#: ../../source/setup.rst:33
+msgid "Root Operations"
+msgstr "Root 操作"
+
+#: ../../source/setup.rst:35 ../../source/setup.rst:110
+#: ../../source/setup.rst:131
+msgid ""
+"Visibility panel\n"
+":align: center"
+msgstr ""
+
+#: ../../source/setup.rst:40
+msgid ""
+"The purpose of **Root Operations** is to configure an Empty object as the"
+" `Root Empty` for the current armature model. Through this root object, "
+"all auxiliary elements used in physics simulation — such as rigid bodies,"
+" joints, or temporary helper objects — can be organized under a single "
+"parent."
+msgstr ""
+"**Root Operations** 的作用是为当前骨架模型设置一个空对象（Empty）作为 `Root Empty`。通过该 Root "
+"对象，可以将物理模拟所需的所有辅助元素 —— 例如刚体（Rigid Bodies）、关节（Joints）或临时辅助对象 —— "
+"统一组织在同一个父级之下。"
+
+#: ../../source/setup.rst:43
+msgid ""
+"This approach makes it much easier to manage multi-character scenes in a "
+"clean and structured way. For example:"
+msgstr "这种方式可以更清晰地管理多角色场景。例如："
+
+#: ../../source/setup.rst:46
+msgid ""
+"`Linking` and `Library Overrides` become straightforward, since you only "
+"need to link a single collection."
+msgstr "`链接（Linking）` 和 `库覆写（Library Overrides）` 会变得更加简单，因为你只需要链接一个集合。"
+
+#: ../../source/setup.rst:47
+msgid ""
+"You can also attach custom-purpose objects to the root, such as special "
+"effect emitters, or camera focus targets."
+msgstr "你也可以将一些自定义用途的对象附加到 Root 上，例如特效发射器、摄像机对焦目标。"
+
+#: ../../source/setup.rst:49
+msgid ""
+"This add-on requires that every armature model be placed under a `Root "
+"Empty`."
+msgstr "该插件要求每个骨架模型都必须放置在一个 `Root Empty` 之下。"
+
+#: ../../source/setup.rst:52
+msgid ""
+"This requirement is fundamental to how the add-on organizes physics data."
+" If this workflow does not fit your project, the add-on may not be "
+"suitable for your pipeline."
+msgstr "这是插件组织物理数据的核心结构。如果这种工作流程不适合你的项目，"
+"那么该插件可能不适合你的制作流程。"
+
+#: ../../source/setup.rst:55
+msgid "There are two possible scenarios:"
+msgstr "通常有两种情况："
+
+#: ../../source/setup.rst:57
+msgid ""
+"Your armature does not yet have an empty parent → use :ref:`create-root` "
+"to generate one."
+msgstr "骨架还没有 Empty 父级 → 使用 :ref:`create-root` 创建一个。"
+
+#: ../../source/setup.rst:58
+msgid ""
+"Your armature already has a direct empty parent → use :ref:`select-root` "
+"to assign it as the root."
+msgstr "骨架已经有一个直接的 Empty 父级 → 使用 :ref:`select-root` 将其指定为 Root。"
+
+#: ../../source/setup.rst:63
+msgid "Create Root"
+msgstr "创建 Root"
+
+#: ../../source/setup.rst:65
+msgid ""
+"This operation creates a new Empty object as the parent of the selected "
+"armature model, serving as its root."
+msgstr "该操作会创建一个新的 Empty 对象，并将其设置为所选骨架模型的父级，作为 Root。"
+
+#: ../../source/setup.rst:72
+msgid "You can set the Empty's `name`, `display type`, and `scale`."
+msgstr "你可以设置 Empty 的 `名称 (Name)`、`显示类型 (Display Type)` 和 `缩放 (Scale)`。"
+
+#: ../../source/setup.rst:73
+msgid ""
+"The root will be created at the **current location of the armature** and "
+"will automatically become its parent. (Therefore, we recommend placing "
+"the armature at the world origin)"
+msgstr "Root 会创建在 **骨架当前位置**，并自动成为其父对象。"
+"（因此建议将骨架放置在世界原点）"
+
+#: ../../source/setup.rst:75
+msgid ""
+"Once the root is created, the armature's **Transform** (`Location`, "
+"`Rotation`, `Scale`) will be locked."
+msgstr "创建 Root 后，骨架的 **Transform** （位置 Location、旋转 Rotation、缩放 Scale）将被锁定。"
+
+#: ../../source/setup.rst:76
+msgid ""
+"Finally, the armature will be set to **Show In Front** , which helps keep"
+" it visible over other objects."
+msgstr "最后，骨架会被设置为 **Show In Front（始终显示在前）**，"
+"以便在其他物体前方保持可见。"
+
+#: ../../source/setup.rst:81
+msgid "Select Root"
+msgstr "选择 Root"
+
+#: ../../source/setup.rst:83
+msgid ""
+"This operation allows you to select an existing **direct parent** of the "
+"selected armature as its root."
+msgstr "该操作允许你将所选骨架的现有 **直接父级对象** 指定为 Root。"
+
+#: ../../source/setup.rst:90
+msgid "Currently, only Empty objects that are direct parents are supported."
+msgstr "目前仅支持作为 **直接父级** 的空对象（Empty）。"
+
+#: ../../source/setup.rst:91
+msgid ""
+"Although the Empty does not have to coincide with the armature's origin, "
+"it is recommended to align them for cleaner transformations."
+msgstr "虽然 Empty 不一定必须与骨架原点重合，但建议将它们对齐，以获得更清晰的变换结构。"
+
+#: ../../source/setup.rst:92
+msgid ""
+"Once the root is selected, the armature's **Transform** (`Location`, "
+"`Rotation`, `Scale`) will be locked."
+msgstr "选择 Root 后，骨架的 **Transform** （位置 Location、旋转 Rotation、缩放 Scale）将被锁定。"
+
+#: ../../source/setup.rst:93
+msgid ""
+"Finally, the armature will be set to **Show In Front**, which helps keep "
+"it visible over other objects."
+msgstr "最后，骨架会被设置为 **Show In Front（始终显示在前）**，"
+"以便在其他物体前方保持可见。"
+
+#: ../../source/setup.rst:96
+msgid "Clear"
+msgstr "清理"
+
+#: ../../source/setup.rst:98
+msgid ""
+"This operation removes all rigid bodies and constraints under the "
+"`rigidbodies`, `joints`, and `temporary` groups. It will also unlock the "
+"armature's **Transform** (`Location`, `Rotation`, `Scale`). After "
+"performing a :menuselection:`Clear` operation, you may also choose to "
+"delete the `Root Empty` object if it is no longer needed."
+msgstr "该操作会移除 `rigidbodies`、`joints` 和 `temporary` 组下的所有刚体与约束。"
+"同时也会解除骨架 **Transform** （位置 Location、旋转 Rotation、缩放 Scale）的锁定。"
+"执行 :menuselection:`Clear` 操作后，如果不再需要 `Root Empty`，"
+"你也可以选择将其删除。"
+
+#: ../../source/setup.rst
+msgid ""
+"Clearing everything will remove all physics-related data. Once deleted, "
+"the model will no longer participate in physics simulation unless the "
+"setup is rebuilt."
+msgstr "执行清理操作会移除所有与物理相关的数据。"
+"删除后，模型将不再参与物理模拟，除非重新构建物理系统。"
+
+#: ../../source/setup.rst:106
+msgid "Visibility"
+msgstr "可见性"
+
+#: ../../source/setup.rst:108
+msgid ""
+"You can use the buttons under the **Visibility** section to show or hide "
+"related objects in the scene:"
+msgstr "你可以使用 **Visibility** 区域中的按钮来显示或隐藏场景中的相关对象："
+
+#: ../../source/setup.rst:115
+msgid ":menuselection:`Mesh` — Show or hide the model meshes."
+msgstr ":menuselection:`Mesh` — 显示或隐藏模型网格。"
+
+#: ../../source/setup.rst:116
+msgid ":menuselection:`Armature` — Show or hide the armature."
+msgstr ":menuselection:`Armature` — 显示或隐藏骨架。"
+
+#: ../../source/setup.rst:117
+msgid ""
+":menuselection:`Rigid Body` — Show or hide all rigid body objects used "
+"for simulation."
+msgstr ":menuselection:`Rigid Body` — 显示或隐藏所有用于模拟的刚体对象。"
+
+#: ../../source/setup.rst:118
+msgid ""
+":menuselection:`Rigid Body Name` — Toggle the display of rigid body names"
+" in the viewport. which helps in identifying and debugging complex "
+"setups."
+msgstr ":menuselection:`Rigid Body Name` — 在视口中显示或隐藏刚体名称，"
+"有助于识别和调试复杂的设置。"
+
+#: ../../source/setup.rst:120
+msgid ""
+":menuselection:`Joint` — Show or hide the joints (Rigid Body Constraints)"
+" that connect Rigid Bodies."
+msgstr ":menuselection:`Joint` — 显示或隐藏连接刚体的关节（Rigid Body Constraints）。"
+
+#: ../../source/setup.rst:121
+msgid ""
+":menuselection:`Joint Name` — Display or hide the joint names in the "
+"viewport for easier inspection."
+msgstr ":menuselection:`Joint Name` — 在视口中显示或隐藏关节名称，以便更容易检查。"
+
+#: ../../source/setup.rst:122
+msgid ""
+":menuselection:`Temporary Objects` — Show or hide helper or temporary "
+"objects generated during setup."
+msgstr ":menuselection:`Temporary Objects` — 显示或隐藏设置过程中生成的辅助或临时对象。"
+
+#: ../../source/setup.rst:123
+msgid ""
+":menuselection:`Reset` — Restore all visibility options to their default "
+"state."
+msgstr ":menuselection:`Reset` — 将所有可见性选项恢复为默认状态。"
+
+#: ../../source/setup.rst:126
+msgid "Build Rig Physics"
+msgstr "构建 Rig 物理"
+
+#: ../../source/setup.rst:128
+msgid ""
+"After adding all :ref:`Rigid Bodies <rigid_body>` and :ref:`Joints "
+"<joint>`, click the :menuselection:`Build Rig Physics` button to generate"
+" the physical simulation system."
+msgstr "在添加完所有 :ref:`刚体 <rigid_body>` 和 :ref:`关节 <joint>` 之后，"
+"点击 :menuselection:`Build Rig Physics` 按钮以生成物理模拟系统。"
+
+#: ../../source/setup.rst:136
+msgid "During this process, the add-on will:"
+msgstr "在此过程中，插件将会："
+
+#: ../../source/setup.rst:138
+msgid ""
+"Temporarily mute **Parent constraints** and **IK constraints** to prevent"
+" conflicts with the physics solver."
+msgstr "临时禁用 **Parent 约束** 和 **IK 约束**，以避免与物理解算器发生冲突。"
+
+#: ../../source/setup.rst:139
+msgid ""
+"Identify rigid bodies without parent bones, and establish *fake parent "
+"relationships* based on their connected joints."
+msgstr "识别没有父骨骼的刚体，并根据其连接的关节建立 *虚拟父级关系（fake parent relationships）*。"
+
+#: ../../source/setup.rst:140
+msgid ""
+"Rebuild the rigid body hierarchy and update their transforms to align "
+"with the armature's current pose."
+msgstr "重建刚体层级结构，并更新其 Transform，使其与当前骨架姿态保持一致。"
+
+#: ../../source/setup.rst:141
+msgid ""
+"Automatically create non-collision constraints **(NCC)** between nearby "
+"rigid bodies that should not collide, improving stability and avoiding "
+"unwanted intersections."
+msgstr "在不应发生碰撞的相邻刚体之间自动创建非碰撞约束 **(NCC)**，"
+"以提高稳定性并避免不必要的相互穿插。"
+
+#: ../../source/setup.rst:143
+msgid ""
+"For dynamic bones, attach hidden Empty objects as tracking targets "
+"(`bone_physics_rigid_track`) to allow bones to be driven by Rigid Bodies "
+"through ``COPY_TRANSFORMS`` or ``COPY_ROTATION`` constraints."
+msgstr ""
+"对于动态骨骼，会附加隐藏的 Empty 对象作为跟踪目标（`bone_physics_rigid_track`），"
+"从而通过 ``COPY_TRANSFORMS`` 或 ``COPY_ROTATION`` 约束使骨骼能够被刚体驱动。"
+
+#: ../../source/setup.rst:145
+msgid ""
+"Restore and synchronize all constraint states once the system is fully "
+"initialized."
+msgstr ""
+"在系统完全初始化后恢复并同步所有约束状态。"
+
+#: ../../source/setup.rst:147
+msgid ""
+"When the build is complete, the :menuselection:`Clean Rig Physics` button"
+" will appear — clicking it will remove the constructed simulation system "
+"and restore the rig to its pre-build state."
+msgstr ""
+"构建完成后，会出现 :menuselection:`Clean Rig Physics` 按钮。"
+"点击该按钮可以移除已构建的模拟系统，并将 Rig 恢复到构建之前的状态。"
+
+#: ../../source/setup.rst:151
+msgid ""
+"Always **save your project** before performing any physics build or "
+"cleanup operations."
+msgstr ""
+"在执行任何物理构建或清理操作之前，请务必 **保存你的项目**。"
+
+#: ../../source/setup.rst:154
+msgid ""
+"If you are using a *single-file workflow*, pay close attention to the "
+"operation order. After :menuselection:`Build Rig Physics` is complete, "
+"you may preview the simulation by playing the timeline. When finished, "
+"follow this exact sequence before cleaning:"
+msgstr ""
+"如果你使用的是 *单文件工作流程*，请特别注意操作顺序。"
+"在 :menuselection:`Build Rig Physics` 完成后，可以通过播放时间轴预览模拟。"
+"预览完毕，在清理之前请严格按照以下步骤操作："
+
+#: ../../source/setup.rst:158
+msgid "Pause the timeline playback."
+msgstr "暂停时间轴播放。"
+
+#: ../../source/setup.rst:159
+msgid "Press :kbd:`Shift` + :kbd:`←` to reset the timeline to the first frame."
+msgstr "按 :kbd:`Shift` + :kbd:`←` 将时间轴重置到第一帧。"
+
+#: ../../source/setup.rst:160
+msgid "Click :menuselection:`Clean Rig Physics`."
+msgstr "点击 :menuselection:`Clean Rig Physics`。"
+
+#: ../../source/setup.rst:162
+msgid ""
+"Failing to reset the timeline before cleaning may cause **Blender to "
+"crash**. This happens because the physics system is still actively "
+"simulating while the rig hierarchy and constraints are being removed, "
+"leading to dependency conflicts."
+msgstr ""
+"如果在清理之前没有重置时间轴，可能会导致 **Blender 崩溃**。"
+"这是因为在移除 Rig 层级结构和约束时，物理系统仍在运行模拟，"
+"从而引发依赖关系冲突。"
+
+#: ../../source/setup.rst:166
+msgid ""
+"In *multi-file collaborative workflows*, animators can safely disable "
+"physics temporarily by performing :menuselection:`Clean Rig Physics` "
+"before animation editing, and rebuild it again when needed."
+msgstr ""
+"在 *多文件协作工作流程* 中，动画师可以在编辑动画之前执行 "
+":menuselection:`Clean Rig Physics` 来临时禁用物理系统，"
+"并在需要时重新构建。"
+

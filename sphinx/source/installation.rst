@@ -33,7 +33,7 @@ If the add-on does not provide an **Uninstall** button:
    - `Windows`:
    - `Linux`:
 
-   The exact path may vary depending on your Blender configuration.
+   The exact path may vary depending on your `Blender` configuration.
    You should not rely entirely on these paths, check the `File` path instead.
 
    .. image:: images/blender_remove_addon.png

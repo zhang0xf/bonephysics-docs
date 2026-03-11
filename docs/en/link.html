@@ -126,7 +126,7 @@
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-properties-panel">Rigid Body Properties Panel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-list">Rigid Body List</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="rigidbody.html#reordering-list-items">Reordering List Items</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#error-icon-indicators">Error Icon Indicators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#error-indicators">Error Indicators</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-physics">Missing Physics</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-bone">Missing Bone</a></li>
 </ul>
@@ -142,7 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#example-auxiliary-rigid-bodies">Example: Auxiliary Rigid Bodies</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="joint.html">Joint</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="joint.html">Joint (Constraints)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="joint.html#add-joint">Add Joint</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#add-joint-between-two-rigid-bodies">Add Joint Between Two Rigid Bodies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#add-joints-along-a-bone-chain">Add Joints Along a Bone Chain</a></li>
@@ -153,7 +153,7 @@
 <li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties-panel">Joint Properties Panel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="joint.html#joint-list">Joint List</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#reordering-list-items">Reordering List Items</a></li>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#error-icon-indicators">Error Icon Indicators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#error-indicators">Error Indicators</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="joint.html#missing-joint">Missing Joint</a></li>
 <li class="toctree-l4"><a class="reference internal" href="joint.html#missing-linked-objects">Missing Linked Objects</a></li>
 <li class="toctree-l4"><a class="reference internal" href="joint.html#invalid-joint-pair">Invalid Joint Pair</a></li>
@@ -210,14 +210,14 @@
   <section id="linking-library-overrides">
 <span id="link"></span><h1>Linking &amp; Library Overrides<a class="headerlink" href="#linking-library-overrides" title="Link to this heading"></a></h1>
 <p>In Blender, <em>Linking</em> is a powerful feature that allows you to reuse assets across multiple projects without duplicating them.
-When you link an object or collection from an external <cite>.blend</cite> file, it remains read-only in the current project.
+When you link an object or collection from an external <code class="docutils literal notranslate"><span class="pre">.blend</span></code> file, it remains read-only in the current project.
 To make changes, you need to create a <em>Library Override</em>, which generates a local editable copy of the linked data.</p>
 <p>This workflow is especially useful for large projects and team collaboration,
-as it allows multiple scenes to share the same assets while keeping authoritative changes centralized in the source file.</p>
-<p>However, managing linked armatures, overrides, and their associated physics setups can become complex—
-particularly for character rigs with many rigid bodies and constraints.</p>
-<p>To simplify this process, the add-on uses a <a class="reference internal" href="setup.html#root-operations"><span class="std std-ref">Root Empty</span></a> as the single parent object
-for all auxiliary objects, making linking and library overrides more predictable and easier to manage.</p>
+as it allows multiple scenes to share the same assets while ensuring that modifications are centralized in the source file.</p>
+<p>However, when a character rig contains many rigid bodies and constraints,
+managing linked armatures, library overrides, and related physics settings can become complex.</p>
+<p>To simplify this process, the add-on uses a <a class="reference internal" href="setup.html#root-operations"><span class="std std-ref">Root Empty</span></a> as the single parent object for all auxiliary objects,
+making <em>Linking</em> and <em>Library Overrides</em> easier to manage.</p>
 <section id="id1">
 <h2>Link<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <p>When linking a character rig that uses this add-on,

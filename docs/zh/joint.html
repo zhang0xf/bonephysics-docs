@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joint &mdash; Bone Physics Docs 1.0.0 文档</title>
+  <title>关节（约束） &mdash; Bone Physics Docs 1.0.0 文档</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
@@ -22,8 +22,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Scene Setup" href="scene.html" />
-    <link rel="prev" title="Rigid Body" href="rigidbody.html" /> 
+    <link rel="next" title="场景设置" href="scene.html" />
+    <link rel="prev" title="刚体" href="rigidbody.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -93,95 +93,95 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">安装</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#installing-the-extension">安装插件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#remove-the-extension">Remove the extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#remove-the-extension">卸载插件</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="setup.html">Model Setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#check-model">Check Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#root-operations">Root Operations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="setup.html#create-root">Create Root</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup.html#select-root">Select Root</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup.html#clear">Clear</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">模型设置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#check-model">检查模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#root-operations">Root 操作</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#create-root">创建 Root</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#select-root">选择 Root</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html#clear">清理</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#visibility">Visibility</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig-physics">Build Rig Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#visibility">可见性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#build-rig-physics">构建 Rig 物理</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rigidbody.html">Rigid Body</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#parameters">Parameters</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#mass">Mass</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#friction">Friction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#bounce">Bounce</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#linear-damping">Linear Damping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#angular-damping">Angular Damping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rigidbody.html">刚体</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#parameters">参数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#mass">质量（Mass）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#friction">摩擦力（Friction）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#bounce">弹性（Bounce）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#linear-damping">线性阻尼（Linear Damping）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#angular-damping">角阻尼（Angular Damping）</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#add-rigid-body">Add Rigid Body</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#quick-add">Quick Add</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#save-presets">Save Presets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#add-rigid-body">添加刚体</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#quick-add">快速添加</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#save-presets">保存预设</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-properties">Rigid Body Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-properties-panel">Rigid Body Properties Panel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-list">Rigid Body List</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#reordering-list-items">Reordering List Items</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#error-icon-indicators">Error Icon Indicators</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-physics">Missing Physics</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-bone">Missing Bone</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#select-rigid-bodies">Select Rigid Bodies</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#properties-for-comparison">Properties for Comparison</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#hide-others">Hide Others</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#remove-rigid-body">Remove Rigid Body</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#example-auxiliary-rigid-bodies">Example: Auxiliary Rigid Bodies</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Joint</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#add-joint">Add Joint</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#add-joint-between-two-rigid-bodies">Add Joint Between Two Rigid Bodies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#add-joints-along-a-bone-chain">Add Joints Along a Bone Chain</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#save-presets">Save Presets</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#joint-properties">Joint Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#joint-properties-panel">Joint Properties Panel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#joint-list">Joint List</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#reordering-list-items">Reordering List Items</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#error-icon-indicators">Error Icon Indicators</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#missing-joint">Missing Joint</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#missing-linked-objects">Missing Linked Objects</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#invalid-joint-pair">Invalid Joint Pair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-properties">刚体属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-properties-panel">刚体属性面板</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-list">刚体列表</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#reordering-list-items">重新排序列表项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#error-indicators">错误提示</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-physics">缺少 Physics 组件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-bone">缺少骨骼</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#remove-joint">Remove Joint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#select-rigid-bodies">选择刚体</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#properties-for-comparison">匹配属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#hide-others">隐藏其他对象</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="scene.html">Scene Setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="scene.html#timeline">Timeline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scene.html#rigid-body-world">Rigid Body World</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="scene.html#update-rigid-world">Update Rigid World</a></li>
-<li class="toctree-l3"><a class="reference internal" href="scene.html#simulation-quality-settings">Simulation Quality Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#remove-rigid-body">删除刚体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rigidbody.html#example-auxiliary-rigid-bodies">示例：辅助刚体</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="scene.html#bake">Bake</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scene.html#workflow-notes">Workflow Notes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">关节（约束）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#add-joint">添加关节</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add-joint-between-two-rigid-bodies">在两个刚体之间添加关节</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-joints-along-a-bone-chain">沿骨骼链添加关节</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save-presets">保存预设</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="link.html">Linking &amp; Library Overrides</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="link.html#id1">Link</a></li>
-<li class="toctree-l2"><a class="reference internal" href="link.html#library-overrides">Library Overrides</a></li>
-<li class="toctree-l2"><a class="reference internal" href="link.html#overridable-properties">Overridable Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#joint-properties">关节属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#joint-properties-panel">关节属性面板</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#joint-list">关节列表</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reordering-list-items">列表项排序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-indicators">错误提示</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#missing-joint">关节缺失</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#missing-linked-objects">关联对象缺失</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#invalid-joint-pair">无效的关节对</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="QA.html">Q&amp;A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#remove-joint">移除关节</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scene.html">场景设置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scene.html#timeline">时间轴</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scene.html#rigid-body-world">刚体世界</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scene.html#update-rigid-world">更新刚体世界</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scene.html#simulation-quality-settings">模拟质量设置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scene.html#bake">烘焙</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scene.html#workflow-notes">工作流程注意事项</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="link.html">链接 &amp; 库覆盖</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="link.html#id1">链接</a></li>
+<li class="toctree-l2"><a class="reference internal" href="link.html#library-overrides">库覆盖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="link.html#overridable-properties">可覆盖属性</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="QA.html">问答</a></li>
 </ul>
 
         </div>
@@ -198,7 +198,7 @@
           <div role="navigation" aria-label="页面导航">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Joint</li>
+      <li class="breadcrumb-item active">关节（约束）</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -207,17 +207,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="joint">
-<span id="id1"></span><h1>Joint<a class="headerlink" href="#joint" title="Link to this heading"></a></h1>
+  <section id="joint-constraints">
+<span id="joint"></span><h1>关节（约束）<a class="headerlink" href="#joint-constraints" title="Link to this heading"></a></h1>
 <section id="add-joint">
-<h2>Add Joint<a class="headerlink" href="#add-joint" title="Link to this heading"></a></h2>
+<h2>添加关节<a class="headerlink" href="#add-joint" title="Link to this heading"></a></h2>
 <section id="add-joint-between-two-rigid-bodies">
-<h3>Add Joint Between Two Rigid Bodies<a class="headerlink" href="#add-joint-between-two-rigid-bodies" title="Link to this heading"></a></h3>
+<h3>在两个刚体之间添加关节<a class="headerlink" href="#add-joint-between-two-rigid-bodies" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>Switch to <em>Object Mode</em>.</p></li>
-<li><p>Select the two rigid bodies to which you want to add a constraint.</p></li>
-<li><p>Click the <span class="menuselection">+</span> button.</p></li>
-<li><p>Configure the joint properties, then press <span class="menuselection">OK</span> to comfirm.</p></li>
+<li><p>切换到 <em>对象模式</em>。</p></li>
+<li><p>选择需要添加约束的两个刚体。</p></li>
+<li><p>点击 <span class="menuselection">+</span> 按钮。</p></li>
+<li><p>配置关节属性，然后点击 <span class="menuselection">OK</span> 确认。</p></li>
 </ol>
 <img alt="_images/addon_add_joint.gif" class="align-center" src="_images/addon_add_joint.gif" />
 <div class="line-block">
@@ -226,31 +226,30 @@
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <ul>
-<li><p>You can find detailed explanations of all joint parameters in <a class="reference internal" href="#joint-properties"><span class="std std-ref">Joint Properties</span></a>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">Bone</span> <span class="pre">Rotation</span></code>:</p>
-<p>When enabled, the joint's orientation will be aligned with the orientation of the associated bone.</p>
-<p>Disabling this option keeps the default joint orientation instead of matching the bone.</p>
+<li><p>有关所有关节参数的详细说明，请参阅 <a class="reference internal" href="#joint-properties"><span class="std std-ref">关节属性</span></a>。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">Bone</span> <span class="pre">Rotation</span></code>：</p>
+<p>启用后，关节的方向将与关联骨骼的方向保持一致。</p>
+<p>禁用该选项时，关节将保持默认方向，而不会与骨骼方向对齐。</p>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Is</span> <span class="pre">Lateral</span> <span class="pre">Joint</span></code>:</p>
-<p>Indicates that the joint connects two rigid bodies belonging to different bone chains (for example, neighboring skirt chains).</p>
-<p>When this option is enabled, the add-on places the joint at the midpoint between the two rigid bodies and computes an averaged
-orientation to produce a stable constraint.</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">Is</span> <span class="pre">Lateral</span> <span class="pre">Joint</span></code>：</p>
+<p>表示该关节连接的是来自不同骨骼链的两个刚体（例如相邻的裙子骨骼链）。</p>
+<p>启用该选项后，插件会将关节放置在两个刚体之间的中点位置，并计算平均方向，以生成一个稳定的约束。</p>
 </li>
-<li><p>While it is technically possible to create multiple joints between the same pair of rigid bodies, do so with caution.</p>
-<p>If you accidentally create duplicates when only one joint is needed, the simulation may behave unexpectedly.</p>
-<p>You can verify duplicates in the <a class="reference internal" href="#joint-list"><span class="std std-ref">Joint List</span></a> and <cite>Outliner</cite></p>
+<li><p>虽然在技术上可以在同一对刚体之间创建多个关节，但请谨慎使用。</p>
+<p>如果你只需要一个关节，但却误创了多个重复关节，模拟结果可能会出现异常。</p>
+<p>你可以在 <a class="reference internal" href="#joint-list"><span class="std std-ref">关节列表</span></a> 或 <cite>大纲视图（Outliner）</cite> 中检查是否存在重复关节。</p>
 <img alt="_images/addon_redundant_joints.png" class="align-center" src="_images/addon_redundant_joints.png" />
 </li>
 </ul>
 </div>
 </section>
 <section id="add-joints-along-a-bone-chain">
-<h3>Add Joints Along a Bone Chain<a class="headerlink" href="#add-joints-along-a-bone-chain" title="Link to this heading"></a></h3>
+<h3>沿骨骼链添加关节<a class="headerlink" href="#add-joints-along-a-bone-chain" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>Switch to <em>Object Mode</em></p></li>
-<li><p>Select all rigid bodies along the same bone chain that require constraints.</p></li>
-<li><p>Click the <span class="menuselection">+</span> button.</p></li>
-<li><p>Configure the joint properties, then press <span class="menuselection">OK</span> to comfirm.</p></li>
+<li><p>切换到 <em>对象模式</em>。</p></li>
+<li><p>选择同一骨骼链上所有需要添加约束的刚体。</p></li>
+<li><p>点击 <span class="menuselection">+</span> 按钮。</p></li>
+<li><p>配置关节属性，然后点击 <span class="menuselection">OK</span> 确认。</p></li>
 </ol>
 <img alt="_images/addon_add_joints.gif" class="align-center" src="_images/addon_add_joints.gif" />
 <div class="line-block">
@@ -258,106 +257,102 @@ orientation to produce a stable constraint.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>When both bone-chain rigid bodies (e.g. A, B, C) and unrelated rigid bodies (e.g. D, E) are selected,
-the add-on will only create joints between the bone-chain rigid bodies (A, B, C).
-The others (D, E) will be ignored.</p>
+<p>当同时选择骨骼链上的刚体（例如 A、B、C）以及不相关的刚体（例如 D、E）时，插件只会在骨骼链刚体（A、B、C）之间创建关节，其余对象（D、E）会被忽略。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>Rigid bodies from different bone chains must be connected one pair at a time —
-batch operations are <strong>Not</strong> supported in this case.</p>
-<p>For example, when adding joints between rigid bodies belonging to different skirt bone chains, you must add them individually.</p>
-<p>This limitation exists because each model has unique structures and assumptions, we prioritize flexibility and compatibility over full automation.</p>
+<p>来自不同骨骼链的刚体必须逐对连接，<strong>不支持批量操作</strong>。</p>
+<p>例如，在为裙子不同骨骼链之间的刚体添加关节时，需要逐个添加。</p>
+<p>之所以存在这一限制，是因为每个模型的结构和设计都不相同。相比完全自动化，我们更优先保证系统的灵活性和兼容性。</p>
 </div>
 </section>
 <section id="save-presets">
-<h3>Save Presets<a class="headerlink" href="#save-presets" title="Link to this heading"></a></h3>
-<p>See also: <a class="reference internal" href="rigidbody.html#save-presets"><span class="std std-ref">Rigid Body Save Presets</span></a></p>
+<h3>保存预设<a class="headerlink" href="#save-presets" title="Link to this heading"></a></h3>
+<p>另请参阅：<a class="reference internal" href="rigidbody.html#save-presets"><span class="std std-ref">刚体保存预设</span></a></p>
 </section>
 </section>
 <section id="joint-properties">
-<span id="id2"></span><h2>Joint Properties<a class="headerlink" href="#joint-properties" title="Link to this heading"></a></h2>
+<span id="id1"></span><h2>关节属性<a class="headerlink" href="#joint-properties" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p><strong>name</strong>: The name of the joint.</p></li>
-<li><p><strong>limit_lin_x_upper</strong>: Upper limit of linear motion along the <strong>X</strong> axis.</p></li>
-<li><p><strong>limit_lin_y_upper</strong>: Upper limit of linear motion along the <strong>Y</strong> axis.</p></li>
-<li><p><strong>limit_lin_z_upper</strong>: Upper limit of linear motion along the <strong>Z</strong> axis.</p></li>
-<li><p><strong>limit_lin_x_lower</strong>: Lower limit of linear motion along the <strong>X</strong> axis.</p></li>
-<li><p><strong>limit_lin_y_lower</strong>: Lower limit of linear motion along the <strong>Y</strong> axis.</p></li>
-<li><p><strong>limit_lin_z_lower</strong>: Lower limit of linear motion along the <strong>Z</strong> axis.</p></li>
-<li><p><strong>limit_ang_x_upper</strong>: Upper angular limit around the <strong>X</strong> axis (<em>in degrees</em>).</p></li>
-<li><p><strong>limit_ang_y_upper</strong>: Upper angular limit around the <strong>Y</strong> axis (<em>in degrees</em>).</p></li>
-<li><p><strong>limit_ang_z_upper</strong>: Upper angular limit around the <strong>Z</strong> axis (<em>in degrees</em>).</p></li>
-<li><p><strong>limit_ang_x_lower</strong>: Lower angular limit around the <strong>X</strong> axis (<em>in degrees</em>).</p></li>
-<li><p><strong>limit_ang_y_lower</strong>: Lower angular limit around the <strong>Y</strong> axis (<em>in degrees</em>).</p></li>
-<li><p><strong>limit_ang_z_lower</strong>: Lower angular limit around the <strong>Z</strong> axis (<em>in degrees</em>).</p></li>
-<li><p><strong>spring_linear</strong>: The spring stiffness that controls linear motion (Higher values produce stronger resistance when the joint is displaced).</p></li>
-<li><p><strong>spring_angular</strong>: The spring stiffness that controls angular motion (Higher values produce stronger torque resistance when the joint is rotated).</p></li>
+<li><p><strong>Name</strong>：关节名称</p></li>
+<li><p><strong>Limit X Upper</strong>：沿 <strong>X</strong> 轴线性运动的上限</p></li>
+<li><p><strong>Limit Y Upper</strong>：沿 <strong>Y</strong> 轴线性运动的上限</p></li>
+<li><p><strong>Limit Z Upper</strong>：沿 <strong>Z</strong> 轴线性运动的上限</p></li>
+<li><p><strong>Limit X Lower</strong>：沿 <strong>X</strong> 轴线性运动的下限</p></li>
+<li><p><strong>Limit Y Lower</strong>：沿 <strong>Y</strong> 轴线性运动的下限</p></li>
+<li><p><strong>Limit Z Lower</strong>：沿 <strong>Z</strong> 轴线性运动的下限</p></li>
+<li><p><strong>Limit Ang X Upper</strong>：绕 <strong>X</strong> 轴的旋转上限（<em>单位：度</em>）</p></li>
+<li><p><strong>Limit Ang Y Upper</strong>：绕 <strong>Y</strong> 轴的旋转上限（<em>单位：度</em>）</p></li>
+<li><p><strong>Limit Ang Z Upper</strong>：绕 <strong>Z</strong> 轴的旋转上限（<em>单位：度</em>）</p></li>
+<li><p><strong>Limit Ang X Lower</strong>：绕 <strong>X</strong> 轴的旋转下限（<em>单位：度</em>）</p></li>
+<li><p><strong>Limit Ang Y Lower</strong>：绕 <strong>Y</strong> 轴的旋转下限（<em>单位：度</em>）</p></li>
+<li><p><strong>Limit Ang Z Lower</strong>：绕 <strong>Z</strong> 轴的旋转下限（<em>单位：度</em>）</p></li>
+<li><p><strong>Spring Linear</strong>：控制线性运动的弹簧刚度（值越大，关节位移时阻力越强）</p></li>
+<li><p><strong>Spring Angular</strong>：控制角向运动的弹簧刚度（值越大，关节旋转时扭矩阻力越强）</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>The parameters above correspond to Blender's built-in <em>Rigid Body Constraint</em> properties.</p>
+<p>上述参数对应 Blender 内置的 <em>刚体约束</em> 属性。</p>
 </div>
 </section>
 <section id="joint-properties-panel">
-<span id="id3"></span><h2>Joint Properties Panel<a class="headerlink" href="#joint-properties-panel" title="Link to this heading"></a></h2>
-<p>The <em>Joint Properties Panel</em> is where you can view and edit all joint-related attributes.</p>
-<p>It can be found under the <em>Physics Tab</em> in Blender.</p>
+<span id="id2"></span><h2>关节属性面板<a class="headerlink" href="#joint-properties-panel" title="Link to this heading"></a></h2>
+<p><em>关节属性面板</em> 用于查看和编辑所有关节相关属性。</p>
+<p>可以在 Blender 的 <em>物理选项卡（Physics Tab）</em> 下找到。</p>
 <img alt="_images/addon_joint_properties_panel.gif" class="align-center" src="_images/addon_joint_properties_panel.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 </section>
 <section id="joint-list">
-<span id="id4"></span><h2>Joint List<a class="headerlink" href="#joint-list" title="Link to this heading"></a></h2>
-<p>The <em>Joint List</em> displays all joints (<em>Rigid Body Constraint</em>) in the current scene.</p>
-<p>By default, it filters by <span class="menuselection">Active Model</span>, displaying only the joints of the currently selected model.</p>
-<p>To view joints from all models, change the filter to <span class="menuselection">All Models</span>.</p>
+<span id="id3"></span><h2>关节列表<a class="headerlink" href="#joint-list" title="Link to this heading"></a></h2>
+<p><em>关节列表</em> 显示当前场景中所有的关节（ <em>刚体约束</em> ）。</p>
+<p>默认情况下，按 <span class="menuselection">Active Model</span> 过滤，仅显示当前选中模型的关节。</p>
+<p>要查看所有模型的关节，请将过滤器更改为 <span class="menuselection">All Models</span>。</p>
 <img alt="_images/addon_joint_list.gif" class="align-center" src="_images/addon_joint_list.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 <section id="reordering-list-items">
-<h3>Reordering List Items<a class="headerlink" href="#reordering-list-items" title="Link to this heading"></a></h3>
-<p>You can reorder list items using the <span class="menuselection">⬆</span> and <span class="menuselection">⬇</span> buttons,
-or through the right-side dropdown menu options: <span class="menuselection">Move To Top</span> and <span class="menuselection">Move To Bottom</span>.</p>
+<h3>列表项排序<a class="headerlink" href="#reordering-list-items" title="Link to this heading"></a></h3>
+<p>可以使用 <span class="menuselection">⬆</span> 和 <span class="menuselection">⬇</span> 按钮重新排序列表项，或通过右侧下拉菜单选项 <span class="menuselection">Move To Top</span> 和 <span class="menuselection">Move To Bottom</span> 进行排序。</p>
 <img alt="_images/addon_joint_move.gif" class="align-center" src="_images/addon_joint_move.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 </section>
-<section id="error-icon-indicators">
-<h3>Error Icon Indicators<a class="headerlink" href="#error-icon-indicators" title="Link to this heading"></a></h3>
+<section id="error-indicators">
+<h3>错误提示<a class="headerlink" href="#error-indicators" title="Link to this heading"></a></h3>
 <section id="missing-joint">
-<h4>Missing Joint<a class="headerlink" href="#missing-joint" title="Link to this heading"></a></h4>
-<p>A <em>&quot;Missing Joint Error&quot;</em> icon appears when the list entry has no valid <em>Rigid Body Constraint</em> data.</p>
-<p>This usually occurs when the joint was deleted from Blender's constraint system but still exists in the add-on's list.</p>
-<p>To fix this, recreate the joint using the <span class="menuselection">Add Rigid Body Constraint</span> button in the <a class="reference internal" href="#joint-properties-panel"><span class="std std-ref">Joint Properties Panel</span></a>.</p>
+<h4>关节缺失<a class="headerlink" href="#missing-joint" title="Link to this heading"></a></h4>
+<p>当列表项没有有效的 <em>刚体约束（Rigid Body Constraint）</em> 数据时，会显示 <em>“关节缺失”</em> 图标。</p>
+<p>这种情况通常发生在关节已从 Blender 的约束系统中删除，但仍存在于插件列表中。</p>
+<p>要修复此问题，请在 <a class="reference internal" href="#joint-properties-panel"><span class="std std-ref">关节属性面板</span></a> 中使用 <span class="menuselection">Add Rigid Body Constraint</span> 按钮重新创建关节。</p>
 <img alt="_images/addon_joint_missing_joint.gif" class="align-center" src="_images/addon_joint_missing_joint.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 </section>
 <section id="missing-linked-objects">
-<h4>Missing Linked Objects<a class="headerlink" href="#missing-linked-objects" title="Link to this heading"></a></h4>
-<p>A <em>&quot;Missing Linked Objects Error&quot;</em> icon appears when one or both of the rigid bodies linked by the joint are missing.</p>
-<p>For example, if <code class="docutils literal notranslate"><span class="pre">Object1</span></code> or <code class="docutils literal notranslate"><span class="pre">Object2</span></code> is not assigned, the joint cannot function properly.</p>
-<p>You can reassign the missing objects in the <a class="reference internal" href="#joint-properties-panel"><span class="std std-ref">Joint Properties Panel</span></a>.</p>
+<h4>关联对象缺失<a class="headerlink" href="#missing-linked-objects" title="Link to this heading"></a></h4>
+<p>当关节关联的一个或两个刚体缺失时，会显示 <em>“关联对象缺失”</em> 图标。</p>
+<p>例如，如果 <code class="docutils literal notranslate"><span class="pre">Object1</span></code> 或 <code class="docutils literal notranslate"><span class="pre">Object2</span></code> 未被分配，关节将无法正常工作。</p>
+<p>可以在 <a class="reference internal" href="#joint-properties-panel"><span class="std std-ref">关节属性面板</span></a> 中重新分配缺失对象。</p>
 <img alt="_images/addon_joint_missing_object.gif" class="align-center" src="_images/addon_joint_missing_object.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
-<p>It is generally recommended to assign the <strong>static</strong> or <strong>bone-driven</strong> rigid body as <code class="docutils literal notranslate"><span class="pre">Object1</span></code>, and the <strong>simulated</strong> rigid body as <code class="docutils literal notranslate"><span class="pre">Object2</span></code>.</p>
-<p>This setup ensures a more stable and predictable constraint behavior, because Blender internally treats <code class="docutils literal notranslate"><span class="pre">Object1</span></code> as the reference frame for the joint's position and rotation limits.</p>
+<p>通常建议将 <strong>静态</strong> 或 <strong>骨骼驱动</strong> 刚体设置为 <code class="docutils literal notranslate"><span class="pre">Object1</span></code>，将 <strong>模拟</strong> 刚体设置为 <code class="docutils literal notranslate"><span class="pre">Object2</span></code>。</p>
+<p>这种设置可确保约束行为更稳定且可预测，因为 Blender 内部将 <code class="docutils literal notranslate"><span class="pre">Object1</span></code> 视为关节位置和旋转限制的参考框架。</p>
 </div>
 </section>
 <section id="invalid-joint-pair">
-<h4>Invalid Joint Pair<a class="headerlink" href="#invalid-joint-pair" title="Link to this heading"></a></h4>
-<p>An <em>&quot;Invalid Joint Pair Error&quot;</em> icon appears when both linked objects (<code class="docutils literal notranslate"><span class="pre">Object1</span></code> and <code class="docutils literal notranslate"><span class="pre">Object2</span></code>) refer to the same rigid body object.</p>
-<p>This setup is invalid because a joint requires two distinct rigid bodies.</p>
-<p>Recreate the joint with two different rigid bodies to resolve this issue.</p>
+<h4>无效的关节对<a class="headerlink" href="#invalid-joint-pair" title="Link to this heading"></a></h4>
+<p>当两个关联对象（<code class="docutils literal notranslate"><span class="pre">Object1</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Object2</span></code>）指向同一个刚体对象时，会显示 <em>“无效关节对”</em> 图标。</p>
+<p>此设置无效，因为一个关节需要两个不同的刚体。</p>
+<p>请使用两个不同的 <em>刚体</em> 重新创建 <em>关节</em> 以解决此问题。</p>
 <img alt="_images/addon_joint_invalid_pair.gif" class="align-center" src="_images/addon_joint_invalid_pair.gif" />
 <div class="line-block">
 <div class="line"><br /></div>
@@ -366,12 +361,12 @@ or through the right-side dropdown menu options: <span class="menuselection">Mov
 </section>
 </section>
 <section id="remove-joint">
-<h2>Remove Joint<a class="headerlink" href="#remove-joint" title="Link to this heading"></a></h2>
+<h2>移除关节<a class="headerlink" href="#remove-joint" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
-<li><p>Select a joint in the <em>3D viewport</em>, the <em>Joint List</em>, or the <em>Outliner</em></p></li>
-<li><p>Click the <span class="menuselection">-</span> button to remove it.</p></li>
+<li><p>在 <em>3D视图</em>、<em>关节列表</em> 或 <em>大纲视图（Outliner）</em> 中选择一个关节</p></li>
+<li><p>点击 <span class="menuselection">-</span> 按钮将其移除。</p></li>
 </ol>
-<p>See also: <a class="reference internal" href="rigidbody.html#remove-rigid-body"><span class="std std-ref">Remove Rigid Body</span></a>.</p>
+<p>另请参阅：<a class="reference internal" href="rigidbody.html#remove-rigid-body"><span class="std std-ref">移除刚体</span></a>。</p>
 </section>
 </section>
 
@@ -379,8 +374,8 @@ or through the right-side dropdown menu options: <span class="menuselection">Mov
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
-        <a href="rigidbody.html" class="btn btn-neutral float-left" title="Rigid Body" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="scene.html" class="btn btn-neutral float-right" title="Scene Setup" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="rigidbody.html" class="btn btn-neutral float-left" title="刚体" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="scene.html" class="btn btn-neutral float-right" title="场景设置" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

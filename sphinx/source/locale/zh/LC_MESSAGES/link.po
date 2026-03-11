@@ -1,0 +1,216 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, zhang0xf
+# This file is distributed under the same license as the Bone Physics Docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Bone Physics Docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-11 13:07+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../source/link.rst:4
+msgid "Linking & Library Overrides"
+msgstr "链接 & 库覆盖"
+
+#: ../../source/link.rst:6
+msgid ""
+"In Blender, *Linking* is a powerful feature that allows you to reuse "
+"assets across multiple projects without duplicating them. When you link "
+"an object or collection from an external ``.blend`` file, it remains "
+"read-only in the current project. To make changes, you need to create a "
+"*Library Override*, which generates a local editable copy of the linked "
+"data."
+msgstr ""
+"在 Blender 中，*链接（Linking）* 是一项强大的功能，它允许你在多个项目间重用资源而无需复制。当你从外部 ``.blend`` "
+"文件链接 *对象（Object）* 或 *集合（Collection）* 时，它在当前项目中会保持只读状态。若需修改，则必须创建 *库覆盖（Library "
+"Override）*，生成一个可在本地编辑的链接数据副本。"
+
+#: ../../source/link.rst:10
+msgid ""
+"This workflow is especially useful for large projects and team "
+"collaboration, as it allows multiple scenes to share the same assets "
+"while ensuring that modifications are centralized in the source file."
+msgstr "该工作流程在大型项目和团队协作中尤为实用，它允许多个场景共享相同资源，同时确保修改在源文件中统一进行。"
+
+#: ../../source/link.rst:13
+msgid ""
+"However, when a character rig contains many rigid bodies and constraints,"
+" managing linked armatures, library overrides, and related physics "
+"settings can become complex."
+msgstr "然而，当角色包含大量刚体和约束时，管理链接的骨架、库覆盖及相关物理设置可能会变得复杂。"
+
+#: ../../source/link.rst:16
+msgid ""
+"To simplify this process, the add-on uses a :ref:`Root Empty <root-"
+"operations>` as the single parent object for all auxiliary objects, "
+"making *Linking* and *Library Overrides* easier to manage."
+msgstr ""
+"本插件使用 :ref:`Root Empty <root-operations>` 作为所有辅助对象的单一父对象，从而简化 *链接* 和 *库覆盖* 操作。"
+
+#: ../../source/link.rst:20
+msgid "Link"
+msgstr "链接"
+
+#: ../../source/link.rst:22
+msgid ""
+"When linking a character rig that uses this add-on, you typically only "
+"need to link one collection — the collection that contains the :ref:`Root"
+" Empty <root-operations>`."
+msgstr "在 *链接* 使用本插件的角色骨架时，通常只需链接包含 :ref:`Root Empty <root-operations>` 的集合。"
+
+#: ../../source/link.rst:25
+msgid ""
+"In practice, character rigs are typically linked from a *rig file* into "
+"an *animation file*:"
+msgstr "在实际工作流程中，角色通常从 *绑定文件* 链接到 *动画文件*："
+
+#: ../../source/link.rst:27
+msgid "Choose :menuselection:`File --> Link` to open the Blender file browser."
+msgstr "选择 :menuselection:`文件 --> 链接`，打开 Blender 文件浏览器。"
+
+#: ../../source/link.rst:28
+msgid "Navigate to the ``.blend`` file that contains the rig."
+msgstr "定位到包含角色骨架的 ``.blend`` 文件。"
+
+#: ../../source/link.rst:29
+msgid ""
+"Open the file and select the collection that contains the :ref:`Root "
+"Empty <root-operations>`."
+msgstr "打开该文件，并选择包含 :ref:`Root Empty <root-operations>` 的集合。"
+
+#: ../../source/link.rst:30
+msgid "Confirm the selection to link the collection into the current scene."
+msgstr "确认选择，将该集合链接到当前场景。"
+
+#: ../../source/link.rst:38
+msgid "Library Overrides"
+msgstr "库覆盖"
+
+#: ../../source/link.rst:40
+msgid "After linking the collection, create a *Library Override* for it:"
+msgstr "*链接* 集合后，需要为其创建 *库覆盖*："
+
+#: ../../source/link.rst:42
+msgid "Select the linked collection in the *Outliner*."
+msgstr "在 *大纲视图（Outliner）* 中选择已链接的集合。"
+
+#: ../../source/link.rst:43
+msgid ""
+"Use :menuselection:`Right-click --> Library Override --> Make --> "
+"Selected & Content`."
+msgstr "使用 :menuselection:`右键 --> 库覆盖 --> 创建 --> 选中及内容`。"
+
+#: ../../source/link.rst:45
+msgid ""
+"Blender will generate local override data for all override-compatible "
+"objects in the collection."
+msgstr "Blender 会为该集合中所有支持覆盖的对象生成本地覆盖数据。"
+
+#: ../../source/link.rst:54
+msgid ""
+"Due to limitations in Blender's current override system, it may sometimes"
+" be necessary to perform the override operation **twice** to ensure that "
+"all nested objects (such as rigid bodies, constraints, and helper "
+"objects) are fully overridden."
+msgstr "由于 Blender 当前库覆盖系统的限制，有时需要执行 **两次** 覆盖操作，才能确保所有嵌套对象（例如刚体、约束和辅助对象）都被正确覆盖。"
+
+#: ../../source/link.rst:58
+msgid ""
+"This behavior is a known Blender limitation and is not specific to this "
+"add-on."
+msgstr "这是 Blender 已知的限制，并非本插件特有的问题。"
+
+#: ../../source/link.rst:61
+msgid ""
+"After creating *Library Override*, you **Must** run "
+":menuselection:`Update Rigid World`. See also :ref:`Update Rigid World "
+"<update-rigid-world>`."
+msgstr "创建 *库覆盖* 后，**必须** 运行 :menuselection:`Update Rigid World`。另请参见 :ref:`更新刚体世界 <update-rigid-world>`。"
+
+#: ../../source/link.rst:63
+msgid ""
+"If this step is skipped, the physics simulation may fail to evaluate "
+"correctly or appear to do nothing in the animation file."
+msgstr "如果跳过此步骤，物理模拟可能无法正确计算，或者在动画文件中看起来没有任何效果。"
+
+#: ../../source/link.rst:66
+msgid "Overridable Properties"
+msgstr "可覆盖属性"
+
+#: ../../source/link.rst:68
+msgid ""
+"Due to the design of Blender's *Library Override* system, some properties"
+" cannot be edited locally and must be changed in the source file."
+msgstr ""
+"由于 Blender 的 *库覆盖* 系统设计，某些属性无法在本地编辑，"
+"必须在源文件中进行修改。"
+
+#: ../../source/link.rst:70
+msgid ""
+"In addition, this add-on intentionally locks certain properties from "
+"local editing to prevent accidental changes to critical physics settings "
+"that could destabilize the simulation."
+msgstr ""
+"此外，本插件还会刻意锁定部分属性，禁止在本地编辑，以避免意外修改关键物理参数，"
+"从而导致模拟不稳定。"
+
+#: ../../source/link.rst:73
+msgid ""
+"Non-overridable properties appear **Grayed Out** in the :ref:`Properties "
+"Panel <rigid_body_properties_panel>`."
+msgstr ""
+"不可覆盖的属性会在 :ref:`属性面板 <rigid_body_properties_panel>` 中显示为 **灰色**。"
+
+#: ../../source/link.rst:75
+msgid "Rigid Body Properties Panel"
+msgstr "刚体属性面板"
+
+#: ../../source/link.rst:81
+msgid "If you need to modify these properties:"
+msgstr "如果需要修改这些属性："
+
+#: ../../source/link.rst:83
+msgid "Open the source rig file."
+msgstr "打开绑定源文件"
+
+#: ../../source/link.rst:84
+msgid "Make the changes there."
+msgstr "在该文件中进行修改。"
+
+#: ../../source/link.rst:85
+msgid "Save the file."
+msgstr "保存文件。"
+
+#: ../../source/link.rst:86
+msgid "Reload the overrides in the animation file."
+msgstr "在动画文件中 *重新加载库覆盖（Reload）*。"
+
+#: ../../source/link.rst:89
+msgid ""
+"When adjusting overridable properties during animation — such as *Rigid "
+"Body Mass* or *Joint Angle Limits*, always save your file first."
+msgstr ""
+"在动画播放过程中调整可覆盖属性（例如 *Rigid Body Mass* 或 *Joint Angle Limits*）时，"
+"请务必先保存文件。"
+
+#: ../../source/link.rst:92
+msgid ""
+"Although these properties can technically be overridden, changing them "
+"during active physics evaluation may cause **Blender To Crash** due to "
+"instability in the physics solver."
+msgstr ""
+"尽管这些属性在技术上可以被覆盖，但在物理模拟正在计算时修改它们，可能会因为"
+"物理求解器的不稳定而导致 **Blender 崩溃**。"
+

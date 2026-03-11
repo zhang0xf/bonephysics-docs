@@ -3,8 +3,7 @@
 Scene Setup
 ==============
 
-This panel provides a centralized place to configure *Timeline*, *Rigid Body World*, 
-and baking settings required for a stable physics simulation workflow.
+This panel provides access to configure *Timeline*, *Rigid Body World*, and *Bake*.
 
 .. image:: images/addon_scene_panel.png
     :alt: Scene Setup panel
@@ -41,9 +40,8 @@ Update Rigid World
 
 Blender requires all rigid bodies and constraints to be placed in specific collections referenced by the *Rigid Body World*.
 
-This operator ensures that all add-on objects are correctly registered in those collections.
-
-Click :menuselection:`Update Rigid World` to synchronize the scene with the rigid body system.
+Click :menuselection:`Update Rigid World` to synchronize the scene with the rigid body system 
+and ensure that all add-on objects are correctly registered in the required collections.
 
 .. image:: images/addon_update_rigid_world.gif
         :align: center
@@ -67,7 +65,7 @@ This operation will:
 
    This operator is safe to run at any time and is recommended whenever the scene structure changes.
 
-.. tip::
+.. note::
    Why :menuselection:`Update Rigid World` Is Needed
    
    Blender's rigid body system relies on two internal collections:
@@ -90,7 +88,7 @@ The following parameters control simulation accuracy and stability:
 .. note::
    These parameters correspond to Blender's Bullet physics solver settings.
    
-   The add-on sets conservative default values that balance stability and performance for character-based physics.
+   The add-on provides default values for these parameters based on practical experience, balancing stability and performance.
 
 Bake
 -----
@@ -98,7 +96,7 @@ Bake
 Rigid body simulations can be cached for stable playback and rendering.
 
 * :menuselection:`Bake`: Bakes the rigid body simulation into Blender's point cache for the current frame range.
-* :menuselection:`Delete Bake`: Clears the baked cache and restores the simulation to real-time evaluation.
+* :menuselection:`Delete Bake`: Clears the baked cache and restores real-time simulation.
 
 When a bake exists:
 
@@ -106,12 +104,12 @@ When a bake exists:
 * Simulation results are deterministic
 * Performance during animation playback improves
 
-.. note::
+.. important::
    If you need to adjust rigid bodies or constraints, delete the bake first.
 
 Workflow Notes
 --------------
 
-* Always run :menuselection:`Update Rigid World` after structural changes to the rig.
-* Bake only after confirming the simulation behaves as expected.
-* When working in a multi-file pipeline, run :menuselection:`Update Rigid World` after using :menuselection:`Link` or :menuselection:`Library Override` to avoid broken constraints.
+* Bake only after confirming that the simulation results behave as expected.
+* After duplicating, linking, or reorganizing the scene structure, it is recommended to run :menuselection:`Update Rigid World`.
+* When working in a multi-file workflow, run :menuselection:`Update Rigid World` after using :menuselection:`Link` or :menuselection:`Library Override` to avoid broken references.

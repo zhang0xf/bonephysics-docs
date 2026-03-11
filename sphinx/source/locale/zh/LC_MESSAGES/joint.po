@@ -1,0 +1,393 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, zhang0xf
+# This file is distributed under the same license as the Bone Physics Docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Bone Physics Docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-11 14:38+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../source/joint.rst:4
+msgid "Joint (Constraints)"
+msgstr "关节（约束）"
+
+#: ../../source/joint.rst:7
+msgid "Add Joint"
+msgstr "添加关节"
+
+#: ../../source/joint.rst:10
+msgid "Add Joint Between Two Rigid Bodies"
+msgstr "在两个刚体之间添加关节"
+
+#: ../../source/joint.rst:11
+msgid "Switch to *Object Mode*."
+msgstr "切换到 *对象模式*。"
+
+#: ../../source/joint.rst:12
+msgid "Select the two rigid bodies to which you want to add a constraint."
+msgstr "选择需要添加约束的两个刚体。"
+
+#: ../../source/joint.rst:13 ../../source/joint.rst:49
+msgid "Click the :menuselection:`+` button."
+msgstr "点击 :menuselection:`+` 按钮。"
+
+#: ../../source/joint.rst:14 ../../source/joint.rst:50
+msgid "Configure the joint properties, then press :menuselection:`OK` to comfirm."
+msgstr "配置关节属性，然后点击 :menuselection:`OK` 确认。"
+
+#: ../../source/joint.rst:22
+msgid ""
+"You can find detailed explanations of all joint parameters in :ref:`Joint"
+" Properties <joint_properties>`."
+msgstr "有关所有关节参数的详细说明，请参阅 :ref:`关节属性 <joint_properties>`。"
+
+#: ../../source/joint.rst:23
+msgid "``Use Bone Rotation``:"
+msgstr "``Use Bone Rotation``："
+
+#: ../../source/joint.rst:25
+msgid ""
+"When enabled, the joint's orientation will be aligned with the "
+"orientation of the associated bone."
+msgstr "启用后，关节的方向将与关联骨骼的方向保持一致。"
+
+#: ../../source/joint.rst:27
+msgid ""
+"Disabling this option keeps the default joint orientation instead of "
+"matching the bone."
+msgstr "禁用该选项时，关节将保持默认方向，而不会与骨骼方向对齐。"
+
+#: ../../source/joint.rst:29
+msgid "``Is Lateral Joint``:"
+msgstr "``Is Lateral Joint``："
+
+#: ../../source/joint.rst:31
+msgid ""
+"Indicates that the joint connects two rigid bodies belonging to different"
+" bone chains (for example, neighboring skirt chains)."
+msgstr "表示该关节连接的是来自不同骨骼链的两个刚体（例如相邻的裙子骨骼链）。"
+
+#: ../../source/joint.rst:33
+msgid ""
+"When this option is enabled, the add-on places the joint at the midpoint "
+"between the two rigid bodies and computes an averaged orientation to "
+"produce a stable constraint."
+msgstr "启用该选项后，插件会将关节放置在两个刚体之间的中点位置，并计算平均方向，以生成一个稳定的约束。"
+
+#: ../../source/joint.rst:36
+msgid ""
+"While it is technically possible to create multiple joints between the "
+"same pair of rigid bodies, do so with caution."
+msgstr "虽然在技术上可以在同一对刚体之间创建多个关节，但请谨慎使用。"
+
+#: ../../source/joint.rst:38
+msgid ""
+"If you accidentally create duplicates when only one joint is needed, the "
+"simulation may behave unexpectedly."
+msgstr "如果你只需要一个关节，但却误创了多个重复关节，模拟结果可能会出现异常。"
+
+#: ../../source/joint.rst:40
+msgid ""
+"You can verify duplicates in the :ref:`Joint List <joint_list>` and "
+"`Outliner`"
+msgstr "你可以在 :ref:`关节列表 <joint_list>` 或 `大纲视图（Outliner）` 中检查是否存在重复关节。"
+
+#: ../../source/joint.rst:46
+msgid "Add Joints Along a Bone Chain"
+msgstr "沿骨骼链添加关节"
+
+#: ../../source/joint.rst:47
+msgid "Switch to *Object Mode*"
+msgstr "切换到 *对象模式*。"
+
+#: ../../source/joint.rst:48
+msgid ""
+"Select all rigid bodies along the same bone chain that require "
+"constraints."
+msgstr "选择同一骨骼链上所有需要添加约束的刚体。"
+
+#: ../../source/joint.rst:58
+msgid ""
+"When both bone-chain rigid bodies (e.g. A, B, C) and unrelated rigid "
+"bodies (e.g. D, E) are selected, the add-on will only create joints "
+"between the bone-chain rigid bodies (A, B, C). The others (D, E) will be "
+"ignored."
+msgstr ""
+"当同时选择骨骼链上的刚体（例如 A、B、C）以及不相关的刚体（例如 "
+"D、E）时，插件只会在骨骼链刚体（A、B、C）之间创建关节，其余对象（D、E）会被忽略。"
+
+#: ../../source/joint.rst:63
+msgid ""
+"Rigid bodies from different bone chains must be connected one pair at a "
+"time — batch operations are **Not** supported in this case."
+msgstr "来自不同骨骼链的刚体必须逐对连接，**不支持批量操作**。"
+
+#: ../../source/joint.rst:66
+msgid ""
+"For example, when adding joints between rigid bodies from different skirt"
+" bone chains, they must be added individually."
+msgstr "例如，在为裙子不同骨骼链之间的刚体添加关节时，需要逐个添加。"
+
+#: ../../source/joint.rst:68
+msgid ""
+"This limitation exists because each model has a different structure and "
+"design. We prioritize flexibility and compatibility over full automation."
+msgstr "之所以存在这一限制，是因为每个模型的结构和设计都不相同。相比完全自动化，我们更优先保证系统的灵活性和兼容性。"
+
+#: ../../source/joint.rst:74
+msgid "Save Presets"
+msgstr "保存预设"
+
+#: ../../source/joint.rst:75
+msgid "See also: :ref:`Rigid Body Save Presets <save_presets>`"
+msgstr "另请参阅：:ref:`刚体保存预设 <save_presets>`"
+
+#: ../../source/joint.rst:80
+msgid "Joint Properties"
+msgstr "关节属性"
+
+#: ../../source/joint.rst:82
+msgid "**Name**: The name of the joint."
+msgstr "**Name**：关节名称"
+
+#: ../../source/joint.rst:84
+msgid "**Limit X Upper**: Upper limit of linear motion along the **X** axis."
+msgstr "**Limit X Upper**：沿 **X** 轴线性运动的上限"
+
+#: ../../source/joint.rst:85
+msgid "**Limit Y Upper**: Upper limit of linear motion along the **Y** axis."
+msgstr "**Limit Y Upper**：沿 **Y** 轴线性运动的上限"
+
+#: ../../source/joint.rst:86
+msgid "**Limit Z Upper**: Upper limit of linear motion along the **Z** axis."
+msgstr "**Limit Z Upper**：沿 **Z** 轴线性运动的上限"
+
+#: ../../source/joint.rst:87
+msgid "**Limit X Lower**: Lower limit of linear motion along the **X** axis."
+msgstr "**Limit X Lower**：沿 **X** 轴线性运动的下限"
+
+#: ../../source/joint.rst:88
+msgid "**Limit Y Lower**: Lower limit of linear motion along the **Y** axis."
+msgstr "**Limit Y Lower**：沿 **Y** 轴线性运动的下限"
+
+#: ../../source/joint.rst:89
+msgid "**Limit Z Lower**: Lower limit of linear motion along the **Z** axis."
+msgstr "**Limit Z Lower**：沿 **Z** 轴线性运动的下限"
+
+#: ../../source/joint.rst:91
+msgid ""
+"**Limit Ang X Upper**: Upper angular limit around the **X** axis (*in "
+"degrees*)."
+msgstr "**Limit Ang X Upper**：绕 **X** 轴的旋转上限（*单位：度*）"
+
+#: ../../source/joint.rst:92
+msgid ""
+"**Limit Ang Y Upper**: Upper angular limit around the **Y** axis (*in "
+"degrees*)."
+msgstr "**Limit Ang Y Upper**：绕 **Y** 轴的旋转上限（*单位：度*）"
+
+#: ../../source/joint.rst:93
+msgid ""
+"**Limit Ang Z Upper**: Upper angular limit around the **Z** axis (*in "
+"degrees*)."
+msgstr "**Limit Ang Z Upper**：绕 **Z** 轴的旋转上限（*单位：度*）"
+
+#: ../../source/joint.rst:94
+msgid ""
+"**Limit Ang X Lower**: Lower angular limit around the **X** axis (*in "
+"degrees*)."
+msgstr "**Limit Ang X Lower**：绕 **X** 轴的旋转下限（*单位：度*）"
+
+#: ../../source/joint.rst:95
+msgid ""
+"**Limit Ang Y Lower**: Lower angular limit around the **Y** axis (*in "
+"degrees*)."
+msgstr "**Limit Ang Y Lower**：绕 **Y** 轴的旋转下限（*单位：度*）"
+
+#: ../../source/joint.rst:96
+msgid ""
+"**Limit Ang Z Lower**: Lower angular limit around the **Z** axis (*in "
+"degrees*)."
+msgstr "**Limit Ang Z Lower**：绕 **Z** 轴的旋转下限（*单位：度*）"
+
+#: ../../source/joint.rst:98
+msgid ""
+"**Spring Linear**: The spring stiffness that controls linear motion "
+"(Higher values produce stronger resistance when the joint is displaced)."
+msgstr "**Spring Linear**：控制线性运动的弹簧刚度（值越大，关节位移时阻力越强）"
+
+#: ../../source/joint.rst:99
+msgid ""
+"**Spring Angular**: The spring stiffness that controls angular motion "
+"(Higher values produce stronger torque resistance when the joint is "
+"rotated)."
+msgstr "**Spring Angular**：控制角向运动的弹簧刚度（值越大，关节旋转时扭矩阻力越强）"
+
+#: ../../source/joint.rst:102
+msgid ""
+"The parameters above correspond to Blender's built-in *Rigid Body "
+"Constraint* properties."
+msgstr "上述参数对应 Blender 内置的 *刚体约束* 属性。"
+
+#: ../../source/joint.rst:107
+msgid "Joint Properties Panel"
+msgstr "关节属性面板"
+
+#: ../../source/joint.rst:109
+msgid ""
+"The *Joint Properties Panel* is where you can view and edit all joint-"
+"related attributes."
+msgstr "*关节属性面板* 用于查看和编辑所有关节相关属性。"
+
+#: ../../source/joint.rst:111
+msgid "It can be found under the *Physics Tab* in Blender."
+msgstr "可以在 Blender 的 *物理选项卡（Physics Tab）* 下找到。"
+
+#: ../../source/joint.rst:121
+msgid "Joint List"
+msgstr "关节列表"
+
+#: ../../source/joint.rst:123
+msgid ""
+"The *Joint List* displays all joints (*Rigid Body Constraint*) in the "
+"current scene."
+msgstr "*关节列表* 显示当前场景中所有的关节（ *刚体约束* ）。"
+
+#: ../../source/joint.rst:125
+msgid ""
+"By default, it filters by :menuselection:`Active Model`, displaying only "
+"the joints of the currently selected model."
+msgstr "默认情况下，按 :menuselection:`Active Model` 过滤，仅显示当前选中模型的关节。"
+
+#: ../../source/joint.rst:127
+msgid ""
+"To view joints from all models, change the filter to :menuselection:`All "
+"Models`."
+msgstr "要查看所有模型的关节，请将过滤器更改为 :menuselection:`All Models`。"
+
+#: ../../source/joint.rst:135
+msgid "Reordering List Items"
+msgstr "列表项排序"
+
+#: ../../source/joint.rst:136
+msgid ""
+"You can reorder list items using the :menuselection:`⬆` and "
+":menuselection:`⬇` buttons, or through the right-side dropdown menu "
+"options: :menuselection:`Move To Top` and :menuselection:`Move To "
+"Bottom`."
+msgstr ""
+"可以使用 :menuselection:`⬆` 和 :menuselection:`⬇` 按钮重新排序列表项，或通过右侧下拉菜单选项 "
+":menuselection:`Move To Top` 和 :menuselection:`Move To Bottom` 进行排序。"
+
+#: ../../source/joint.rst:145
+msgid "Error Indicators"
+msgstr "错误提示"
+
+#: ../../source/joint.rst:148
+msgid "Missing Joint"
+msgstr "关节缺失"
+
+#: ../../source/joint.rst:149
+msgid ""
+"A *\"Missing Joint\"* icon appears when the list entry has no valid "
+"*Rigid Body Constraint* data."
+msgstr "当列表项没有有效的 *刚体约束（Rigid Body Constraint）* 数据时，会显示 *“关节缺失”* 图标。"
+
+#: ../../source/joint.rst:151
+msgid ""
+"This usually occurs when the joint was deleted from Blender's constraint "
+"system but still exists in the add-on's list."
+msgstr "这种情况通常发生在关节已从 Blender 的约束系统中删除，但仍存在于插件列表中。"
+
+#: ../../source/joint.rst:153
+msgid ""
+"To fix this, recreate the joint using the :menuselection:`Add Rigid Body "
+"Constraint` button in the :ref:`Joint Properties Panel "
+"<joint_properties_panel>`."
+msgstr ""
+"要修复此问题，请在 :ref:`关节属性面板 <joint_properties_panel>` 中使用 :menuselection:`Add "
+"Rigid Body Constraint` 按钮重新创建关节。"
+
+#: ../../source/joint.rst:161
+msgid "Missing Linked Objects"
+msgstr "关联对象缺失"
+
+#: ../../source/joint.rst:162
+msgid ""
+"A *\"Missing Linked Objects\"* icon appears when one or both of the rigid"
+" bodies linked by the joint are missing."
+msgstr "当关节关联的一个或两个刚体缺失时，会显示 *“关联对象缺失”* 图标。"
+
+#: ../../source/joint.rst:164
+msgid ""
+"For example, if ``Object1`` or ``Object2`` is not assigned, the joint "
+"cannot function properly."
+msgstr "例如，如果 ``Object1`` 或 ``Object2`` 未被分配，关节将无法正常工作。"
+
+#: ../../source/joint.rst:166
+msgid ""
+"You can reassign the missing objects in the :ref:`Joint Properties Panel "
+"<joint_properties_panel>`."
+msgstr "可以在 :ref:`关节属性面板 <joint_properties_panel>` 中重新分配缺失对象。"
+
+#: ../../source/joint.rst:174
+msgid ""
+"It is generally recommended to assign the **static** or **bone-driven** "
+"rigid body as ``Object1``, and the **simulated** rigid body as "
+"``Object2``."
+msgstr "通常建议将 **静态** 或 **骨骼驱动** 刚体设置为 ``Object1``，将 **模拟** 刚体设置为 ``Object2``。"
+
+#: ../../source/joint.rst:176
+msgid ""
+"This setup ensures a more stable and predictable constraint behavior, "
+"because Blender internally treats ``Object1`` as the reference frame for "
+"the joint's position and rotation limits."
+msgstr "这种设置可确保约束行为更稳定且可预测，因为 Blender 内部将 ``Object1`` 视为关节位置和旋转限制的参考框架。"
+
+#: ../../source/joint.rst:179
+msgid "Invalid Joint Pair"
+msgstr "无效的关节对"
+
+#: ../../source/joint.rst:180
+msgid ""
+"An *\"Invalid Joint Pair\"* icon appears when both linked objects "
+"(``Object1`` and ``Object2``) refer to the same rigid body object."
+msgstr "当两个关联对象（``Object1`` 和 ``Object2``）指向同一个刚体对象时，会显示 *“无效关节对”* 图标。"
+
+#: ../../source/joint.rst:182
+msgid "This setup is invalid because a joint requires two distinct rigid bodies."
+msgstr "此设置无效，因为一个关节需要两个不同的刚体。"
+
+#: ../../source/joint.rst:184
+msgid "Recreate the joint with two different rigid bodies to resolve this issue."
+msgstr "请使用两个不同的 *刚体* 重新创建 *关节* 以解决此问题。"
+
+#: ../../source/joint.rst:192
+msgid "Remove Joint"
+msgstr "移除关节"
+
+#: ../../source/joint.rst:194
+msgid "Select a joint in the *3D viewport*, the *Joint List*, or the *Outliner*"
+msgstr "在 *3D视图*、*关节列表* 或 *大纲视图（Outliner）* 中选择一个关节"
+
+#: ../../source/joint.rst:195
+msgid "Click the :menuselection:`-` button to remove it."
+msgstr "点击 :menuselection:`-` 按钮将其移除。"
+
+#: ../../source/joint.rst:197
+msgid "See also: :ref:`Remove Rigid Body <remove_rigid_body>`."
+msgstr "另请参阅：:ref:`移除刚体 <remove_rigid_body>`。"
+

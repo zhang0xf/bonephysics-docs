@@ -4,17 +4,17 @@ Linking & Library Overrides
 ============================
 
 In Blender, *Linking* is a powerful feature that allows you to reuse assets across multiple projects without duplicating them.  
-When you link an object or collection from an external `.blend` file, it remains read-only in the current project.  
+When you link an object or collection from an external ``.blend`` file, it remains read-only in the current project.  
 To make changes, you need to create a *Library Override*, which generates a local editable copy of the linked data.
 
-This workflow is especially useful for large projects and team collaboration,  
-as it allows multiple scenes to share the same assets while keeping authoritative changes centralized in the source file.
+This workflow is especially useful for large projects and team collaboration, 
+as it allows multiple scenes to share the same assets while ensuring that modifications are centralized in the source file.
 
-However, managing linked armatures, overrides, and their associated physics setups can become complex—  
-particularly for character rigs with many rigid bodies and constraints.
+However, when a character rig contains many rigid bodies and constraints, 
+managing linked armatures, library overrides, and related physics settings can become complex.
 
-To simplify this process, the add-on uses a :ref:`Root Empty <root-operations>` as the single parent object  
-for all auxiliary objects, making linking and library overrides more predictable and easier to manage.
+To simplify this process, the add-on uses a :ref:`Root Empty <root-operations>` as the single parent object for all auxiliary objects, 
+making *Linking* and *Library Overrides* easier to manage.
 
 Link
 ------

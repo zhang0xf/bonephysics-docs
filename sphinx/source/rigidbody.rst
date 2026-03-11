@@ -138,13 +138,11 @@ Quick Add
         To allow manual correction of physics results, two **Bone Collections** are required:  
         
         one named ``xxx_Physics`` that stores the bones directly controlled by the physics system,  
-        and another that mirrors their rotation via ``Copy Rotation`` and uses ``Mix Before Original`` to support manual adjustments.  
-        
-        The second collection enables animators to fix minor penetrations or unwanted motion after the simulation is baked,  
-        while still retaining the physics-driven motion in the ``xxx_Physics`` collection.  
+        and another that mirrors their rotation via ``Copy Rotation`` and uses ``Mix Before Original`` to support manual adjustments
+        for fixing minor penetrations or undesirable motion.
 
         This modular structure helps isolate and debug issues efficiently.  
-        For details on creating such bone collections and adding custom ones to a Rigify Armature,  
+        For details on creating such bone collections and adding custom ones to a Rigify Armature:
         
         Check |youtube_link| or |bilibili_link| for the tutorial, or refer to the setup shown in the sample file.
         (**Note**: You may focus only on the part of the video demonstrating how to add bone collections; the cloth simulation section can be ignored.)
@@ -180,23 +178,23 @@ You can save presets for reuse. This workflow is very useful in practice, as it 
 Rigid Body Properties
 ----------------------
 
-- **name**: The name of the Rigid Body.  
-- **collision_group_number**: Collision group assigned to this object.  
-- **collision_group_mask**: Groups that this object should **Not** collide with.  
-- **rigid_type**:
+- **Name**: The name of the Rigid Body.  
+- **Collision Group**: Collision group assigned to this object.  
+- **Collision Group Mask**: Groups that this object should **Not** collide with.  
+- **Rigid Type**:
 
   * ``Bone``: The rigid body follows the orientation of the attached bone.  
   * ``Physics``: The bone's transform is fully driven by the rigid body.  
   * ``Physics + Bone``: The bone's position follows its parent, but its rotation is copied from the rigid body.  
 
-- **rigid_shape**: Collision shape type.  
-- **axis_outward**: Local bone axis that points "outward".  
-- **size**: Dimensions of the collision shape, scaled relative to the target bone length.  
-- **mass**: See :ref:`Mass <mass>`.  
-- **friction**: See :ref:`Friction <friction>`.  
-- **bounce**: See :ref:`Bounce <bounce>`.  
-- **linear damping**: See :ref:`Linear Damping <linear-damping>`.  
-- **angular damping**: See :ref:`Angular Damping <angular-damping>`.
+- **Shape**: Collision shape type.  
+- **Outward Axis**: Local bone axis that points "outward".  
+- **Size**: Dimensions of the collision shape, scaled relative to the target bone length.  
+- **Mass**: :ref:`Mass <mass>`.  
+- **Friction**: :ref:`Friction <friction>`.  
+- **Bounce**: :ref:`Bounce <bounce>`.  
+- **Linear Damping**: :ref:`Linear Damping <linear-damping>`.  
+- **Angular Damping**: :ref:`Angular Damping <angular-damping>`.
 
 .. warning::
     When modifying rigid body properties, always use the add-on's :ref:`Rigid Body Properties Panel <rigid_body_properties_panel>`.  
@@ -207,7 +205,7 @@ Rigid Body Properties
       * ``Physics``: The bone's location and rotation are completely determined by the rigid body. The rigid body may move the bone away from the Armature.
       * ``Physics + Bone``: The bone's position is still driven by its parent, but its rotation is copied from the rigid body. This prevents the bone from detaching while still inheriting the physical simulation results.
 
-   * **axis_outward**  
+   * ``Outward Axis``
       When using **box-shaped** rigid bodies (**sphere** or **capsule** shapes can ignore this setting) to simulate skirt physics, 
       make sure that the target bones already have the correct local orientation —  
       either **Z Outward** or **X Outward**.  
@@ -229,16 +227,16 @@ Rigid Body Properties
          :align: center
          :width: 80%
 
-         **Correct Setup** — The rigid body aligns perfectly with the mesh, ensuring stable joint orientation and smooth motion.
+         **Correct Setup** — The rigid body aligns perfectly with the mesh.
 
       .. figure:: images/addon_rigid_body_axis_incorrect.png
          :alt: Incorrect bone orientation or mismatched Outward Axis
          :align: center
          :width: 80%
 
-         **Incorrect Setup** — The rigid body appears twisted or offset, and the resulting joints may flip or behave unpredictably during simulation.
+         **Incorrect Setup** — The rigid body appears twisted or offset.
       
-    * **size**  
+    * **Size**  
         In the preset panel, all shapes have three components (``x, y, z``). 
         However, the number of components required varies by shape: 
 
@@ -282,9 +280,6 @@ It can be found under the *Physics Tab* in Blender.
    Using the :menuselection:`S` key only changes the **Visible Mesh**, the internal size data remains unchanged.  
    This can cause the **Visual Mesh** and the **Collision Shape** to diverge, leading to clipping or misalignment. 
 
-   Another reason manual scaling should be avoided is that the Bullet physics engine requires ideal mathematical shapes (*Sphere*, *Box*, *Capsule*, etc.).  
-   Manual scaling can easily break these ideal shapes, leading to inaccurate or unstable simulation results.
-
 .. _rigid_body_list:
 
 Rigid Body List
@@ -310,12 +305,12 @@ or through the right-side dropdown menu options: :menuselection:`Move To Top` an
 
 |
 
-Error Icon Indicators
+Error Indicators
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Missing Physics
 ~~~~~~~~~~~~~~~~
-A list item will show a *"Missing Physics Warning"* when its rigid body has no *Rigid Body Settings* component.  
+A list item will show a *"Missing Physics"* icon when its rigid body has no *Rigid Body Settings* component.  
 To fix this, use the :menuselection:`Add Rigid Body` button in the :ref:`Rigid Body Properties Panel <rigid_body_properties_panel>` to restore the settings.
 
 .. image:: images/addon_rigid_body_missing_physics.gif
@@ -325,7 +320,7 @@ To fix this, use the :menuselection:`Add Rigid Body` button in the :ref:`Rigid B
 
 Missing Bone
 ~~~~~~~~~~~~
-A list item will show a *"Missing Bone Warning"* when its rigid body has no assigned bone.  
+A list item will show a *"Missing Bone"* icon when its rigid body has no assigned bone.  
 The missing bone can be reassigned in the :ref:`Rigid Body Properties Panel <rigid_body_properties_panel>`.
 
 .. image:: images/addon_rigid_body_missing_bone.gif
@@ -338,7 +333,7 @@ The missing bone can be reassigned in the :ref:`Rigid Body Properties Panel <rig
 Select Rigid Bodies
 --------------------
 
-You can quickly perform batch selection of rigid bodies through **Select Similar** in the right-side menu.
+You can quickly perform batch selection of rigid bodies through :menuselection:`Select Similar` in the right-side menu.
 This tool compares the properties of the active rigid body and selects all other rigid bodies that share the same values.
 
 Properties for Comparison
@@ -348,8 +343,8 @@ When invoking **Select Similar**, a pop-up dialog will appear, allowing you to c
 
 * :menuselection:`Collision Group`: Selects rigid bodies that share the same collision group number.
 * :menuselection:`Collision Group Mask`: Selects rigid bodies that have the same collision mask configuration.
-* :menuselection:`Rigid Type`: Matches the rigid body type (e.g., Bone, Physics, Physics + Bone).
-* :menuselection:`Shape`: Matches the collision shape.
+* :menuselection:`Rigid Type`: Selects rigid bodies that have the same rigid body type (e.g., ``Bone``, ``Physics``, ``Physics + Bone``).
+* :menuselection:`Shape`: Selects rigid bodies that use the same collision shape.
 * :menuselection:`Bone`: Selects rigid bodies bound to the same target bone.
 
 These properties can be selected individually or in any combination.

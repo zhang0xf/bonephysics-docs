@@ -125,7 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-properties-panel">Rigid Body Properties Panel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-list">Rigid Body List</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="rigidbody.html#reordering-list-items">Reordering List Items</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#error-icon-indicators">Error Icon Indicators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#error-indicators">Error Indicators</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-physics">Missing Physics</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-bone">Missing Bone</a></li>
 </ul>
@@ -141,7 +141,7 @@
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#example-auxiliary-rigid-bodies">Example: Auxiliary Rigid Bodies</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="joint.html">Joint</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="joint.html">Joint (Constraints)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="joint.html#add-joint">Add Joint</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#add-joint-between-two-rigid-bodies">Add Joint Between Two Rigid Bodies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#add-joints-along-a-bone-chain">Add Joints Along a Bone Chain</a></li>
@@ -152,7 +152,7 @@
 <li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties-panel">Joint Properties Panel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="joint.html#joint-list">Joint List</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="joint.html#reordering-list-items">Reordering List Items</a></li>
-<li class="toctree-l3"><a class="reference internal" href="joint.html#error-icon-indicators">Error Icon Indicators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="joint.html#error-indicators">Error Indicators</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="joint.html#missing-joint">Missing Joint</a></li>
 <li class="toctree-l4"><a class="reference internal" href="joint.html#missing-linked-objects">Missing Linked Objects</a></li>
 <li class="toctree-l4"><a class="reference internal" href="joint.html#invalid-joint-pair">Invalid Joint Pair</a></li>
@@ -208,15 +208,16 @@
              
   <section id="welcome-to-the-bone-physics-documentation">
 <h1>Welcome to the Bone Physics documentation!<a class="headerlink" href="#welcome-to-the-bone-physics-documentation" title="Link to this heading"></a></h1>
-<p><strong>Bone Physics</strong> is a Blender add-on designed for skeletal-based physics simulation in stylized character animation.
-It is particularly useful for dynamic elements such as hair, ribbons, tails, and other secondary motion parts.</p>
+<p><strong>Bone Physics</strong> is a <cite>Blender</cite> add-on that provides rigid-body-based bone physics for dynamic elements
+such as hair, ribbons, and tails in stylized character animation.</p>
 <p>This add-on is developed on top of <a href="https://github.com/MMD-Blender/blender_mmd_tools" target="_blank">blender_mmd_tools</a>.
-Its purpose is to port the MMD physics system into Blender as a standalone module,
-while providing full compatibility with Blender’s built-in <strong>Rigify</strong> armature and other common rigging systems.</p>
-<p>This add-on is open-source on <a href="https://github.com/zhang0xf/bonephysics" target="_blank">github</a> and distributed under the GPL-3.0 license.</p>
-<p>If you would like to support its development, you may also purchase it on <a href="https://superhivemarket.com" target="_blank">superhivemarket</a>, <a href="https://gumroad.com" target="_blank">gumroad</a>, and <a href="https://shop.bilibili.com" target="_blank">bilibili_shop</a>.</p>
-<p>Since the system is based on <a href="https://github.com/MMD-Blender/blender_mmd_tools" target="_blank">blender_mmd_tools</a>,
-you can reference the physics setups found in many existing <strong>MMD models</strong> when configuring your own characters.</p>
+Its goal is to port the MMD physics system to <cite>Blender</cite> and use it as a standalone module,
+making it compatible with <cite>Blender</cite>’s built-in <strong>Rigify</strong> armature and other common rigging systems.</p>
+<p>This add-on is open-source on <a href="https://github.com/zhang0xf/bonephysics" target="_blank">GitHub</a> and distributed under the GPL-3.0 license.</p>
+<p>If you would like to support its development,
+you may also purchase it on <a href="https://superhivemarket.com" target="_blank">Superhive Market</a>, <a href="https://gumroad.com" target="_blank">Gumroad</a>, and <a href="https://shop.bilibili.com" target="_blank">B站商店</a>.</p>
+<p>Since this add-on is based on <a href="https://github.com/MMD-Blender/blender_mmd_tools" target="_blank">blender_mmd_tools</a>,
+you can refer to the physics setups used in many existing <strong>MMD</strong> models when configuring your own characters.</p>
 <p>Video tutorials and complete workflow demonstrations are available on <a href="https://www.youtube.com" target="_blank">YouTube</a> and <a href="https://www.bilibili.com" target="_blank">Bilibili</a>.</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -243,7 +244,7 @@ you can reference the physics setups found in many existing <strong>MMD models</
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#example-auxiliary-rigid-bodies">Example: Auxiliary Rigid Bodies</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="joint.html">Joint</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="joint.html">Joint (Constraints)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="joint.html#add-joint">Add Joint</a></li>
 <li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties">Joint Properties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="joint.html#joint-properties-panel">Joint Properties Panel</a></li>

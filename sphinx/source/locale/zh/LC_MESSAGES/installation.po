@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bone Physics Docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 01:08+0800\n"
+"POT-Creation-Date: 2026-03-09 13:14+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh\n"
@@ -29,16 +29,70 @@ msgid "Installing the extension"
 msgstr "安装插件"
 
 #: ../../source/installation.rst
-msgid "Do not unzip the downloaded files."
+msgid "Do not unzip the downloaded files!"
 msgstr "请勿解压下载的文件！"
 
 #: ../../source/installation.rst:11
-msgid "In Blender, click **Edit > Preferences...**"
-msgstr "在 Blender 中，点击 **编辑 > 首选项...**"
+msgid "In Blender, click :menuselection:`Edit --> Preferences --> Add-ons`."
+msgstr ""
+"在 Blender 中，点击 :menuselection:`编辑 --> 首选项 --> 插件`。"
 
 #: ../../source/installation.rst:12
 msgid ""
-"Click the down arrow button at the top right corner > **Install from "
-"Disk...**"
-msgstr "点击右上角的下拉箭头按钮 > **从磁盘安装...**"
+"Click the down arrow in the top-right corner and choose "
+":menuselection:`--> Install from Disk...`"
+msgstr "点击右上角的下拉箭头按钮，然后选择 :menuselection:`从磁盘安装...`。"
+
+#: ../../source/installation.rst:20
+msgid "Remove the extension"
+msgstr "卸载插件"
+
+#: ../../source/installation.rst:22
+msgid "If the add-on does not provide an **Uninstall** button:"
+msgstr "如果插件没有提供 **Uninstall（卸载）** 按钮："
+
+#: ../../source/installation.rst:24
+msgid ""
+"Open `Blender` and go to :menuselection:`Edit --> Preferences --> Add-"
+"ons`."
+msgstr ""
+"打开 `Blender`，进入 :menuselection:`编辑 --> 首选项 --> 插件`。"
+
+#: ../../source/installation.rst:25
+msgid "Locate **Bone Physics** in the list and uncheck it to disable the add-on."
+msgstr "在列表中找到 **Bone Physics**，取消勾选以禁用该插件。"
+
+#: ../../source/installation.rst:26
+msgid "Manually delete the add-on folder from your `Blender` extension directory."
+msgstr "在 `Blender` 的插件目录中手动删除该插件文件夹。"
+
+#: ../../source/installation.rst:27
+msgid "Restart `Blender`"
+msgstr "重新启动 `Blender`。"
+
+#: ../../source/installation.rst
+msgid "The default extension directory is usually located at:"
+msgstr "默认的插件目录通常位于："
+
+#: ../../source/installation.rst:32
+msgid ""
+"`MacOS`: ``~/Library/Application "
+"Support/Blender/4.2/extensions/user_default/``"
+msgstr ""
+"`MacOS`：``~/Library/Application "
+"Support/Blender/4.2/extensions/user_default/``"
+
+#: ../../source/installation.rst:33
+msgid "`Windows`:"
+msgstr "`Windows`："
+
+#: ../../source/installation.rst:34
+msgid "`Linux`:"
+msgstr "`Linux`："
+
+#: ../../source/installation.rst:36
+msgid ""
+"The exact path may vary depending on your `Blender` configuration. You "
+"should not rely entirely on these paths, check the `File` path instead."
+msgstr "具体路径可能会因 `Blender` 配置不同而有所变化。建议在 `File` 路径中查看实际的插件目录。"
 

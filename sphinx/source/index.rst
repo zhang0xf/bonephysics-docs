@@ -6,37 +6,38 @@
 Welcome to the Bone Physics documentation!
 ===========================================
 
-**Bone Physics** is a Blender add-on designed for skeletal-based physics simulation in stylized character animation.
-It is particularly useful for dynamic elements such as hair, ribbons, tails, and other secondary motion parts.
+**Bone Physics** is a `Blender` add-on that provides rigid-body-based bone physics for dynamic elements 
+such as hair, ribbons, and tails in stylized character animation.
 
-This add-on is developed on top of |blender_mmd_tools|.
-Its purpose is to port the MMD physics system into Blender as a standalone module,  
-while providing full compatibility with Blender's built-in **Rigify** armature and other common rigging systems.
+This add-on is developed on top of |blender_mmd_tools|. 
+Its goal is to port the MMD physics system to `Blender` and use it as a standalone module,
+making it compatible with `Blender`'s built-in **Rigify** armature and other common rigging systems.
 
 This add-on is open-source on |github| and distributed under the GPL-3.0 license.
 
-If you would like to support its development, you may also purchase it on |superhivemarket|, |gumroad|, and |bilibili_shop|.
+If you would like to support its development, 
+you may also purchase it on |superhivemarket|, |gumroad|, and |bilibili_shop|.
 
-Since the system is based on |blender_mmd_tools|,  
-you can reference the physics setups found in many existing **MMD models** when configuring your own characters.
+Since this add-on is based on |blender_mmd_tools|, 
+you can refer to the physics setups used in many existing **MMD** models when configuring your own characters.
 
 Video tutorials and complete workflow demonstrations are available on |youtube_link| and |bilibili_link|.
 
 .. |github| raw:: html
          
-   <a href="https://github.com/zhang0xf/bonephysics" target="_blank">github</a>
+   <a href="https://github.com/zhang0xf/bonephysics" target="_blank">GitHub</a>
 
 .. |superhivemarket| raw:: html
          
-   <a href="https://superhivemarket.com" target="_blank">superhivemarket</a>
+   <a href="https://superhivemarket.com" target="_blank">Superhive Market</a>
 
 .. |gumroad| raw:: html
 
-   <a href="https://gumroad.com" target="_blank">gumroad</a>
+   <a href="https://gumroad.com" target="_blank">Gumroad</a>
 
 .. |bilibili_shop| raw:: html
 
-   <a href="https://shop.bilibili.com" target="_blank">bilibili_shop</a>
+   <a href="https://shop.bilibili.com" target="_blank">B站商店</a>
 
 .. |blender_mmd_tools| raw:: html
          

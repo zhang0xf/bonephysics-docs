@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joint &mdash; Bone Physics Docs 1.0.0 documentation</title>
+  <title>Joint (Constraints) &mdash; Bone Physics Docs 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
@@ -126,7 +126,7 @@
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-properties-panel">Rigid Body Properties Panel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#rigid-body-list">Rigid Body List</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="rigidbody.html#reordering-list-items">Reordering List Items</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#error-icon-indicators">Error Icon Indicators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rigidbody.html#error-indicators">Error Indicators</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-physics">Missing Physics</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rigidbody.html#missing-bone">Missing Bone</a></li>
 </ul>
@@ -142,7 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="rigidbody.html#example-auxiliary-rigid-bodies">Example: Auxiliary Rigid Bodies</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Joint</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Joint (Constraints)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#add-joint">Add Joint</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#add-joint-between-two-rigid-bodies">Add Joint Between Two Rigid Bodies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#add-joints-along-a-bone-chain">Add Joints Along a Bone Chain</a></li>
@@ -153,7 +153,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#joint-properties-panel">Joint Properties Panel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#joint-list">Joint List</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#reordering-list-items">Reordering List Items</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#error-icon-indicators">Error Icon Indicators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#error-indicators">Error Indicators</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#missing-joint">Missing Joint</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#missing-linked-objects">Missing Linked Objects</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#invalid-joint-pair">Invalid Joint Pair</a></li>
@@ -198,7 +198,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Joint</li>
+      <li class="breadcrumb-item active">Joint (Constraints)</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -207,8 +207,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="joint">
-<span id="id1"></span><h1>Joint<a class="headerlink" href="#joint" title="Link to this heading"></a></h1>
+  <section id="joint-constraints">
+<span id="joint"></span><h1>Joint (Constraints)<a class="headerlink" href="#joint-constraints" title="Link to this heading"></a></h1>
 <section id="add-joint">
 <h2>Add Joint<a class="headerlink" href="#add-joint" title="Link to this heading"></a></h2>
 <section id="add-joint-between-two-rigid-bodies">
@@ -266,8 +266,9 @@ The others (D, E) will be ignored.</p>
 <p class="admonition-title">Note</p>
 <p>Rigid bodies from different bone chains must be connected one pair at a time —
 batch operations are <strong>Not</strong> supported in this case.</p>
-<p>For example, when adding joints between rigid bodies belonging to different skirt bone chains, you must add them individually.</p>
-<p>This limitation exists because each model has unique structures and assumptions, we prioritize flexibility and compatibility over full automation.</p>
+<p>For example, when adding joints between rigid bodies from different skirt bone chains, they must be added individually.</p>
+<p>This limitation exists because each model has a different structure and design.
+We prioritize flexibility and compatibility over full automation.</p>
 </div>
 </section>
 <section id="save-presets">
@@ -276,23 +277,23 @@ batch operations are <strong>Not</strong> supported in this case.</p>
 </section>
 </section>
 <section id="joint-properties">
-<span id="id2"></span><h2>Joint Properties<a class="headerlink" href="#joint-properties" title="Link to this heading"></a></h2>
+<span id="id1"></span><h2>Joint Properties<a class="headerlink" href="#joint-properties" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p><strong>name</strong>: The name of the joint.</p></li>
-<li><p><strong>limit_lin_x_upper</strong>: Upper limit of linear motion along the <strong>X</strong> axis.</p></li>
-<li><p><strong>limit_lin_y_upper</strong>: Upper limit of linear motion along the <strong>Y</strong> axis.</p></li>
-<li><p><strong>limit_lin_z_upper</strong>: Upper limit of linear motion along the <strong>Z</strong> axis.</p></li>
-<li><p><strong>limit_lin_x_lower</strong>: Lower limit of linear motion along the <strong>X</strong> axis.</p></li>
-<li><p><strong>limit_lin_y_lower</strong>: Lower limit of linear motion along the <strong>Y</strong> axis.</p></li>
-<li><p><strong>limit_lin_z_lower</strong>: Lower limit of linear motion along the <strong>Z</strong> axis.</p></li>
-<li><p><strong>limit_ang_x_upper</strong>: Upper angular limit around the <strong>X</strong> axis (<em>in degrees</em>).</p></li>
-<li><p><strong>limit_ang_y_upper</strong>: Upper angular limit around the <strong>Y</strong> axis (<em>in degrees</em>).</p></li>
-<li><p><strong>limit_ang_z_upper</strong>: Upper angular limit around the <strong>Z</strong> axis (<em>in degrees</em>).</p></li>
-<li><p><strong>limit_ang_x_lower</strong>: Lower angular limit around the <strong>X</strong> axis (<em>in degrees</em>).</p></li>
-<li><p><strong>limit_ang_y_lower</strong>: Lower angular limit around the <strong>Y</strong> axis (<em>in degrees</em>).</p></li>
-<li><p><strong>limit_ang_z_lower</strong>: Lower angular limit around the <strong>Z</strong> axis (<em>in degrees</em>).</p></li>
-<li><p><strong>spring_linear</strong>: The spring stiffness that controls linear motion (Higher values produce stronger resistance when the joint is displaced).</p></li>
-<li><p><strong>spring_angular</strong>: The spring stiffness that controls angular motion (Higher values produce stronger torque resistance when the joint is rotated).</p></li>
+<li><p><strong>Name</strong>: The name of the joint.</p></li>
+<li><p><strong>Limit X Upper</strong>: Upper limit of linear motion along the <strong>X</strong> axis.</p></li>
+<li><p><strong>Limit Y Upper</strong>: Upper limit of linear motion along the <strong>Y</strong> axis.</p></li>
+<li><p><strong>Limit Z Upper</strong>: Upper limit of linear motion along the <strong>Z</strong> axis.</p></li>
+<li><p><strong>Limit X Lower</strong>: Lower limit of linear motion along the <strong>X</strong> axis.</p></li>
+<li><p><strong>Limit Y Lower</strong>: Lower limit of linear motion along the <strong>Y</strong> axis.</p></li>
+<li><p><strong>Limit Z Lower</strong>: Lower limit of linear motion along the <strong>Z</strong> axis.</p></li>
+<li><p><strong>Limit Ang X Upper</strong>: Upper angular limit around the <strong>X</strong> axis (<em>in degrees</em>).</p></li>
+<li><p><strong>Limit Ang Y Upper</strong>: Upper angular limit around the <strong>Y</strong> axis (<em>in degrees</em>).</p></li>
+<li><p><strong>Limit Ang Z Upper</strong>: Upper angular limit around the <strong>Z</strong> axis (<em>in degrees</em>).</p></li>
+<li><p><strong>Limit Ang X Lower</strong>: Lower angular limit around the <strong>X</strong> axis (<em>in degrees</em>).</p></li>
+<li><p><strong>Limit Ang Y Lower</strong>: Lower angular limit around the <strong>Y</strong> axis (<em>in degrees</em>).</p></li>
+<li><p><strong>Limit Ang Z Lower</strong>: Lower angular limit around the <strong>Z</strong> axis (<em>in degrees</em>).</p></li>
+<li><p><strong>Spring Linear</strong>: The spring stiffness that controls linear motion (Higher values produce stronger resistance when the joint is displaced).</p></li>
+<li><p><strong>Spring Angular</strong>: The spring stiffness that controls angular motion (Higher values produce stronger torque resistance when the joint is rotated).</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -300,7 +301,7 @@ batch operations are <strong>Not</strong> supported in this case.</p>
 </div>
 </section>
 <section id="joint-properties-panel">
-<span id="id3"></span><h2>Joint Properties Panel<a class="headerlink" href="#joint-properties-panel" title="Link to this heading"></a></h2>
+<span id="id2"></span><h2>Joint Properties Panel<a class="headerlink" href="#joint-properties-panel" title="Link to this heading"></a></h2>
 <p>The <em>Joint Properties Panel</em> is where you can view and edit all joint-related attributes.</p>
 <p>It can be found under the <em>Physics Tab</em> in Blender.</p>
 <img alt="_images/addon_joint_properties_panel.gif" class="align-center" src="_images/addon_joint_properties_panel.gif" />
@@ -309,7 +310,7 @@ batch operations are <strong>Not</strong> supported in this case.</p>
 </div>
 </section>
 <section id="joint-list">
-<span id="id4"></span><h2>Joint List<a class="headerlink" href="#joint-list" title="Link to this heading"></a></h2>
+<span id="id3"></span><h2>Joint List<a class="headerlink" href="#joint-list" title="Link to this heading"></a></h2>
 <p>The <em>Joint List</em> displays all joints (<em>Rigid Body Constraint</em>) in the current scene.</p>
 <p>By default, it filters by <span class="menuselection">Active Model</span>, displaying only the joints of the currently selected model.</p>
 <p>To view joints from all models, change the filter to <span class="menuselection">All Models</span>.</p>
@@ -326,11 +327,11 @@ or through the right-side dropdown menu options: <span class="menuselection">Mov
 <div class="line"><br /></div>
 </div>
 </section>
-<section id="error-icon-indicators">
-<h3>Error Icon Indicators<a class="headerlink" href="#error-icon-indicators" title="Link to this heading"></a></h3>
+<section id="error-indicators">
+<h3>Error Indicators<a class="headerlink" href="#error-indicators" title="Link to this heading"></a></h3>
 <section id="missing-joint">
 <h4>Missing Joint<a class="headerlink" href="#missing-joint" title="Link to this heading"></a></h4>
-<p>A <em>“Missing Joint Error”</em> icon appears when the list entry has no valid <em>Rigid Body Constraint</em> data.</p>
+<p>A <em>“Missing Joint”</em> icon appears when the list entry has no valid <em>Rigid Body Constraint</em> data.</p>
 <p>This usually occurs when the joint was deleted from Blender’s constraint system but still exists in the add-on’s list.</p>
 <p>To fix this, recreate the joint using the <span class="menuselection">Add Rigid Body Constraint</span> button in the <a class="reference internal" href="#joint-properties-panel"><span class="std std-ref">Joint Properties Panel</span></a>.</p>
 <img alt="_images/addon_joint_missing_joint.gif" class="align-center" src="_images/addon_joint_missing_joint.gif" />
@@ -340,7 +341,7 @@ or through the right-side dropdown menu options: <span class="menuselection">Mov
 </section>
 <section id="missing-linked-objects">
 <h4>Missing Linked Objects<a class="headerlink" href="#missing-linked-objects" title="Link to this heading"></a></h4>
-<p>A <em>“Missing Linked Objects Error”</em> icon appears when one or both of the rigid bodies linked by the joint are missing.</p>
+<p>A <em>“Missing Linked Objects”</em> icon appears when one or both of the rigid bodies linked by the joint are missing.</p>
 <p>For example, if <code class="docutils literal notranslate"><span class="pre">Object1</span></code> or <code class="docutils literal notranslate"><span class="pre">Object2</span></code> is not assigned, the joint cannot function properly.</p>
 <p>You can reassign the missing objects in the <a class="reference internal" href="#joint-properties-panel"><span class="std std-ref">Joint Properties Panel</span></a>.</p>
 <img alt="_images/addon_joint_missing_object.gif" class="align-center" src="_images/addon_joint_missing_object.gif" />
@@ -355,7 +356,7 @@ or through the right-side dropdown menu options: <span class="menuselection">Mov
 </section>
 <section id="invalid-joint-pair">
 <h4>Invalid Joint Pair<a class="headerlink" href="#invalid-joint-pair" title="Link to this heading"></a></h4>
-<p>An <em>“Invalid Joint Pair Error”</em> icon appears when both linked objects (<code class="docutils literal notranslate"><span class="pre">Object1</span></code> and <code class="docutils literal notranslate"><span class="pre">Object2</span></code>) refer to the same rigid body object.</p>
+<p>An <em>“Invalid Joint Pair”</em> icon appears when both linked objects (<code class="docutils literal notranslate"><span class="pre">Object1</span></code> and <code class="docutils literal notranslate"><span class="pre">Object2</span></code>) refer to the same rigid body object.</p>
 <p>This setup is invalid because a joint requires two distinct rigid bodies.</p>
 <p>Recreate the joint with two different rigid bodies to resolve this issue.</p>
 <img alt="_images/addon_joint_invalid_pair.gif" class="align-center" src="_images/addon_joint_invalid_pair.gif" />
