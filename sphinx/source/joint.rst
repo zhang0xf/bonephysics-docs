@@ -61,7 +61,7 @@ Add Joints Along a Bone Chain
 
 .. note::
    Rigid bodies from different bone chains must be connected one pair at a time —  
-   batch operations are **Not** supported in this case.  
+   batch operations are **Currently Not** supported in this case.  
    
    For example, when adding joints between rigid bodies from different skirt bone chains, they must be added individually.
      
