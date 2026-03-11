@@ -1,26 +1,57 @@
-<script>
-    var currentUrl = window.location.href;
-    var urlObject = new URL(currentUrl);
-    var pathname = urlObject.pathname;
+<!DOCTYPE html>
+<html lang="en">
 
-    if (!pathname.endsWith('/')) {
-        pathname = pathname.substring(0, pathname.lastIndexOf('/') + 1);
-    }
+<head>
+    <meta charset="UTF-8">
+    <title>Documentation</title>
+    <script>
+        (function () {
+            var defaultLang = "en";
 
-    if (!pathname.endsWith('/')) {
-        pathname += '/';
-    }
+            // 检测用户语言
+            var userLang = navigator.language || navigator.userLanguage;
+            var targetLang = defaultLang;
+            if (userLang && userLang.toLowerCase().startsWith("zh")) {
+                targetLang = "zh";
+            }
 
-    var userLang = navigator.language || navigator.userLanguage;
-    // console.log("Detected browser language:", userLang);
-    var targetLang = "en";
+            // 获取当前路径
+            var currentUrl = window.location.href;
 
-    if (userLang && userLang.toLowerCase().startsWith("zh")) {
-        targetLang = "zh";
-    }
+            // 兼容 file:// 和 http(s)://
+            var newPath;
+            if (currentUrl.startsWith("file://")) {
+                newPath = targetLang + "/index.html";
+            } else {
+                var urlObject = new URL(currentUrl);
+                var pathname = urlObject.pathname;
 
-    var newPath = pathname + targetLang + "/";
-    var newUrl = urlObject.origin + newPath;
+                if (!pathname.endsWith('/')) {
+                    pathname = pathname.substring(0, pathname.lastIndexOf('/') + 1);
+                }
+                if (!pathname.endsWith('/')) {
+                    pathname += '/';
+                }
 
-    window.location.href = newUrl;
-</script>
+                newPath = pathname + targetLang + "/";
+                var newUrl = urlObject.origin + newPath;
+                window.location.href = newUrl;
+                return;
+            }
+
+            // 本地跳转
+            window.location.href = newPath;
+        })();
+    </script>
+</head>
+
+<body>
+    <p>Redirecting to the documentation... <a id="link" href="#">Click here if not redirected</a></p>
+    <script>
+        // 给链接加上跳转路径
+        var link = document.getElementById("link");
+        link.href = (navigator.language || navigator.userLanguage).toLowerCase().startsWith("zh") ? "zh/index.html" : "en/index.html";
+    </script>
+</body>
+
+</html>
