@@ -4,10 +4,8 @@ Q&A
 ==============
 
 .. dropdown:: Q: How can I get the add-on?
-
-   You can purchase it on |superhivemarket|, |gumroad|, and |bilibili_shop|.
    
-   You can also download the add-on ``.zip`` file directly from the |github_releases| page.
+   You can download the add-on ``.zip`` file directly from the |github_releases| page.
 
 .. |superhivemarket| raw:: html
          
@@ -34,26 +32,38 @@ Q&A
 
 .. dropdown:: Q: What license does the add-on use?
 
-   The add-on is released under the **GPL-3.0** license.  
-   You are free to use, modify, and redistribute the add-on, provided that you comply with the terms of the GPL-3.0 license.
+   The add-on is released under the |GPLv3| license.  
+   You are free to use, modify, and redistribute the add-on, provided that you comply with the terms of the |GPLv3| license.
 
-.. dropdown:: Q: How can I get the sample files referenced in the documentation?
+.. |GPLv3| raw:: html
 
-   After purchasing the add-on, you will receive:
+   <a href="https://github.com/zhang0xf/bonephysics?tab=GPL-3.0-1-ov-file" target="_blank">GPL-3.0</a>
 
-   * The add-on package
-   * Offline documentation
-   * Sample files used in the tutorials and examples
+.. .. dropdown:: Q: How can I get the sample files referenced in the documentation?
 
-.. dropdown:: Q: Can the example files be used for commercial purposes?
+..    After purchasing the add-on, you will receive:
 
-   The example files provided with the add-on are intended for reference and learning purposes.
+..    * The add-on package
+..    * Offline documentation
+..    * Sample files used in the tutorials and examples
 
-   You may use them to study the setups, test the add-on,
-   or use them as a guide in your own projects.
+.. .. dropdown:: Q: Can the example files be used for commercial purposes?
 
-   However, directly redistributing or selling the example files
-   as standalone assets is **not permitted**.
+..    The example files provided with the add-on are intended for reference and learning purposes.
+
+..    You may use them to study the setups, test the add-on,
+..    or use them as a guide in your own projects.
+
+..    However, directly redistributing or selling the example files
+..    as standalone assets is **not permitted**.
+
+.. dropdown:: Q: How to get the MMD add-on?
+
+   The **MMD Tools** can be downloaded from |MMD_Tools|.
+
+.. |MMD_Tools| raw:: html
+
+    <a href="https://extensions.blender.org/add-ons/mmd-tools/" target="_blank">MMD Tools</a>
 
 .. _mmd_model_reference:
 
@@ -65,19 +75,9 @@ Q&A
    On the corresponding page, locate the *模型下载* section 
    and click *下载模型* to obtain the latest MMD character models from the game *Zenless Zone Zero*.
 
-   If you are looking for models from other games such as *Genshin Impact*, you may need to search additional community websites and archives.
-
 .. |bilibili_link| raw:: html
 
    <a href="https://www.bilibili.com" target="_blank">Bilibili</a>
-
-.. dropdown:: Q: How to get the MMD add-on?
-
-   The **MMD Tools** add-on can be downloaded from |MMD_Tools|.
-
-.. |MMD_Tools| raw:: html
-
-    <a href="https://extensions.blender.org/add-ons/mmd-tools/" target="_blank">MMD Tools</a>
 
 .. dropdown:: Q: Where can I report bugs or request new features?
 
@@ -85,5 +85,5 @@ Q&A
 
 .. |github_issues| raw:: html
          
-   <a href="https://github.com/your-repo/issues" target="_blank">GitHub Issues</a>
+   <a href="https://github.com/zhang0xf/bonephysics/issues" target="_blank">GitHub Issues</a>
    

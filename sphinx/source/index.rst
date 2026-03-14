@@ -13,10 +13,9 @@ This add-on is developed on top of |blender_mmd_tools|.
 Its goal is to port the MMD physics system to `Blender` and use it as a standalone module,
 making it compatible with `Blender`'s built-in **Rigify** armature and other common rigging systems.
 
-This add-on is open-source on |github| and distributed under the GPL-3.0 license.
+This add-on is open-source on |github| and distributed under the |GPLv3| license.
 
-If you would like to support its development, 
-you may also purchase it on |superhivemarket|, |gumroad|, and |bilibili_shop|.
+.. If you would like to support its development, you may also purchase it on |superhivemarket|.
 
 Since this add-on is based on |blender_mmd_tools|, 
 you can refer to the physics setups used in many existing **MMD** models when configuring your own characters.
@@ -26,6 +25,10 @@ Video tutorials and complete workflow demonstrations are available on |youtube_l
 .. |github| raw:: html
          
    <a href="https://github.com/zhang0xf/bonephysics" target="_blank">GitHub</a>
+
+.. |GPLv3| raw:: html
+
+   <a href="https://github.com/zhang0xf/bonephysics?tab=GPL-3.0-1-ov-file" target="_blank">GPL-3.0</a>
 
 .. |superhivemarket| raw:: html
          
